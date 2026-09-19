@@ -31,6 +31,17 @@
        업무 화면 카드 그리드
        ==================================================================== -->
   <main class="portal-main-container">
+    <section class="portal-layout-toolbar" aria-label="화면 카드 배치 설정">
+      <div class="portal-layout-guide">
+        <strong>화면 배치 편집</strong>
+        <span>카드의 이동 핸들을 드래그해 원하는 위치로 옮긴 후 배치를 저장하세요.</span>
+      </div>
+      <div class="portal-layout-actions">
+        <span class="portal-layout-status" id="portalLayoutStatus" role="status" aria-live="polite"></span>
+        <button type="button" class="portal-layout-reset" id="portalLayoutReset">기본 배치로 초기화</button>
+        <button type="button" class="portal-layout-save" id="portalLayoutSave">배치 저장</button>
+      </div>
+    </section>
     <div class="portal-thumb-grid">
 
       <!-- 카드 1: 종합 대시보드 -->
@@ -256,6 +267,9 @@
   <footer class="app-footer">
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
   </footer>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/portal.js"></script>
 
 </body>
 </html>

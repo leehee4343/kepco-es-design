@@ -50,10 +50,13 @@ function initHeaderCleanup() {
  * 페이지 타이틀 옆의 소개 문구를 화면별 도움말 버튼으로 대체합니다.
  */
 function initPageManuals() {
-  const pageTitle = document.querySelector('main h1');
+  if (document.body.classList.contains('login-page-body')) return;
+
+  const pageTitle = document.querySelector('main h1, .portal-main-heading, .login-card-title');
   if (!pageTitle || pageTitle.closest('.modal')) return;
 
   const manualByPage = {
+    'index.html': '프로젝트의 전체 화면 구성을 확인하고 원하는 화면 카드를 선택해 새 창으로 열 수 있습니다. 카드 배치는 직접 이동한 뒤 저장할 수 있습니다.',
     'Dashboard.html': '즐겨찾기와 주요 프로젝트·자금 현황을 확인합니다. 각 현황 카드와 차트의 항목을 선택하면 관련 업무 화면으로 이동할 수 있습니다.',
     'ProjectSearch.html': '검색 조건을 입력한 뒤 조회 버튼을 선택합니다. 결과 그리드는 정렬, 가로 스크롤, 페이지 이동을 지원하며 프로젝트명을 선택하면 상세 화면으로 이동합니다.',
     'ProjectDetail.html': '프로젝트의 계약, 투자, 상환 및 진행 이력을 영역별로 확인합니다. 필요한 업무 버튼을 선택해 후속 절차를 진행할 수 있습니다.',
@@ -62,6 +65,7 @@ function initPageManuals() {
     'Statistics.html': '기준 연도와 분석 조건을 선택해 프로젝트, 투자 및 상환 현황을 차트와 집계 데이터로 확인합니다.',
     'StepWorkflow.html': '입찰 업무의 현재 단계를 확인하고 단계별 입력 항목을 작성합니다. 저장 후 다음 단계로 이동할 수 있습니다.',
     'PlanPerformance.html': '검색 조건을 설정해 프로젝트별 계획 대비 매출, 수익 및 상환 실적을 조회하고 비교합니다.',
+    'PartnerRegister.html': '협력업체 등록 약관을 확인하고 기업·담당자 정보와 증빙서류를 단계별로 입력한 뒤 신청 내용을 제출합니다.',
     'SRMDashboard.html': '현재 권한에 맞는 입찰 공고, 진행 단계 및 협력업체 요청 현황을 확인하고 관련 업무로 이동합니다.',
     'SRMDetail.html': '입찰공고의 기본 정보와 단계별 상세 내용을 확인합니다. 상단 프로세스 탭으로 원하는 업무 영역을 빠르게 이동할 수 있습니다.'
   };
@@ -78,6 +82,10 @@ function initPageManuals() {
   pageTitle.parentNode.insertBefore(titleRow, pageTitle);
   titleRow.appendChild(pageTitle);
 
+  const titleActions = document.createElement('div');
+  titleActions.className = 'page-title-actions';
+  titleRow.appendChild(titleActions);
+
   const manualButton = document.createElement('button');
   manualButton.type = 'button';
   manualButton.className = 'btn-page-manual';
@@ -85,7 +93,50 @@ function initPageManuals() {
   manualButton.setAttribute('aria-label', `${pageTitle.textContent.trim()} 화면 매뉴얼 열기`);
   manualButton.setAttribute('aria-controls', manualId);
   manualButton.setAttribute('aria-expanded', 'false');
-  titleRow.appendChild(manualButton);
+  titleActions.appendChild(manualButton);
+
+  const createTitleAction = ({ className, label, title, icon }) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `btn-page-output ${className}`;
+    button.setAttribute('aria-label', label);
+    button.title = title;
+    button.innerHTML = icon;
+    titleActions.appendChild(button);
+    return button;
+  };
+
+  const printButton = createTitleAction({
+    className: 'btn-page-print',
+    label: `${pageTitle.textContent.trim()} 콘텐츠 영역 인쇄`,
+    title: '콘텐츠 영역 인쇄',
+    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8V3h10v5M7 17H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2M7 14h10v7H7z"/></svg>'
+  });
+
+  const pdfButton = createTitleAction({
+    className: 'btn-page-pdf',
+    label: `${pageTitle.textContent.trim()} 콘텐츠 영역 PDF 저장`,
+    title: '콘텐츠 영역 PDF 저장',
+    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l4 4v16H6zM14 2v5h5M9 12v6M9 18l-2-2M9 18l2-2M13 18h4"/></svg>'
+  });
+
+  const openContentPrint = (mode) => {
+    const content = document.querySelector('main');
+    if (!content) return;
+    document.body.classList.add('content-output-mode');
+    document.body.dataset.contentOutput = mode;
+    const cleanup = () => {
+      document.body.classList.remove('content-output-mode');
+      delete document.body.dataset.contentOutput;
+      window.removeEventListener('afterprint', cleanup);
+    };
+    window.addEventListener('afterprint', cleanup);
+    window.print();
+    window.setTimeout(cleanup, 60000);
+  };
+
+  printButton.addEventListener('click', () => openContentPrint('print'));
+  pdfButton.addEventListener('click', () => openContentPrint('pdf'));
 
   const manualPanel = document.createElement('div');
   manualPanel.id = manualId;
@@ -580,14 +631,14 @@ function initSRMLoginPage() {
 
   const idInput = document.getElementById('loginUserId');
   const pwInput = document.getElementById('loginUserPw');
-  const demoBtns = document.querySelectorAll('.demo-account-btn');
   const tabBtns = document.querySelectorAll('.bidding-tab-btn');
   const slides = document.querySelectorAll('.bidding-slide');
   const prevBtn = document.getElementById('btnPrevBidding');
   const nextBtn = document.getElementById('btnNextBidding');
   const dots = document.querySelectorAll('.bidding-dot');
 
-  let currentSlideIndex = 0;
+  let currentSlideIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+  if (currentSlideIndex < 0) currentSlideIndex = 0;
 
   function showSlide(index) {
     if (!slides.length) return;
@@ -600,9 +651,20 @@ function initSRMLoginPage() {
     });
 
     dots.forEach((dot, idx) => {
-      dot.classList.toggle('active', idx === currentSlideIndex);
+      const isActive = idx === currentSlideIndex;
+      dot.classList.toggle('active', isActive);
+      dot.setAttribute('aria-pressed', String(isActive));
+    });
+
+    const activeCategory = slides[currentSlideIndex]?.getAttribute('data-category');
+    tabBtns.forEach(tab => {
+      const isActive = tab.getAttribute('data-tab') === activeCategory;
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-pressed', String(isActive));
     });
   }
+
+  showSlide(currentSlideIndex);
 
   if (prevBtn) {
     prevBtn.addEventListener('click', () => showSlide(currentSlideIndex - 1));
@@ -622,41 +684,17 @@ function initSRMLoginPage() {
   // 탭 클릭 필터
   tabBtns.forEach(tab => {
     tab.addEventListener('click', () => {
-      tabBtns.forEach(t => t.classList.remove('active'));
+      tabBtns.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-pressed', 'false');
+      });
       tab.classList.add('active');
+      tab.setAttribute('aria-pressed', 'true');
       const targetCategory = tab.getAttribute('data-tab');
       // 해당 카테고리의 첫 번째 슬라이드 찾기
       const targetIndex = Array.from(slides).findIndex(s => s.getAttribute('data-category') === targetCategory);
       if (targetIndex !== -1) {
         showSlide(targetIndex);
-      }
-    });
-  });
-
-  // 시연 계정 4종 퀵 로그인 자동입력
-  const demoAccounts = {
-    'contract': { id: 'contract_manager', pw: 'kepco1234!', role: '계약담당자' },
-    'biz': { id: 'biz_manager', pw: 'kepco1234!', role: '사업담당자' },
-    'admin': { id: 'admin', pw: 'admin1234!', role: '관리자' },
-    'partner': { id: 'hanbit_power', pw: 'partner1234!', role: '협력업체(한빛전력)' }
-  };
-
-  let selectedDemoRole = '';
-
-  demoBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const roleKey = btn.getAttribute('data-role');
-      const account = demoAccounts[roleKey];
-      if (account && idInput && pwInput) {
-        idInput.value = account.id;
-        pwInput.value = account.pw;
-        selectedDemoRole = roleKey || '';
-        demoBtns.forEach(item => {
-          const isSelected = item === btn;
-          item.classList.toggle('is-selected', isSelected);
-          item.setAttribute('aria-pressed', String(isSelected));
-        });
-        document.querySelector('.btn-submit-login')?.focus();
       }
     });
   });
@@ -674,8 +712,7 @@ function initSRMLoginPage() {
       }
 
       // 로그인 성공 시뮬레이션 -> SRM 대시보드로 이동
-      const roleQuery = selectedDemoRole ? `?role=${selectedDemoRole}` : '';
-      window.location.href = `SRMDashboard.html${roleQuery}`;
+      window.location.href = 'SRMDashboard.html';
     });
   }
 
@@ -683,47 +720,85 @@ function initSRMLoginPage() {
   const noticeTitles = document.querySelectorAll('.bidding-project-name');
   const biddingModal = document.getElementById('modalBiddingDetail');
   const closeBiddingModal = document.getElementById('btnCloseBiddingModal');
+  const closeBiddingAction = document.getElementById('btnCloseBiddingAction');
+  const joinBiddingButton = document.getElementById('btnJoinBidding');
+
+  const closeBidding = () => {
+    biddingModal?.classList.remove('show');
+    biddingModal?.setAttribute('aria-hidden', 'true');
+  };
 
   noticeTitles.forEach(title => {
     title.addEventListener('click', () => {
       if (biddingModal) {
         biddingModal.classList.add('show');
+        biddingModal.setAttribute('aria-hidden', 'false');
+        closeBiddingModal?.focus();
       }
     });
   });
 
   if (closeBiddingModal && biddingModal) {
     closeBiddingModal.addEventListener('click', () => {
-      biddingModal.classList.remove('show');
+      closeBidding();
     });
     biddingModal.addEventListener('click', (e) => {
       if (e.target === biddingModal) {
-        biddingModal.classList.remove('show');
+        closeBidding();
       }
     });
   }
+
+  closeBiddingAction?.addEventListener('click', closeBidding);
+  joinBiddingButton?.addEventListener('click', () => {
+    alert('입찰 참가를 위해서는 로그인이 필요합니다.');
+    closeBidding();
+    idInput?.focus();
+  });
 
   // 협력업체 신청 모달 토글
   const btnPartnerReg = document.getElementById('btnPartnerRegister');
   const partnerModal = document.getElementById('modalPartnerRegister');
   const closePartnerModal = document.getElementById('btnClosePartnerModal');
+  const cancelPartnerAction = document.getElementById('btnCancelPartnerAction');
+  const submitPartnerAction = document.getElementById('btnSubmitPartnerAction');
+
+  const closePartner = () => {
+    partnerModal?.classList.remove('show');
+    partnerModal?.setAttribute('aria-hidden', 'true');
+  };
 
   if (btnPartnerReg && partnerModal) {
-    btnPartnerReg.addEventListener('click', () => {
+    btnPartnerReg.addEventListener('click', (event) => {
+      event.preventDefault();
       partnerModal.classList.add('show');
+      partnerModal.setAttribute('aria-hidden', 'false');
+      closePartnerModal?.focus();
     });
   }
 
   if (closePartnerModal && partnerModal) {
     closePartnerModal.addEventListener('click', () => {
-      partnerModal.classList.remove('show');
+      closePartner();
     });
     partnerModal.addEventListener('click', (e) => {
       if (e.target === partnerModal) {
-        partnerModal.classList.remove('show');
+        closePartner();
       }
     });
   }
+
+  cancelPartnerAction?.addEventListener('click', closePartner);
+  submitPartnerAction?.addEventListener('click', () => {
+    alert('협력업체 등록 신청서가 정상 접수되었습니다. 관리자 승인 후 로그인 가능합니다.');
+    closePartner();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    if (biddingModal?.classList.contains('show')) closeBidding();
+    if (partnerModal?.classList.contains('show')) closePartner();
+  });
 }
 
 /**
@@ -838,8 +913,23 @@ function initProjectDetailPage() {
   const tabBtns = document.querySelectorAll('.detail-tab-btn');
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      tabBtns.forEach(b => b.classList.remove('active'));
+      tabBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+    });
+
+    btn.addEventListener('keydown', event => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+      const currentIndex = Array.from(tabBtns).indexOf(btn);
+      let nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? tabBtns.length - 1 : currentIndex;
+      if (event.key === 'ArrowLeft') nextIndex = (currentIndex - 1 + tabBtns.length) % tabBtns.length;
+      if (event.key === 'ArrowRight') nextIndex = (currentIndex + 1) % tabBtns.length;
+      tabBtns[nextIndex].focus();
+      tabBtns[nextIndex].click();
     });
   });
 

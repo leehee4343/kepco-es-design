@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>협력업체 신청 (5-step) | KEPCO es 전자입찰시스템 SRM</title>
+  <title>협력업체 신청 (5-step) | KEPCO ES 전자입찰시스템 SRM</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* 협력업체 신청 전용 모던 스타일 */
@@ -25,8 +25,9 @@
     }
     .partner-reg-header {
       padding: 24px 32px;
-      background: #1976d2;
-      color: #ffffff;
+      background: #ffffff;
+      color: #334155;
+      border-bottom: 1px solid #e2e8f0;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -58,7 +59,7 @@
     .wizard-step-num {
       font-size: 13px;
       font-weight: 800;
-      color: #64748b;
+      color: #58687b;
       margin-bottom: 4px;
     }
     .wizard-step-box.active .wizard-step-num {
@@ -190,14 +191,14 @@
 </head>
 <body class="partner-reg-page">
 
-  <div class="partner-reg-card">
+  <main class="partner-reg-card">
     <!-- 헤더 -->
     <div class="partner-reg-header">
       <div style="display: flex; align-items: center; gap: 12px;">
-        <img src="assets/logo.png" alt="켑코이에스" style="height: 32px; background: #ffffff; padding: 4px 8px; border-radius: 6px;">
+        <img src="assets/logo.png" alt="켑코이에스" style="height: 32px; width: auto;">
         <div>
-          <h1 style="font-size: 18px; font-weight: 800; margin: 0; color: #ffffff;">협력업체 신청</h1>
-          <span style="font-size: 13px; color: #cbd5e1;">켑코이에스(주) 전자입찰시스템(SRM)</span>
+          <h1 style="font-size: 20px; font-weight: 800; margin: 0; color: #334155;">협력업체 신청</h1>
+          <span style="font-size: 13px; color: #58687b;">켑코이에스(주) 전자입찰시스템(SRM)</span>
         </div>
       </div>
       <div class="page-header-right">
@@ -208,7 +209,7 @@
           <span class="breadcrumb-separator">&gt;</span>
           <span class="breadcrumb-item current">협력업체 신청</span>
         </nav>
-        <a href="SRMLogin.html" style="background: transparent; border: none; color: #cbd5e1; font-size: 22px; cursor: pointer; text-decoration: none; line-height: 1;" title="로그인 화면으로 돌아가기">&times;</a>
+        <a href="SRMLogin.html" style="background: transparent; border: none; color: #58687b; font-size: 22px; cursor: pointer; text-decoration: none; line-height: 1;" title="로그인 화면으로 돌아가기">&times;</a>
       </div>
     </div>
 
@@ -293,17 +294,17 @@
         <div class="form-grid-2">
           <!-- 사업자등록번호 -->
           <div class="form-group-full">
-            <label class="partner-input-lbl">사업자등록번호<span class="req">*</span> <span style="font-size: 13px; font-weight: normal; color: #64748b;">※사업자등록번호는 로그인 시 아이디로 사용됩니다.</span></label>
+            <label class="partner-input-lbl">사업자등록번호<span class="req">*</span> <span style="font-size: 13px; font-weight: normal; color: #58687b;">※사업자등록번호는 로그인 시 아이디로 사용됩니다.</span></label>
             <div style="display: flex; gap: 8px;">
               <input type="text" class="partner-input" id="regBizNo" placeholder="예: 135-82-77202 (숫자만 입력)" value="135-82-77202">
-              <button type="button" id="btnCheckBizNo" style="width: 100px; background: #1976d2; color: #ffffff; border: none; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer;">중복 확인</button>
+              <button type="button" id="btnCheckBizNo" class="btn-primary" style="width: 100px;">중복 확인</button>
             </div>
             <div id="biznocheckmsg" style="font-size: 13px; color: #00b894; margin-top: 4px; font-weight: 600;">✓ 사용 가능한 사업자등록번호입니다.</div>
           </div>
 
           <!-- 비밀번호 -->
           <div>
-            <label class="partner-input-lbl">비밀번호<span class="req">*</span> <span style="font-size: 13px; font-weight: normal; color: #64748b;">(영문/숫자/특수기호 8~20자)</span></label>
+            <label class="partner-input-lbl">비밀번호<span class="req">*</span> <span style="font-size: 13px; font-weight: normal; color: #58687b;">(영문/숫자/특수기호 8~20자)</span></label>
             <input type="password" class="partner-input" id="regpw" value="kepcoes1234!">
           </div>
 
@@ -356,7 +357,7 @@
             <label class="partner-input-lbl">주소<span class="req">*</span></label>
             <div style="display: flex; gap: 8px; margin-bottom: 8px;">
               <input type="text" class="partner-input" id="regPostCode" value="12654" style="width: 120px;" readonly>
-              <button type="button" style="padding: 0 14px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer;" onclick="alert('주소 검색 팝업을 연계합니다.');">우편번호 검색</button>
+              <button type="button" class="btn-secondary" onclick="alert('주소 검색 팝업을 연계합니다.');">우편번호 검색</button>
             </div>
             <input type="text" class="partner-input" id="regBaseAddr" value="경기도 고양시 일산서구 강선로 118 강선마을아파트" style="margin-bottom: 6px;">
             <input type="text" class="partner-input" id="regDetailAddr" value="제208동 1202호" placeholder="상세 주소를 입력하세요">
@@ -366,7 +367,7 @@
         <!-- 관련 증빙서류 제출 (page 3) -->
         <h2 style="font-size: 16px; font-weight: 800; color: #334155; margin: 32px 0 16px; border-bottom: 1.5px solid #e2e8f0; padding-bottom: 8px;">
           관련 증빙서류 제출
-          <span style="font-size: 13px; font-weight: normal; color: #64748b; margin-left: 6px;">※ 첨부 파일은 되도록 pdf로 업로드해 주세요.</span>
+          <span style="font-size: 13px; font-weight: normal; color: #58687b; margin-left: 6px;">※ 첨부 파일은 되도록 pdf로 업로드해 주세요.</span>
         </h2>
         <div class="form-grid-2">
           <!-- 사업자등록증 -->
@@ -374,7 +375,7 @@
             <label class="partner-input-lbl">사업자등록증<span class="req">*</span></label>
             <div style="display: flex; gap: 6px;">
               <input type="text" class="partner-input" id="filebizcert" value="사업자등록증_큐비트엑스.pdf" readonly>
-              <button type="button" style="width: 85px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer;">찾아보기</button>
+              <button type="button" class="btn-secondary" style="width: 85px;">찾아보기</button>
             </div>
           </div>
 
@@ -383,7 +384,7 @@
             <label class="partner-input-lbl">법인인감증명서<span class="req">*</span></label>
             <div style="display: flex; gap: 6px;">
               <input type="text" class="partner-input" id="filesealcert" value="법인인감증명서_최신본.pdf" readonly>
-              <button type="button" style="width: 85px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer;">찾아보기</button>
+              <button type="button" class="btn-secondary" style="width: 85px;">찾아보기</button>
             </div>
           </div>
 
@@ -392,7 +393,7 @@
             <label class="partner-input-lbl">면허 등 증빙<span class="req">*</span></label>
             <div style="display: flex; gap: 6px;">
               <input type="text" class="partner-input" id="filelicense" value="정보통신공사업_면허수첩.pdf" readonly>
-              <button type="button" style="width: 85px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer;">찾아보기</button>
+              <button type="button" class="btn-secondary" style="width: 85px;">찾아보기</button>
             </div>
           </div>
 
@@ -420,7 +421,7 @@
             <label class="partner-input-lbl">신용평가등급 확인서</label>
             <div style="display: flex; gap: 6px;">
               <input type="text" class="partner-input" id="filecreditcert" value="기업신용평가등급확인서_나이스.pdf" readonly>
-              <button type="button" style="width: 85px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer;">찾아보기</button>
+              <button type="button" class="btn-secondary" style="width: 85px;">찾아보기</button>
             </div>
           </div>
         </div>
@@ -515,48 +516,47 @@
         <h2 style="font-size: 16px; font-weight: 800; color: #334155; margin-bottom: 12px;">
           신청 정보 확인 및 제출
         </h2>
-        <p style="font-size: 13px; color: #64748b; margin-bottom: 20px;">
+        <p style="font-size: 13px; color: #58687b; margin-bottom: 20px;">
           입력하신 내용을 확인해 주세요. 수정할 사항이 있는 경우 이전 단계로 이동하여 수정할 수 있습니다.<br>
           모든 정보를 확인한 후 최종 제출하면 협력업체 신청이 완료됩니다.
         </p>
 
-        <!-- 4대 요약 카드 -->
-        <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="partner-review-sections">
           <!-- 1. 기본 정보 요약 -->
-          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px 20px;">
-            <h3 style="font-size: 14px; font-weight: 800; color: #1976d2; margin-bottom: 10px;">• 기업 기본 정보</h3>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-size: 13px; color: #334155;">
-              <div>사업자등록번호: <strong id="sumBizNo">135-82-77202</strong></div>
-              <div>회사명: <strong id="sumCompany">(주)큐비트엑스</strong></div>
-              <div>대표자명: <strong id="sumCeo">이홍태, 윤지병</strong></div>
-              <div>전화번호: <strong id="sumTel">02-833-1650</strong></div>
-              <div>업종 / 업태: <strong id="sumSector">it인프라 / 소프트웨어 개발</strong></div>
-              <div>주소: <strong id="sumAddr">(12654) 경기도 고양시 일산서구 강선로 118</strong></div>
+          <section class="partner-review-card">
+            <h3>기업 기본 정보</h3>
+            <div class="partner-review-grid">
+              <div><span>사업자등록번호</span><strong id="sumBizNo">135-82-77202</strong></div>
+              <div><span>회사명</span><strong id="sumCompany">(주)큐비트엑스</strong></div>
+              <div><span>대표자명</span><strong id="sumCeo">이홍태, 윤지병</strong></div>
+              <div><span>전화번호</span><strong id="sumTel">02-833-1650</strong></div>
+              <div><span>업종 / 업태</span><strong id="sumSector">IT인프라 / 소프트웨어 개발</strong></div>
+              <div><span>주소</span><strong id="sumAddr" title="(12654) 경기도 고양시 일산서구 강선로 118">(12654) 경기도 고양시 일산서구 강선로 118</strong></div>
             </div>
-          </div>
+          </section>
 
           <!-- 2. 증빙서류 요약 -->
-          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px 20px;">
-            <h3 style="font-size: 14px; font-weight: 800; color: #1976d2; margin-bottom: 10px;">• 관련 증빙서류 &amp; 신용평가</h3>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-size: 13px; color: #334155;">
-              <div>사업자등록증: <strong>사업자등록증_큐비트엑스.pdf</strong></div>
-              <div>법인인감증명서: <strong>법인인감증명서_최신본.pdf</strong></div>
-              <div>면허 등 증빙: <strong>정보통신공사업_면허수첩.pdf</strong></div>
-              <div>신용평가등급: <strong style="color: #00b894;">bb+ (기업신용평가등급확인서_나이스.pdf)</strong></div>
+          <section class="partner-review-card">
+            <h3>관련 증빙서류 &amp; 신용평가</h3>
+            <div class="partner-review-grid">
+              <div><span>사업자등록증</span><strong>사업자등록증_큐비트엑스.pdf</strong></div>
+              <div><span>법인인감증명서</span><strong>법인인감증명서_최신본.pdf</strong></div>
+              <div><span>면허 등 증빙</span><strong>정보통신공사업_면허수첩.pdf</strong></div>
+              <div><span>신용평가등급</span><strong>BB+ (기업신용평가등급확인서_나이스.pdf)</strong></div>
             </div>
-          </div>
+          </section>
 
           <!-- 3. 담당자 정보 요약 -->
-          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px 20px;">
-            <h3 style="font-size: 14px; font-weight: 800; color: #1976d2; margin-bottom: 10px;">• 담당자 정보</h3>
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; font-size: 13px; color: #334155;">
-              <div>담당자명: <strong id="sumMgrName">이희성 (부장)</strong></div>
-              <div>이메일: <strong id="sumMgrEmail">leehee43@naver.com</strong></div>
-              <div>핸드폰 번호: <strong id="sumMgrMobile">010-6844-2810</strong></div>
-              <div>유선 전화: <strong id="sumMgrTel">02-6959-9857</strong></div>
-              <div style="grid-column: span 2;">담당 업무: <strong id="sumMgrTask">pm 및 사업기획</strong></div>
+          <section class="partner-review-card">
+            <h3>담당자 정보</h3>
+            <div class="partner-review-grid">
+              <div><span>담당자명</span><strong id="sumMgrName">이희성 (부장)</strong></div>
+              <div><span>이메일</span><strong id="sumMgrEmail">leehee43@naver.com</strong></div>
+              <div><span>핸드폰 번호</span><strong id="sumMgrMobile">010-6844-2810</strong></div>
+              <div><span>유선 전화</span><strong id="sumMgrTel">02-6959-9857</strong></div>
+              <div class="wide"><span>담당 업무</span><strong id="sumMgrTask">PM 및 사업기획</strong></div>
             </div>
-          </div>
+          </section>
         </div>
 
         <div class="partner-actions-row">
@@ -597,7 +597,7 @@
       </div>
 
     </div>
-  </div>
+  </main>
 
   <footer class="app-footer">
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
