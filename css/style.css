@@ -6715,3 +6715,46 @@ body .dashboard-content [class$="-table-card"] {
   background-color: #ffffff !important;
   background-image: none !important;
 }
+
+/* ==========================================================================
+   Unified Content Object Title Policy
+   콘텐츠 오브젝트 제목은 화면별 의미색을 제거하고 동일한 위계로 표현합니다.
+   ========================================================================== */
+body :is(
+  .favorites-title,
+  .section-title,
+  .block-title,
+  .perf-card-title,
+  .finance-card-header,
+  .overview-card-title,
+  .detail-card-title,
+  .perf-chart-title,
+  .kpi-card-title,
+  .stats-card-title,
+  .bidding-card-title,
+  .srm-kpi-title,
+  .sub-step-title,
+  .srm-section-heading h2,
+  .app-card-header h2,
+  .app-card-header h3,
+  .partner-reg-body .wizard-panel > h2,
+  .partner-reg-body .wizard-panel h3
+) {
+  font-family: 'Pretendard' !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  letter-spacing: -0.2px !important;
+  color: #334155 !important;
+  text-align: left !important;
+}
+
+body :is(.app-card, .content-card, .detail-card, .stats-card-main) > :is(h2, h3, h4) {
+  font-family: 'Pretendard' !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  letter-spacing: -0.2px !important;
+  color: #334155 !important;
+  text-align: left !important;
+}
