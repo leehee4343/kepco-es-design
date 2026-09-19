@@ -1,0 +1,61 @@
+=== SHEET: 메뉴(IA)별 기능명세 ===
+  0 | No:켑코이에스 전산시스템(PMS) 메뉴(IA)별 기능명세 | ID:                   | 1D:                | 2D:                     | 3D:                     | 4D:                     | URL:
+  1 | No:* 메뉴 단위 띄어쓰기는 국문 맞춤법 기준입니다. | ID:                   | 1D:                | 2D:                     | 3D:                     | 4D:                     | URL:
+  2 | No:    | ID:                   | 1D:                | 2D:                     | 3D:                     | 4D:                     | URL:
+  3 | No:    | ID:                   | 1D:                | 2D:                     | 3D:                     | 4D:                     | URL:
+  4 | No:    | ID:                   | 1D:                | 2D:                     | 3D:                     | 4D:                     | URL:
+  5 | No:    | ID:                   | 1D:                | 2D:                     | 3D:                     | 4D:                     | URL:
+  6 | No:No  | ID:ID                 | 1D:1Depth          | 2D:2Depth               | 3D:3Depth               | 4D:4Depth               | URL:URL
+  7 | No:1   | ID:PMS_MN_01          | 1D:LOG IN          | 2D:                     | 3D:                     | 4D:                     | URL:/main
+  8 | No:1   | ID:PMS_MN_01          | 1D:DASHBOARD       | 2D:                     | 3D:                     | 4D:                     | URL:/main
+  9 | No:2   | ID:PMS_BS_01          | 1D:사업 접수(business) | 2D:신규 프로젝트 등록(new)      | 3D:                     | 4D:                     | URL:/business/new
+ 10 | No:3   | ID:PMS_BS_02          | 1D:                | 2D:추진단계 프로젝트 현황(list)   | 3D:                     | 4D:                     | URL:/business/progresslist
+ 11 | No:4   | ID:PMS_PM_01          | 1D:프로젝트 관리(project) | 2D:프로젝트 현황(list)        | 3D:                     | 4D:                     | URL:/project/list
+ 12 | No:5   | ID:PMS_PM_02_01_01    | 1D:                | 2D:프로젝트 상세(details)     | 3D:HOME(home)           | 4D:                     | URL:/project/details/home
+ 13 | No:6   | ID:PMS_PM_02_02_01_01 | 1D:                | 2D:                     | 3D:추진(progress)         | 4D:기본 정보(summary)       | URL:/project/details/progress/summary
+ 14 | No:7   | ID:PMS_PM_02_02_01_02 | 1D:                | 2D:                     | 3D:                     | 4D:세부 정보(information)   | URL:/project/details/progress/information
+ 15 | No:8   | ID:PMS_PM_02_02_01_03 | 1D:                | 2D:                     | 3D:                     | 4D:협력업체 정보(Partner)     | URL:/project/details/progress/Partner
+ 16 | No:9   | ID:PMS_PM_02_02_01_04 | 1D:                | 2D:                     | 3D:                     | 4D:사업 심의(approval)      | URL:/project/details/progress/approval
+ 17 | No:10  | ID:PMS_PM_02_02_01_05 | 1D:                | 2D:                     | 3D:                     | 4D:사업 시행(execution)     | URL:/project/details/progress/execution
+ 18 | No:11  | ID:PMS_PM_02_03_01_01 | 1D:                | 2D:                     | 3D:계약(contract)         | 4D:계약 품의(request)       | URL:/project/datails/contract/request
+ 19 | No:12  | ID:PMS_PM_02_03_01_02 | 1D:                | 2D:                     | 3D:                     | 4D:계약 체결(finalization)  | URL:/project/datails/contract/finalization
+ 20 | No:13  | ID:PMS_PM_02_04       | 1D:                | 2D:                     | 3D:투자(investment)       | 4D:                     | URL:/project/datails/investment
+ 21 | No:14  | ID:PMS_PM_02_05       | 1D:                | 2D:                     | 3D:상환(repayment)        | 4D:                     | URL:/project/datails/repayment
+ 22 | No:15  | ID:PMS_PM_02_06_01    | 1D:                | 2D:                     | 3D:발주(order)            | 4D:목록(list)             | URL:/project/list/datails/order/list
+ 23 | No:16  | ID:PMS_PM_02_06_02    | 1D:                | 2D:                     | 3D:                     | 4D:신규 등록(new)           | URL:/project/list/datails/order/new
+ 24 | No:17  | ID:PMS_CI_01_01       | 1D:계약 관리(contract) | 2D:수주 계약(sales)         | 3D:계약 목록(list)          | 4D:                     | URL:/contact/sales/list
+ 25 | No:18  | ID:PMS_CI_02_01       | 1D:                | 2D:발주 계약(purchase)      | 3D:계약 목록(list)          | 4D:                     | URL:/contact/purchase/list
+ 26 | No:19  | ID:PMS_CI_02_02       | 1D:                | 2D:                     | 3D:계약 상세(view)          | 4D:                     | URL:/contact/purchase/view
+ 27 | No:20  | ID:PMS_CI_02_03       | 1D:                | 2D:                     | 3D:계약 수정(edit)          | 4D:                     | URL:/contact/purchase/edit
+ 28 | No:21  | ID:PMS_CI_02_04       | 1D:                | 2D:                     | 3D:신규 발주(new)           | 4D:                     | URL:/contact/purchase/new
+ 29 | No:22  | ID:PMS_BM_01          | 1D:자금 관리(finanace) | 2D:상환현황(repayment)      | 3D:                     | 4D:                     | URL:/finance/repayment/list
+ 30 | No:23  | ID:PMS_BM_02          | 1D:                | 2D:원리금상환내역(principallist) | 3D:                     | 4D:                     | URL:/finance/principallist
+ 31 | No:24  | ID:PMS_BM_03          | 1D:                | 2D:계획대비 실적현황(Performance) | 3D:                     | 4D:                     | URL:/finance/Performance
+ 32 | No:25  | ID:PMS_BM_04          | 1D:                | 2D:투자비 지급현황(paymentlist) | 3D:                     | 4D:                     | URL:/finance/paymentlist
+ 33 | No:26  | ID:PMS_BC_01_01       | 1D:사업 결산(closeout) | 2D:사업결산(list)           | 3D:                     | 4D:                     | URL:/closeout/list
+ 34 | No:27  | ID:PMS_BC_01_02       | 1D:                | 2D:사업 결산 상세(details)    | 3D:                     | 4D:                     | URL:/closeout/details
+ 35 | No:28  | ID:PMS_ST_01          | 1D:통계(statistics)  | 2D:종합 현황(overview)      | 3D:                     | 4D:                     | URL:/statistics/overview
+ 36 | No:29  | ID:PMS_ST_02          | 1D:                | 2D:연도별 현황(annual)       | 3D:                     | 4D:                     | URL:/statistics/annual
+ 37 | No:30  | ID:PMS_MP_01          | 1D:마이 페이지(mypage)  | 2D:내 프로젝트 현황(myproject) | 3D:                     | 4D:                     | URL:/mypage/myproject
+ 38 | No:31  | ID:PMS_MP_02_01       | 1D:                | 2D:데이터 수정 요청(data)      | 3D:요청 목록(list)          | 4D:                     | URL:/mypage/data/list
+ 39 | No:32  | ID:PMS_MP_02_02       | 1D:                | 2D:                     | 3D:요청 상세(details)       | 4D:                     | URL:/mypage/data/details
+ 40 | No:33  | ID:PMS_MP_02_03       | 1D:                | 2D:                     | 3D:신규 요청(request)       | 4D:                     | URL:/mypage/data/request
+ 41 | No:34  | ID:PMS_MP_03_01       | 1D:                | 2D:내 정보 수정(account)     | 3D:진입(2차 인증)            | 4D:                     | URL:/mypage/account/verify
+ 42 | No:35  | ID:PMS_MP_03_02       | 1D:                | 2D:                     | 3D:정보 변경                | 4D:                     | URL:/mypage/account/update
+ 43 | No:36  | ID:PMS_BT_01          | 1D:출장 관리           | 2D:출장 현황                | 3D:목록                   | 4D:                     | URL:/businesstrip/list
+ 44 | No:37  | ID:PMS_BT_01_01       | 1D:                | 2D:                     | 3D:근거리 출장               | 4D:                     | URL:/businesstrip/list/localtrip
+ 45 | No:38  | ID:PMS_BT_01_02       | 1D:                | 2D:                     | 3D:국내출장/국내교육            | 4D:                     | URL:/businesstrip/list/domestic
+ 46 | No:39  | ID:PMS_BT_01_03       | 1D:                | 2D:                     | 3D:해외출장/해외교육            | 4D:                     | URL:/businesstrip/list/overseas
+ 47 | No:40  | ID:PMS_BT_02          | 1D:                | 2D:출장 정산내역              | 3D:                     | 4D:                     | URL:/businesstrip/statistics
+ 48 | No:41  | ID:PMS_SM_01          | 1D:공통 관리           | 2D:PMS 경영목표 관리          | 3D:                     | 4D:                     | URL:/manage/performance
+ 49 | No:42  | ID:PMS_SM_02          | 1D:                | 2D:출장 단가 및 기준설정         | 3D:                     | 4D:                     | URL:/businesstrip/settings
+ 50 | No:43  | ID:PMS_SM_03          | 1D:                | 2D:관리자 관리               | 3D:                     | 4D:                     | URL:/manage/administrator
+ 51 | No:44  | ID:PMS_SM_04          | 1D:                | 2D:권한그룹 및 메뉴별 권한 관리     | 3D:                     | 4D:                     | URL:/manage/permission
+ 52 | No:45  | ID:PMS_SM_05          | 1D:                | 2D:시스템 권한 관리            | 3D:                     | 4D:                     | URL:/manage/system
+ 53 | No:46  | ID:PMS_SM_06          | 1D:                | 2D:접속 아이피(IP) 관리        | 3D:                     | 4D:                     | URL:/manage/ip
+ 54 | No:47  | ID:PMS_SM_07          | 1D:                | 2D:코드관리                 | 3D:                     | 4D:                     | URL:/manage/Code
+ 55 | No:48  | ID:PMS_SM_08          | 1D:                | 2D:로그인 현황               | 3D:                     | 4D:                     | URL:/manage/login
+ 56 | No:49  | ID:PMS_SM_09          | 1D:                | 2D:메뉴별 접속현황             | 3D:                     | 4D:                     | URL:/manage/access
+ 57 | No:50  | ID:PMS_SM_10          | 1D:                | 2D:EPC사 관리              | 3D:                     | 4D:                     | URL:/manage/epc
+ 58 | No:51  | ID:PMS_SM_11          | 1D:                | 2D:공지사항 관리              | 3D:                     | 4D:                     | URL:/manage/notice
+ 59 | No:52  | ID:PMS_SM_12          | 1D:                | 2D:양식 등 자료실 관리          | 3D:                     | 4D:                     | URL:/manage/downloads

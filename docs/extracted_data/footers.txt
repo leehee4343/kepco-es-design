@@ -1,0 +1,111 @@
+=== BusinessSettlement.html ===
+<footer class="app-footer">
+    <div class="footer-demo-text">
+      <strong>알림:</strong> 본 시스템은 켑코이에스(주) 사업관리시스템(PMS)의 사업결산 현황 프로토타입입니다.
+    </div>
+    <div class="footer-copyright">
+      &copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.
+    </div>
+  </footer>
+------------------------------
+=== Dashboard.html ===
+<footer class="app-footer">
+    <div class="footer-demo-text">
+      <strong>DEMO</strong> · 화면 확인용 시연 화면입니다. 모든 사업·업체·금액은 가상 데이터이며 저장 내용은 새로고침하면 사라집니다.
+    </div>
+    <div class="footer-copyright">
+      © 2026 KEPCO Energy Solution. All Rights Reserved.
+    </div>
+  </footer>
+------------------------------
+=== PartnerRegister.html ===
+=== PlanPerformance.html ===
+<footer class="app-footer">
+    <div class="footer-demo-text">
+      <strong>알림:</strong> 본 페이지는 켑코이에스(주) 사업관리시스템(PMS)의 계획대비 실적 현황 프로토타입입니다.
+    </div>
+    <div class="footer-copyright">
+      &copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.
+    </div>
+  </footer>
+------------------------------
+=== ProjectDetail.html ===
+<footer class="app-footer">
+    <div class="footer-demo-text">
+      <strong>알림:</strong> 본 시스템은 켑코이에스(주) 사업관리시스템(PMS)의 개별 프로젝트 상세 정보 프로토타입입니다.
+    </div>
+    <div class="footer-copyright">
+      &copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.
+    </div>
+  </footer>
+------------------------------
+=== ProjectRegister.html ===
+<footer class="app-footer">
+    <div class="footer-demo-text">
+      <strong>DEMO</strong> · 화면 확인용 시연 화면입니다. 모든 사업·업체·금액은 가상 데이터이며 저장 내용은 새로고침하면 사라집니다.
+    </div>
+    <div class="footer-copyright">
+      © 2026 KEPCO Energy Solution. All Rights Reserved.
+    </div>
+  </footer>
+------------------------------
+=== ProjectSearch.html ===
+<footer class="app-footer">
+    <div class="footer-demo-text">
+      <strong>알림:</strong> 본 시스템은 켑코이에스(주) 사업관리시스템(PMS)의 추진단계 프로젝트 검색 및 조회 프로토타입입니다.
+    </div>
+    <div class="footer-copyright">
+      &copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.
+    </div>
+  </footer>
+------------------------------
+=== SRMDashboard.html ===
+<footer class="app-footer">
+    <div class="footer-demo-text">
+      <strong>안내:</strong> 본 시스템은 켑코이에스(주) 전자입찰시스템(SRM)의 대시보드 프로토타입이며, 상단 역할 칩을 클릭하여 사내 담당자 및 협력업체 모드를 전환 체험할 수 있습니다.
+    </div>
+    <div class="footer-copyright">
+      &copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.
+    </div>
+  </footer>
+------------------------------
+=== SRMLogin.html ===
+<footer class="app-footer">
+    <div class="footer-demo-text">
+      <strong>DEMO</strong> · 화면 확인용 시연 화면입니다. 모든 회사·사업·금액은 가상 데이터이며 저장 내용은 새로고침하면 사라집니다.
+    </div>
+    <div class="footer-copyright">
+      © 2026 KEPCO Energy Solution. All Rights Reserved.
+    </div>
+  </footer>
+------------------------------
+=== Statistics.html ===
+<footer class="app-footer">
+    <div class="footer-demo-text">
+      <strong>알림:</strong> 본 시스템은 켑코이에스(주) 사업관리시스템(PMS)의 통계 종합현황 프로토타입입니다.
+    </div>
+    <div class="footer-copyright">
+      &copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.
+    </div>
+  </footer>
+------------------------------
+=== StepWorkflow.html ===
+<footer class="app-footer">
+    <div class="footer-demo-text">
+      <strong>알림:</strong> 본 시스템은 켑코이에스(주) 사업관리시스템(PMS)의 진행상태별 업무 관리 프로토타입입니다.
+    </div>
+    <div class="footer-copyright">
+      &copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.
+    </div>
+  </footer>
+------------------------------
+=== index.html ===
+<footer class="app-footer">
+    <div class="footer-demo-text">
+      <strong>알림:</strong> 본 페이지는 켑코이에스(주) 사업관리시스템(PMS) 및 전자입찰시스템(SRM)의 프로토타입 화면을 관리 및 실행하는 통합 런처 포털입니다.
+    </div>
+    <div class="footer-copyright">
+      &copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.
+    </div>
+  </footer>
+------------------------------

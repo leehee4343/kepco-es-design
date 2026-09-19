@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사업관리시스템 PMS - 프로젝트 상세 | KEPCO ES</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ====================================================================
+       상단 글로벌 헤더 (통합 CI 및 디자인 시스템 준수)
+       ==================================================================== -->
+  <header class="top-header">
+    <div class="header-left">
+      <a href="Dashboard.html" class="header-brand-wrap" title="대시보드로 이동">
+        <img src="assets/logo.png" alt="켑코이에스(주)" class="brand-logo-img">
+      </a>
+      <button type="button" class="btn-hamburger" id="btnToggleSidebar" title="메뉴 접기/펼치기">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <div class="system-title-wrap">
+        <h2 class="system-title">사업관리시스템</h2>
+        <span class="badge-pms">PMS</span>
+      </div>
+    </div>
+
+    <div class="header-center">
+      <div class="search-box">
+        <input type="text" class="search-input" placeholder="프로젝트 명 또는 프로젝트 번호를 입력하세요" aria-label="프로젝트 검색">
+        <button type="button" class="search-btn" title="검색">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="permission-group">
+        <span class="perm-label">권한</span>
+        <button type="button" class="perm-btn active">그룹#1</button>
+        <button type="button" class="perm-btn">그룹#2</button>
+        <button type="button" class="perm-btn">그룹#3</button>
+        <button type="button" class="perm-btn">그룹#4</button>
+      </div>
+      <div class="user-profile">
+        <a href="index.html" class="btn-logout" style="background: rgba(25, 118, 210, 0.08); color: #1976d2; font-weight: 700; border-color: #90caf9;" title="전체 화면 허브 (index.html)">화면 허브 ↗</a>
+        <span class="user-divider">|</span>
+        <span class="user-name">이희성 부장</span>
+        <span class="user-role">[시스템 관리자]</span>
+        <span class="user-divider">|</span>
+        <a href="SRMLogin.html" class="btn-logout" title="로그아웃 (SRM 로그인 페이지로 이동)">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       앱 본문 컨테이너 (사이드바 + 메인 본문)
+       ==================================================================== -->
+  <div class="app-container">
+
+    <!-- 좌측 사이드바 (프로젝트 관리 > 프로젝트 현황 > 상세 활성화) -->
+    <!-- 좌측 사이드바 ([참고]메뉴구조도(PMS).xlsx 및 [참고]왼쪽메뉴.jpeg 100% 반영) -->
+    <aside class="sidebar" id="sidebar">
+      <nav class="sidebar-nav">
+        <!-- 1. 사업 접수 -->
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </span>
+            <span class="nav-text">사업 접수</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="ProjectRegister.html">신규 프로젝트 등록</a></li>
+            <li class="submenu-item"><a href="ProjectSearch.html">추진단계 프로젝트 현황</a></li>
+          </ul>
+        </div>
+
+        <!-- 2. 프로젝트 관리 -->
+        <div class="nav-item active open">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </span>
+            <span class="nav-text">프로젝트 관리</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="ProjectSearch.html">프로젝트 현황</a></li>
+            <li class="submenu-item"><a href="ProjectDetail.html" style="font-weight: 700; color: #1976d2; background-color: #f1f5f9;">상세 정보 관리 (상세)</a></li>
+            <li class="submenu-item"><a href="#">공정 진척 관리</a></li>
+          </ul>
+        </div>
+
+        <!-- 3. 계약 관리 -->
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </span>
+            <span class="nav-text">계약 관리</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="StepWorkflow.html">진행상태별 업무 관리</a></li>
+            <li class="submenu-item"><a href="#">수주계약 현황</a></li>
+            <li class="submenu-item"><a href="#">발주계약 현황</a></li>
+            <li class="submenu-item"><a href="#">계약 변경 이력</a></li>
+          </ul>
+        </div>
+
+        <!-- 4. 자금 관리 -->
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                <line x1="1" y1="10" x2="23" y2="10"></line>
+              </svg>
+            </span>
+            <span class="nav-text">자금 관리</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="#">상환현황</a></li>
+            <li class="submenu-item"><a href="#">원리금상환내역</a></li>
+            <li class="submenu-item"><a href="PlanPerformance.html">계획대비 실적현황</a></li>
+            <li class="submenu-item"><a href="#">투자비 지급현황</a></li>
+          </ul>
+        </div>
+
+        <!-- 5. 사업 결산 -->
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </span>
+            <span class="nav-text">사업 결산</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="BusinessSettlement.html">사업결산 현황</a></li>
+            <li class="submenu-item"><a href="#">사업 결산 상세</a></li>
+          </ul>
+        </div>
+
+        <!-- 6. 통계 -->
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+              </svg>
+            </span>
+            <span class="nav-text">통계</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="Statistics.html">통계 종합현황</a></li>
+            <li class="submenu-item"><a href="#">연도별 현황</a></li>
+          </ul>
+        </div>
+
+        <!-- 7. 마이 페이지 ([참고]메뉴구조도(PMS).xlsx No:30~35 반영) -->
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </span>
+            <span class="nav-text">마이 페이지</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="#">내 프로젝트 현황</a></li>
+            <li class="submenu-item"><a href="#">데이터 수정 요청</a></li>
+            <li class="submenu-item"><a href="#">내 정보 수정</a></li>
+          </ul>
+        </div>
+
+        <!-- 8. 출장 관리 ([참고]메뉴구조도(PMS).xlsx No:36~40 반영) -->
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </span>
+            <span class="nav-text">출장 관리</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="#">출장 현황 (근거리/국내/해외)</a></li>
+            <li class="submenu-item"><a href="#">출장 정산내역</a></li>
+          </ul>
+        </div>
+
+        <!-- 9. 공통 관리 ([참고]메뉴구조도(PMS).xlsx No:41~52 반영) -->
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            </span>
+            <span class="nav-text">공통 관리</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="#">PMS 경영목표 관리</a></li>
+            <li class="submenu-item"><a href="#">출장 단가 및 기준설정</a></li>
+            <li class="submenu-item"><a href="#">관리자 관리</a></li>
+            <li class="submenu-item"><a href="#">권한그룹 및 메뉴별 권한 관리</a></li>
+            <li class="submenu-item"><a href="#">시스템 권한 관리</a></li>
+            <li class="submenu-item"><a href="#">접속 IP 관리</a></li>
+            <li class="submenu-item"><a href="#">코드관리</a></li>
+            <li class="submenu-item"><a href="#">로그인 현황</a></li>
+            <li class="submenu-item"><a href="#">공지사항 관리</a></li>
+            <li class="submenu-item"><a href="#">양식 등 자료실 관리</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- 사이드바 하단 퀵 링크 배너 ([참고]왼쪽메뉴.jpeg 100% 반영) -->
+      <div class="sidebar-bottom-actions">
+        <a href="SRMDashboard.html" class="btn-sidebar-switch" title="전자입찰시스템(SRM)으로 이동">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          <span>전자입찰시스템 (SRM)</span>
+        </a>
+        <button type="button" class="btn-sidebar-manual" onclick="alert('온라인 매뉴얼(PMS 사업관리시스템) 가이드를 호출합니다.');">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          <span>온라인 매뉴얼</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ====================================================================
+         메인 컨텐츠 영역: 프로젝트 상세 ([참고]프로젝트 상세.jpeg 100% 구현)
+         ==================================================================== -->
+    <main class="main-content">
+      
+      <!-- 상단 페이지 헤더 및 브레드크럼 -->
+      <div class="page-title-wrap">
+        <div class="page-title-left">
+          <h1 class="page-title">프로젝트 상세</h1>
+        </div>
+        <div class="breadcrumb">
+          <span>HOME</span>
+          <span class="bc-sep">></span>
+          <span>프로젝트 관리</span>
+          <span class="bc-sep">></span>
+          <span>프로젝트 현황</span>
+          <span class="bc-sep">></span>
+          <span class="bc-current">상세</span>
+        </div>
+      </div>
+
+      <!-- 프로세스 탭 바 (HOME / 추진 / 계약 / 투자 / 투자(EPC) / 상환 / 발주) -->
+      <div class="detail-tabs-bar">
+        <div class="detail-tab-group">
+          <button type="button" class="detail-tab-btn active">HOME</button>
+          <button type="button" class="detail-tab-btn">추진</button>
+          <button type="button" class="detail-tab-btn">계약</button>
+          <button type="button" class="detail-tab-btn">투자</button>
+          <button type="button" class="detail-tab-btn">투자(EPC)</button>
+          <button type="button" class="detail-tab-btn">상환</button>
+          <button type="button" class="detail-tab-btn">발주</button>
+        </div>
+        <div class="detail-degree-wrap">
+          <span>계약 현황 차수</span>
+          <select class="detail-degree-select">
+            <option value="1">1차</option>
+            <option value="2">2차</option>
+            <option value="3">3차</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ==================================================================
+           Section 1: 프로젝트 개요 (Overview Card)
+           ================================================================== -->
+      <div class="detail-overview-card">
+        <div class="overview-card-header">
+          <div class="overview-card-title">프로젝트 개요</div>
+          <button type="button" class="btn-overview-file" id="btnProjectAttachment">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path>
+            </svg>
+            프로젝트 첨부파일
+          </button>
+        </div>
+
+        <div class="overview-meta-grid">
+          <div class="meta-item">
+            <span class="meta-item-label">프로젝트 명</span>
+            <span class="meta-item-value"><strong>천안 (주)선영 LED 에너지효율화사업</strong></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-item-label">대상설비</span>
+            <span class="meta-item-value"><strong>LED</strong> &nbsp;|&nbsp; <strong>압축기</strong> &nbsp;|&nbsp; <strong>펌프</strong></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-item-label">계약형태</span>
+            <span class="meta-item-value"><strong>EPC계약</strong></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-item-label">심의대상</span>
+            <span class="meta-item-value"><strong>대상</strong></span>
+          </div>
+
+          <div class="meta-item">
+            <span class="meta-item-label">사업구분</span>
+            <span class="meta-item-value">산업체 &nbsp;|&nbsp; 건축물</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-item-label">접수경로</span>
+            <span class="meta-item-value"><strong>EPC사</strong></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-item-label">계약유형</span>
+            <span class="meta-item-value"><strong>수익사업</strong></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-item-label">계약일자</span>
+            <span class="meta-item-value">-</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================================================================
+           Section 2: 3단 핵심 현황 대시보드 (이력, 투자현황, 상환현황)
+           ================================================================== -->
+      <div class="detail-status-grid">
+        
+        <!-- 1열: 프로젝트 이력 타임라인 -->
+        <div class="detail-card">
+          <div class="detail-card-header">
+            <div class="detail-card-title">프로젝트 이력</div>
+          </div>
+          <div class="history-timeline-list">
+            <div class="history-step-row">
+              <div class="step-label-group">
+                <span class="step-circle-icon done">✓</span>
+                <span class="step-name">프로젝트 생성</span>
+              </div>
+              <span class="step-date">2026.07.01</span>
+              <span class="step-user">홍길동</span>
+            </div>
+            <div class="history-step-row">
+              <div class="step-label-group">
+                <span class="step-circle-icon done">✓</span>
+                <span class="step-name">사업 심의</span>
+              </div>
+              <span class="step-date">2026.07.01</span>
+              <span class="step-user">홍길동</span>
+            </div>
+            <div class="history-step-row">
+              <div class="step-label-group">
+                <span class="step-circle-icon empty"></span>
+                <span class="step-name" style="color: #94a3b8;">사업 시행</span>
+              </div>
+              <span class="step-date">-</span>
+              <span class="step-user">-</span>
+            </div>
+            <div class="history-step-row">
+              <div class="step-label-group">
+                <span class="step-circle-icon empty"></span>
+                <span class="step-name" style="color: #94a3b8;">계약 품의</span>
+              </div>
+              <span class="step-date">-</span>
+              <span class="step-user">-</span>
+            </div>
+            <div class="history-step-row">
+              <div class="step-label-group">
+                <span class="step-circle-icon empty"></span>
+                <span class="step-name" style="color: #94a3b8;">계약 체결</span>
+              </div>
+              <span class="step-date">-</span>
+              <span class="step-user">-</span>
+            </div>
+            <div class="history-step-row">
+              <div class="step-label-group">
+                <span class="step-circle-icon empty"></span>
+                <span class="step-name" style="color: #94a3b8;">상환 완료</span>
+              </div>
+              <span class="step-date">-</span>
+              <span class="step-user">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2열: 투자 진행현황 (도넛차트 60.6%) -->
+        <div class="detail-card">
+          <div class="detail-card-header">
+            <div class="detail-card-title">투자 진행현황</div>
+            <button type="button" class="btn-card-plus" title="상세보기">+</button>
+          </div>
+          <div class="donut-metric-body">
+            <div class="donut-single-box">
+              <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e2e8f0" stroke-width="12"></circle>
+                <circle cx="50" cy="50" r="40" fill="transparent" stroke="#0284c7" stroke-width="12" stroke-dasharray="251.2" stroke-dashoffset="99" stroke-linecap="round"></circle>
+              </svg>
+              <div class="donut-single-center">60.6%</div>
+            </div>
+            <div class="metric-info-col">
+              <div class="metric-info-item">
+                <span class="metric-info-label">누적 지급금액</span>
+                <span class="metric-info-val val-blue">180,000,000 <span style="font-size: 13px; font-weight: 600;">원</span></span>
+              </div>
+              <div class="metric-info-item">
+                <span class="metric-info-label">투자금액(목표)</span>
+                <span class="metric-info-val val-dark">297,350,000 <span style="font-size: 13px; font-weight: 500;">원</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3열: 상환 진행현황 (도넛차트 60.6%) -->
+        <div class="detail-card">
+          <div class="detail-card-header">
+            <div class="detail-card-title">상환 진행현황</div>
+            <button type="button" class="btn-card-plus" title="상세보기">+</button>
+          </div>
+          <div class="donut-metric-body">
+            <div class="donut-single-box">
+              <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e2e8f0" stroke-width="12"></circle>
+                <circle cx="50" cy="50" r="40" fill="transparent" stroke="#059669" stroke-width="12" stroke-dasharray="251.2" stroke-dashoffset="99" stroke-linecap="round"></circle>
+              </svg>
+              <div class="donut-single-center">60.6%</div>
+            </div>
+            <div class="metric-info-col">
+              <div class="metric-info-item">
+                <span class="metric-info-label">누적 상환금액</span>
+                <span class="metric-info-val val-green">293,350,000 <span style="font-size: 13px; font-weight: 600;">원</span></span>
+              </div>
+              <div class="metric-info-item">
+                <span class="metric-info-label">상환완료 금액</span>
+                <span class="metric-info-val val-dark">1,183,350,000 <span style="font-size: 13px; font-weight: 500;">원</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================================================================
+           Section 3: 계획대비 실적 (Plan vs Actual Table & 3 Charts)
+           ================================================================== -->
+      <div class="detail-perf-card">
+        <div class="detail-card-header" style="margin-bottom: 12px;">
+          <div style="display: flex; align-items: baseline; gap: 10px;">
+            <div class="detail-card-title" style="display: flex; align-items: center; gap: 6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1976d2" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline></svg>
+              계획대비 실적
+            </div>
+            <span style="font-size: 12px; color: #64748b;">조회일 기준, 전일까지 실적까지 반영됩니다.</span>
+          </div>
+          <button type="button" class="btn-card-plus" title="상세보기">+</button>
+        </div>
+
+        <!-- 계획대비 실적 비교 테이블 -->
+        <div class="perf-table-wrapper">
+          <table class="perf-metric-table">
+            <thead>
+              <tr>
+                <th colspan="2">총 매출</th>
+                <th rowspan="2" style="vertical-align: middle;">영업외 수익 (원)</th>
+                <th colspan="3">(계획)상환(원)</th>
+                <th colspan="3">(실적)상환(원)</th>
+              </tr>
+              <tr>
+                <th>계획(원)</th>
+                <th>실적(원)</th>
+                <th>원리금</th>
+                <th>원금</th>
+                <th>이자</th>
+                <th>원리금</th>
+                <th>원금</th>
+                <th>이자</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>3,924,000</td>
+                <td>2,781,749</td>
+                <td>2,781,749</td>
+                <td>3,924,000</td>
+                <td>2,781,749</td>
+                <td>1,219,000</td>
+                <td>3,924,000</td>
+                <td>2,781,749</td>
+                <td>1,219,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 하단 3개 달성률 차트 영역 -->
+        <div class="perf-charts-row">
+          <!-- 차트 1: 총 매출 계획 대비 실적 달성률 -->
+          <div class="perf-chart-box">
+            <div class="perf-chart-title">총 매출 계획 대비 실적 달성률</div>
+            <div class="donut-single-box" style="width: 88px; height: 88px;">
+              <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e2e8f0" stroke-width="12"></circle>
+                <circle cx="50" cy="50" r="40" fill="transparent" stroke="#0284c7" stroke-width="12" stroke-dasharray="251.2" stroke-dashoffset="99" stroke-linecap="round"></circle>
+              </svg>
+              <div class="donut-single-center" style="font-size: 14.5px;">60.6%</div>
+            </div>
+          </div>
+
+          <!-- 차트 2: 영업외 수익 계획 대비 실적 달성률 -->
+          <div class="perf-chart-box">
+            <div class="perf-chart-title">영업외 수익 계획 대비 실적 달성률</div>
+            <div class="donut-single-box" style="width: 88px; height: 88px;">
+              <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e2e8f0" stroke-width="12"></circle>
+                <circle cx="50" cy="50" r="40" fill="transparent" stroke="#059669" stroke-width="12" stroke-dasharray="251.2" stroke-dashoffset="99" stroke-linecap="round"></circle>
+              </svg>
+              <div class="donut-single-center" style="font-size: 14.5px;">60.6%</div>
+            </div>
+          </div>
+
+          <!-- 차트 3: 계획 대비 상환 실적 달성률 (3단 가로 바) -->
+          <div class="perf-bars-box">
+            <div class="perf-chart-title" style="margin-bottom: 4px;">계획 대비 상환 실적 달성률</div>
+            <div class="perf-bar-item">
+              <span class="perf-bar-label">원리금</span>
+              <div class="perf-bar-track">
+                <div class="perf-bar-fill" style="width: 87%; background: #1976d2;"></div>
+              </div>
+              <span class="perf-bar-pct">87%</span>
+            </div>
+            <div class="perf-bar-item">
+              <span class="perf-bar-label">원금</span>
+              <div class="perf-bar-track">
+                <div class="perf-bar-fill" style="width: 77%; background: #0284c7;"></div>
+              </div>
+              <span class="perf-bar-pct">77%</span>
+            </div>
+            <div class="perf-bar-item">
+              <span class="perf-bar-label">이자</span>
+              <div class="perf-bar-track">
+                <div class="perf-bar-fill" style="width: 67%; background: #38bdf8;"></div>
+              </div>
+              <span class="perf-bar-pct">67%</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==================================================================
+           Section 4: 2단 금융 정보 (투자금 정보 & 상환 정보)
+           ================================================================== -->
+      <div class="finance-detail-grid">
+
+        <!-- 좌측: 투자금 정보 -->
+        <div class="detail-card">
+          <div class="detail-card-header">
+            <div class="detail-card-title" style="display: flex; align-items: center; gap: 6px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1976d2" stroke-width="2.2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+              투자금 정보
+            </div>
+            <button type="button" class="btn-card-plus" title="상세보기">+</button>
+          </div>
+
+          <!-- 거래처 서브탭 -->
+          <div class="detail-subtabs-wrap">
+            <button type="button" class="detail-subtab-btn active" data-partner="posco">(주)포스코무역</button>
+            <button type="button" class="detail-subtab-btn" data-partner="garam">(주)가람석재</button>
+            <button type="button" class="detail-subtab-btn" data-partner="homemart">홈마트</button>
+          </div>
+
+          <table class="finance-info-table">
+            <tbody>
+              <tr>
+                <td class="f-label">거래처명</td>
+                <td class="f-val" id="f_partner_name">(주)포스코무역</td>
+                <td class="f-label">합계액(VAT포함/원)</td>
+                <td class="f-val" id="f_total_vat">242,000,000</td>
+              </tr>
+              <tr>
+                <td class="f-label">공사시작일</td>
+                <td class="f-val" id="f_start_date">2026.07.31</td>
+                <td class="f-label">누적 지급액(원)</td>
+                <td class="f-val" id="f_paid_amount">180,000,000</td>
+              </tr>
+              <tr>
+                <td class="f-label">공사종료일</td>
+                <td class="f-val" id="f_end_date">2026.08.30</td>
+                <td class="f-label">부가세(원)</td>
+                <td class="f-val" id="f_tax_amount">22,000,000</td>
+              </tr>
+              <tr>
+                <td class="f-label">계약금액(VAT별도/원)</td>
+                <td class="f-val" id="f_contract_amount">220,000,000</td>
+                <td class="f-label">공사금액 지급(비율)</td>
+                <td class="f-val" id="f_pay_ratio">33.3 / 33.3 / 33.4</td>
+              </tr>
+              <tr>
+                <td class="f-label">공급가액(원)</td>
+                <td class="f-val" id="f_supply_amount">220,000,000</td>
+                <td class="f-label">지급률(%)</td>
+                <td class="f-val" style="color: #0284c7; font-weight: 800;" id="f_pay_rate">60.5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 우측: 상환 정보 -->
+        <div class="detail-card">
+          <div class="detail-card-header">
+            <div class="detail-card-title" style="display: flex; align-items: center; gap: 6px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+              상환 정보
+            </div>
+            <button type="button" class="btn-card-plus" title="상세보기">+</button>
+          </div>
+
+          <div class="dot-info-list" style="padding-top: 8px;">
+            <div class="dot-item">
+              <span class="dot-bullet">●</span>
+              <span class="dot-label">에너지 사용자명</span>
+              <span class="dot-val">(주)선영</span>
+            </div>
+            <div class="dot-item">
+              <span class="dot-bullet">●</span>
+              <span class="dot-label">사용자 거래처명</span>
+              <span class="dot-val">선영_천안</span>
+            </div>
+
+            <div class="dot-item">
+              <span class="dot-bullet">●</span>
+              <span class="dot-label">상환 개시일</span>
+              <span class="dot-val">2026.10.31</span>
+            </div>
+            <div class="dot-item">
+              <span class="dot-bullet">●</span>
+              <span class="dot-label">상환 완료일</span>
+              <span class="dot-val">2028.09.30</span>
+            </div>
+
+            <div class="dot-item">
+              <span class="dot-bullet">●</span>
+              <span class="dot-label">총 상환금액</span>
+              <span class="dot-val">1,183,350,000 원</span>
+            </div>
+            <div class="dot-item">
+              <span class="dot-bullet">●</span>
+              <span class="dot-label">상환율(%)</span>
+              <span class="dot-val" style="color: #059669;">32</span>
+            </div>
+
+            <div class="dot-item">
+              <span class="dot-bullet">●</span>
+              <span class="dot-label">누적 상환액</span>
+              <span class="dot-val">293,350,000 원</span>
+            </div>
+            <div class="dot-item">
+              <span class="dot-bullet">●</span>
+              <span class="dot-label">IRR(%)</span>
+              <span class="dot-val">9.54</span>
+            </div>
+
+            <div class="dot-item">
+              <!-- 빈자리 정렬 유지 -->
+            </div>
+            <div class="dot-item">
+              <span class="dot-bullet">●</span>
+              <span class="dot-label">상태</span>
+              <span class="dot-val" style="color: #0284c7;">상환 진행 중</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================================================================
+           Section 5: 상환 예정 (Scheduled Repayments Table)
+           ================================================================== -->
+      <div class="detail-schedule-card">
+        <div class="detail-card-header" style="margin-bottom: 12px;">
+          <div style="display: flex; align-items: baseline; gap: 10px;">
+            <div class="detail-card-title" style="display: flex; align-items: center; gap: 6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1976d2" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              상환 예정
+            </div>
+            <span style="font-size: 12px; color: #64748b;">조회일 기준, 도래한 상환예정 스케줄만 노출됩니다.</span>
+          </div>
+          <button type="button" class="btn-card-plus" title="상세보기">+</button>
+        </div>
+
+        <div class="table-scroll-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>상환예정일</th>
+                <th>세금계산서발행일</th>
+                <th>상환액(원)</th>
+                <th>부가세(원)</th>
+                <th>회차별 상환총액(원)</th>
+                <th>지연이자(원)</th>
+                <th>실제 상환일</th>
+                <th>상환액</th>
+                <th>잔여액(원)</th>
+                <th>상태</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2026.10.23</td>
+                <td>2026.10.15</td>
+                <td>46,761,000</td>
+                <td>4,676,100</td>
+                <td style="font-weight: 700; color: #0e3a6c;">51,437,100</td>
+                <td>0</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td><span class="badge-repay-wait">대기</span></td>
+              </tr>
+              <tr>
+                <td>2026.09.23</td>
+                <td>2026.09.15</td>
+                <td>46,761,000</td>
+                <td>4,676,100</td>
+                <td style="font-weight: 700; color: #0e3a6c;">51,437,100</td>
+                <td>0</td>
+                <td>2026.09.23</td>
+                <td>51,437,100</td>
+                <td>0</td>
+                <td><span class="badge-repay-done">완료</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ====================================================================
+       하단 표준 푸터
+       ==================================================================== -->
+  <footer class="app-footer">
+    <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
+  </footer>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
