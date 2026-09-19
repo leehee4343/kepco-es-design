@@ -3,7 +3,10 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initHeaderCleanup();
   initSidebar();
+  initPageManuals();
+  initNativeFormControls();
   initPermissions();
   renderDonutCharts();
   animateBarCharts();
@@ -18,20 +21,167 @@ document.addEventListener('DOMContentLoaded', () => {
   initSrmDashboardPage();
   initPlanPerformancePage();
   initPartnerRegisterPage();
+  initSrmDetailPage();
+  initDataGrids();
 });
+
+/**
+ * 업무 화면의 공통 헤더를 단순화합니다.
+ * 전역 프로젝트 검색은 각 화면의 검색/조회 영역과 역할이 중복되므로 제거하고,
+ * 프로토타입 화면 허브 링크도 사용자 헤더에서 노출하지 않습니다.
+ */
+function initHeaderCleanup() {
+  document.querySelectorAll('.top-header .header-center, .app-header .header-center').forEach((center) => {
+    if (center.querySelector('.search-box, .header-search-bar')) {
+      center.remove();
+    }
+  });
+
+  document.querySelectorAll('.top-header a[href="index.html"], .app-header a[href="index.html"]').forEach((link) => {
+    const adjacentDivider = link.nextElementSibling;
+    if (adjacentDivider?.classList.contains('user-divider')) {
+      adjacentDivider.remove();
+    }
+    link.remove();
+  });
+}
+
+/**
+ * 페이지 타이틀 옆의 소개 문구를 화면별 도움말 버튼으로 대체합니다.
+ */
+function initPageManuals() {
+  const pageTitle = document.querySelector('main h1');
+  if (!pageTitle || pageTitle.closest('.modal')) return;
+
+  const manualByPage = {
+    'Dashboard.html': '즐겨찾기와 주요 프로젝트·자금 현황을 확인합니다. 각 현황 카드와 차트의 항목을 선택하면 관련 업무 화면으로 이동할 수 있습니다.',
+    'ProjectSearch.html': '검색 조건을 입력한 뒤 조회 버튼을 선택합니다. 결과 그리드는 정렬, 가로 스크롤, 페이지 이동을 지원하며 프로젝트명을 선택하면 상세 화면으로 이동합니다.',
+    'ProjectDetail.html': '프로젝트의 계약, 투자, 상환 및 진행 이력을 영역별로 확인합니다. 필요한 업무 버튼을 선택해 후속 절차를 진행할 수 있습니다.',
+    'ProjectRegister.html': '검색 조건으로 기존 수주계약을 확인하거나 신규 프로젝트 등록 버튼을 선택해 접수 정보를 입력합니다.',
+    'BusinessSettlement.html': '대상 프로젝트를 조회한 뒤 매출, 비용, 수익 및 상환 정보를 확인하고 결산 업무를 진행합니다.',
+    'Statistics.html': '기준 연도와 분석 조건을 선택해 프로젝트, 투자 및 상환 현황을 차트와 집계 데이터로 확인합니다.',
+    'StepWorkflow.html': '입찰 업무의 현재 단계를 확인하고 단계별 입력 항목을 작성합니다. 저장 후 다음 단계로 이동할 수 있습니다.',
+    'PlanPerformance.html': '검색 조건을 설정해 프로젝트별 계획 대비 매출, 수익 및 상환 실적을 조회하고 비교합니다.',
+    'SRMDashboard.html': '현재 권한에 맞는 입찰 공고, 진행 단계 및 협력업체 요청 현황을 확인하고 관련 업무로 이동합니다.',
+    'SRMDetail.html': '입찰공고의 기본 정보와 단계별 상세 내용을 확인합니다. 상단 프로세스 탭으로 원하는 업무 영역을 빠르게 이동할 수 있습니다.'
+  };
+
+  const pageName = window.location.pathname.split('/').pop() || 'Dashboard.html';
+  const manualText = manualByPage[pageName] || '현재 화면의 조회 조건과 업무 항목을 확인하고 필요한 기능을 선택해 작업을 진행합니다.';
+
+  pageTitle.querySelectorAll('span').forEach((description) => description.remove());
+  pageTitle.parentElement?.querySelectorAll(':scope > .page-subtitle, :scope > .dashboard-subtitle').forEach((description) => description.remove());
+
+  const manualId = `pageManual-${pageName.replace(/[^a-z0-9]/gi, '')}`;
+  const titleRow = document.createElement('div');
+  titleRow.className = 'page-title-manual-row';
+  pageTitle.parentNode.insertBefore(titleRow, pageTitle);
+  titleRow.appendChild(pageTitle);
+
+  const manualButton = document.createElement('button');
+  manualButton.type = 'button';
+  manualButton.className = 'btn-page-manual';
+  manualButton.textContent = '?';
+  manualButton.setAttribute('aria-label', `${pageTitle.textContent.trim()} 화면 매뉴얼 열기`);
+  manualButton.setAttribute('aria-controls', manualId);
+  manualButton.setAttribute('aria-expanded', 'false');
+  titleRow.appendChild(manualButton);
+
+  const manualPanel = document.createElement('div');
+  manualPanel.id = manualId;
+  manualPanel.className = 'page-manual-panel';
+  manualPanel.setAttribute('role', 'region');
+  manualPanel.setAttribute('aria-label', `${pageTitle.textContent.trim()} 화면 매뉴얼`);
+  manualPanel.hidden = true;
+  manualPanel.innerHTML = `<strong>화면 이용 안내</strong><p>${manualText}</p>`;
+  titleRow.appendChild(manualPanel);
+
+  const setManualOpen = (open) => {
+    manualPanel.hidden = !open;
+    manualButton.setAttribute('aria-expanded', String(open));
+    manualButton.setAttribute('aria-label', `${pageTitle.textContent.trim()} 화면 매뉴얼 ${open ? '닫기' : '열기'}`);
+  };
+
+  manualButton.addEventListener('click', () => {
+    setManualOpen(manualButton.getAttribute('aria-expanded') !== 'true');
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!manualPanel.hidden && !manualPanel.contains(event.target) && event.target !== manualButton) {
+      setManualOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !manualPanel.hidden) {
+      setManualOpen(false);
+      manualButton.focus();
+    }
+  });
+}
+
+/**
+ * 셀렉트와 날짜 입력의 네이티브 동작을 보장합니다.
+ */
+function initNativeFormControls() {
+  document.querySelectorAll('input.date-input').forEach((input) => {
+    if (input.type !== 'date') {
+      input.value = input.value.replace(/\./g, '-');
+      input.type = 'date';
+    }
+  });
+
+  document.querySelectorAll('input[type="date"]').forEach((input) => {
+    input.addEventListener('click', () => {
+      if (typeof input.showPicker === 'function') {
+        try {
+          input.showPicker();
+        } catch (error) {
+          // 지원하지 않는 브라우저는 기본 날짜 입력 동작을 그대로 사용합니다.
+        }
+      }
+    });
+  });
+}
 
 /**
  * 좌측 사이드바 인터랙션 초기화 (LeftMenu.jpeg 기준)
  */
 function initSidebar() {
   const sidebar = document.getElementById('sidebar');
-  const toggleBtn = document.getElementById('btnToggleSidebar');
+  const toggleBtn = document.getElementById('btnToggleSidebar') || document.getElementById('btnmenutoggle');
   const navItems = document.querySelectorAll('.nav-item');
+  const header = document.querySelector('.top-header, .app-header');
+  const headerLeft = header?.querySelector('.header-left');
+  const brand = headerLeft?.querySelector('.header-brand-wrap, .brand-logo-wrap');
+
+  // CI와 메뉴 토글을 사이드바와 동일한 너비의 헤더 영역으로 묶습니다.
+  if (headerLeft && brand && toggleBtn && !headerLeft.querySelector('.header-sidebar-zone')) {
+    const sidebarZone = document.createElement('div');
+    sidebarZone.className = 'header-sidebar-zone';
+    headerLeft.insertBefore(sidebarZone, brand);
+    sidebarZone.append(brand, toggleBtn);
+  }
+
+  // 시스템 구분 배지는 제거하고 "시스템명(PMS/SRM)" 단일 텍스트로 표시합니다.
+  const systemTitle = headerLeft?.querySelector('.system-title');
+  const systemBadge = headerLeft?.querySelector('.badge-pms, .system-badge');
+  if (systemTitle && systemBadge) {
+    const systemCode = systemBadge.textContent.trim();
+    if (systemCode && !systemTitle.textContent.includes(`(${systemCode})`)) {
+      systemTitle.textContent = `${systemTitle.textContent.trim()}(${systemCode})`;
+    }
+    systemBadge.remove();
+  }
+
+  applySidebarMenuIcons(navItems);
+  applySidebarBottomActions();
 
   // 사이드바 축소/확장 토글
   if (toggleBtn && sidebar) {
     toggleBtn.addEventListener('click', () => {
       sidebar.classList.toggle('collapsed');
+      header?.classList.toggle('sidebar-collapsed', sidebar.classList.contains('collapsed'));
       // 축소 시 열려있는 모든 서브메뉴 닫기
       if (sidebar.classList.contains('collapsed')) {
         navItems.forEach(item => item.classList.remove('open'));
@@ -52,6 +202,7 @@ function initSidebar() {
           // 사이드바가 축소된 상태라면 먼저 확장
           if (sidebar.classList.contains('collapsed')) {
             sidebar.classList.remove('collapsed');
+            header?.classList.remove('sidebar-collapsed');
             setTimeout(() => {
               item.classList.toggle('open');
             }, 150);
@@ -76,15 +227,99 @@ function initSidebar() {
   });
 }
 
+/** 메뉴명에 맞는 직관적인 공통 컬러 아이콘을 적용합니다. */
+function applySidebarMenuIcons(navItems) {
+  const svg = paths => `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+  const icons = {
+    dashboard: svg('<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'),
+    intake: svg('<path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 16 9 5 9-5"/>'),
+    project: svg('<path d="M3 7h6l2 2h10v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/><path d="M3 7V5a2 2 0 0 1 2-2h4l2 2h4"/>'),
+    contract: svg('<path d="M6 3h9l3 3v15H6z"/><path d="M14 3v4h4M9 11h6M9 15h4"/><path d="m14 18 2 2 4-5"/>'),
+    funds: svg('<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/>'),
+    settlement: svg('<path d="M4 20V10M10 20V4M16 20v-7M22 20V7"/>'),
+    statistics: svg('<path d="M12 2v10h10A10 10 0 1 1 12 2Z"/><path d="M16 2.8A10 10 0 0 1 21.2 8H16Z"/>'),
+    user: svg('<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>'),
+    travel: svg('<path d="M12 21s7-5 7-12a7 7 0 1 0-14 0c0 7 7 12 7 12Z"/><circle cx="12" cy="9" r="2"/>'),
+    settings: svg('<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1A1.7 1.7 0 0 0 9 4.6 1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"/>'),
+    estimate: svg('<path d="M7 3h10v4H7z"/><path d="M5 5H3v16h18V5h-2M7 11h10M7 15h6"/>'),
+    plan: svg('<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/>'),
+    bid: svg('<path d="m14 4 6 6M12 6l6 6M4 20l8-8M3 21h8"/><path d="m10 8 4-4 6 6-4 4z"/>'),
+    partner: svg('<circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2"/><path d="M3 20a6 6 0 0 1 12 0M14 20a4 4 0 0 1 7 0"/>'),
+    support: svg('<path d="M4 13a8 8 0 0 1 16 0"/><path d="M4 13v4a2 2 0 0 0 2 2h2v-6H4ZM20 13v4a2 2 0 0 1-2 2h-2v-6h4Z"/>')
+  };
+
+  const resolveIcon = label => {
+    if (label.includes('대시보드')) return [icons.dashboard, '#1976d2'];
+    if (label.includes('사업 접수')) return [icons.intake, '#1976d2'];
+    if (label.includes('프로젝트')) return [icons.project, '#0284c7'];
+    if (label.includes('자금')) return [icons.funds, '#00b894'];
+    if (label.includes('결산')) return [icons.settlement, '#00b894'];
+    if (label.includes('통계')) return [icons.statistics, '#ff7a00'];
+    if (label.includes('마이')) return [icons.user, '#1976d2'];
+    if (label.includes('출장')) return [icons.travel, '#ef4444'];
+    if (label.includes('공통') || label.includes('기준정보')) return [icons.settings, '#0284c7'];
+    if (label.includes('사전 견적')) return [icons.estimate, '#00b894'];
+    if (label.includes('발주계획')) return [icons.plan, '#1976d2'];
+    if (label.includes('입찰')) return [icons.bid, '#ff7a00'];
+    if (label.includes('협력업체')) return [icons.partner, '#00b894'];
+    if (label.includes('고객센터') || label.includes('자료실')) return [icons.support, '#1976d2'];
+    if (label.includes('계약')) return [icons.contract, '#ff7a00'];
+    return [icons.dashboard, '#1976d2'];
+  };
+
+  navItems.forEach(item => {
+    const link = item.querySelector(':scope > .nav-link');
+    const label = link?.querySelector('.nav-text')?.textContent.trim() || '';
+    if (!link || !label) return;
+    let icon = link.querySelector('.nav-icon');
+    if (!icon) {
+      icon = document.createElement('span');
+      icon.className = 'nav-icon';
+      link.prepend(icon);
+    }
+    const [markup, color] = resolveIcon(label);
+    icon.innerHTML = markup;
+    icon.style.setProperty('color', color, 'important');
+  });
+}
+
+/** 사이드바 하단 시스템 전환/매뉴얼 버튼의 아이콘과 레벨을 통일합니다. */
+function applySidebarBottomActions() {
+  const icon = paths => `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+  const bidIcon = icon('<path d="m14 4 6 6M12 6l6 6M4 20l8-8M3 21h8"/><path d="m10 8 4-4 6 6-4 4z"/>');
+  const pmsIcon = icon('<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3M7 9h4v5H7zM14 7h3v7h-3z"/>');
+  const manualIcon = icon('<path d="M3 5.5A3.5 3.5 0 0 1 6.5 2H11v17H6.5A3.5 3.5 0 0 0 3 22Z"/><path d="M21 5.5A3.5 3.5 0 0 0 17.5 2H13v17h4.5A3.5 3.5 0 0 1 21 22Z"/>');
+
+  document.querySelectorAll('.btn-sidebar-switch').forEach(button => {
+    const markup = button.textContent.includes('SRM') ? bidIcon : pmsIcon;
+    const host = button.querySelector('.switch-icon');
+    const existingSvg = button.querySelector('svg');
+    if (host) host.innerHTML = markup;
+    else if (existingSvg) existingSvg.outerHTML = markup;
+    else button.insertAdjacentHTML('afterbegin', markup);
+  });
+
+  document.querySelectorAll('.btn-sidebar-manual').forEach(button => {
+    const existingSvg = button.querySelector('svg');
+    if (existingSvg) existingSvg.outerHTML = manualIcon;
+    else button.insertAdjacentHTML('afterbegin', manualIcon);
+  });
+}
+
 /**
  * 상단 권한 그룹 버튼 활성화 토글
  */
 function initPermissions() {
   const permBtns = document.querySelectorAll('.perm-btn');
+  permBtns.forEach(btn => btn.setAttribute('aria-pressed', String(btn.classList.contains('active'))));
   permBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      permBtns.forEach(b => b.classList.remove('active'));
+      permBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
     });
   });
 }
@@ -495,7 +730,6 @@ function initProjectSearchPage() {
   const keywordInput = document.getElementById('searchKeyword');
   const contractTypeSelect = document.getElementById('selectContractType');
   const tableRows = document.querySelectorAll('.data-table tbody tr');
-  const countBadge = document.getElementById('searchResultCount');
   const btnExcel = document.getElementById('btnExcelDownload');
 
   // 퀵 기간 버튼 클릭 로직
@@ -518,7 +752,7 @@ function initProjectSearchPage() {
         newStart.setFullYear(baseEnd.getFullYear() - 1);
       }
 
-      const fmt = d => d.toISOString().slice(0, 10).replace(/-/g, '.');
+      const fmt = d => d.toISOString().slice(0, 10);
       if (startDateInput && endDateInput) {
         startDateInput.value = fmt(newStart);
         endDateInput.value = fmt(baseEnd);
@@ -531,24 +765,20 @@ function initProjectSearchPage() {
     btnSearch.addEventListener('click', () => {
       const kw = keywordInput?.value.trim().toLowerCase() || '';
       const cType = contractTypeSelect?.value || '';
-      let visibleCount = 0;
-
       tableRows.forEach(row => {
         const text = row.textContent.toLowerCase();
         const matchesKeyword = !kw || text.includes(kw);
         const matchesType = !cType || text.includes(cType.toLowerCase());
 
         if (matchesKeyword && matchesType) {
-          row.style.display = '';
-          visibleCount++;
+          row.dataset.filteredOut = 'false';
         } else {
-          row.style.display = 'none';
+          row.dataset.filteredOut = 'true';
         }
       });
 
-      if (countBadge) {
-        countBadge.textContent = `${visibleCount}건`;
-      }
+      document.querySelector('.data-grid')?.dispatchEvent(new CustomEvent('grid:refresh'));
+
     });
   }
 
@@ -563,19 +793,18 @@ function initProjectSearchPage() {
       allInputs.forEach(i => i.value = '');
 
       tableRows.forEach(row => {
-        row.style.display = '';
+        row.dataset.filteredOut = 'false';
       });
 
-      if (countBadge) {
-        countBadge.textContent = `${tableRows.length}건`;
-      }
+      document.querySelector('.data-grid')?.dispatchEvent(new CustomEvent('grid:refresh'));
+
 
       // 1개월 버튼 기본 활성화
       periodBtns.forEach((b, idx) => {
         b.classList.toggle('active', b.getAttribute('data-period') === '1m');
       });
-      if (startDateInput) startDateInput.value = '2025.07.31';
-      if (endDateInput) endDateInput.value = '2026.07.30';
+      if (startDateInput) startDateInput.value = '2025-07-31';
+      if (endDateInput) endDateInput.value = '2026-07-30';
     });
   }
 
@@ -669,7 +898,6 @@ function initBusinessSettlementPage() {
   const typeSelect = document.getElementById('selectSettleType');
   const keywordInput = document.getElementById('settleKeyword');
   const tableRows = document.querySelectorAll('.settlement-table tbody tr');
-  const countBadge = document.getElementById('settleResultCount');
   const btnExcel = document.getElementById('btnSettleExcel');
 
   // 기간 빠른 선택
@@ -692,7 +920,7 @@ function initBusinessSettlementPage() {
         newStart.setFullYear(baseEnd.getFullYear() - 1);
       }
 
-      const fmt = d => d.toISOString().slice(0, 10).replace(/-/g, '.');
+      const fmt = d => d.toISOString().slice(0, 10);
       if (startDateInput && endDateInput) {
         startDateInput.value = fmt(newStart);
         endDateInput.value = fmt(baseEnd);
@@ -705,24 +933,19 @@ function initBusinessSettlementPage() {
     btnSearch.addEventListener('click', () => {
       const selectedType = typeSelect?.value || '';
       const kw = keywordInput?.value.trim().toLowerCase() || '';
-      let matchCount = 0;
-
       tableRows.forEach(row => {
         const text = row.textContent.toLowerCase();
         const matchesType = !selectedType || text.includes(selectedType.toLowerCase());
         const matchesKw = !kw || text.includes(kw);
 
         if (matchesType && matchesKw) {
-          row.style.display = '';
-          matchCount++;
+          row.dataset.filteredOut = 'false';
         } else {
-          row.style.display = 'none';
+          row.dataset.filteredOut = 'true';
         }
       });
 
-      if (countBadge) {
-        countBadge.textContent = matchCount;
-      }
+      document.querySelector('.settlement-table')?.closest('.data-grid')?.dispatchEvent(new CustomEvent('grid:refresh'));
     });
   }
 
@@ -731,15 +954,15 @@ function initBusinessSettlementPage() {
     btnReset.addEventListener('click', () => {
       if (typeSelect) typeSelect.selectedIndex = 0;
       if (keywordInput) keywordInput.value = '';
-      if (startDateInput) startDateInput.value = '2026.07.01';
-      if (endDateInput) endDateInput.value = '2026.07.30';
+      if (startDateInput) startDateInput.value = '2026-07-01';
+      if (endDateInput) endDateInput.value = '2026-07-30';
 
       periodBtns.forEach(b => {
         b.classList.toggle('active', b.getAttribute('data-period') === '1m');
       });
 
-      tableRows.forEach(row => row.style.display = '');
-      if (countBadge) countBadge.textContent = tableRows.length;
+      tableRows.forEach(row => row.dataset.filteredOut = 'false');
+      document.querySelector('.settlement-table')?.closest('.data-grid')?.dispatchEvent(new CustomEvent('grid:refresh'));
     });
   }
 
@@ -871,7 +1094,7 @@ function initStepWorkflowPage() {
         <td><input type="text" class="calc-num-input calc-est-val" value="1,000,000"></td>
         <td><input type="text" class="calc-num-input calc-ass-val" value="1,000,000"></td>
         <td><span class="diff-val">0원</span></td>
-        <td><input type="text" class="filter-input" style="height: 32px; font-size: 12px; width: 100%;" placeholder="20자 이내로 간략히 작성해주세요."></td>
+        <td><input type="text" class="filter-input" style="height: 32px; font-size: 13px; width: 100%;" placeholder="20자 이내로 간략히 작성해주세요."></td>
         <td><button type="button" class="btn-row-del">삭제</button></td>
       `;
       tbodyCalc.appendChild(newTr);
@@ -1052,7 +1275,6 @@ function initPlanPerformancePage() {
   const bizTypeSelect = document.getElementById('selBizType');
   const facilitySelect = document.getElementById('selFacility');
   const keywordInput = document.getElementById('inputKeyword');
-  const resCountEl = document.getElementById('resCount');
   const resetBtn = document.getElementById('btnFilterReset');
   const excelBtn = document.getElementById('btnExcelDownload');
 
@@ -1110,8 +1332,6 @@ function initPlanPerformancePage() {
     const keyword = keywordInput?.value.trim().toLowerCase() || '';
 
     const rows = tableBody.querySelectorAll('tr');
-    let visibleCount = 0;
-
     rows.forEach(row => {
       const rowBiz = row.getAttribute('data-biz') || '';
       const rowFac = row.getAttribute('data-facility') || '';
@@ -1122,14 +1342,13 @@ function initPlanPerformancePage() {
       let matchKw = (!keyword || rowText.includes(keyword));
 
       if (matchBiz && matchFac && matchKw) {
-        row.style.display = '';
-        visibleCount++;
+        row.dataset.filteredOut = 'false';
       } else {
-        row.style.display = 'none';
+        row.dataset.filteredOut = 'true';
       }
     });
 
-    if (resCountEl) resCountEl.textContent = visibleCount;
+    tableBody.closest('.data-grid')?.dispatchEvent(new CustomEvent('grid:refresh'));
   }
 
   // 초기화 핸들러
@@ -1142,8 +1361,8 @@ function initPlanPerformancePage() {
       if (endDateInput) endDateInput.value = '2030-10-19';
 
       const rows = tableBody.querySelectorAll('tr');
-      rows.forEach(row => row.style.display = '');
-      if (resCountEl) resCountEl.textContent = rows.length;
+      rows.forEach(row => row.dataset.filteredOut = 'false');
+      tableBody.closest('.data-grid')?.dispatchEvent(new CustomEvent('grid:refresh'));
     });
   }
 
@@ -1310,8 +1529,457 @@ function initPartnerRegisterPage() {
   }
 }
 
+/**
+ * SRM 입찰공고 상세 인터랙션 (SRMDetail.html)
+ * - 입찰계획 되돌리기 확인 모달
+ * - 첨부파일 미리보기/다운로드 시연
+ * - 상단 입찰 단계 탭 피드백
+ */
+function initSrmDetailPage() {
+  const modal = document.getElementById('modalReturnBidPlan');
+  if (!modal) return;
 
+  const openBtn = document.getElementById('btnReturnBidPlan');
+  const closeBtn = document.getElementById('btnCloseReturnModal');
+  const cancelBtn = document.getElementById('btnCancelReturn');
+  const confirmBtn = document.getElementById('btnConfirmReturn');
+  const reasonInput = document.getElementById('returnReason');
 
+  const openModal = () => {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => reasonInput?.focus(), 100);
+  };
 
+  const closeModal = () => {
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+  };
 
+  openBtn?.addEventListener('click', openModal);
+  closeBtn?.addEventListener('click', closeModal);
+  cancelBtn?.addEventListener('click', closeModal);
+  modal.addEventListener('click', event => {
+    if (event.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && modal.classList.contains('show')) closeModal();
+  });
 
+  confirmBtn?.addEventListener('click', () => {
+    const reason = reasonInput?.value.trim() || '';
+    if (!reason) {
+      alert('입찰계획으로 되돌리는 사유를 입력해 주세요.');
+      reasonInput?.focus();
+      return;
+    }
+    closeModal();
+    const status = document.querySelector('.srm-detail-status');
+    const summaryStatus = document.querySelector('.srm-bid-summary .status-pill');
+    if (status) status.textContent = '입찰계획';
+    if (summaryStatus) {
+      summaryStatus.textContent = '입찰계획';
+      summaryStatus.className = 'status-pill';
+    }
+    if (openBtn) {
+      openBtn.disabled = true;
+      openBtn.textContent = '입찰계획으로 전환 완료';
+    }
+    alert('해당 입찰 건이 입찰계획 상태로 전환되었습니다.');
+  });
+
+  document.querySelectorAll('.btn-file-preview').forEach(button => {
+    button.addEventListener('click', () => {
+      const fileName = button.parentElement?.querySelector('span')?.textContent || '첨부파일';
+      alert(`${fileName} 미리보기 화면을 엽니다.`);
+    });
+  });
+
+  document.querySelectorAll('.btn-file-download').forEach(button => {
+    button.addEventListener('click', () => {
+      const fileName = button.parentElement?.querySelector('span')?.textContent || '첨부파일';
+      alert(`${fileName} 다운로드를 시작합니다.`);
+    });
+  });
+
+  document.querySelectorAll('.srm-process-tabs button').forEach(button => {
+    button.addEventListener('click', () => {
+      if (button.classList.contains('active')) return;
+      alert(`${button.textContent.trim()} 단계 화면은 현재 시연 범위에 포함되지 않습니다.`);
+    });
+  });
+}
+
+/**
+ * 검색/조회 결과용 공통 데이터 그리드
+ * - 기존 table 마크업과 디자인을 유지하면서 그리드 동작만 확장
+ * - 가로 스크롤, sticky header, 정렬, 키보드 접근성 지원
+ */
+function initDataGrids() {
+  const gridWrappers = document.querySelectorAll('.data-grid, .table-card .table-scroll-wrapper');
+
+  gridWrappers.forEach(wrapper => {
+    if (wrapper.dataset.gridInitialized === 'true') return;
+
+    const table = wrapper.querySelector('table');
+    if (!table) return;
+
+    wrapper.dataset.gridInitialized = 'true';
+    wrapper.classList.add('data-grid');
+    wrapper.tabIndex = wrapper.hasAttribute('tabindex') ? wrapper.tabIndex : 0;
+    table.classList.add('data-grid-table');
+    table.setAttribute('role', 'grid');
+
+    const headers = Array.from(table.querySelectorAll('thead th'));
+    const tbody = table.tBodies[0];
+    const declaredTotalItems = Number(wrapper.dataset.totalItems) || 0;
+    const initialRows = tbody ? Array.from(tbody.rows) : [];
+    const firstPageTarget = Math.min(10, declaredTotalItems || initialRows.length);
+
+    // 정적 시안에서도 첫 페이지 10건 레이아웃을 확인할 수 있도록 부족한 샘플 행을 보완합니다.
+    if (tbody && initialRows.length > 0 && initialRows.length < firstPageTarget) {
+      const sequenceHeaderIndex = headers.findIndex(header => /^(no|순번)$/i.test(header.textContent.replace(/⇅|↑|↓/g, '').trim()));
+      for (let index = initialRows.length; index < firstPageTarget; index += 1) {
+        const clone = initialRows[index % initialRows.length].cloneNode(true);
+        clone.querySelectorAll('[id]').forEach(element => element.removeAttribute('id'));
+        if (sequenceHeaderIndex >= 0 && clone.cells[sequenceHeaderIndex]) {
+          const baseSequence = Number(initialRows[0].cells[sequenceHeaderIndex]?.textContent.trim());
+          clone.cells[sequenceHeaderIndex].textContent = Number.isFinite(baseSequence)
+            ? String(Math.max(1, baseSequence - index))
+            : String(index + 1);
+        }
+        tbody.appendChild(clone);
+      }
+    }
+
+    const rows = Array.from(table.querySelectorAll('tbody tr'));
+    table.setAttribute('aria-colcount', String(headers.length));
+    table.setAttribute('aria-rowcount', String(rows.length + 1));
+
+    table.querySelectorAll('thead tr, tbody tr').forEach(row => row.setAttribute('role', 'row'));
+    headers.forEach(header => header.setAttribute('role', 'columnheader'));
+    table.querySelectorAll('tbody td').forEach(cell => cell.setAttribute('role', 'gridcell'));
+
+    const updateColumnIndexes = () => {
+      table.querySelectorAll('tr').forEach(row => {
+        Array.from(row.children).forEach((cell, index) => cell.setAttribute('aria-colindex', String(index + 1)));
+      });
+    };
+
+    const updateOverflowTitles = () => {
+      window.requestAnimationFrame(() => {
+        table.querySelectorAll('tbody td').forEach(cell => {
+          const fullText = cell.textContent.replace(/\s+/g, ' ').trim();
+          if (cell.scrollWidth > cell.clientWidth && fullText) {
+            cell.title = fullText;
+          } else if (cell.title === fullText) {
+            cell.removeAttribute('title');
+          }
+        });
+      });
+    };
+
+    const refreshGridWidth = () => {
+      const totalWidth = Array.from(table.querySelectorAll('thead th')).reduce((sum, header) => {
+        return sum + Math.max(parseFloat(header.style.width) || header.getBoundingClientRect().width || 80, 80);
+      }, 0);
+      table.style.setProperty('--data-grid-min-width', `${Math.max(Math.ceil(totalWidth), 960)}px`);
+      updateOverflowTitles();
+    };
+
+    const moveColumn = (fromIndex, toIndex) => {
+      if (fromIndex === toIndex || fromIndex < 0 || toIndex < 0) return;
+      table.querySelectorAll('tr').forEach(row => {
+        const cells = Array.from(row.children);
+        const movingCell = cells[fromIndex];
+        const targetCell = cells[toIndex];
+        if (!movingCell || !targetCell) return;
+        if (fromIndex < toIndex) targetCell.insertAdjacentElement('afterend', movingCell);
+        else targetCell.insertAdjacentElement('beforebegin', movingCell);
+      });
+      updateColumnIndexes();
+      updateOverflowTitles();
+    };
+
+    const minGridWidth = headers.reduce((width, header) => {
+      const declaredWidth = parseInt(header.style.width || header.style.minWidth || '0', 10);
+      return width + Math.max(declaredWidth || 110, 80);
+    }, 0);
+    table.style.setProperty('--data-grid-min-width', `${Math.max(minGridWidth, 960)}px`);
+
+    let draggedHeader = null;
+    let suppressSort = false;
+
+    headers.forEach(header => {
+      header.draggable = true;
+      header.classList.add('grid-column-header');
+      header.title = `${header.textContent.replace(/⇅|↑|↓/g, '').trim()} 열: 드래그하여 이동, 오른쪽 경계를 드래그하여 너비 조절`;
+
+      const resizeHandle = document.createElement('span');
+      resizeHandle.className = 'grid-column-resizer';
+      resizeHandle.setAttribute('role', 'separator');
+      resizeHandle.setAttribute('aria-orientation', 'vertical');
+      resizeHandle.setAttribute('aria-label', `${header.textContent.replace(/⇅|↑|↓/g, '').trim()} 열 너비 조절`);
+      header.appendChild(resizeHandle);
+
+      resizeHandle.addEventListener('pointerdown', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        suppressSort = true;
+        header.draggable = false;
+        const startX = event.clientX;
+        const startWidth = header.getBoundingClientRect().width;
+        const columnIndex = Array.from(header.parentElement.children).indexOf(header);
+        table.classList.add('is-manually-sized');
+        document.body.classList.add('is-resizing-grid-column');
+
+        const handlePointerMove = moveEvent => {
+          const nextWidth = Math.max(80, Math.round(startWidth + moveEvent.clientX - startX));
+          table.querySelectorAll('tr').forEach(row => {
+            const cell = row.children[columnIndex];
+            if (!cell) return;
+            cell.style.width = `${nextWidth}px`;
+            cell.style.minWidth = `${nextWidth}px`;
+          });
+          refreshGridWidth();
+        };
+
+        const handlePointerUp = () => {
+          document.removeEventListener('pointermove', handlePointerMove);
+          document.removeEventListener('pointerup', handlePointerUp);
+          document.removeEventListener('pointercancel', handlePointerUp);
+          document.body.classList.remove('is-resizing-grid-column');
+          header.draggable = true;
+          window.setTimeout(() => { suppressSort = false; }, 0);
+          refreshGridWidth();
+        };
+
+        document.addEventListener('pointermove', handlePointerMove);
+        document.addEventListener('pointerup', handlePointerUp, { once: true });
+        document.addEventListener('pointercancel', handlePointerUp, { once: true });
+      });
+
+      header.addEventListener('dragstart', event => {
+        if (event.target.closest('.grid-column-resizer')) {
+          event.preventDefault();
+          return;
+        }
+        draggedHeader = header;
+        suppressSort = true;
+        header.classList.add('is-dragging');
+        event.dataTransfer.effectAllowed = 'move';
+        event.dataTransfer.setData('text/plain', header.dataset.col || header.textContent.trim());
+      });
+
+      header.addEventListener('dragover', event => {
+        if (!draggedHeader || draggedHeader === header) return;
+        event.preventDefault();
+        event.dataTransfer.dropEffect = 'move';
+        header.classList.add('is-drag-over');
+      });
+
+      header.addEventListener('dragleave', () => header.classList.remove('is-drag-over'));
+
+      header.addEventListener('drop', event => {
+        event.preventDefault();
+        header.classList.remove('is-drag-over');
+        if (!draggedHeader || draggedHeader === header) return;
+        const currentHeaders = Array.from(header.parentElement.children);
+        moveColumn(currentHeaders.indexOf(draggedHeader), currentHeaders.indexOf(header));
+      });
+
+      header.addEventListener('dragend', () => {
+        headers.forEach(item => item.classList.remove('is-dragging', 'is-drag-over'));
+        draggedHeader = null;
+        window.setTimeout(() => { suppressSort = false; }, 0);
+      });
+
+      header.addEventListener('keydown', event => {
+        if (!event.altKey || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+        event.preventDefault();
+        const currentHeaders = Array.from(header.parentElement.children);
+        const fromIndex = currentHeaders.indexOf(header);
+        const toIndex = event.key === 'ArrowLeft' ? fromIndex - 1 : fromIndex + 1;
+        if (toIndex < 0 || toIndex >= currentHeaders.length) return;
+        moveColumn(fromIndex, toIndex);
+        header.focus();
+      });
+    });
+
+    updateColumnIndexes();
+
+    const tableCard = wrapper.closest('.table-card');
+    const pageSizeSelect = tableCard?.querySelector('.select-per-page')
+      || wrapper.closest('main, .main-content')?.querySelector('.select-per-page');
+    let paginationRow = wrapper.nextElementSibling;
+    if (!paginationRow?.classList.contains('table-pagination-row')) {
+      paginationRow = document.createElement('div');
+      paginationRow.className = 'table-pagination-row';
+      wrapper.insertAdjacentElement('afterend', paginationRow);
+    }
+
+    paginationRow.innerHTML = '<nav class="pagination-controls" aria-label="표 페이지 이동"></nav>';
+
+    const paginationControls = paginationRow.querySelector('.pagination-controls');
+    let currentPage = 1;
+    let pageSize = Number(pageSizeSelect?.value) || 10;
+    const pageSummary = tableCard?.querySelector('.grid-page-summary')
+      || wrapper.closest('main, .main-content')?.querySelector('.grid-page-summary');
+
+    const getRows = () => Array.from(table.querySelectorAll('tbody tr'));
+    const getEligibleRows = () => getRows().filter(row => row.dataset.filteredOut !== 'true');
+
+    const createPageButton = (label, page, options = {}) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = options.navigation ? 'btn-page-nav' : 'btn-page-num';
+      button.textContent = label;
+      button.disabled = Boolean(options.disabled);
+      if (!options.navigation && page === currentPage) {
+        button.classList.add('active');
+        button.setAttribute('aria-current', 'page');
+      }
+      button.setAttribute('aria-label', options.ariaLabel || `${page}페이지`);
+      button.addEventListener('click', () => {
+        currentPage = page;
+        renderPage();
+      });
+      return button;
+    };
+
+    const renderPage = () => {
+      const allRows = getRows();
+      const eligibleRows = getEligibleRows();
+      const hasActiveFilter = eligibleRows.length !== allRows.length;
+      const declaredTotal = Number(wrapper.dataset.totalItems) || 0;
+      const totalItems = hasActiveFilter ? eligibleRows.length : Math.max(declaredTotal, eligibleRows.length);
+      const declaredTotalPages = Number(wrapper.dataset.totalPages) || 0;
+      const totalPages = !hasActiveFilter && pageSize === 10 && declaredTotalPages > 0
+        ? declaredTotalPages
+        : Math.max(1, Math.ceil(totalItems / pageSize));
+      currentPage = Math.min(Math.max(currentPage, 1), totalPages);
+
+      if (pageSummary) {
+        pageSummary.textContent = `${currentPage} / ${totalPages} (총 ${totalItems.toLocaleString('ko-KR')}개)`;
+      }
+
+      const startIndex = (currentPage - 1) * pageSize;
+      const usesPageSample = !hasActiveFilter && declaredTotal > allRows.length;
+      const visibleRows = new Set(usesPageSample
+        ? eligibleRows.slice(0, pageSize)
+        : eligibleRows.slice(startIndex, startIndex + pageSize));
+      allRows.forEach(row => {
+        row.style.display = visibleRows.has(row) ? '' : 'none';
+      });
+
+      table.setAttribute('aria-rowcount', String(totalItems + 1));
+
+      paginationControls.replaceChildren();
+      paginationControls.appendChild(createPageButton('<<', 1, {
+        navigation: true,
+        disabled: currentPage === 1,
+        ariaLabel: '첫 페이지'
+      }));
+      paginationControls.appendChild(createPageButton('<', currentPage - 1, {
+        navigation: true,
+        disabled: currentPage === 1,
+        ariaLabel: '이전 페이지'
+      }));
+
+      const firstPage = Math.floor((currentPage - 1) / 10) * 10 + 1;
+      const lastPage = Math.min(totalPages, firstPage + 9);
+      for (let page = firstPage; page <= lastPage; page += 1) {
+        paginationControls.appendChild(createPageButton(String(page), page));
+      }
+
+      paginationControls.appendChild(createPageButton('>', currentPage + 1, {
+        navigation: true,
+        disabled: currentPage === totalPages,
+        ariaLabel: '다음 페이지'
+      }));
+      paginationControls.appendChild(createPageButton('>>', totalPages, {
+        navigation: true,
+        disabled: currentPage === totalPages,
+        ariaLabel: '마지막 페이지'
+      }));
+    };
+
+    if (pageSizeSelect) {
+      pageSizeSelect.value = String(pageSize);
+      pageSizeSelect.addEventListener('change', () => {
+        pageSize = Number(pageSizeSelect.value) || 10;
+        currentPage = 1;
+        renderPage();
+      });
+    }
+
+    wrapper.addEventListener('grid:refresh', () => {
+      currentPage = 1;
+      renderPage();
+    });
+
+    const sortRows = header => {
+      const currentHeaders = Array.from(table.querySelectorAll('thead th'));
+      const columnIndex = currentHeaders.indexOf(header);
+      if (columnIndex < 0) return;
+
+      const nextDirection = header.getAttribute('aria-sort') === 'ascending' ? 'descending' : 'ascending';
+      currentHeaders.forEach(item => {
+        item.removeAttribute('aria-sort');
+        const caret = item.querySelector('.sort-caret');
+        if (caret) caret.textContent = '⇅';
+      });
+      header.setAttribute('aria-sort', nextDirection);
+      const activeCaret = header.querySelector('.sort-caret');
+      if (activeCaret) activeCaret.textContent = nextDirection === 'ascending' ? '↑' : '↓';
+
+      const tbody = table.tBodies[0];
+      const sortedRows = Array.from(tbody.rows).sort((rowA, rowB) => {
+        const valueA = rowA.cells[columnIndex]?.textContent.trim() || '';
+        const valueB = rowB.cells[columnIndex]?.textContent.trim() || '';
+        const numberA = Number(valueA.replace(/[^0-9.-]/g, ''));
+        const numberB = Number(valueB.replace(/[^0-9.-]/g, ''));
+        const bothNumeric = valueA !== '' && valueB !== '' && !Number.isNaN(numberA) && !Number.isNaN(numberB);
+        const result = bothNumeric
+          ? numberA - numberB
+          : valueA.localeCompare(valueB, 'ko', { numeric: true, sensitivity: 'base' });
+        return nextDirection === 'ascending' ? result : -result;
+      });
+
+      sortedRows.forEach(row => tbody.appendChild(row));
+      renderPage();
+    };
+
+    headers.filter(header => header.classList.contains('th-sortable')).forEach(header => {
+      header.tabIndex = 0;
+      header.setAttribute('aria-sort', 'none');
+      header.addEventListener('click', () => {
+        if (!suppressSort) sortRows(header);
+      });
+      header.addEventListener('keydown', event => {
+        if (!event.altKey && (event.key === 'Enter' || event.key === ' ')) {
+          event.preventDefault();
+          sortRows(header);
+        }
+      });
+    });
+
+    wrapper.addEventListener('keydown', event => {
+      if (event.target.closest('th, button, a, input, select, textarea')) return;
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        wrapper.scrollBy({ left: 140, behavior: 'smooth' });
+      } else if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        wrapper.scrollBy({ left: -140, behavior: 'smooth' });
+      } else if (event.key === 'Home') {
+        wrapper.scrollTo({ left: 0, behavior: 'smooth' });
+      } else if (event.key === 'End') {
+        wrapper.scrollTo({ left: wrapper.scrollWidth, behavior: 'smooth' });
+      }
+    });
+
+    renderPage();
+    updateOverflowTitles();
+  });
+}

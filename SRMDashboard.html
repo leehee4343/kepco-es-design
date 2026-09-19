@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>전자입찰시스템 SRM - 통합 업무 대시보드 | KEPCO ES</title>
+  <title>전자입찰시스템 SRM - 통합 업무 대시보드 | KEPCO es</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,8 +13,8 @@
        ==================================================================== -->
   <header class="app-header">
     <div class="header-left">
-      <button type="button" class="btn-menu-toggle" id="btnMenuToggle" title="사이드바 메뉴 접기/펼치기">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <button type="button" class="btn-menu-toggle" id="btnmenutoggle" title="사이드바 메뉴 접기/펼치기">
+        <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -26,27 +26,25 @@
       </a>
 
       <div class="header-system-badge-group">
-        <span class="system-title">전자입찰시스템</span>
-        <span class="system-badge badge-srm-navy">SRM</span>
+        <span class="system-title">전자입찰시스템(SRM)</span>
       </div>
     </div>
 
     <!-- 중앙: 권한(역할) 스위처 및 검색 -->
     <div class="header-center">
       <div class="srm-role-bar" style="margin-bottom: 0;">
-        <span class="srm-role-lbl">시연 권한:</span>
+        <span class="srm-role-lbl">권한 전환:</span>
         <button type="button" class="srm-role-chip active" data-role="contract" title="계약담당자 권한 뷰">계약담당자</button>
         <button type="button" class="srm-role-chip" data-role="biz" title="사업담당자 권한 뷰">사업담당자</button>
         <button type="button" class="srm-role-chip" data-role="admin" title="관리자 권한 뷰">관리자</button>
-        <button type="button" class="srm-role-chip" data-role="partner" title="협력업체 전용 창구 뷰">협력업체(한빛전력)</button>
+        <button type="button" class="srm-role-chip" data-role="partner" title="협력업체 전용 창구 뷰">협력업체</button>
       </div>
     </div>
 
     <!-- 우측: PMS 바로가기, 사용자 정보 및 로그아웃 -->
     <div class="header-right">
       <div class="user-profile">
-        <a href="index.html" class="btn-logout" style="background: rgba(25, 118, 210, 0.08); color: #1976d2; font-weight: 700; border-color: #90caf9;" title="전체 화면 허브 (index.html)">화면 허브 ↗</a>
-        <a href="Dashboard.html" class="btn-logout" style="background: rgba(14, 58, 108, 0.08); color: #0e3a6c; font-weight: 700; border-color: #cbd5e1;" title="사업관리시스템(PMS)으로 이동">PMS 복귀 ↗</a>
+        <a href="Dashboard.html" class="btn-logout" style="background: rgba(14, 58, 108, 0.08); color: #1976d2; font-weight: 700; border-color: #cbd5e1;" title="사업관리시스템(PMS)으로 이동">PMS 복귀 ↗</a>
         <span class="user-divider">|</span>
         <span class="user-name" id="srmUserName">홍길동 과장</span>
         <span class="user-role" id="srmUserRole">[계약담당자]</span>
@@ -73,7 +71,7 @@
           <div class="nav-item active">
             <a href="SRMDashboard.html" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="3" y="3" width="7" height="9"></rect>
                   <rect x="14" y="3" width="7" height="5"></rect>
                   <rect x="14" y="12" width="7" height="9"></rect>
@@ -88,8 +86,8 @@
           <div class="nav-item">
             <a href="#" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m14 2h6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v8z"></path>
                   <polyline points="14 2 14 8 20 8"></polyline>
                   <line x1="16" y1="13" x2="8" y2="13"></line>
                   <line x1="16" y1="17" x2="8" y2="17"></line>
@@ -97,7 +95,7 @@
               </span>
               <span class="nav-text">사전 견적 관리</span>
               <span class="nav-arrow">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </a>
             <ul class="submenu">
@@ -110,7 +108,7 @@
           <div class="nav-item">
             <a href="#" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                   <polyline points="2 17 12 22 22 17"></polyline>
                   <polyline points="2 12 12 17 22 12"></polyline>
@@ -118,7 +116,7 @@
               </span>
               <span class="nav-text">발주계약 요청</span>
               <span class="nav-arrow">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </a>
             <ul class="submenu">
@@ -131,7 +129,7 @@
           <div class="nav-item">
             <a href="#" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                   <line x1="16" y1="2" x2="16" y2="6"></line>
                   <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -140,7 +138,7 @@
               </span>
               <span class="nav-text">발주계획</span>
               <span class="nav-arrow">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </a>
             <ul class="submenu">
@@ -153,14 +151,14 @@
           <div class="nav-item">
             <a href="#" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="10"></circle>
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
               </span>
               <span class="nav-text">수의계약 관리</span>
               <span class="nav-arrow">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </a>
             <ul class="submenu">
@@ -173,18 +171,18 @@
           <div class="nav-item open">
             <a href="#" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m12 2l3.09 6.26l22 9.27l-5 4.87 1.18 6.88l12 17.77l-6.18 3.25l7 14.14 2 9.27l6.91-1.01l12 2z"></path>
                 </svg>
               </span>
               <span class="nav-text">입찰관리</span>
               <span class="nav-arrow">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </a>
             <ul class="submenu">
-              <li class="submenu-item"><a href="StepWorkflow.html" style="color: #0284c7; font-weight: 700;">입찰계획 현황 (7-Step) ↗</a></li>
-              <li class="submenu-item"><a href="#">입찰공고 현황</a></li>
+              <li class="submenu-item"><a href="StepWorkflow.html" style="color: #0284c7; font-weight: 700;">입찰계획 현황 (7-step) ↗</a></li>
+              <li class="submenu-item"><a href="SRMDetail.html" style="color: #0284c7; font-weight: 700;">입찰공고 현황 (상세) ↗</a></li>
               <li class="submenu-item"><a href="#">입찰 참여현황</a></li>
               <li class="submenu-item"><a href="#">심사/평가</a></li>
               <li class="submenu-item"><a href="#">개찰</a></li>
@@ -197,13 +195,13 @@
           <div class="nav-item">
             <a href="#" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m22 19a2 2 0 0 1-2 2h4a2 2 0 0 1-2-2v5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                 </svg>
               </span>
               <span class="nav-text">계약관리</span>
               <span class="nav-arrow">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </a>
             <ul class="submenu">
@@ -216,16 +214,16 @@
           <div class="nav-item">
             <a href="#" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m17 21v-2a4 4 0 0 0-4-4h5a4 4 0 0 0-4 4v2"></path>
                   <circle cx="9" cy="7" r="4"></circle>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  <path d="m23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="m16 3.13a4 4 0 0 1 0 7.75"></path>
                 </svg>
               </span>
               <span class="nav-text">협력업체 관리</span>
               <span class="nav-arrow">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </a>
             <ul class="submenu">
@@ -239,14 +237,14 @@
           <div class="nav-item">
             <a href="#" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="3"></circle>
-                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                  <path d="m19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51v21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09a1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1h3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09a1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33h9a1.65 1.65 0 0 0 1-1.51v3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v9a1.65 1.65 0 0 0 1.51 1h21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
                 </svg>
               </span>
               <span class="nav-text">기준정보 관리</span>
               <span class="nav-arrow">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </a>
             <ul class="submenu">
@@ -262,7 +260,7 @@
           <div class="nav-item">
             <a href="#" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
                   <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
                   <line x1="6" y1="6" x2="6.01" y2="6"></line>
@@ -271,14 +269,14 @@
               </span>
               <span class="nav-text">공통관리</span>
               <span class="nav-arrow">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </a>
             <ul class="submenu">
               <li class="submenu-item"><a href="#">관리자 관리</a></li>
               <li class="submenu-item"><a href="#">권한그룹 관리</a></li>
               <li class="submenu-item"><a href="#">시스템 권한 관리</a></li>
-              <li class="submenu-item"><a href="#">접속 IP 관리</a></li>
+              <li class="submenu-item"><a href="#">접속 ip 관리</a></li>
               <li class="submenu-item"><a href="#">코드관리</a></li>
               <li class="submenu-item"><a href="#">로그인 현황</a></li>
               <li class="submenu-item"><a href="#">공지사항 관리</a></li>
@@ -295,7 +293,7 @@
           <div class="nav-item active">
             <a href="SRMDashboard.html" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="3" y="3" width="7" height="9"></rect>
                   <rect x="14" y="3" width="7" height="5"></rect>
                   <rect x="14" y="12" width="7" height="9"></rect>
@@ -310,19 +308,19 @@
           <div class="nav-item open">
             <a href="#" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                  <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m18 8a6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                  <path d="m13.73 21a2 2 0 0 1-3.46 0"></path>
                 </svg>
               </span>
               <span class="nav-text">고객센터 / 자료실</span>
               <span class="nav-arrow">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </a>
             <ul class="submenu">
               <li class="submenu-item"><a href="#">공지사항</a></li>
-              <li class="submenu-item"><a href="#">질문과 답변 (Q&A)</a></li>
+              <li class="submenu-item"><a href="#">질문과 답변 (q&a)</a></li>
               <li class="submenu-item"><a href="#">양식 등 자료실</a></li>
             </ul>
           </div>
@@ -331,14 +329,14 @@
           <div class="nav-item">
             <a href="#" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m14 2h6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v8z"></path>
                   <polyline points="14 2 14 8 20 8"></polyline>
                 </svg>
               </span>
               <span class="nav-text">견적 및 입찰 참여</span>
               <span class="nav-arrow">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </a>
             <ul class="submenu">
@@ -352,13 +350,13 @@
           <div class="nav-item">
             <a href="#" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m22 19a2 2 0 0 1-2 2h4a2 2 0 0 1-2-2v5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                 </svg>
               </span>
               <span class="nav-text">계약관리</span>
               <span class="nav-arrow">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </a>
             <ul class="submenu">
@@ -371,14 +369,14 @@
           <div class="nav-item">
             <a href="#" class="nav-link">
               <span class="nav-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m20 21v-2a4 4 0 0 0-4-4h8a4 4 0 0 0-4 4v2"></path>
                   <circle cx="12" cy="7" r="4"></circle>
                 </svg>
               </span>
               <span class="nav-text">협력업체 정보 관리</span>
               <span class="nav-arrow">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
             </a>
             <ul class="submenu">
@@ -395,7 +393,7 @@
       <!-- 사이드바 하단 퀵 링크 배너 ([참고]왼쪽메뉴.jpeg 100% 반영) -->
       <div class="sidebar-bottom-actions">
         <a href="Dashboard.html" class="btn-sidebar-switch" title="사업관리시스템(PMS)으로 이동">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="17" height="17" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
             <line x1="8" y1="21" x2="16" y2="21"></line>
             <line x1="12" y1="17" x2="12" y2="21"></line>
@@ -403,9 +401,9 @@
           <span>사업관리시스템 (PMS)</span>
         </a>
         <button type="button" class="btn-sidebar-manual" onclick="alert('온라인 매뉴얼(SRM 전자입찰) 시스템 가이드를 호출합니다.');">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
-            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <path d="m9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
             <line x1="12" y1="17" x2="12.01" y2="17"></line>
           </svg>
           <span>온라인 매뉴얼</span>
@@ -417,32 +415,34 @@
     <main class="main-content">
       <div class="content-header">
         <div>
-          <div class="breadcrumb">
+          <h1 class="page-title">SRM 전자입찰 업무 포털</h1>
+        </div>
+        <div class="page-header-right">
+          <nav class="breadcrumb" aria-label="현재 위치">
             <span class="breadcrumb-item">홈</span>
             <span class="breadcrumb-separator">&gt;</span>
             <span class="breadcrumb-item">전자입찰시스템 SRM</span>
             <span class="breadcrumb-separator">&gt;</span>
-            <span class="breadcrumb-item current" id="srmBreadcrumbCurrent">대시보드</span>
+            <span class="breadcrumb-item current" id="srmbreadcrumbcurrent">대시보드</span>
+          </nav>
+          <div class="header-action-group">
+            <span class="card-status-badge badge-success" style="padding: 6px 14px; font-size: 13px;">실시간 연동 중</span>
+            <a href="StepWorkflow.html" class="btn-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;" title="7단계 진행상태별 업무 관리 화면으로 이동">
+              <span>진행상태별 업무 관리(예정가산출) ↗</span>
+            </a>
           </div>
-          <h1 class="page-title">SRM 전자입찰 업무 포털 <span style="font-size: 14px; font-weight: 500; color: #64748b;" id="srmPageSubtitle">(계약담당자 종합 현황)</span></h1>
-        </div>
-        <div class="header-action-group">
-          <span class="card-status-badge badge-success" style="padding: 6px 14px; font-size: 12.5px;">실시간 연동 중</span>
-          <a href="StepWorkflow.html" class="btn-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;" title="7단계 진행상태별 업무 관리 화면으로 이동">
-            <span>진행상태별 업무 관리(예정가산출) ↗</span>
-          </a>
         </div>
       </div>
 
       <!-- 역할 안내 알림 박스 -->
-      <div class="info-alert-box" id="srmModeNotice" style="margin-bottom: 20px; background: #f0f7ff; border: 1.5px solid #bfdbfe; border-radius: 10px; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between;">
+      <div class="info-alert-box" id="srmmodenotice" style="margin-bottom: 20px; background: #f0f7ff; border: 1.5px solid #bfdbfe; border-radius: 10px; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between;">
         <div style="display: flex; align-items: center; gap: 10px;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2.3"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-          <span style="font-size: 13.5px; color: #1e3a8a; font-weight: 600;" id="srmModeNoticeText">
+          <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2.3"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          <span style="font-size: 13.5px; color: #1976d2; font-weight: 600;" id="srmModeNoticeText">
             현재 <strong>계약담당자</strong> 모드로 접속 중입니다. 좌측 메뉴에서 10대 사내 업무 메뉴를 확인하시거나 상단 역할 버튼을 통해 협력업체 전용 창구 모드로 전환하실 수 있습니다.
           </span>
         </div>
-        <span style="font-size: 12px; color: #3b82f6; font-weight: 700;">[참고]메뉴구조도(SRM).xlsx 기준</span>
+        <span style="font-size: 13px; color: #3b82f6; font-weight: 700;">[참고]메뉴구조도(SRM).xlsx 기준</span>
       </div>
 
       <!-- SRM 4대 핵심 업무 지표 카드 -->
@@ -454,35 +454,35 @@
         </div>
         <div class="srm-kpi-card kpi-amber">
           <div class="srm-kpi-title">사전 견적 요청 현황</div>
-          <div class="srm-kpi-val" style="color: #f59e0b;">6 <span style="font-size: 15px; font-weight: 600; color: #64748b;">건</span></div>
+          <div class="srm-kpi-val" style="color: #ff7a00;">6 <span style="font-size: 15px; font-weight: 600; color: #64748b;">건</span></div>
           <div class="srm-kpi-sub">신규 요청 2건 · 제출완료 4건</div>
         </div>
         <div class="srm-kpi-card kpi-teal">
           <div class="srm-kpi-title">예정가 산출 및 적격심사</div>
           <div class="srm-kpi-val" style="color: #00b894;">4 <span style="font-size: 15px; font-weight: 600; color: #64748b;">건</span></div>
-          <div class="srm-kpi-sub">STEP 04 예정가산출 <a href="StepWorkflow.html" style="color: #00b894; font-weight: 700; text-decoration: underline;">1건 처리대기</a></div>
+          <div class="srm-kpi-sub">step 04 예정가산출 <a href="StepWorkflow.html" style="color: #00b894; font-weight: 700; text-decoration: underline;">1건 처리대기</a></div>
         </div>
         <div class="srm-kpi-card kpi-purple">
           <div class="srm-kpi-title">신규 협력업체 승인요청</div>
-          <div class="srm-kpi-val" style="color: #7e57c2;">8 <span style="font-size: 15px; font-weight: 600; color: #64748b;">개사</span></div>
+          <div class="srm-kpi-val" style="color: #1976d2;">8 <span style="font-size: 15px; font-weight: 600; color: #64748b;">개사</span></div>
           <div class="srm-kpi-sub">신규등록 5개사 · 정보변경 3개사</div>
         </div>
       </div>
 
       <!-- 2단 복합 그리드: 최근 입찰 현황 및 처리 대기 목록 -->
-      <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; margin-bottom: 24px;">
+      <div class="srm-dashboard-work-grid" style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 20px; margin-bottom: 24px;">
         
         <!-- 좌측: 최근 입찰공고 및 업무 단계 현황 테이블 -->
         <div class="app-card">
           <div class="app-card-header" style="display: flex; align-items: center; justify-content: space-between;">
             <div style="display: flex; align-items: center; gap: 8px;">
               <span class="section-title-bar" style="background: #1976d2;"></span>
-              <h2 style="font-size: 16px; font-weight: 800; color: #0f172a;">최근 입찰공고 및 진행단계 현황</h2>
+              <h2 style="font-size: 16px; font-weight: 800; color: #334155;">최근 입찰공고 및 진행단계 현황</h2>
             </div>
-            <a href="StepWorkflow.html" style="font-size: 12.5px; color: #1976d2; font-weight: 700; text-decoration: none;">전체보기 &gt;</a>
+            <a href="StepWorkflow.html" style="font-size: 13px; color: #1976d2; font-weight: 700; text-decoration: none;">전체보기 &gt;</a>
           </div>
           <div style="overflow-x: auto;">
-            <table class="data-table" style="font-size: 12.5px;">
+            <table class="data-table" style="font-size: 13px;">
               <thead>
                 <tr>
                   <th>공고번호</th>
@@ -495,38 +495,38 @@
               </thead>
               <tbody>
                 <tr style="background: #fffdf5;">
-                  <td style="font-family: monospace; font-weight: 700; color: #0284c7;">BD2026-0023</td>
+                  <td style="font-family: 'pretendard'; font-weight: 700; color: #0284c7;">bd2026-0023</td>
                   <td style="text-align: left; font-weight: 700;">
-                    <a href="StepWorkflow.html" style="color: #1e293b; text-decoration: none;">서초동 1601-9 오피스텔 신축공사 중 수축열냉난방설비 설치공사</a>
+                    <a href="StepWorkflow.html" style="color: #334155; text-decoration: none;">서초동 1601-9 오피스텔 신축공사 중 수축열냉난방설비 설치공사</a>
                   </td>
                   <td>일반경쟁</td>
-                  <td><span class="card-status-badge badge-warning" style="font-size: 11px;">STEP 04 예정가산출</span></td>
+                  <td><span class="card-status-badge badge-warning" style="font-size: 13px;">step 04 예정가산출</span></td>
                   <td>2026.09.28</td>
-                  <td><a href="StepWorkflow.html" class="btn-sub-green" style="display: inline-block; padding: 3px 8px; font-size: 11px; border-radius: 4px; text-decoration: none;">업무처리 ↗</a></td>
+                  <td><a href="StepWorkflow.html" class="btn-sub-green" style="display: inline-block; padding: 3px 8px; font-size: 13px; border-radius: 4px; text-decoration: none;">업무처리 ↗</a></td>
                 </tr>
                 <tr>
-                  <td style="font-family: monospace; color: #64748b;">BD2026-0022</td>
+                  <td style="font-family: 'pretendard'; color: #64748b;">bd2026-0022</td>
                   <td style="text-align: left;">청주 오송공장 수변전설비 증설공사</td>
                   <td>제한경쟁</td>
-                  <td><span class="card-status-badge badge-info" style="font-size: 11px;">STEP 02 공고게시</span></td>
+                  <td><span class="card-status-badge badge-info" style="font-size: 13px;">step 02 공고게시</span></td>
                   <td>2026.09.26</td>
-                  <td><span style="color: #64748b; font-size: 11px;">열람</span></td>
+                  <td><span style="color: #64748b; font-size: 13px;">열람</span></td>
                 </tr>
                 <tr>
-                  <td style="font-family: monospace; color: #64748b;">BD2026-0021</td>
+                  <td style="font-family: 'pretendard'; color: #64748b;">bd2026-0021</td>
                   <td style="text-align: left;">2026년도 에너지 모니터링 클라우드 기술지원 용역</td>
                   <td>협상에의한계약</td>
-                  <td><span class="card-status-badge badge-success" style="font-size: 11px;">STEP 06 계약체결</span></td>
+                  <td><span class="card-status-badge badge-success" style="font-size: 13px;">step 06 계약체결</span></td>
                   <td>2026.09.15</td>
-                  <td><span style="color: #64748b; font-size: 11px;">완료</span></td>
+                  <td><span style="color: #64748b; font-size: 13px;">완료</span></td>
                 </tr>
                 <tr>
-                  <td style="font-family: monospace; color: #64748b;">BD2026-0020</td>
+                  <td style="font-family: 'pretendard'; color: #64748b;">bd2026-0020</td>
                   <td style="text-align: left;">창원 국가산단 스마트 컴프레셔 고효율화 개체공사</td>
                   <td>지명경쟁</td>
-                  <td><span class="card-status-badge badge-info" style="font-size: 11px;">STEP 03 제안평가</span></td>
+                  <td><span class="card-status-badge badge-info" style="font-size: 13px;">step 03 제안평가</span></td>
                   <td>2026.10.02</td>
-                  <td><span style="color: #64748b; font-size: 11px;">열람</span></td>
+                  <td><span style="color: #64748b; font-size: 13px;">열람</span></td>
                 </tr>
               </tbody>
             </table>
@@ -537,32 +537,32 @@
         <div class="app-card">
           <div class="app-card-header" style="display: flex; align-items: center; justify-content: space-between;">
             <div style="display: flex; align-items: center; gap: 8px;">
-              <span class="section-title-bar" style="background: #7e57c2;"></span>
-              <h2 style="font-size: 16px; font-weight: 800; color: #0f172a;">신규 협력업체 심사 요청</h2>
+              <span class="section-title-bar" style="background: #1976d2;"></span>
+              <h2 style="font-size: 16px; font-weight: 800; color: #334155;">신규 협력업체 심사 요청</h2>
             </div>
             <span class="badge-tag">대기 5건</span>
           </div>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 12.5px;">
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
             <li style="padding: 10px 12px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
               <div>
-                <strong style="color: #0f172a; font-size: 13px;">(주)한빛전력공사</strong>
-                <div style="color: #64748b; font-size: 11.5px; margin-top: 2px;">전기공사업 · 사업자: 120-81-45678</div>
+                <strong style="color: #334155; font-size: 13px;">(주)한빛전력공사</strong>
+                <div style="color: #64748b; font-size: 13px; margin-top: 2px;">전기공사업 · 사업자: 120-81-45678</div>
               </div>
-              <span class="card-status-badge badge-warning" style="font-size: 11px;">서류심사중</span>
+              <span class="card-status-badge badge-warning" style="font-size: 13px;">서류심사중</span>
             </li>
             <li style="padding: 10px 12px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
               <div>
-                <strong style="color: #0f172a; font-size: 13px;">동성에너지기술(주)</strong>
-                <div style="color: #64748b; font-size: 11.5px; margin-top: 2px;">기계설비공사업 · 사업자: 214-85-98765</div>
+                <strong style="color: #334155; font-size: 13px;">동성에너지기술(주)</strong>
+                <div style="color: #64748b; font-size: 13px; margin-top: 2px;">기계설비공사업 · 사업자: 214-85-98765</div>
               </div>
-              <span class="card-status-badge badge-info" style="font-size: 11px;">접수완료</span>
+              <span class="card-status-badge badge-info" style="font-size: 13px;">접수완료</span>
             </li>
             <li style="padding: 10px 12px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
               <div>
-                <strong style="color: #0f172a; font-size: 13px;">(주)에코그린인프라</strong>
-                <div style="color: #64748b; font-size: 11.5px; margin-top: 2px;">신재생에너지전문기업 · 사업자: 107-86-12345</div>
+                <strong style="color: #334155; font-size: 13px;">(주)에코그린인프라</strong>
+                <div style="color: #64748b; font-size: 13px; margin-top: 2px;">신재생에너지전문기업 · 사업자: 107-86-12345</div>
               </div>
-              <span class="card-status-badge badge-success" style="font-size: 11px;">승인완료</span>
+              <span class="card-status-badge badge-success" style="font-size: 13px;">승인완료</span>
             </li>
           </ul>
         </div>

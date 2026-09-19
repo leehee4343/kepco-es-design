@@ -1,6 +1,7 @@
 # Scratch and temporary scripts
 scratch/
 .gemini/
+.audit_temp/
 *.tmp
 *.log
 

@@ -1,26 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>사업관리시스템 PMS - 추진단계 프로젝트 현황 (검색 및 조회) | KEPCO ES</title>
+  <title>사업관리시스템 PMS - 추진단계 프로젝트 현황 (검색 및 조회) | KEPCO es</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <!-- ====================================================================
-       상단 글로벌 헤더 (통합 CI 및 디자인 시스템 준수)
+       상단 글로벌 헤더 (통합 ci 및 디자인 시스템 준수)
        ==================================================================== -->
   <header class="top-header">
     <div class="header-left">
-      <!-- 켑코이에스 공식 CI 로고 -->
+      <!-- 켑코이에스 공식 ci 로고 -->
       <a href="Dashboard.html" class="header-brand-wrap" title="대시보드로 이동">
         <img src="assets/logo.png" alt="켑코이에스(주)" class="brand-logo-img">
       </a>
 
       <!-- 햄버거 메뉴 토글 버튼 -->
       <button type="button" class="btn-hamburger" id="btnToggleSidebar" title="메뉴 접기/펼치기">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -29,36 +29,18 @@
 
       <!-- 시스템 명칭 -->
       <div class="system-title-wrap">
-        <h2 class="system-title">사업관리시스템</h2>
-        <span class="badge-pms">PMS</span>
-      </div>
-    </div>
-
-    <!-- 중앙 검색창 -->
-    <div class="header-center">
-      <div class="search-box">
-        <input type="text" class="search-input" placeholder="프로젝트 명 또는 프로젝트 번호를 입력하세요" aria-label="프로젝트 검색">
-        <button type="button" class="search-btn" title="검색">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </button>
+        <h2 class="system-title">사업관리시스템(PMS)</h2>
       </div>
     </div>
 
     <!-- 우측 권한 선택 & 사용자 정보 -->
     <div class="header-right">
       <div class="permission-group">
-        <span class="perm-label">권한</span>
-        <button type="button" class="perm-btn active">그룹#1</button>
-        <button type="button" class="perm-btn">그룹#2</button>
-        <button type="button" class="perm-btn">그룹#3</button>
-        <button type="button" class="perm-btn">그룹#4</button>
+          <span class="perm-label">권한 :</span>
+          <button type="button" class="perm-btn active">권한그룹명#1</button>
+          <button type="button" class="perm-btn">권한그룹명#2</button>
       </div>
       <div class="user-profile">
-        <a href="index.html" class="btn-logout" style="background: rgba(25, 118, 210, 0.08); color: #1976d2; font-weight: 700; border-color: #90caf9;" title="전체 화면 허브 (index.html)">화면 허브 ↗</a>
-        <span class="user-divider">|</span>
         <span class="user-name">이희성 부장</span>
         <span class="user-role">[시스템 관리자]</span>
         <span class="user-divider">|</span>
@@ -80,7 +62,7 @@
         <div class="nav-item active open">
           <a href="#" class="nav-link">
             <span class="nav-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                 <polyline points="2 17 12 22 22 17"></polyline>
                 <polyline points="2 12 12 17 22 12"></polyline>
@@ -88,7 +70,7 @@
             </span>
             <span class="nav-text">사업 접수</span>
             <span class="nav-arrow">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </span>
           </a>
           <ul class="submenu">
@@ -101,13 +83,13 @@
         <div class="nav-item">
           <a href="#" class="nav-link">
             <span class="nav-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m22 19a2 2 0 0 1-2 2h4a2 2 0 0 1-2-2v5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
               </svg>
             </span>
             <span class="nav-text">프로젝트 관리</span>
             <span class="nav-arrow">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </span>
           </a>
           <ul class="submenu">
@@ -121,8 +103,8 @@
         <div class="nav-item">
           <a href="#" class="nav-link">
             <span class="nav-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m14 2h6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
                 <line x1="16" y1="13" x2="8" y2="13"></line>
                 <line x1="16" y1="17" x2="8" y2="17"></line>
@@ -131,7 +113,7 @@
             </span>
             <span class="nav-text">계약 관리</span>
             <span class="nav-arrow">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </span>
           </a>
           <ul class="submenu">
@@ -146,14 +128,14 @@
         <div class="nav-item">
           <a href="#" class="nav-link">
             <span class="nav-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
                 <line x1="1" y1="10" x2="23" y2="10"></line>
               </svg>
             </span>
             <span class="nav-text">자금 관리</span>
             <span class="nav-arrow">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </span>
           </a>
           <ul class="submenu">
@@ -168,7 +150,7 @@
         <div class="nav-item">
           <a href="#" class="nav-link">
             <span class="nav-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="18" y1="20" x2="18" y2="10"></line>
                 <line x1="12" y1="20" x2="12" y2="4"></line>
                 <line x1="6" y1="20" x2="6" y2="14"></line>
@@ -176,7 +158,7 @@
             </span>
             <span class="nav-text">사업 결산</span>
             <span class="nav-arrow">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </span>
           </a>
           <ul class="submenu">
@@ -189,14 +171,14 @@
         <div class="nav-item">
           <a href="#" class="nav-link">
             <span class="nav-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
-                <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m21.21 15.89a10 10 0 1 1 8 2.83"></path>
+                <path d="m22 12a10 10 0 0 0 12 2v10z"></path>
               </svg>
             </span>
             <span class="nav-text">통계</span>
             <span class="nav-arrow">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </span>
           </a>
           <ul class="submenu">
@@ -205,18 +187,18 @@
           </ul>
         </div>
 
-        <!-- 7. 마이 페이지 ([참고]메뉴구조도(PMS).xlsx No:30~35 반영) -->
+        <!-- 7. 마이 페이지 ([참고]메뉴구조도(PMS).xlsx no:30~35 반영) -->
         <div class="nav-item">
           <a href="#" class="nav-link">
             <span class="nav-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m20 21v-2a4 4 0 0 0-4-4h8a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
               </svg>
             </span>
             <span class="nav-text">마이 페이지</span>
             <span class="nav-arrow">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </span>
           </a>
           <ul class="submenu">
@@ -226,18 +208,18 @@
           </ul>
         </div>
 
-        <!-- 8. 출장 관리 ([참고]메뉴구조도(PMS).xlsx No:36~40 반영) -->
+        <!-- 8. 출장 관리 ([참고]메뉴구조도(PMS).xlsx no:36~40 반영) -->
         <div class="nav-item">
           <a href="#" class="nav-link">
             <span class="nav-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
             </span>
             <span class="nav-text">출장 관리</span>
             <span class="nav-arrow">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </span>
           </a>
           <ul class="submenu">
@@ -246,18 +228,18 @@
           </ul>
         </div>
 
-        <!-- 9. 공통 관리 ([참고]메뉴구조도(PMS).xlsx No:41~52 반영) -->
+        <!-- 9. 공통 관리 ([참고]메뉴구조도(PMS).xlsx no:41~52 반영) -->
         <div class="nav-item">
           <a href="#" class="nav-link">
             <span class="nav-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="3"></circle>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                <path d="m19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51v21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09a1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1h3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09a1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33h9a1.65 1.65 0 0 0 1-1.51v3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v9a1.65 1.65 0 0 0 1.51 1h21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
               </svg>
             </span>
             <span class="nav-text">공통 관리</span>
             <span class="nav-arrow">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              <svg width="12" height="12" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </span>
           </a>
           <ul class="submenu">
@@ -266,7 +248,7 @@
             <li class="submenu-item"><a href="#">관리자 관리</a></li>
             <li class="submenu-item"><a href="#">권한그룹 및 메뉴별 권한 관리</a></li>
             <li class="submenu-item"><a href="#">시스템 권한 관리</a></li>
-            <li class="submenu-item"><a href="#">접속 IP 관리</a></li>
+            <li class="submenu-item"><a href="#">접속 ip 관리</a></li>
             <li class="submenu-item"><a href="#">코드관리</a></li>
             <li class="submenu-item"><a href="#">로그인 현황</a></li>
             <li class="submenu-item"><a href="#">공지사항 관리</a></li>
@@ -278,16 +260,16 @@
       <!-- 사이드바 하단 퀵 링크 배너 ([참고]왼쪽메뉴.jpeg 100% 반영) -->
       <div class="sidebar-bottom-actions">
         <a href="SRMDashboard.html" class="btn-sidebar-switch" title="전자입찰시스템(SRM)으로 이동">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          <svg width="17" height="17" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m4 19.5a2.5 2.5 0 0 1 6.5 17h20"></path>
+            <path d="m6.5 2h20v20h6.5a2.5 2.5 0 0 1 4 19.5v-15a2.5 2.5 0 0 1 6.5 2z"></path>
           </svg>
           <span>전자입찰시스템 (SRM)</span>
         </a>
         <button type="button" class="btn-sidebar-manual" onclick="alert('온라인 매뉴얼(PMS 사업관리시스템) 가이드를 호출합니다.');">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
-            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <path d="m9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
             <line x1="12" y1="17" x2="12.01" y2="17"></line>
           </svg>
           <span>온라인 매뉴얼</span>
@@ -304,7 +286,6 @@
       <div class="page-title-wrap">
         <div class="page-title-left">
           <h1 class="page-title">추진단계 프로젝트 현황</h1>
-          <span class="page-subtitle">사업 접수 및 계약 추진 단계 프로젝트의 상세 정보를 다차원 조건으로 검색하고 조회합니다.</span>
         </div>
         <div class="breadcrumb">
           <span>홈</span>
@@ -319,17 +300,32 @@
            검색 필터 영역 (구성 참고.jpeg & 디자인 참고.jpeg 정밀 구현)
            ================================================================== -->
       <div class="search-filter-card">
-        <div class="search-filter-rows">
+        <div class="search-filter-grid">
           
-          <!-- 1행: 생성일 기간 + 빠른 선택 버튼 + 계약형태 + 계약유형 -->
-          <div class="filter-row-flex">
-            <!-- 생성일 기간 필터 -->
+          <!-- 1행: 생성일 기간 + 빠른 선택 버튼 -->
+          <div class="filter-row-full">
             <div class="filter-field-group">
               <span class="filter-field-label">생성일</span>
               <div class="date-range-wrap">
-                <input type="text" id="searchStartDate" class="date-input" value="2025.07.31" style="width: 105px;" title="조회 시작일">
-                <span style="color: #64748b; font-weight: 600;">~</span>
-                <input type="text" id="searchEndDate" class="date-input" value="2026.07.30" style="width: 105px;" title="조회 종료일">
+                <div class="date-input-box">
+                <input type="date" id="searchStartDate" class="date-input" value="2025-07-31" title="조회 시작일">
+                  <svg class="date-input-icon" width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
+                <span class="date-sep">~</span>
+                <div class="date-input-box">
+                <input type="date" id="searchEndDate" class="date-input" value="2026-07-30" title="조회 종료일">
+                  <svg class="date-input-icon" width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </div>
                 <div class="quick-period-btns">
                   <button type="button" class="btn-period-pill" data-period="1d">하루 전</button>
                   <button type="button" class="btn-period-pill active" data-period="1m">1개월</button>
@@ -338,22 +334,23 @@
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- 계약형태 -->
+          <!-- 2행: 계약형태(col 1) | 계약유형(col 2) | 접수경로(col 3) -->
+          <div class="filter-grid-row">
             <div class="filter-field-group">
               <span class="filter-field-label">계약형태</span>
               <select id="selectContractType" class="filter-select-field">
                 <option value="">전체</option>
-                <option value="ESCO">ESCO</option>
-                <option value="EPC">EPC</option>
+                <option value="esco">esco</option>
+                <option value="epc">epc</option>
                 <option value="기타">기타</option>
               </select>
             </div>
 
-            <!-- 계약유형 -->
             <div class="filter-field-group">
               <span class="filter-field-label">계약유형</span>
-              <select id="selectContractCategory" class="filter-select-field">
+              <select id="selectcontractcategory" class="filter-select-field">
                 <option value="">전체</option>
                 <option value="성과배분">성과배분</option>
                 <option value="확정지급">확정지급</option>
@@ -361,14 +358,10 @@
                 <option value="일괄도급">일괄도급</option>
               </select>
             </div>
-          </div>
 
-          <!-- 2행: 접수경로 + 심의대상 + 대상설비 + 사업구분 -->
-          <div class="filter-row-flex">
-            <!-- 접수경로 -->
             <div class="filter-field-group">
               <span class="filter-field-label">접수경로</span>
-              <select id="selectIntakeChannel" class="filter-select-field">
+              <select id="selectintakechannel" class="filter-select-field">
                 <option value="">전체</option>
                 <option value="영업직접발굴">영업직접발굴</option>
                 <option value="홈페이지(온라인)">홈페이지(온라인)</option>
@@ -377,11 +370,13 @@
                 <option value="협력사추천">협력사추천</option>
               </select>
             </div>
+          </div>
 
-            <!-- 심의대상 -->
+          <!-- 3행: 심의대상(col 1) | 대상설비(col 2) | 사업구분(col 3) -->
+          <div class="filter-grid-row">
             <div class="filter-field-group">
               <span class="filter-field-label">심의대상</span>
-              <select id="selectReviewTarget" class="filter-select-field">
+              <select id="selectreviewtarget" class="filter-select-field">
                 <option value="">전체</option>
                 <option value="심의대상">심의대상</option>
                 <option value="해당없음">해당없음</option>
@@ -389,24 +384,22 @@
               </select>
             </div>
 
-            <!-- 대상설비 -->
             <div class="filter-field-group">
               <span class="filter-field-label">대상설비</span>
-              <select id="selectFacility" class="filter-select-field">
+              <select id="selectfacility" class="filter-select-field">
                 <option value="">전체</option>
                 <option value="보일러">보일러</option>
                 <option value="폐열발전">폐열발전</option>
                 <option value="인버터">인버터</option>
                 <option value="태양광">태양광</option>
                 <option value="냉난방">냉난방</option>
-                <option value="LED">LED</option>
+                <option value="led">led</option>
               </select>
             </div>
 
-            <!-- 사업구분 -->
             <div class="filter-field-group">
               <span class="filter-field-label">사업구분</span>
-              <select id="selectBizCategory" class="filter-select-field">
+              <select id="selectbizcategory" class="filter-select-field">
                 <option value="">전체</option>
                 <option value="에너지효율화">에너지효율화</option>
                 <option value="신재생에너지">신재생에너지</option>
@@ -416,11 +409,11 @@
             </div>
           </div>
 
-          <!-- 3행: 키워드 검색 통합 필드 -->
-          <div class="filter-row-flex">
-            <div class="filter-field-group" style="flex: 1;">
+          <!-- 4행: 키워드 검색 통합 필드 -->
+          <div class="filter-row-full">
+            <div class="filter-field-group" style="width: 100%;">
               <span class="filter-field-label">키워드 검색</span>
-              <input type="text" id="searchKeyword" class="filter-text-input" style="width: 100%; max-width: 580px;" placeholder="프로젝트명, 프로젝트번호, 에너지사용자, 담당자명을 입력하세요">
+              <input type="text" id="searchKeyword" class="filter-text-input" placeholder="프로젝트명, 프로젝트번호, 에너지사용자, 담당자명을 입력하세요">
             </div>
           </div>
 
@@ -429,17 +422,17 @@
         <!-- 중앙 검색 & 초기화 액션 버튼 -->
         <div class="filter-btn-center-row">
           <button type="button" id="btnDoSearch" class="btn-search-main">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
             검색
           </button>
           <button type="button" id="btnDoReset" class="btn-reset-main">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;">
+            <svg width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;">
               <polyline points="23 4 23 10 17 10"></polyline>
               <polyline points="1 20 1 14 7 14"></polyline>
-              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+              <path d="m3.51 9a9 9 0 0 1 14.85-3.36l23 10m1 14l4.64 4.36a9 9 0 0 0 20.49 15"></path>
             </svg>
             초기화
           </button>
@@ -452,20 +445,26 @@
       <div class="table-card">
         <!-- 테이블 헤더 컨트롤 바 -->
         <div class="table-header-action-row">
-          <div class="table-total-count">
-            전체 검색 결과: <strong id="searchResultCount">10건</strong> (총 164개 프로젝트 중)
+          <div class="table-total-count grid-page-summary" id="searchResultCount">
+            1 / 15 (총 164개)
           </div>
           <div class="table-actions">
-            <button type="button" class="btn-action-primary" id="btnExcelDownload" title="엑셀 파일로 내려받기">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
+            <select class="select-per-page" id="selectpagesize" title="페이지당 표시 건수">
+              <option value="10">10개씩</option>
+              <option value="20">20개씩</option>
+              <option value="50">50개씩</option>
+            </select>
+            <button type="button" class="btn-action-excel" id="btnExcelDownload" title="엑셀 파일로 내려받기">
+              <svg class="icon-excel" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <path d="M14 2v6h6"></path>
+                <path d="m8 12 4 6"></path>
+                <path d="m12 12-4 6"></path>
               </svg>
               엑셀 다운로드
             </button>
-            <a href="ProjectRegister.html" class="btn-action-blue" title="신규 프로젝트 등록 화면으로 이동">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <a href="ProjectRegister.html" class="btn-action-new" title="신규 프로젝트 등록 화면으로 이동">
+              <svg width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="12" y1="5" x2="12" y2="19"></line>
                 <line x1="5" y1="12" x2="19" y2="12"></line>
               </svg>
@@ -475,43 +474,43 @@
         </div>
 
         <!-- 18개 컬럼 가로 스크롤 테이블 -->
-        <div class="table-scroll-wrapper">
-          <table class="data-table">
+        <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="프로젝트 검색 결과 그리드" data-total-items="164" data-total-pages="15">
+          <table class="data-table data-grid-table" role="grid" aria-label="프로젝트 검색 결과">
             <thead>
               <tr>
-                <th style="width: 50px;">순번</th>
-                <th style="width: 75px;">계약년도</th>
-                <th style="width: 90px;">생성일</th>
-                <th style="width: 120px;">프로젝트번호</th>
-                <th style="min-width: 220px; text-align: left; padding-left: 16px;">프로젝트명</th>
-                <th style="width: 80px;">진행단계</th>
-                <th style="width: 85px;">심의대상</th>
-                <th style="width: 80px;">계약형태</th>
-                <th style="width: 85px;">계약유형</th>
-                <th style="width: 100px;">사업구분</th>
-                <th style="width: 85px;">대상설비</th>
-                <th style="width: 110px;">접수경로</th>
-                <th style="width: 95px;">사업심의상태</th>
-                <th style="min-width: 160px; text-align: left;">에너지사용자</th>
-                <th style="width: 95px;">사용자소재지</th>
-                <th style="width: 85px;">담당자</th>
-                <th style="width: 80px;">수정자</th>
-                <th style="width: 90px;">수정일</th>
+                <th class="th-sortable" data-col="seq" style="width: 55px;">순번 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="year" style="width: 75px;">계약년도 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="created" style="width: 100px;">생성일 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="code" style="width: 120px;">프로젝트번호 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="name" style="min-width: 240px; text-align: left; padding-left: 16px;">프로젝트명 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="step" style="width: 85px;">진행단계 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="review_target" style="width: 85px;">심의대상 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="contract_type" style="width: 90px;">계약형태 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="contract_category" style="width: 85px;">계약유형 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="biz_category" style="width: 100px;">사업구분 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="facility" style="width: 95px;">대상설비 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="channel" style="width: 110px;">접수경로 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="review_status" style="width: 100px;">사업심의상태 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="user" style="min-width: 170px; text-align: left;">에너지사용자 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="location" style="width: 95px;">사용자소재지 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="manager" style="width: 85px;">담당자 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="modifier" style="width: 80px;">수정자 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="modified" style="width: 95px;">수정일 <span class="sort-caret">⇅</span></th>
               </tr>
             </thead>
             <tbody>
-              <!-- Row 1: 추진 / ESCO -->
+              <!-- row 1: 추진 / esco -->
               <tr>
                 <td>1</td>
                 <td>2026</td>
                 <td>2026.07.15</td>
-                <td><span style="font-weight: 700; color: #1e293b;">P2026-0715</span></td>
+                <td><span style="font-weight: 700; color: #334155;">p2026-0715</span></td>
                 <td style="text-align: left; padding-left: 16px;">
-                  <a href="ProjectDetail.html" style="color: #0e3a6c; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">포천 바이오매스 발전소 보일러 설비개선</a>
+                  <a href="ProjectDetail.html" style="color: #1976d2; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">포천 바이오매스 발전소 보일러 설비개선</a>
                 </td>
                 <td><span class="step-badge step-push">추진</span></td>
                 <td>심의대상</td>
-                <td><span class="badge-tag esco">ESCO</span></td>
+                <td><span class="badge-tag esco">esco</span></td>
                 <td>성과배분</td>
                 <td>에너지효율화</td>
                 <td>보일러</td>
@@ -524,18 +523,18 @@
                 <td>2026.07.28</td>
               </tr>
 
-              <!-- Row 2: 계약 / EPC -->
+              <!-- row 2: 계약 / epc -->
               <tr>
                 <td>2</td>
                 <td>2026</td>
                 <td>2026.07.02</td>
-                <td><span style="font-weight: 700; color: #1e293b;">P2026-0682</span></td>
+                <td><span style="font-weight: 700; color: #334155;">p2026-0682</span></td>
                 <td style="text-align: left; padding-left: 16px;">
-                  <a href="ProjectDetail.html" style="color: #0e3a6c; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">안산 스마트그린산단 폐열회수 발전 EPC</a>
+                  <a href="ProjectDetail.html" style="color: #1976d2; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">안산 스마트그린산단 폐열회수 발전 epc</a>
                 </td>
                 <td><span class="step-badge step-contract">계약</span></td>
                 <td>심의대상</td>
-                <td><span class="badge-tag epc">EPC</span></td>
+                <td><span class="badge-tag epc">epc</span></td>
                 <td>일괄도급</td>
                 <td>신재생에너지</td>
                 <td>폐열발전</td>
@@ -548,18 +547,18 @@
                 <td>2026.07.20</td>
               </tr>
 
-              <!-- Row 3: 투자 / ESCO -->
+              <!-- row 3: 투자 / esco -->
               <tr>
                 <td>3</td>
                 <td>2026</td>
                 <td>2026.06.18</td>
-                <td><span style="font-weight: 700; color: #1e293b;">P2026-0541</span></td>
+                <td><span style="font-weight: 700; color: #334155;">p2026-0541</span></td>
                 <td style="text-align: left; padding-left: 16px;">
-                  <a href="ProjectDetail.html" style="color: #0e3a6c; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">광혜원 패키징 공장 고효율 인버터 도입</a>
+                  <a href="ProjectDetail.html" style="color: #1976d2; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">광혜원 패키징 공장 고효율 인버터 도입</a>
                 </td>
                 <td><span class="step-badge step-invest">투자</span></td>
                 <td>해당없음</td>
-                <td><span class="badge-tag esco">ESCO</span></td>
+                <td><span class="badge-tag esco">esco</span></td>
                 <td>확정지급</td>
                 <td>에너지효율화</td>
                 <td>인버터</td>
@@ -572,18 +571,18 @@
                 <td>2026.06.29</td>
               </tr>
 
-              <!-- Row 4: 상환 / ESCO -->
+              <!-- row 4: 상환 / esco -->
               <tr>
                 <td>4</td>
                 <td>2025</td>
                 <td>2025.11.12</td>
-                <td><span style="font-weight: 700; color: #1e293b;">P2025-1108</span></td>
+                <td><span style="font-weight: 700; color: #334155;">p2025-1108</span></td>
                 <td style="text-align: left; padding-left: 16px;">
-                  <a href="ProjectDetail.html" style="color: #0e3a6c; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">군산 특수유리 용해로 산소연소 절감사업</a>
+                  <a href="ProjectDetail.html" style="color: #1976d2; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">군산 특수유리 용해로 산소연소 절감사업</a>
                 </td>
                 <td><span class="step-badge step-repay">상환</span></td>
                 <td>심의대상</td>
-                <td><span class="badge-tag esco">ESCO</span></td>
+                <td><span class="badge-tag esco">esco</span></td>
                 <td>성과배분</td>
                 <td>온실가스감축</td>
                 <td>보일러</td>
@@ -596,14 +595,14 @@
                 <td>2026.07.10</td>
               </tr>
 
-              <!-- Row 5: 추진 / 기타 -->
+              <!-- row 5: 추진 / 기타 -->
               <tr>
                 <td>5</td>
                 <td>2026</td>
                 <td>2026.07.10</td>
-                <td><span style="font-weight: 700; color: #1e293b;">P2026-0709</span></td>
+                <td><span style="font-weight: 700; color: #334155;">p2026-0709</span></td>
                 <td style="text-align: left; padding-left: 16px;">
-                  <a href="ProjectDetail.html" style="color: #0e3a6c; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">당진 제철소 압축공기 배관 최적화 진단</a>
+                  <a href="ProjectDetail.html" style="color: #1976d2; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">당진 제철소 압축공기 배관 최적화 진단</a>
                 </td>
                 <td><span class="step-badge step-push">추진</span></td>
                 <td>면제</td>
@@ -620,18 +619,18 @@
                 <td>2026.07.18</td>
               </tr>
 
-              <!-- Row 6: 계약 / ESCO -->
+              <!-- row 6: 계약 / esco -->
               <tr>
                 <td>6</td>
                 <td>2026</td>
                 <td>2026.05.21</td>
-                <td><span style="font-weight: 700; color: #1e293b;">P2026-0422</span></td>
+                <td><span style="font-weight: 700; color: #334155;">p2026-0422</span></td>
                 <td style="text-align: left; padding-left: 16px;">
-                  <a href="ProjectDetail.html" style="color: #0e3a6c; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">울산 석유화학단지 스팀 폐열 터빈발전</a>
+                  <a href="ProjectDetail.html" style="color: #1976d2; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">울산 석유화학단지 스팀 폐열 터빈발전</a>
                 </td>
                 <td><span class="step-badge step-contract">계약</span></td>
                 <td>심의대상</td>
-                <td><span class="badge-tag esco">ESCO</span></td>
+                <td><span class="badge-tag esco">esco</span></td>
                 <td>성과배분</td>
                 <td>분산형전원</td>
                 <td>폐열발전</td>
@@ -644,69 +643,69 @@
                 <td>2026.06.15</td>
               </tr>
 
-              <!-- Row 7: 상환 / EPC -->
+              <!-- row 7: 상환 / epc -->
               <tr>
                 <td>7</td>
                 <td>2025</td>
                 <td>2025.09.04</td>
-                <td><span style="font-weight: 700; color: #1e293b;">P2025-0901</span></td>
+                <td><span style="font-weight: 700; color: #334155;">p2025-0901</span></td>
                 <td style="text-align: left; padding-left: 16px;">
-                  <a href="ProjectDetail.html" style="color: #0e3a6c; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">광주 물류센터 지붕형 태양광 발전 500kW</a>
+                  <a href="ProjectDetail.html" style="color: #1976d2; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">광주 물류센터 지붕형 태양광 발전 500kw</a>
                 </td>
                 <td><span class="step-badge step-repay">상환</span></td>
                 <td>해당없음</td>
-                <td><span class="badge-tag epc">EPC</span></td>
+                <td><span class="badge-tag epc">epc</span></td>
                 <td>일괄도급</td>
                 <td>신재생에너지</td>
                 <td>태양광</td>
                 <td>홈페이지(온라인)</td>
                 <td><span class="review-badge except">심의제외</span></td>
-                <td style="text-align: left;">CJ대한통운 광주지사</td>
+                <td style="text-align: left;">cj대한통운 광주지사</td>
                 <td>광주 광산</td>
                 <td>박진호 대리</td>
                 <td>박진호</td>
                 <td>2026.05.30</td>
               </tr>
 
-              <!-- Row 8: 추진 / ESCO -->
+              <!-- row 8: 추진 / esco -->
               <tr>
                 <td>8</td>
                 <td>2026</td>
                 <td>2026.07.22</td>
-                <td><span style="font-weight: 700; color: #1e293b;">P2026-0722</span></td>
+                <td><span style="font-weight: 700; color: #334155;">p2026-0722</span></td>
                 <td style="text-align: left; padding-left: 16px;">
-                  <a href="ProjectDetail.html" style="color: #0e3a6c; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">여수 국가산단 냉각탑 팬 고효율 모터 교체</a>
+                  <a href="ProjectDetail.html" style="color: #1976d2; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">여수 국가산단 냉각탑 팬 고효율 모터 교체</a>
                 </td>
                 <td><span class="step-badge step-push">추진</span></td>
                 <td>심의대상</td>
-                <td><span class="badge-tag esco">ESCO</span></td>
+                <td><span class="badge-tag esco">esco</span></td>
                 <td>확정지급</td>
                 <td>에너지효율화</td>
                 <td>인버터</td>
                 <td>고객사요청</td>
                 <td><span class="review-badge request">심의신청</span></td>
-                <td style="text-align: left;">여천NCC 여수제3공장</td>
+                <td style="text-align: left;">여천ncc 여수제3공장</td>
                 <td>전남 여수</td>
                 <td>김영수 과장</td>
                 <td>김영수</td>
                 <td>2026.07.25</td>
               </tr>
 
-              <!-- Row 9: 투자 / EPC -->
+              <!-- row 9: 투자 / epc -->
               <tr>
                 <td>9</td>
                 <td>2026</td>
                 <td>2026.04.14</td>
-                <td><span style="font-weight: 700; color: #1e293b;">P2026-0388</span></td>
+                <td><span style="font-weight: 700; color: #334155;">p2026-0388</span></td>
                 <td style="text-align: left; padding-left: 16px;">
-                  <a href="ProjectDetail.html" style="color: #0e3a6c; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">창원 정밀기계 스마트팩토리 FEMS 구축</a>
+                  <a href="ProjectDetail.html" style="color: #1976d2; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">창원 정밀기계 스마트팩토리 fems 구축</a>
                 </td>
                 <td><span class="step-badge step-invest">투자</span></td>
                 <td>심의대상</td>
-                <td><span class="badge-tag epc">EPC</span></td>
+                <td><span class="badge-tag epc">epc</span></td>
                 <td>일괄도급</td>
                 <td>에너지효율화</td>
-                <td>LED</td>
+                <td>led</td>
                 <td>협력사추천</td>
                 <td><span class="review-badge done">심의완료</span></td>
                 <td style="text-align: left;">한화에어로스페이스</td>
@@ -716,24 +715,24 @@
                 <td>2026.06.01</td>
               </tr>
 
-              <!-- Row 10: 상환 / ESCO -->
+              <!-- row 10: 상환 / esco -->
               <tr>
                 <td>10</td>
                 <td>2025</td>
                 <td>2025.08.19</td>
-                <td><span style="font-weight: 700; color: #1e293b;">P2025-0819</span></td>
+                <td><span style="font-weight: 700; color: #334155;">p2025-0819</span></td>
                 <td style="text-align: left; padding-left: 16px;">
-                  <a href="ProjectDetail.html" style="color: #0e3a6c; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">구미 전자부품 공장 폐열회수 히트펌프 설치</a>
+                  <a href="ProjectDetail.html" style="color: #1976d2; font-weight: 700; text-decoration: underline;" title="프로젝트 상세 보기">구미 전자부품 공장 폐열회수 히트펌프 설치</a>
                 </td>
                 <td><span class="step-badge step-repay">상환</span></td>
                 <td>심의대상</td>
-                <td><span class="badge-tag esco">ESCO</span></td>
+                <td><span class="badge-tag esco">esco</span></td>
                 <td>성과배분</td>
                 <td>온실가스감축</td>
                 <td>냉난방</td>
                 <td>영업직접발굴</td>
                 <td><span class="review-badge done">심의완료</span></td>
-                <td style="text-align: left;">LG이노텍 구미사업장</td>
+                <td style="text-align: left;">lg이노텍 구미사업장</td>
                 <td>경북 구미</td>
                 <td>이수진 차장</td>
                 <td>이수진</td>
@@ -743,22 +742,9 @@
           </table>
         </div>
 
-        <!-- 하단 페이지네이션 및 상태 바 -->
+        <!-- 하단 공통 페이지네이션 -->
         <div class="table-pagination-row">
-          <div class="page-entries-info">
-            표시 항목: 1 - 10 / 전체 10개 (필터 적용됨)
-          </div>
-          <div class="pagination-controls">
-            <button type="button" class="btn-page-nav" disabled title="이전 페이지">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-            </button>
-            <button type="button" class="btn-page-num active">1</button>
-            <button type="button" class="btn-page-num">2</button>
-            <button type="button" class="btn-page-num">3</button>
-            <button type="button" class="btn-page-nav" title="다음 페이지">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </button>
-          </div>
+          <nav class="pagination-controls" aria-label="표 페이지 이동"></nav>
         </div>
       </div>
 
@@ -766,7 +752,7 @@
   </div>
 
   <!-- ====================================================================
-       하단 표준 푸터 (LeftMenu.jpeg 기준 공통 적용)
+       하단 표준 푸터 (leftmenu.jpeg 기준 공통 적용)
        ==================================================================== -->
   <footer class="app-footer">
     <div class="footer-copyright">&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.</div>
