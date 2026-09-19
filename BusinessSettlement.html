@@ -326,7 +326,7 @@
           </select>
         </div>
 
-        <!-- 3행: 키워드 검색 & 검색/초기화 버튼 -->
+        <!-- 3행: 키워드 검색 -->
         <div class="settle-filter-row">
           <span class="settle-filter-label">키워드 검색</span>
           <select class="filter-select-field" style="width: 120px;">
@@ -337,17 +337,18 @@
           </select>
           <input type="text" id="settleKeyword" class="filter-text-input" style="width: 280px;" placeholder="검색어를 입력하세요">
 
-          <div class="settle-filter-actions">
-            <button type="button" id="btnSettleSearch" class="btn-settle-search">검색</button>
-            <button type="button" id="btnSettleReset" class="btn-settle-reset">초기화</button>
-          </div>
+        </div>
+        <div class="filter-action-row">
+          <button type="button" id="btnSettleSearch" class="btn-settle-search">검색</button>
+          <button type="button" id="btnSettleReset" class="btn-settle-reset">초기화</button>
         </div>
       </div>
 
       <!-- ==================================================================
            조회 결과 툴바 & 데이터 테이블 (다단 복합 헤더)
            ================================================================== -->
-      <div class="settle-table-toolbar">
+      <div class="table-card settlement-grid-card">
+      <div class="table-header-action-row settle-table-toolbar">
         <div class="settle-count-text grid-page-summary" id="settleResultCount">
           1 / 3 (총 24개)
         </div>
@@ -369,35 +370,27 @@
         </div>
       </div>
 
-      <div class="table-card">
-        <div class="table-scroll-wrapper" data-total-items="24">
-          <table class="data-table settlement-table">
+        <div class="table-scroll-wrapper data-grid" data-total-items="24" tabindex="0" aria-label="사업결산 조회 결과 데이터 그리드">
+          <table class="data-table settlement-table data-grid-table">
             <thead>
               <tr>
-                <th rowspan="2" style="width: 50px;">순번</th>
-                <th rowspan="2" style="width: 90px;">구분</th>
-                <th rowspan="2" style="width: 95px;">결산(종료)일</th>
-                <th rowspan="2" style="width: 105px;">프로젝트번호</th>
-                <th rowspan="2" style="width: 110px;">계약 형태</th>
-                <th rowspan="2" style="min-width: 240px; text-align: left; padding-left: 14px;">프로젝트명</th>
-                <th rowspan="2" style="width: 75px;">담당자</th>
-                <th colspan="5" class="th-group-plan">계획</th>
-                <th colspan="5" class="th-group-actual">실적</th>
-              </tr>
-              <tr>
-                <!-- 계획 세부 항목 -->
-                <th style="width: 105px;">총 사업금액</th>
-                <th style="width: 100px;">투자금액</th>
-                <th style="width: 100px;">상환금액</th>
-                <th style="width: 90px;">수익금</th>
-                <th style="width: 75px;">수익률(%)</th>
-
-                <!-- 실적 세부 항목 -->
-                <th style="width: 105px;">총 사업금액</th>
-                <th style="width: 100px;">투자금액</th>
-                <th style="width: 100px;">상환금액</th>
-                <th style="width: 90px;">수익금</th>
-                <th style="width: 75px;">수익률(%)</th>
+                <th class="th-sortable" data-col="seq" style="width: 64px;">순번 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="status" style="width: 110px;">구분 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="closed" style="width: 120px;">결산(종료)일 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="project_code" style="width: 125px;">프로젝트번호 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="contract_type" style="width: 125px;">계약 형태 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="project_name" style="width: 300px;">프로젝트명 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="manager" style="width: 90px;">담당자 <span class="sort-caret">⇅</span></th>
+                <th class="th-group-plan th-sortable" data-col="plan_total" style="width: 130px;">계획 총 사업금액 <span class="sort-caret">⇅</span></th>
+                <th class="th-group-plan th-sortable" data-col="plan_investment" style="width: 120px;">계획 투자금액 <span class="sort-caret">⇅</span></th>
+                <th class="th-group-plan th-sortable" data-col="plan_repayment" style="width: 120px;">계획 상환금액 <span class="sort-caret">⇅</span></th>
+                <th class="th-group-plan th-sortable" data-col="plan_profit" style="width: 110px;">계획 수익금 <span class="sort-caret">⇅</span></th>
+                <th class="th-group-plan th-sortable" data-col="plan_rate" style="width: 105px;">계획 수익률(%) <span class="sort-caret">⇅</span></th>
+                <th class="th-group-actual th-sortable" data-col="actual_total" style="width: 130px;">실적 총 사업금액 <span class="sort-caret">⇅</span></th>
+                <th class="th-group-actual th-sortable" data-col="actual_investment" style="width: 120px;">실적 투자금액 <span class="sort-caret">⇅</span></th>
+                <th class="th-group-actual th-sortable" data-col="actual_repayment" style="width: 120px;">실적 상환금액 <span class="sort-caret">⇅</span></th>
+                <th class="th-group-actual th-sortable" data-col="actual_profit" style="width: 110px;">실적 수익금 <span class="sort-caret">⇅</span></th>
+                <th class="th-group-actual th-sortable" data-col="actual_rate" style="width: 105px;">실적 수익률(%) <span class="sort-caret">⇅</span></th>
               </tr>
             </thead>
             <tbody>

@@ -1084,6 +1084,7 @@ function initStatisticsPage() {
 
   const yearSelect = document.getElementById('statsYearSelect');
   const btnSearch = document.getElementById('btnStatsSearch');
+  const btnReset = document.getElementById('btnStatsReset');
   const btnExcel = document.getElementById('btnStatsExcel');
   const headerYearIndicator = document.getElementById('headerYearIndicator');
 
@@ -1095,6 +1096,13 @@ function initStatisticsPage() {
         headerYearIndicator.textContent = `기준연도 : ${yr}`;
       }
       alert(`${yr}년도 기준 프로젝트·투자·상환 및 설비/경로별 실적 데이터를 성공적으로 조회하였습니다.`);
+    });
+  }
+
+  if (btnReset) {
+    btnReset.addEventListener('click', () => {
+      if (yearSelect) yearSelect.value = '2025';
+      if (headerYearIndicator) headerYearIndicator.textContent = '기준연도 : 2025';
     });
   }
 

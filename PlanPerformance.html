@@ -295,7 +295,7 @@
            ================================================================ -->
       <section class="filter-card">
         <form id="planSearchForm">
-          <!-- 1행: 조회 기준 & 검색/초기화 버튼 -->
+          <!-- 1행: 조회 기준 -->
           <div class="filter-row" style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
             <div style="display: flex; align-items: center; gap: 12px;">
               <span class="filter-label" style="width: 80px; font-weight: 700; color: #334155;">조회 기준</span>
@@ -305,10 +305,6 @@
                 <option value="quarter">분기별</option>
                 <option value="year">연도별</option>
               </select>
-            </div>
-            <div style="display: flex; gap: 8px;">
-              <button type="submit" class="btn-filter-search" id="btnfiltersearch" style="width: 85px; height: 36px; background: #1976d2; color: #ffffff; border: none; border-radius: 6px; font-weight: 700; cursor: pointer;">검색</button>
-              <button type="button" class="btn-filter-reset" id="btnFilterReset" style="width: 85px; height: 36px; background: #ffffff; color: #475569; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 600; cursor: pointer;">초기화</button>
             </div>
           </div>
 
@@ -372,6 +368,10 @@
               <option value="name">프로젝트명</option>
             </select>
             <input type="text" class="filter-text-input" id="inputKeyword" placeholder="검색어를 입력하세요." style="width: 380px; height: 36px; padding: 0 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px;">
+          </div>
+          <div class="filter-action-row">
+            <button type="submit" class="btn-filter-search" id="btnfiltersearch">검색</button>
+            <button type="button" class="btn-filter-reset" id="btnFilterReset">초기화</button>
           </div>
         </form>
       </section>

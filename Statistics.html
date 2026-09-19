@@ -304,7 +304,7 @@
               <option value="2024">2024</option>
               <option value="2023">2023</option>
             </select>
-            <button type="button" id="btnStatsSearch" class="btn-stats-search">조회</button>
+            <span class="stats-guide-text">지난 연도는 마감 기준, 당해연도는 현재까지의 데이터 기준입니다.</span>
           </div>
           <button type="button" id="btnStatsExcel" class="btn-excel-green">
             <svg class="icon-excel" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
@@ -316,22 +316,27 @@
             엑셀 다운로드
           </button>
         </div>
-        <div class="stats-filter-bottom-row">
-          <span class="stats-guide-text">지난 연도는 마감 기준, 당해연도는 현재까지의 데이터를 기준으로 합니다.</span>
+        <div class="filter-action-row">
+          <button type="button" id="btnStatsSearch" class="btn-stats-search">조회</button>
+          <button type="button" id="btnStatsReset" class="btn-filter-reset">초기화</button>
         </div>
       </div>
 
       <!-- ==================================================================
            section 1: 주요 지표 (기준 연도 합계) - 4대 카드
            ================================================================== -->
-      <div style="margin-bottom: 8px;">
-        <span style="font-size: 13.5px; font-weight: 700; color: #334155;">주요 지표 <span style="font-size: 13px; font-weight: 500; color: #58687b;">(기준 연도 합계)</span></span>
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="section-title-bar" aria-hidden="true"></span>
+          주요 지표
+        </h2>
+        <span class="section-subtext">기준 연도 합계</span>
       </div>
 
       <div class="kpi-metrics-grid">
         
         <!-- 카드 1: 프로젝트 -->
-        <div class="kpi-card-metric bar-blue">
+        <div class="kpi-card-metric">
           <div>
             <div class="kpi-card-title">프로젝트</div>
             <div class="kpi-donut-wrap">
@@ -369,7 +374,7 @@
         </div>
 
         <!-- 카드 2: 사업/투자/수익 -->
-        <div class="kpi-card-metric bar-orange">
+        <div class="kpi-card-metric">
           <div>
             <div class="kpi-card-title">사업/투자/수익</div>
             <div class="kpi-metric-list">
@@ -394,7 +399,7 @@
         </div>
 
         <!-- 카드 3: 투자 계획/지급 -->
-        <div class="kpi-card-metric bar-teal">
+        <div class="kpi-card-metric">
           <div>
             <div class="kpi-card-title">투자 계획/지급</div>
             <div class="kpi-metric-list">
@@ -415,7 +420,7 @@
         </div>
 
         <!-- 카드 4: 상환 계획/누적 -->
-        <div class="kpi-card-metric bar-purple">
+        <div class="kpi-card-metric">
           <div>
             <div class="kpi-card-title">상환 계획/누적</div>
             <div class="kpi-metric-list">
@@ -440,8 +445,12 @@
       <!-- ==================================================================
            section 2: 주요 구분 실적 (기준 연도 합계)
            ================================================================== -->
-      <div style="margin-bottom: 8px;">
-        <span style="font-size: 13.5px; font-weight: 700; color: #334155;">주요 구분 실적 <span style="font-size: 13px; font-weight: 500; color: #58687b;">(기준 연도 합계)</span></span>
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="section-title-bar" aria-hidden="true"></span>
+          주요 구분 실적
+        </h2>
+        <span class="section-subtext">기준 연도 합계</span>
       </div>
 
       <div class="stats-grid-2col">
@@ -541,94 +550,36 @@
           <div class="stats-card-header">
             <div class="stats-card-title">대상 설비 <span style="font-size: 13px; font-weight: 500; color: #58687b;">(사업 계약금액 기준)</span></div>
           </div>
-          <div style="display: grid; grid-template-columns: 1.15fr 1.35fr; gap: 16px; align-items: center;">
-            <!-- 소형 데이터 테이블 -->
-            <table class="stats-sub-table">
-              <thead>
-                <tr>
-                  <th style="text-align: left; padding-left: 8px;">대상 설비</th>
-                  <th>계약(건)</th>
-                  <th>계약금액(억원)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="text-align: left; padding-left: 8px;">CTTS</td>
-                  <td>37</td>
-                  <td style="font-weight: 700;">381.1</td>
-                </tr>
-                <tr>
-                  <td style="text-align: left; padding-left: 8px;">LED</td>
-                  <td>38</td>
-                  <td style="font-weight: 700;">262.3</td>
-                </tr>
-                <tr>
-                  <td style="text-align: left; padding-left: 8px; font-weight: 600;">히트펌프</td>
-                  <td>19</td>
-                  <td style="font-weight: 700;">216</td>
-                </tr>
-                <tr>
-                  <td style="text-align: left; padding-left: 8px; font-weight: 600;">태양광</td>
-                  <td>15</td>
-                  <td style="font-weight: 700;">93.3</td>
-                </tr>
-                <tr>
-                  <td style="text-align: left; padding-left: 8px; font-weight: 600;">공기압축기</td>
-                  <td>9</td>
-                  <td style="font-weight: 700;">84.1</td>
-                </tr>
-                <tr>
-                  <td style="text-align: left; padding-left: 8px; font-weight: 600;">복합설비</td>
-                  <td>10</td>
-                  <td style="font-weight: 700;">122.4</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <!-- 우측 가로 바 -->
-            <div class="stats-bars-list" style="gap: 11px;">
-              <div class="stats-bar-item">
-                <span class="stats-bar-lbl" style="width: 50px;">CTTS</span>
-                <div class="stats-bar-track">
-                  <div class="stats-bar-fill" style="width: 76.2%; background: #1976d2;"></div>
-                </div>
-                <span style="font-size: 13px; color: #58687b; width: 45px; text-align: right;">(76.2%)</span>
-              </div>
-              <div class="stats-bar-item">
-                <span class="stats-bar-lbl" style="width: 50px;">LED</span>
-                <div class="stats-bar-track">
-                  <div class="stats-bar-fill" style="width: 18.2%; background: #00b894;"></div>
-                </div>
-                <span style="font-size: 13px; color: #58687b; width: 45px; text-align: right;">(18.2%)</span>
-              </div>
-              <div class="stats-bar-item">
-                <span class="stats-bar-lbl" style="width: 50px;">히트펌프</span>
-                <div class="stats-bar-track">
-                  <div class="stats-bar-fill" style="width: 5.6%; background: #ff7a00;"></div>
-                </div>
-                <span style="font-size: 13px; color: #58687b; width: 45px; text-align: right;">(5.6%)</span>
-              </div>
-              <div class="stats-bar-item">
-                <span class="stats-bar-lbl" style="width: 50px;">태양광</span>
-                <div class="stats-bar-track">
-                  <div class="stats-bar-fill" style="width: 5.6%; background: #1976d2;"></div>
-                </div>
-                <span style="font-size: 13px; color: #58687b; width: 45px; text-align: right;">(5.6%)</span>
-              </div>
-              <div class="stats-bar-item">
-                <span class="stats-bar-lbl" style="width: 50px;">공기압축기</span>
-                <div class="stats-bar-track">
-                  <div class="stats-bar-fill" style="width: 5.6%; background: #ef4444;"></div>
-                </div>
-                <span style="font-size: 13px; color: #58687b; width: 45px; text-align: right;">(5.6%)</span>
-              </div>
-              <div class="stats-bar-item">
-                <span class="stats-bar-lbl" style="width: 50px;">복합설비</span>
-                <div class="stats-bar-track">
-                  <div class="stats-bar-fill" style="width: 2.3%; background: #00b894;"></div>
-                </div>
-                <span style="font-size: 13px; color: #58687b; width: 45px; text-align: right;">(2.3%)</span>
-              </div>
+          <div class="stats-bars-list stats-bars-detailed">
+            <div class="stats-bar-item">
+              <span class="stats-bar-lbl">CTTS</span>
+              <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 76.2%; background: #1976d2;"></div></div>
+              <span class="stats-bar-val">37건 · 381.1억원</span>
+            </div>
+            <div class="stats-bar-item">
+              <span class="stats-bar-lbl">LED</span>
+              <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 52.5%; background: #00b894;"></div></div>
+              <span class="stats-bar-val">38건 · 262.3억원</span>
+            </div>
+            <div class="stats-bar-item">
+              <span class="stats-bar-lbl">히트펌프</span>
+              <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 43.2%; background: #ff7a00;"></div></div>
+              <span class="stats-bar-val">19건 · 216.0억원</span>
+            </div>
+            <div class="stats-bar-item">
+              <span class="stats-bar-lbl">태양광</span>
+              <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 18.7%; background: #1976d2;"></div></div>
+              <span class="stats-bar-val">15건 · 93.3억원</span>
+            </div>
+            <div class="stats-bar-item">
+              <span class="stats-bar-lbl">공기압축기</span>
+              <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 16.8%; background: #ef4444;"></div></div>
+              <span class="stats-bar-val">9건 · 84.1억원</span>
+            </div>
+            <div class="stats-bar-item">
+              <span class="stats-bar-lbl">복합설비</span>
+              <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 24.5%; background: #00b894;"></div></div>
+              <span class="stats-bar-val">10건 · 122.4억원</span>
             </div>
           </div>
         </div>
@@ -638,46 +589,16 @@
           <div class="stats-card-header">
             <div class="stats-card-title">접수 경로 <span style="font-size: 13px; font-weight: 500; color: #58687b;">(사업 계약금액 기준)</span></div>
           </div>
-          <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; align-items: center;">
-            <table class="stats-sub-table">
-              <thead>
-                <tr>
-                  <th style="text-align: left; padding-left: 8px;">접수 경로</th>
-                  <th>계약(건)</th>
-                  <th>계약금액(억원)</th>
-                  <th>비중(%)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="text-align: left; padding-left: 8px;">EPC사</td>
-                  <td>37</td>
-                  <td>381.1</td>
-                  <td style="font-weight: 700; color: #1976d2;">28.3</td>
-                </tr>
-                <tr>
-                  <td style="text-align: left; padding-left: 8px; font-weight: 600;">홈페이지</td>
-                  <td>38</td>
-                  <td>262.3</td>
-                  <td style="font-weight: 700; color: #00b894;">18.2</td>
-                </tr>
-                <tr>
-                  <td style="text-align: left; padding-left: 8px; font-weight: 600;">본인발굴</td>
-                  <td>19</td>
-                  <td>216</td>
-                  <td style="font-weight: 700; color: #ff7a00;">21.1</td>
-                </tr>
-                <tr>
-                  <td style="text-align: left; padding-left: 8px; font-weight: 600;">기타</td>
-                  <td>15</td>
-                  <td>93.2</td>
-                  <td style="font-weight: 700; color: #1976d2;">14.5</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="stats-card-body-flex">
+            <div class="stats-legend-list stats-legend-detailed">
+              <div class="stats-legend-item"><span class="stats-dot dot-blue"></span><span class="stats-legend-name">EPC사 · 37건</span><span class="stats-legend-val">381.1억원 (28.3%)</span></div>
+              <div class="stats-legend-item"><span class="stats-dot dot-teal"></span><span class="stats-legend-name">홈페이지 · 38건</span><span class="stats-legend-val">262.3억원 (18.2%)</span></div>
+              <div class="stats-legend-item"><span class="stats-dot dot-orange"></span><span class="stats-legend-name">본인발굴 · 19건</span><span class="stats-legend-val">216.0억원 (21.1%)</span></div>
+              <div class="stats-legend-item"><span class="stats-dot dot-blue"></span><span class="stats-legend-name">기타 · 15건</span><span class="stats-legend-val">93.2억원 (14.5%)</span></div>
+            </div>
 
             <!-- 우측 도넛 차트 (134 전체 계약) -->
-            <div style="display: flex; justify-content: center;">
+            <div class="stats-donut-panel">
               <div class="donut-single-box" style="width: 125px; height: 125px;">
                 <svg viewbox="0 0 100 100">
                   <circle cx="50" cy="50" r="38" fill="transparent" stroke="#1976d2" stroke-width="16" stroke-dasharray="238.7" stroke-dashoffset="0"></circle>
