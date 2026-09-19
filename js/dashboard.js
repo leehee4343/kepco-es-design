@@ -332,7 +332,7 @@ function renderDonutCharts() {
   // ESCO 계약: 140 (Blue #0284c7)
   // EPC(용역) 계약: 20 (Cyan #38bdf8)
   // 기타: 20 (Amber #f59e0b)
-  createDonut('chartContractForm', [
+  createDonut('chartcontractform', [
     { label: 'ESCO 계약', value: 140, color: '#0284c7' },
     { label: 'EPC(용역) 계약', value: 20, color: '#38bdf8' },
     { label: '기타', value: 20, color: '#f59e0b' }
@@ -343,7 +343,7 @@ function renderDonutCharts() {
   // 정책사업: 20 (Coral #f87171)
   // 정책사업(비표준): 20 (Teal #2dd4bf)
   // 기타: 4 (Gold #fbbf24)
-  createDonut('chartContractType', [
+  createDonut('chartcontracttype', [
     { label: '수익사업', value: 140, color: '#8b5cf6' },
     { label: '정책사업', value: 20, color: '#f87171' },
     { label: '정책사업(비표준)', value: 20, color: '#2dd4bf' },
@@ -353,7 +353,7 @@ function renderDonutCharts() {
   // 3. 사업 심의 (총 160건)
   // 심의 대상: 140 (Emerald #10b981)
   // 심의 면제: 20 (Orange #f97316)
-  createDonut('chartReviewStatus', [
+  createDonut('chartreviewstatus', [
     { label: '심의 대상', value: 140, color: '#10b981' },
     { label: '심의 면제', value: 20, color: '#f97316' }
   ]);
@@ -374,6 +374,8 @@ function createDonut(containerId, data) {
 
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('viewBox', `0 0 ${size} ${size}`);
+  svg.setAttribute('role', 'img');
+  svg.setAttribute('aria-label', data.map(item => `${item.label} ${item.value}건`).join(', '));
 
   let accumulatedOffset = 0;
 

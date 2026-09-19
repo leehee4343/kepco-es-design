@@ -638,7 +638,7 @@ img {
    section 1: 즐겨찾기 (favorites cards)
    -------------------------------------------------------------------------- */
 .section-favorites {
-  background: #edf4fe;
+  background: #ffffff;
   border: 1px solid #dbeafe;
   border-radius: var(--radius-lg);
   padding: 16px 20px 20px;
@@ -738,7 +738,7 @@ img {
 .fav-category {
   font-size: 13px;
   color: var(--text-muted);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .fav-content-row {
@@ -863,7 +863,7 @@ img {
 
 .total-unit {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--text-dark);
   margin-left: 4px;
 }
@@ -1009,7 +1009,7 @@ img {
 
 .perf-label {
   color: #334155;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .perf-value {
@@ -1074,7 +1074,7 @@ img {
 .bar-label {
   font-size: 13px;
   color: #475569;
-  font-weight: 600;
+  font-weight: 400;
   text-align: center;
   white-space: nowrap;
   width: 70px;
@@ -1138,12 +1138,12 @@ img {
 }
 
 .finance-card.esco .finance-card-header {
-  background: #eaf3fd;
+  background: #ffffff;
   color: #0284c7;
 }
 
 .finance-card.epc .finance-card-header {
-  background: #fef8eb;
+  background: #ffffff;
   color: #ff7a00;
 }
 
@@ -3943,13 +3943,13 @@ img {
 }
 
 .kpi-highlight-box.bg-teal {
-  background: #f0fdfa;
+  background: #ffffff;
   border: 1px solid #ccfbf1;
 }
 
 .kpi-highlight-box.bg-purple {
-  background: #e8f1fd;
-  border: 1px solid #e8f1fd;
+  background: #ffffff;
+  border: 1px solid var(--border-card);
 }
 
 .kpi-hl-lbl {
@@ -5279,7 +5279,7 @@ img {
 }
 
 .info-alert-box {
-  background: #f0f7ff;
+  background: #ffffff;
   border: 1px solid #bfdbfe;
   border-radius: 8px;
   padding: 12px 16px;
@@ -5474,7 +5474,7 @@ img {
 }
 
 .wizard-info-banner {
-  background: #f0f7ff;
+  background: #ffffff;
   border: 1.5px solid #bfdbfe;
   border-radius: 10px;
   padding: 14px 18px;
@@ -5713,7 +5713,7 @@ img {
 .srm-company-list li { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: #f8fafc; border: 1px solid var(--border-card); border-radius: 6px; }
 .srm-company-list strong { color: var(--text-dark); font-size: 13px; }
 .srm-company-list span { color: var(--text-muted); font-size: 13px; font-variant-numeric: tabular-nums; }
-.srm-period-card { display: grid; grid-template-columns: auto 1fr auto auto 1fr; align-items: center; gap: 10px; min-height: 62px; padding: 14px; background: linear-gradient(135deg, #f0f7ff, #f8fafc); border: 1px solid #dbeafe; border-radius: 8px; }
+.srm-period-card { display: grid; grid-template-columns: auto 1fr auto auto 1fr; align-items: center; gap: 10px; min-height: 62px; padding: 14px; background: #ffffff; border: 1px solid #dbeafe; border-radius: 8px; }
 .srm-period-card span { color: #64748b; font-size: 13px; font-weight: 700; }
 .srm-period-card strong { color: var(--brand-navy); font-size: 13px; }
 .srm-period-card i { color: var(--primary-blue); font-style: normal; }
@@ -6475,7 +6475,7 @@ a.btn-logout[href="SRMLogin.html"]:focus-visible {
   padding: 12px 14px;
   border: 1px solid #bfdbfe;
   border-radius: 8px;
-  background: #f0f7ff;
+  background: #ffffff;
   color: #475569;
   font-size: 13px;
   font-weight: 400;
@@ -6694,6 +6694,14 @@ body :is(
   .srm-period-card,
   .srm-mini-kv > div,
   .srm-company-list li,
+  .srm-price-panel,
+  .srm-role-bar,
+  .srm-return-message,
+  .srm-return-modal .modal-footer,
+  .demo-accounts-box,
+  .login-support-box,
+  .card-feature-list,
+  .terms-box,
   .page-manual-panel
 ) {
   background: #ffffff !important;
