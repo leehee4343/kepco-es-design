@@ -367,6 +367,9 @@ function createDonut(containerId, data) {
   if (!container) return;
 
   const total = data.reduce((acc, cur) => acc + cur.value, 0);
+  container.dataset.total = String(total);
+  container.setAttribute('role', 'img');
+  container.setAttribute('aria-label', data.map(item => `${item.label} ${item.value}건`).join(', '));
   const size = 100;
   const strokeWidth = 22;
   const radius = (size - strokeWidth) / 2; // 39
@@ -414,6 +417,12 @@ function createDonut(containerId, data) {
 
   container.innerHTML = '';
   container.appendChild(svg);
+  const totalLabel = document.createElement('span');
+  totalLabel.className = 'donut-chart-total';
+  totalLabel.textContent = total.toLocaleString('ko-KR');
+  totalLabel.setAttribute('aria-hidden', 'true');
+  container.appendChild(totalLabel);
+  container.classList.add('chart-rendered');
 }
 
 /**
