@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderDonutCharts();
   animateBarCharts();
   animateProgressBars();
-  initProjectRegisterModal();
+  initProjectRegisterWorkspace();
   initSRMLoginPage();
   initProjectSearchPage();
   initProjectDetailPage();
@@ -57,7 +57,7 @@ function initPageManuals() {
     'Dashboard.html': '즐겨찾기와 주요 프로젝트·자금 현황을 확인합니다. 각 현황 카드와 차트의 항목을 선택하면 관련 업무 화면으로 이동할 수 있습니다.',
     'ProjectSearch.html': '검색 조건을 입력한 뒤 조회 버튼을 선택합니다. 결과 그리드는 정렬, 가로 스크롤, 페이지 이동을 지원하며 프로젝트명을 선택하면 상세 화면으로 이동합니다.',
     'ProjectDetail.html': '프로젝트의 계약, 투자, 상환 및 진행 이력을 영역별로 확인합니다. 필요한 업무 버튼을 선택해 후속 절차를 진행할 수 있습니다.',
-    'ProjectRegister.html': '검색 조건으로 기존 수주계약을 확인하거나 신규 프로젝트 등록 버튼을 선택해 접수 정보를 입력합니다.',
+    'ProjectRegister.html': '사업의 계약 형태를 선택한 뒤 신규 프로젝트 접수 정보를 입력합니다.',
     'BusinessSettlement.html': '대상 프로젝트를 조회한 뒤 매출, 비용, 수익 및 상환 정보를 확인하고 결산 업무를 진행합니다.',
     'Statistics.html': '기준 연도와 분석 조건을 선택해 프로젝트, 투자 및 상환 현황을 차트와 집계 데이터로 확인합니다.',
     'StepWorkflow.html': '입찰 업무의 현재 단계를 확인하고 단계별 입력 항목을 작성합니다. 저장 후 다음 단계로 이동할 수 있습니다.',
@@ -454,31 +454,27 @@ function animateProgressBars() {
 }
 
 /**
- * 신규 프로젝트 등록 모달 인터랙션 ([참고]신규프로젝트 등록.jpeg)
+ * 신규 프로젝트 등록 페이지 내부 작업영역 인터랙션
  */
-function initProjectRegisterModal() {
-  const modalBackdrop = document.getElementById('modalProjectRegister');
-  if (!modalBackdrop) return;
+function initProjectRegisterWorkspace() {
+  const registerWorkspace = document.getElementById('projectRegisterWorkspace');
+  if (!registerWorkspace) return;
 
   const btnOpenModal = document.getElementById('btnOpenRegisterModal');
-  const btnCloseModal = document.getElementById('btnCloseModal');
-  const btnCancelModal = document.getElementById('btnCancelModal');
   const contractCards = document.querySelectorAll('.contract-option-card');
-  const step1 = document.getElementById('modalStep1');
-  const step2 = document.getElementById('modalStep2');
+  const step1 = document.getElementById('registerStep1');
+  const step2 = document.getElementById('registerStep2');
   const btnFormPrev = document.getElementById('btnFormPrev');
   const projectForm = document.getElementById('projectRegisterForm');
   const contractBadge = document.getElementById('selectedContractBadge');
+  const btnContinueContract = document.getElementById('btnContinueContract');
+  const contractSelectionText = document.getElementById('contractSelectionText');
+  let selectedContractType = '';
 
-  // 모달 열기
-  function openModal() {
-    modalBackdrop.classList.add('show');
-    resetModal();
-  }
-
-  // 모달 닫기
-  function closeModal() {
-    modalBackdrop.classList.remove('show');
+  const mainContent = document.querySelector('.dashboard-content');
+  const pageHeader = mainContent?.querySelector('.dashboard-header');
+  if (pageHeader && registerWorkspace.parentElement !== mainContent) {
+    pageHeader.insertAdjacentElement('afterend', registerWorkspace);
   }
 
   // 모달 상태 초기화 (Step 1로 복귀)
@@ -486,44 +482,42 @@ function initProjectRegisterModal() {
     if (step1) step1.style.display = 'block';
     if (step2) step2.classList.remove('active');
     if (projectForm) projectForm.reset();
+    selectedContractType = '';
+    contractCards.forEach(card => {
+      card.classList.remove('selected');
+      card.setAttribute('aria-pressed', 'false');
+    });
+    if (contractSelectionText) contractSelectionText.textContent = '계약 형태를 선택해 주세요.';
+    if (btnContinueContract) btnContinueContract.disabled = true;
   }
 
   if (btnOpenModal) {
-    btnOpenModal.addEventListener('click', openModal);
+    btnOpenModal.addEventListener('click', () => {
+      resetModal();
+      registerWorkspace.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   }
 
-  if (btnCloseModal) {
-    btnCloseModal.addEventListener('click', closeModal);
-  }
-
-  if (btnCancelModal) {
-    btnCancelModal.addEventListener('click', closeModal);
-  }
-
-  // 백드롭 클릭 시 닫기
-  modalBackdrop.addEventListener('click', (e) => {
-    if (e.target === modalBackdrop) {
-      closeModal();
-    }
-  });
-
-  // ESC 키 닫기
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalBackdrop.classList.contains('show')) {
-      closeModal();
-    }
-  });
-
-  // Step 1: 계약 형태 카드 선택 시 Step 2 폼으로 이동
+  // Step 1: 계약 형태를 먼저 선택하고 확인한 뒤 Step 2로 이동
   contractCards.forEach(card => {
     card.addEventListener('click', () => {
-      const contractType = card.getAttribute('data-contract') || 'ESCO 계약';
-      if (contractBadge) {
-        contractBadge.textContent = `계약 형태 : ${contractType}`;
-      }
-      if (step1) step1.style.display = 'none';
-      if (step2) step2.classList.add('active');
+      selectedContractType = card.getAttribute('data-contract') || 'ESCO 계약';
+      contractCards.forEach(item => {
+        const isSelected = item === card;
+        item.classList.toggle('selected', isSelected);
+        item.setAttribute('aria-pressed', String(isSelected));
+      });
+      if (contractSelectionText) contractSelectionText.textContent = `선택됨: ${selectedContractType}`;
+      if (btnContinueContract) btnContinueContract.disabled = false;
     });
+  });
+
+  btnContinueContract?.addEventListener('click', () => {
+    if (!selectedContractType) return;
+    if (contractBadge) contractBadge.textContent = `계약 형태 : ${selectedContractType}`;
+    if (step1) step1.style.display = 'none';
+    if (step2) step2.classList.add('active');
+    step2?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
   // Step 2 -> Step 1 이전 버튼
@@ -571,7 +565,8 @@ function initProjectRegisterModal() {
       }
 
       alert(`[${cType}] "${pName}" 프로젝트가 성공적으로 등록되었습니다.`);
-      closeModal();
+      resetModal();
+      document.querySelector('.table-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   }
 }
@@ -646,6 +641,8 @@ function initSRMLoginPage() {
     'partner': { id: 'hanbit_power', pw: 'partner1234!', role: '협력업체(한빛전력)' }
   };
 
+  let selectedDemoRole = '';
+
   demoBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const roleKey = btn.getAttribute('data-role');
@@ -653,11 +650,13 @@ function initSRMLoginPage() {
       if (account && idInput && pwInput) {
         idInput.value = account.id;
         pwInput.value = account.pw;
-        // 시각적 피드백 후 SRM 대시보드로 로그인 시뮬레이션
-        btn.style.borderColor = '#1976d2';
-        setTimeout(() => {
-          window.location.href = `SRMDashboard.html?role=${roleKey}`;
-        }, 300);
+        selectedDemoRole = roleKey || '';
+        demoBtns.forEach(item => {
+          const isSelected = item === btn;
+          item.classList.toggle('is-selected', isSelected);
+          item.setAttribute('aria-pressed', String(isSelected));
+        });
+        document.querySelector('.btn-submit-login')?.focus();
       }
     });
   });
@@ -675,7 +674,8 @@ function initSRMLoginPage() {
       }
 
       // 로그인 성공 시뮬레이션 -> SRM 대시보드로 이동
-      window.location.href = 'SRMDashboard.html';
+      const roleQuery = selectedDemoRole ? `?role=${selectedDemoRole}` : '';
+      window.location.href = `SRMDashboard.html${roleQuery}`;
     });
   }
 

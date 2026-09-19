@@ -278,7 +278,7 @@
     </aside>
 
     <!-- ====================================================================
-         본문 영역 (배경 관리 테이블 + 신규 프로젝트 등록 모달)
+         본문 영역 (신규 프로젝트 등록 작업영역 + 수주계약 관리 테이블)
          ==================================================================== -->
     <div class="main-wrapper">
       <main class="dashboard-content">
@@ -298,7 +298,7 @@
         </div>
 
         <!-- 1. 필터 검색 영역 -->
-        <div class="filter-card">
+        <div class="filter-card" hidden aria-hidden="true">
           <div class="filter-grid">
             <div class="filter-item">
               <label class="filter-label">등록 구분</label>
@@ -335,7 +335,7 @@
         </div>
 
         <!-- 2. 수주계약 목록 데이터 테이블 -->
-        <div class="table-card">
+        <div class="table-card" hidden aria-hidden="true">
           <div class="table-header-action-row">
             <div class="table-total-count grid-page-summary">
               1 / 2 (총 17개)
@@ -480,105 +480,133 @@
   </div>
 
   <!-- ====================================================================
-       신규 프로젝트 계약형태 선택 모달 ([참고]신규프로젝트 등록.jpeg 100% 충실 반영)
+       신규 프로젝트 계약형태 선택 및 등록 작업영역
+       스크립트가 페이지 헤더 바로 아래의 콘텐츠 영역으로 배치합니다.
        ==================================================================== -->
-  <div class="modal-backdrop show" id="modalProjectRegister">
-    <div class="modal-dialog">
-      <!-- 닫기 버튼 ✕ -->
-      <button type="button" class="btn-close-modal" id="btnCloseModal" title="창 닫기">
-        <svg width="22" height="22" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-
-      <div class="modal-content-wrap">
+  <section class="project-register-workspace app-card" id="projectRegisterWorkspace" aria-labelledby="projectRegisterHeading">
+    <div class="project-register-panel">
+      <div class="project-register-content">
         <!-- ==============================================================
              step 1: 계약 형태 선택 단계 ([참고] 이미지 화면)
              ============================================================== -->
-        <div id="modalStep1">
-          <!-- 모달 제목 -->
-          <h2 class="modal-heading">
-            사업의 계약형태를<br>
-            <span class="highlight-blue">선택해</span><br>
-            주세요.
-          </h2>
+        <div id="registerStep1">
+          <div class="project-register-intro">
+            <h2 class="project-register-heading" id="projectRegisterHeading">
+              어떤 방식으로 프로젝트를 시작할까요?
+            </h2>
+            <p class="project-register-description">사업에 가장 알맞은 계약 형태를 선택해 주세요. 선택 후 세부 정보를 입력할 수 있습니다.</p>
+          </div>
 
           <!-- 3개 계약 선택 카드 -->
           <div class="contract-options-list">
             <!-- 1. ESCO 계약 -->
-            <div class="contract-option-card" data-contract="ESCO 계약">
+            <button type="button" class="contract-option-card" data-contract="ESCO 계약" aria-pressed="false">
               <div class="option-left-group">
                 <div class="option-icon-box esco">
-                  <!-- 나뭇잎/에너지 아이콘 -->
-                  <svg width="26" height="26" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m11 20a7 7 0 0 1 9.8 6.1c15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"></path>
-                    <path d="m2 21c0-3 1.85-5.36 5.08-6c9.5 14.52 12 13 13 12"></path>
+                  <!-- 전구·잎·성과 그래프를 결합한 ESCO 아이콘 -->
+                  <svg class="contract-illustration" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+                    <path d="M18 28a18 18 0 1 1 28 15c-3 2.4-4.8 5.1-5.3 8H31.3c-.5-2.9-2.3-5.6-5.3-8A17.9 17.9 0 0 1 18 28Z" fill="#ffffff" stroke="#087f5b" stroke-width="3.2"/>
+                    <path d="M31 51h10M31.8 56h8.4M34 61h4" stroke="#087f5b" stroke-width="3.2" stroke-linecap="round"/>
+                    <path d="M27.5 33.5c1.1-8.6 8-12.3 17.5-12.8-.2 9.1-4.4 15.9-13 16.3" fill="#70d69d" stroke="#087f5b" stroke-width="2.8" stroke-linejoin="round"/>
+                    <path d="M31 41c1.8-7.7 6-12.2 11.4-17" stroke="#087f5b" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M48 53h5V42h5v11h5V35" stroke="#19a974" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="m48 38 5-5 4 3 7-8" stroke="#ff9f1c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="m61 28 4-1-1 4" stroke="#ff9f1c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="54" cy="59" r="7" fill="#ffd166" stroke="#b77900" stroke-width="2.5"/>
+                    <path d="M50.5 57.5 52 61l2-3.5 2 3.5 1.5-3.5" stroke="#8a5b00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
-                <span class="option-title">ESCO 계약</span>
+                <span class="option-copy">
+                  <span class="option-title">ESCO 계약</span>
+                  <span class="option-description">에너지 절감 성과를 기반으로 투자비를 회수하는 사업</span>
+                  <span class="option-keyword">에너지효율 · 성과보증</span>
+                </span>
               </div>
               <div class="option-arrow">
                 <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
               </div>
-            </div>
+            </button>
 
             <!-- 2. EPC(용역) 계약 -->
-            <div class="contract-option-card" data-contract="EPC(용역) 계약">
+            <button type="button" class="contract-option-card" data-contract="EPC(용역) 계약" aria-pressed="false">
               <div class="option-left-group">
                 <div class="option-icon-box epc">
-                  <!-- 안전모 / 엔지니어링 아이콘 -->
-                  <svg width="26" height="26" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h3a1 1 0 0 0-1 1v2z"></path>
-                    <path d="m10 10v5a2 2 0 0 1 4 0v5"></path>
-                    <path d="m4 15v-3a8 8 0 0 1 16 0v3"></path>
+                  <!-- 설계도·건축물·안전모를 결합한 EPC 아이콘 -->
+                  <svg class="contract-illustration" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+                    <path d="M12 12h39a5 5 0 0 1 5 5v32H17a5 5 0 0 1-5-5V12Z" fill="#ffffff" stroke="#1769aa" stroke-width="3" stroke-linejoin="round"/>
+                    <path d="M12 12v32a5 5 0 0 0 5 5M12 12c-4 0-6 2.5-6 6v30" stroke="#1769aa" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M23 41V27h10v-7h12v21M28 34h3M37 27h3M37 34h3" stroke="#4d8fc4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="20" cy="49" r="8" fill="#8fc4e8" stroke="#1769aa" stroke-width="2.5"/>
+                    <circle cx="20" cy="49" r="2.5" fill="#ffffff"/>
+                    <path d="M20 38v3M20 57v3M9 49h3M28 49h3M12.2 41.2l2.1 2.1M25.7 54.7l2.1 2.1M27.8 41.2l-2.1 2.1M14.3 54.7l-2.1 2.1" stroke="#1769aa" stroke-width="2.4" stroke-linecap="round"/>
+                    <path d="M37 56c.7-9.3 6.4-15 14-15s13.3 5.7 14 15" fill="#ffbf47" stroke="#9a5b00" stroke-width="3"/>
+                    <path d="M51 42v10M35 56h32v5H35z" fill="#ffd166" stroke="#9a5b00" stroke-width="3" stroke-linejoin="round"/>
+                    <path d="M51 42v9" stroke="#9a5b00" stroke-width="2.5" stroke-linecap="round"/>
                   </svg>
                 </div>
-                <span class="option-title">EPC(용역) 계약</span>
+                <span class="option-copy">
+                  <span class="option-title">EPC(용역) 계약</span>
+                  <span class="option-description">설계·조달·시공 또는 전문 용역을 수행하는 사업</span>
+                  <span class="option-keyword">설계 · 조달 · 시공</span>
+                </span>
               </div>
               <div class="option-arrow">
                 <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
               </div>
-            </div>
+            </button>
 
             <!-- 3. 기타 계약 -->
-            <div class="contract-option-card" data-contract="기타 계약">
+            <button type="button" class="contract-option-card" data-contract="기타 계약" aria-pressed="false">
               <div class="option-left-group">
                 <div class="option-icon-box other">
-                  <!-- 문서 / 체크리스트 아이콘 -->
-                  <svg width="26" height="26" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m14 2h6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="16" y1="13" x2="8" y2="13"></line>
-                    <line x1="16" y1="17" x2="8" y2="17"></line>
-                    <polyline points="10 9 9 9 8 9"></polyline>
+                  <!-- 계약서·협약·정책 기관을 결합한 기타 계약 아이콘 -->
+                  <svg class="contract-illustration" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+                    <path d="M10 10h30l8 8v32H10V10Z" fill="#ffffff" stroke="#6542a6" stroke-width="3" stroke-linejoin="round"/>
+                    <path d="M40 10v9h8M18 24h20M18 31h16M18 38h12" stroke="#8b6cc1" stroke-width="2.6" stroke-linecap="round"/>
+                    <path d="M51 23 62 17l6 6-11 6M54 30v10M65 24v16M50 40h19M53 40v5M66 40v5M49 45h21" stroke="#514071" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="m18 53 7-7c2-2 4.5-2 6.5 0l2.5 2.5 2.5-2.5c2-2 4.5-2 6.5 0l8 8-12 12a5 5 0 0 1-7 0L18 53Z" fill="#ffd0b5" stroke="#514071" stroke-width="2.7" stroke-linejoin="round"/>
+                    <path d="m18 53-6-5-6 9 10 7 5-3M51 54l7-6 7 9-10 7-5-3M26 55l9 8M32 51l11 10" stroke="#514071" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="61" cy="55" r="8" fill="#b9a7e8" stroke="#514071" stroke-width="2.5"/>
+                    <path d="m57.5 55 2.2 2.2 4.8-5" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
-                <span class="option-title">기타 계약</span>
+                <span class="option-copy">
+                  <span class="option-title">기타 계약</span>
+                  <span class="option-description">ESCO·EPC 외 정책 및 별도 조건으로 진행하는 사업</span>
+                  <span class="option-keyword">정책사업 · 별도계약</span>
+                </span>
               </div>
               <div class="option-arrow">
                 <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
               </div>
-            </div>
+            </button>
           </div>
 
-          <!-- 하단 안내문구 & 취소 버튼 -->
-          <div class="modal-bottom-row">
-            <span class="modal-notice-text">* 프로젝트 생성 이후, 변경할 수 없는 정보이므로 정확하게 입력해 주세요.</span>
-            <button type="button" class="btn-modal-cancel" id="btnCancelModal">취소</button>
+          <div class="contract-selection-action" aria-live="polite">
+            <div class="contract-selection-status">
+              <span class="selection-status-icon" aria-hidden="true">✓</span>
+              <span id="contractSelectionText">계약 형태를 선택해 주세요.</span>
+            </div>
+            <button type="button" class="btn-contract-continue btn-critical-primary" id="btnContinueContract" disabled>
+              선택하고 기본정보 입력
+              <svg width="17" height="17" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
           </div>
+
         </div>
 
         <!-- ==============================================================
              step 2: 프로젝트 세부 정보 등록 입력 폼 (ux 확장 단계)
              ============================================================== -->
-        <div class="form-step-container" id="modalStep2">
+        <div class="form-step-container" id="registerStep2">
           <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
             <h3 style="font-size: 20px; font-weight: 800; color: #334155;">신규 프로젝트 기본정보 등록</h3>
             <span class="selected-contract-badge" id="selectedContractBadge">계약 형태 : ESCO 계약</span>
@@ -649,7 +677,7 @@
 
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- 표준 카피라이트 푸터 -->
   <footer class="app-footer">

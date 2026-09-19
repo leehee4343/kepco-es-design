@@ -16,7 +16,7 @@
 | No | 화면명 | 파일 | 주요 기능 및 특징 |
 |:---:|:---|:---|:---|
 | 01 | **종합 대시보드** | [`Dashboard.html`](./Dashboard.html) | 실시간 경영목표 대비 실적, 프로젝트 파이프라인 현황, 도넛 차트 |
-| 02 | **신규 프로젝트 등록** | [`ProjectRegister.html`](./ProjectRegister.html) | 계약 형태별(ESCO/수익/EPC) 사업 기본정보 입력 모달 팝업 |
+| 02 | **신규 프로젝트 등록** | [`ProjectRegister.html`](./ProjectRegister.html) | 계약 형태 선택과 사업 기본정보 입력을 페이지 내부 작업영역으로 제공 |
 | 03 | **추진단계 프로젝트 현황** | [`ProjectSearch.html`](./ProjectSearch.html) | 다차원 조건 검색 필터, 프로젝트 목록 그리드, 엑셀 다운로드 |
 | 04 | **프로젝트 상세** | [`ProjectDetail.html`](./ProjectDetail.html) | 투자·상환·원리금 차트, 이력 타임라인, 계획대비 실적 표 |
 | 05 | **사업결산 현황** | [`BusinessSettlement.html`](./BusinessSettlement.html) | 결산일 기준 24건 실적 데이터 그리드, 상태 뱃지, 실시간 페이징 |

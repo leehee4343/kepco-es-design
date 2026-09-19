@@ -119,6 +119,7 @@ font-family: 'Pretendard';
 ### 4.1 상단 글로벌 헤더 (Top Header)
 - **높이**: 56px 고정 (`--header-height: 56px`)
 - **좌측 영역**: 켑코이에스 공식 로고 (`assets/logo.png`) + 사이드바 접기/펼치기 토글 버튼 + 텍스트형 시스템 타이틀 (`사업관리시스템(PMS)` / `전자입찰시스템(SRM)`)
+- **CI 보호영역**: 배경색과의 대비를 맞추기 위해 CI 주변에 흰색 캡슐·테두리·박스·그림자를 추가하지 않습니다. CI는 흰색 페이지 또는 헤더 배경 위에 직접 배치하고 원본 비율과 최소 여백만 유지합니다.
 - **중앙 영역**: 
   - PMS 화면: 전역 프로젝트 검색창을 두지 않으며, 검색/조회는 각 화면의 콘텐츠 검색 영역에서 수행
   - SRM 화면: 역할 전환 칩 바 (`계약담당자`, `사업담당자`, `관리자`, `협력업체`)
@@ -163,7 +164,7 @@ font-family: 'Pretendard';
 
 ### 4.3 하단 표준 푸터 (Footer Bar - 실제 엔터프라이즈 시스템 표준)
 - **높이**: 38px 고정 (`--footer-height: 38px`)
-- **배경 & 폰트**: 기본 블루 (`#1976d2`), 폰트 13px, 중앙 정렬
+- **배경 & 폰트**: 비강조 중립 영역을 나타내는 짙은 회색 (`#334155`), 흰색 계열 텍스트, 폰트 13px, 중앙 정렬. Footer에는 기본 블루를 사용하지 않습니다.
 - **원칙**:
   - ⚠️ **임시 프로토타입/데모 안내 문구 절대 금지** (본 시스템은 실제 프로덕션 디자인 수준으로 구축됨).
   - 공식 글로벌 저작권 표기만 정갈하게 중앙 배치:
@@ -225,7 +226,7 @@ font-family: 'Pretendard';
 | 버튼 타입 | 스타일 규격 | 용도 |
 |---|---|---|
 | **Critical Primary (대각선 그라데이션)** | `135deg`, Blue `#1976d2` → Green `#10b981`, Text `#ffffff`, Border none | 신규 생성, 최종 등록, 저장, 제출, 승인 요청 |
-| **Primary (단색 블루)** | Background `#1976d2`, Text `#ffffff`, Border none | 화면 이동, 행 단위 등록, 스텝 전환 |
+| **Primary (단색 블루)** | Background `#1976d2`, Text `#ffffff`, Border none | 일반 화면 이동, 되돌리기, 행 단위 처리 |
 | **Secondary (화이트)** | Background `#ffffff`, Border `1px solid #cbd5e1`, Text `#475569` | 목록, 취소, 이전, 닫기 |
 | **Danger / Alert** | Background `#ef4444`, Text `#ffffff` | 되돌리기, 삭제, 반려 |
 | **File Chip (바로보기/다운로드)** | Font 13px, Padding 4px 10px, Radius 4px, Border `#cbd5e1` | 첨부파일 열람 및 다운로드 |
@@ -243,6 +244,7 @@ font-family: 'Pretendard';
   - `badge-red`: 유찰, 취소, 마감
 
 ### 5.5 모달 팝업 가이드 (Modal & Dialog)
+- **신규 프로젝트 등록 예외**: 계약형태 선택과 프로젝트 기본정보 입력은 모달을 사용하지 않고 `ProjectRegister.html`의 페이지 내부 콘텐츠 작업영역에서 단계 전환 방식으로 제공합니다.
 - **오버레이 (Backdrop)**: `background: rgba(15, 23, 42, 0.55); backdrop-filter: blur(2px); z-index: 1000;`
 - **모달 창 (Dialog Container)**:
   - 최대 너비: 기본 500px ~ 600px (입력형은 750px)
