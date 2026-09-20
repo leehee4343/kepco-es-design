@@ -21,7 +21,7 @@
 | 04 | **프로젝트 상세** | [`ProjectDetail.html`](./ProjectDetail.html) | 투자·상환·원리금 차트, 이력 타임라인, 계획대비 실적 표 |
 | 05 | **사업결산 현황** | [`BusinessSettlement.html`](./BusinessSettlement.html) | 결산일 기준 24건 실적 데이터 그리드, 상태 뱃지, 실시간 페이징 |
 | 06 | **통계 종합현황** | [`Statistics.html`](./Statistics.html) | 연도별 주요 실적 지표, 계약형태 및 사업구분별 가로 바 차트 |
-| 07 | **진행상태별 업무 관리** | [`StepWorkflow.html`](./StepWorkflow.html) | 예정가격 산출기초조서 등록, 전자결재 요청, 첨부파일 업로드 |
+| 07 | **SRM 입찰계획 현황 (7-Step)** | [`StepWorkflow.html`](./StepWorkflow.html) | 예정가격 산출기초조서 등록, 전자결재 요청, 첨부파일 업로드 |
 | 08 | **계획대비 실적현황** | [`PlanPerformance.html`](./PlanPerformance.html) | 자금관리 다차원 분석 그리드, 분기별 집행 실적 현황 |
 
 ### 2. 전자입찰시스템 (SRM)
@@ -60,7 +60,7 @@
 ├── ProjectDetail.html       # PMS 프로젝트 상세 (투자·상환·타임라인)
 ├── BusinessSettlement.html  # PMS 사업결산 현황
 ├── Statistics.html          # PMS 통계 종합현황 (연도별 분석)
-├── StepWorkflow.html        # PMS 진행상태별 업무 관리 (예정가 산출)
+├── StepWorkflow.html        # SRM 입찰계획 현황 (예정가/예비가 산출, 7-Step)
 ├── PlanPerformance.html     # PMS 계획대비 실적현황 (자금관리)
 ├── SRMDashboard.html        # SRM 전자입찰 업무 포털 (대시보드)
 ├── SRMLogin.html            # SRM 공급자 로그인 창구

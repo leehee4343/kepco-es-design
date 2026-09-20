@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPartnerRegisterPage();
   initSrmDetailPage();
   initDataGrids();
+  initModals();
 });
 
 /**
@@ -225,6 +226,12 @@ function initSidebar() {
     systemBadge.remove();
   }
 
+  // 시스템 코드 "(PMS)/(SRM)"를 별도 span 으로 분리해 시스템명과 다른 서체로 표시합니다.
+  const headerTitle = headerLeft?.querySelector('.system-title');
+  if (headerTitle && !headerTitle.querySelector('.system-code')) {
+    headerTitle.innerHTML = headerTitle.textContent.trim().replace(/\((PMS|SRM)\)$/, '<span class="system-code">($1)</span>');
+  }
+
   applySidebarMenuIcons(navItems);
   applySidebarBottomActions();
 
@@ -296,7 +303,10 @@ function applySidebarMenuIcons(navItems) {
     plan: svg('<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/>'),
     bid: svg('<path d="m14 4 6 6M12 6l6 6M4 20l8-8M3 21h8"/><path d="m10 8 4-4 6 6-4 4z"/>'),
     partner: svg('<circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2"/><path d="M3 20a6 6 0 0 1 12 0M14 20a4 4 0 0 1 7 0"/>'),
-    support: svg('<path d="M4 13a8 8 0 0 1 16 0"/><path d="M4 13v4a2 2 0 0 0 2 2h2v-6H4ZM20 13v4a2 2 0 0 1-2 2h-2v-6h4Z"/>')
+    support: svg('<path d="M4 13a8 8 0 0 1 16 0"/><path d="M4 13v4a2 2 0 0 0 2 2h2v-6H4ZM20 13v4a2 2 0 0 1-2 2h-2v-6h4Z"/>'),
+    database: svg('<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>'),
+    orderRequest: svg('<path d="M6 3h9l3 3v15H6z"/><path d="M14 3v4h4"/><path d="M12 11v6M9 14h6"/>'),
+    negotiated: svg('<path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="m13.5 6.5 4 4"/>')
   };
 
   const resolveIcon = label => {
@@ -308,12 +318,15 @@ function applySidebarMenuIcons(navItems) {
     if (label.includes('통계')) return [icons.statistics, '#ff7a00'];
     if (label.includes('마이')) return [icons.user, '#1976d2'];
     if (label.includes('출장')) return [icons.travel, '#ef4444'];
-    if (label.includes('공통') || label.includes('기준정보')) return [icons.settings, '#0284c7'];
+    if (label.includes('기준정보')) return [icons.database, '#0284c7'];
+    if (label.includes('공통')) return [icons.settings, '#0284c7'];
     if (label.includes('사전 견적')) return [icons.estimate, '#00b894'];
     if (label.includes('발주계획')) return [icons.plan, '#1976d2'];
     if (label.includes('입찰')) return [icons.bid, '#ff7a00'];
     if (label.includes('협력업체')) return [icons.partner, '#00b894'];
     if (label.includes('고객센터') || label.includes('자료실')) return [icons.support, '#1976d2'];
+    if (label.includes('발주계약')) return [icons.orderRequest, '#ff7a00'];
+    if (label.includes('수의계약')) return [icons.negotiated, '#ff7a00'];
     if (label.includes('계약')) return [icons.contract, '#ff7a00'];
     return [icons.dashboard, '#1976d2'];
   };
@@ -903,6 +916,35 @@ function initProjectSearchPage() {
 }
 
 /**
+ * 표준 모달(.modal-backdrop) 공통 동작
+ * - 배경 클릭, Esc 로 닫기(가장 위에 열린 모달부터)
+ * - show 상태에 맞춰 aria-hidden 과 본문 스크롤 잠금(body.modal-open) 동기화
+ * 여는 동작은 화면별 스크립트가 .show 클래스를 붙여 처리합니다.
+ */
+function initModals() {
+  const getModals = () => Array.from(document.querySelectorAll('.modal-backdrop'));
+  const syncBody = () => document.body.classList.toggle('modal-open', getModals().some(m => m.classList.contains('show')));
+
+  getModals().forEach(modal => {
+    new MutationObserver(() => {
+      modal.setAttribute('aria-hidden', String(!modal.classList.contains('show')));
+      syncBody();
+    }).observe(modal, { attributes: true, attributeFilter: ['class'] });
+
+    modal.addEventListener('click', event => {
+      if (event.target === modal) modal.classList.remove('show');
+    });
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    const opened = getModals().filter(m => m.classList.contains('show'));
+    const top = opened.sort((a, b) => (Number(getComputedStyle(a).zIndex) || 0) - (Number(getComputedStyle(b).zIndex) || 0)).pop();
+    if (top) top.classList.remove('show');
+  });
+}
+
+/**
  * 표준 탭 그룹(.detail-tab-group) 공통 동작
  * - 선택 상태(active)와 aria-selected 동기화, 방향키·Home·End 이동
  * - canSelect(tab, source)가 false를 반환하면 선택을 바꾸지 않습니다. source는 'click' | 'key'
@@ -1128,11 +1170,24 @@ function initStatisticsPage() {
 }
 
 /**
- * 진행상태별 업무 관리 화면 인터랙션 (StepWorkflow.html)
+ * SRM 입찰계획 현황 화면 인터랙션 (StepWorkflow.html)
  */
 function initStepWorkflowPage() {
-  const stepperGrid = document.querySelector('.main-stepper-grid');
-  if (!stepperGrid) return;
+  if (!document.getElementById('workflowStepper')) return;
+
+  // 스텝바: 현재 화면(진행 단계) 외의 단계는 시연 범위 밖이라 안내만 표시합니다.
+  document.querySelectorAll('#workflowStepper .wizard-step-box').forEach(box => {
+    const notify = () => {
+      if (box.classList.contains('active')) return;
+      alert(`STEP ${box.dataset.step.padStart(2, '0')} 단계 화면은 현재 시연 범위에 포함되지 않습니다.`);
+    };
+    box.addEventListener('click', notify);
+    box.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      notify();
+    });
+  });
 
   const btnOpenCalcModal = document.querySelectorAll('.btn-open-calc-modal');
   const modalCalc = document.getElementById('modalCalcPrice');
@@ -1211,11 +1266,11 @@ function initStepWorkflowPage() {
     btnAddRow.addEventListener('click', () => {
       const newTr = document.createElement('tr');
       newTr.innerHTML = `
-        <td><input type="text" class="calc-num-input" style="text-align: left;" value="기타 추가 항목"></td>
+        <td><input type="text" class="calc-num-input calc-left" value="기타 추가 항목"></td>
         <td><input type="text" class="calc-num-input calc-est-val" value="1,000,000"></td>
         <td><input type="text" class="calc-num-input calc-ass-val" value="1,000,000"></td>
         <td><span class="diff-val">0원</span></td>
-        <td><input type="text" class="filter-input" style="height: 32px; font-size: 13px; width: 100%;" placeholder="20자 이내로 간략히 작성해주세요."></td>
+        <td><input type="text" class="filter-input calc-memo-input" placeholder="20자 이내로 간략히 작성해주세요."></td>
         <td><button type="button" class="btn-row-del">삭제</button></td>
       `;
       tbodyCalc.appendChild(newTr);
@@ -1277,22 +1332,17 @@ function initStepWorkflowPage() {
       alert('그룹웨어로 예정가격 산출기초조서 전자결재 요청이 정상 전송되었습니다.\nSTEP 02 단계가 [진행중]으로 전환됩니다.');
 
       // STEP 01 완료 상태 전환
-      const step1Btn = document.querySelector('.sub-step-card:nth-child(1) .btn-sub-green');
+      const step1Btn = document.querySelector('.sub-step-card:nth-child(1) .btn-task-register');
       if (step1Btn) {
         step1Btn.textContent = '완료';
-        step1Btn.classList.remove('btn-sub-green');
-        step1Btn.classList.add('btn-sub-dark');
+        step1Btn.classList.remove('btn-task-register');
+        step1Btn.classList.add('btn-task-done');
       }
 
       // STEP 02 진행중 활성화
       const step2Card = document.querySelector('.sub-step-card:nth-child(2)');
       if (step2Card) {
         step2Card.classList.add('active-substep');
-        const pBtn = step2Card.querySelector('.btn-sub-gray');
-        if (pBtn) {
-          pBtn.classList.remove('btn-sub-gray');
-          pBtn.classList.add('btn-sub-green');
-        }
       }
     });
   }

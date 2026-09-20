@@ -184,20 +184,13 @@
        모달 1: 입찰공고 내역서 상세 팝업 ([설계] 로그인 화면.pdf ④번 명세)
        ==================================================================== -->
   <div class="modal-backdrop" id="modalBiddingDetail" role="dialog" aria-modal="true" aria-labelledby="biddingModalTitle" aria-hidden="true">
-    <div class="modal-dialog bidding-modal-dialog">
-      <button type="button" class="btn-close-modal" id="btnCloseBiddingModal" aria-label="입찰공고 상세 닫기">
-        <svg width="22" height="22" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-
-      <div class="modal-content-wrap">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-          <h3 class="login-modal-title" id="biddingModalTitle">입찰공고 내역서 상세</h3>
-        </div>
-        <p style="font-size: 13px; color: #58687b;">전자입찰시스템(SRM)을 통해 진행 중인 공고의 상세 조건입니다.</p>
-
+    <div class="modal-dialog modal-lg">
+    <div class="modal-header">
+      <h2 class="modal-title" id="biddingModalTitle">입찰공고 내역서 상세</h2>
+      <button type="button" class="modal-close" id="btnCloseBiddingModal" aria-label="닫기">&times;</button>
+    </div>
+      <div class="modal-body">
+        <p class="modal-desc">전자입찰시스템(SRM)을 통해 진행 중인 공고의 상세 조건입니다.</p>
         <table class="bidding-detail-table">
           <tbody>
             <tr>
@@ -234,11 +227,10 @@
             </tr>
           </tbody>
         </table>
-
-        <div style="display: flex; justify-content: flex-end; gap: 10px;">
-          <button type="button" class="btn-form-prev" id="btnCloseBiddingAction">닫기</button>
-          <button type="button" class="btn-form-submit" id="btnJoinBidding">입찰 참가신청 (로그인 필요)</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-form-prev" id="btnCloseBiddingAction">닫기</button>
+                  <button type="button" class="btn-form-submit" id="btnJoinBidding">입찰 참가신청 (로그인 필요)</button>
       </div>
     </div>
   </div>
@@ -247,21 +239,14 @@
        모달 2: 협력업체 신규 등록 신청 팝업
        ==================================================================== -->
   <div class="modal-backdrop" id="modalPartnerRegister" role="dialog" aria-modal="true" aria-labelledby="partnerModalTitle" aria-hidden="true">
-    <div class="modal-dialog bidding-modal-dialog">
-      <button type="button" class="btn-close-modal" id="btnClosePartnerModal" aria-label="협력업체 등록 신청 닫기">
-        <svg width="22" height="22" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-
-      <div class="modal-content-wrap">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-          <h3 class="login-modal-title" id="partnerModalTitle">협력업체 신규 등록 신청</h3>
-        </div>
-        <p style="font-size: 13px; color: #58687b;">켑코이에스(주) 전자입찰 참여를 위한 협력업체 등록 심사를 신청합니다.</p>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0;">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-header">
+      <h2 class="modal-title" id="partnerModalTitle">협력업체 신규 등록 신청</h2>
+      <button type="button" class="modal-close" id="btnClosePartnerModal" aria-label="닫기">&times;</button>
+    </div>
+      <div class="modal-body">
+        <p class="modal-desc">켑코이에스(주) 전자입찰 참여를 위한 협력업체 등록 심사를 신청합니다.</p>
+        <div class="modal-form-grid">
           <div class="form-group">
             <label class="form-label">업체명 (상호) <span class="required">*</span></label>
             <input type="text" class="form-control" placeholder="예: (주)한빛전력">
@@ -287,11 +272,10 @@
             <input type="text" class="form-control" placeholder="010-0000-0000">
           </div>
         </div>
-
-        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 12px; border-top: 1px solid #e2e8f0; padding-top: 12px;">
-          <button type="button" class="btn-form-prev" id="btnCancelPartnerAction">취소</button>
-          <button type="button" class="btn-form-submit" id="btnSubmitPartnerAction">신청서 제출</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-form-prev" id="btnCancelPartnerAction">취소</button>
+                  <button type="button" class="btn-form-submit" id="btnSubmitPartnerAction">신청서 제출</button>
       </div>
     </div>
   </div>

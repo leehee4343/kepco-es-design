@@ -1625,97 +1625,7 @@ img {
 /* --------------------------------------------------------------------------
    modal: 계약 형태 선택 모달 ([참고]신규프로젝트 등록.jpeg 100% 충실 반영)
    -------------------------------------------------------------------------- */
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(15, 23, 42, 0.48);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-  transition: all var(--transition-normal);
-}
-
-.modal-backdrop.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-.modal-dialog {
-  width: 90%;
-  max-width: 680px;
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.3);
-  position: relative;
-  overflow: hidden;
-  padding: 44px 48px 36px;
-  transform: scale(0.94) translatey(10px);
-  transition: all var(--transition-normal);
-}
-
-.modal-backdrop.show .modal-dialog {
-  transform: scale(1) translatey(0);
-}
-
 /* soft decorative ambient circles (as seen in [참고]신규프로젝트 등록.jpeg) */
-.modal-dialog::before {
-  content: '';
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(191, 219, 254, 0.7) 0%, rgba(219, 234, 254, 0.3) 45%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.modal-dialog::after {
-  content: '';
-  position: absolute;
-  bottom: -90px;
-  left: -90px;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(147, 197, 253, 0.6) 0%, rgba(224, 242, 254, 0.25) 45%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.modal-content-wrap {
-  position: relative;
-  z-index: 1;
-}
-
-.btn-close-modal {
-  position: absolute;
-  top: -24px;
-  right: -24px;
-  width: 38px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #58687b;
-  border-radius: 50%;
-  transition: all var(--transition-fast);
-  z-index: 2;
-}
-
-.btn-close-modal:hover {
-  background: #f1f5f9;
-  color: #334155;
-}
-
 /* modal title */
 .modal-heading {
   font-size: 28px;
@@ -2825,20 +2735,6 @@ img {
 /* --------------------------------------------------------------------------
    modal: 입찰공고 상세 내역서 팝업 ([설계] 로그인 화면.pdf ④번 명세)
    -------------------------------------------------------------------------- */
-.bidding-modal-dialog {
-  max-width: 720px;
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 20px;
-}
-
-.login-modal-title {
-  color: #334155;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: -0.2px;
-}
-
 .bidding-detail-table {
   width: 100%;
   border-collapse: collapse;
@@ -5049,53 +4945,6 @@ img {
    -------------------------------------------------------------------------- */
 
 /* 상위 7-step 프로세스 스텝퍼 */
-.main-stepper-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
-  margin-bottom: 18px;
-}
-
-.stepper-step-box {
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 12px 10px;
-  text-align: center;
-  transition: all var(--transition-fast);
-}
-
-.stepper-step-num {
-  font-size: 13px;
-  font-weight: 700;
-  color: #0284c7;
-  margin-bottom: 4px;
-}
-
-.stepper-step-title {
-  font-size: 13px;
-  font-weight: 700;
-  color: #334155;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.stepper-step-box.active-step-gold {
-  background: #ffedd5;
-  border-color: #ff7a00;
-  box-shadow: 0 2px 8px rgba(234, 179, 8, 0.25);
-}
-
-.stepper-step-box.active-step-gold .stepper-step-num {
-  color: #ff7a00;
-}
-
-.stepper-step-box.active-step-gold .stepper-step-title {
-  color: #ff7a00;
-  font-weight: 800;
-}
-
 /* 공고 요약 바 */
 .workflow-notice-table-card {
   background: #ffffff;
@@ -5181,40 +5030,11 @@ img {
   padding: 5px 0;
   border-radius: 4px;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 400;
   border: none;
   cursor: pointer;
   text-align: center;
   transition: all var(--transition-fast);
-}
-
-.btn-sub-green {
-  background: #00b894;
-  color: #ffffff;
-}
-
-.btn-sub-green:hover {
-  background: #00b894;
-}
-
-.btn-sub-dark {
-  background: #1976d2;
-  color: #ffffff;
-}
-
-.btn-sub-dark:hover {
-  background: #1976d2;
-}
-
-.btn-sub-gray {
-  background: #f1f5f9;
-  color: #58687b;
-  border: 1px solid #cbd5e1;
-}
-
-.btn-sub-gray:hover {
-  background: #e2e8f0;
-  color: #334155;
 }
 
 /* 기초금액 산출 현황 테이블 */
@@ -5251,31 +5071,6 @@ img {
 }
 
 /* 모달: 예정가격 산출기초조서 등록 */
-.calc-modal-dialog {
-  max-width: 960px;
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 28px 32px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-.calc-modal-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 14px;
-  border-bottom: 1.5px solid #e2e8f0;
-  margin-bottom: 16px;
-}
-
-.calc-modal-title {
-  font-size: 17px;
-  font-weight: 800;
-  color: #334155;
-}
-
 .btn-add-calc-row {
   padding: 6px 14px;
   background: #00b894;
@@ -5339,18 +5134,10 @@ img {
 
 .btn-row-del {
   padding: 4px 10px;
-  background: #1976d2;
-  color: #ffffff;
-  border: none;
   border-radius: 4px;
   font-size: 13px;
-  font-weight: 600;
   cursor: pointer;
   transition: background var(--transition-fast);
-}
-
-.btn-row-del:hover {
-  background: #ef4444;
 }
 
 .calc-summary-row {
@@ -5365,37 +5152,6 @@ img {
 }
 
 /* 유의사항 확인 미니 모달 */
-.confirm-modal-dialog {
-  max-width: 480px;
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 24px 28px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-
-.confirm-warning-icon {
-  width: 52px;
-  height: 52px;
-  margin: 0 auto 14px;
-  background: #fee2e2;
-  color: #ef4444;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  font-weight: 900;
-}
-
-.confirm-text-msg {
-  font-size: 14px;
-  color: #334155;
-  line-height: 1.6;
-  margin-bottom: 22px;
-  font-weight: 600;
-}
-
 /* ==========================================================================
    사이드바 메뉴 하단 액션: 사이드바 맨 아래에 고정하지 않고 1차 메뉴 목록 바로 아래에 이어서 배치
    ========================================================================== */
@@ -6484,30 +6240,6 @@ img {
 .data-table .col-muted { color: #58687b; }
 
 /* workflow modal & calc badges */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.55);
-  backdrop-filter: blur(3px);
-  z-index: 1000;
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-overlay.show {
-  display: flex;
-}
-
-.btn-modal-close {
-  cursor: pointer;
-  color: #58687b;
-}
-
-.btn-modal-close:hover {
-  color: #334155;
-}
-
 .btn-open-calc-modal {
   cursor: pointer;
 }
@@ -6842,20 +6574,9 @@ img {
 .srm-return-button:hover { background: #1e88e5; }
 .srm-return-button b { margin-left: 5px; }
 
-.srm-return-modal .modal-dialog { width: min(600px, calc(100vw - 32px)); max-width: none; padding: 0; border-radius: 12px; }
-.srm-return-modal .modal-dialog::before, .srm-return-modal .modal-dialog::after { display: none; }
-.srm-return-modal .modal-header { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; min-height: 54px; padding: 0 20px; background: var(--brand-navy); color: #fff; }
-.srm-return-modal .modal-header h2 { color: #fff; font-size: 16px; font-weight: 800; }
-.srm-return-modal .modal-close { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; color: #fff; font-size: 24px; }
-.srm-return-modal .modal-body { position: relative; z-index: 1; padding: 20px; }
-.srm-return-modal .modal-footer { position: relative; z-index: 1; display: flex; justify-content: flex-end; gap: 8px; padding: 14px 20px; background: #f8fafc; border-top: 1px solid var(--border-card); }
 .btn-secondary { display: inline-flex; align-items: center; justify-content: center; padding: 8px 14px; background: #fff; border: 1px solid #cbd5e1; border-radius: 5px; color: #334155; font-size: 13px; font-weight: 700; }
 .btn-secondary:hover { background: #f8fafc; border-color: #7c8ca0; }
 .switch-icon { display: inline-flex; align-items: center; justify-content: center; }
-.srm-return-message { display: flex; align-items: center; gap: 16px; padding: 18px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; }
-.srm-megaphone { display: flex; align-items: center; justify-content: center; width: 58px; height: 58px; flex: 0 0 auto; background: #fff; border-radius: 50%; font-size: 27px; }
-.srm-return-message strong { display: block; color: #1976d2; font-size: 13px; line-height: 1.65; }
-.srm-return-message p { margin-top: 7px; color: #334155; font-size: 13px; font-weight: 700; }
 .srm-return-reason { display: block; margin-top: 16px; }
 .srm-return-reason span { display: block; margin-bottom: 6px; color: #334155; font-size: 13px; font-weight: 700; }
 .srm-return-reason b { color: #ef4444; }
@@ -7312,11 +7033,6 @@ body.portal-body {
   overflow: visible;
 }
 
-.calc-modal-dialog {
-  max-height: none;
-  overflow-y: visible;
-}
-
 /* 표를 직접 감싸는 컨테이너만 가로 스크롤을 가질 수 있습니다. */
 .table-scroll-wrapper,
 .table-wrapper,
@@ -7411,14 +7127,14 @@ body :is(.btn-action-new, .btn-action-primary, .btn-form-submit, .btn-submit-log
 }
 
 /* 화면 이동·되돌리기·행 단위 등록은 최상위 CTA보다 낮은 단색 액션입니다. */
-body :is(.btn-primary, .btn-sub-green) {
+body .btn-primary {
   background: #1976d2 !important;
   color: #ffffff !important;
   border-color: #1976d2 !important;
   box-shadow: none !important;
 }
 
-body :is(.btn-primary, .btn-sub-green):hover {
+body .btn-primary:hover {
   background: #1e88e5 !important;
   border-color: #1e88e5 !important;
 }
@@ -7503,15 +7219,18 @@ body :is(.btn-period-pill, .btn-quick-date, .perm-btn, .detail-subtab-btn, .bidd
   font-weight: 400 !important;
 }
 
-body :is(.btn-row-del, .btn-danger) {
-  background: #ef4444 !important;
+/* 삭제·반려 등 되돌리기 어려운 보조 액션은 빨간색이 아니라 짙은 회색으로 표시합니다(중요 버튼이 아님). */
+body :is(.btn-row-del, .btn-delete) {
+  background: #475569 !important;
   color: #ffffff !important;
-  border-color: #ef4444 !important;
+  border: 1px solid #475569 !important;
+  box-shadow: none !important;
+  font-weight: 400 !important;
 }
 
-body :is(.btn-row-del, .btn-danger):hover {
-  background: #f05252 !important;
-  border-color: #f05252 !important;
+body :is(.btn-row-del, .btn-delete):hover {
+  background: #334155 !important;
+  border-color: #334155 !important;
 }
 
 /* 주의 전환(Caution): 되돌리기처럼 진행 상태를 이전 단계로 바꾸는 보조 액션. 주요 버튼(Critical)보다 낮은 레벨이며 오렌지→레드 그라데이션 */
@@ -8078,7 +7797,6 @@ body table a[href]:not([class*="btn-"]):not([role="button"]) {
 }
 
 .srm-file-item > span,
-.srm-return-message p,
 .srm-return-reason span,
 .srm-return-reason textarea,
 .btn-secondary {
@@ -8122,10 +7840,8 @@ body :is(
   .stats-card-main,
   .workflow-notice-table-card,
   .workflow-calc-table-card,
-  .partner-wizard-stepper,
+  .wizard-stepper,
   .kpi-highlight-box,
-  .srm-return-message,
-  .srm-return-modal .modal-footer,
   .login-support-box,
   .card-feature-list,
   .terms-box,
@@ -8262,7 +7978,7 @@ body .filter-action-row > button {
   justify-content: space-between;
 }
 /* 위저드 스텝바(표준): 번호 원 + 연결선 + 단계 라벨. 단계 수와 무관하게 균등 분할됩니다. */
-.partner-wizard-stepper {
+.wizard-stepper {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
@@ -8467,9 +8183,9 @@ body .filter-action-row > button {
 /* ==========================================================================
    협력업체 신청: 인라인 스타일을 대체하는 화면 구성 클래스
    ========================================================================== */
-/* 스텝 라벨은 제목이 아니라 탭과 같은 400입니다 (main [class*="title"] 제목 규칙 예외) */
-.partner-reg-page .wizard-step-title,
-.partner-reg-page .wizard-step-num { font-weight: 400 !important; }
+/* 스텝 라벨은 제목이 아니라 탭과 같은 400입니다 (main [class*="title"] 제목 규칙 예외, 모든 화면 공통) */
+body .wizard-stepper .wizard-step-title,
+body .wizard-stepper .wizard-step-num { font-weight: 400 !important; }
 
 
 .btn-close-popup {
@@ -8582,3 +8298,195 @@ body .filter-action-row > button {
 .notice-lead { color: var(--notice-text); font-size: 14px; }
 .notice-note { color: #58687b; }
 .partner-reg-body .notice-box { margin-bottom: 28px; }
+
+/* ==========================================================================
+   모달 표준 (가이드 5.8): 헤더 · 본문 · 푸터 구조.
+   모달은 항상 뷰포트 안에 들어오고, 내용이 길면 본문(.modal-body)만 스크롤되어
+   헤더의 닫기(×)와 푸터 버튼이 항상 보입니다.
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+.modal-backdrop.show { opacity: 1; visibility: visible; }
+.modal-backdrop.modal-top { z-index: 1100; }
+
+.modal-dialog {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  max-height: calc(100vh - 48px);
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+  transform: translateY(8px);
+  transition: transform var(--transition-normal);
+}
+.modal-backdrop.show .modal-dialog { transform: none; }
+.modal-dialog.modal-sm { max-width: 480px; }
+.modal-dialog.modal-lg { max-width: 750px; }
+.modal-dialog.modal-xl { max-width: 960px; }
+
+.modal-header {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.modal-title { margin: 0; color: #334155; font-size: 16px; line-height: 1.4; }
+.modal-close {
+  display: flex;
+  flex: 0 0 32px;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #58687b;
+  font-size: 22px;
+  line-height: 1;
+}
+.modal-close:hover,
+.modal-close:focus-visible { background: #f1f5f9; color: #334155; }
+
+.modal-body { flex: 1 1 auto; min-height: 0; padding: 20px 24px; overflow-y: auto; }
+.modal-footer {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 14px 24px;
+  border-top: 1px solid #e2e8f0;
+}
+body.modal-open { overflow: hidden; }
+
+.modal-desc { margin: 0 0 12px; color: #58687b; font-size: 13px; }
+.modal-section-title { margin: 0; color: #334155; font-size: 14px; }
+.modal-field { margin-top: 16px; }
+.modal-field-label { display: block; margin-bottom: 6px; color: #475569; font-size: 13px; }
+.modal-textarea { width: 100%; height: 60px; padding: 8px 10px; font-size: 13px; }
+.modal-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 16px; }
+@media (max-width: 760px) { .modal-form-grid { grid-template-columns: 1fr; } }
+
+/* 예정가격 산출기초조서 모달 구성 요소 */
+.calc-notice-bar { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 16px; padding: 10px 14px; color: #475569; font-size: 13px; border: 1px solid #e2e8f0; border-radius: 8px; }
+.calc-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.calc-memo-input { width: 100%; height: 32px; font-size: 13px; }
+.calc-data-table td.calc-num { padding-right: 12px; text-align: right; }
+.calc-num-input.calc-left { text-align: left; }
+.calc-data-table .btn-row-del { height: 28px; padding: 0 10px; white-space: nowrap; }
+.w-60 { width: 60px; }
+.w-110 { width: 110px; }
+.w-150 { width: 150px; }
+
+/* 파일 첨부 영역(드롭존) */
+.file-dropzone { padding: 18px; color: #58687b; font-size: 13px; text-align: center; border: 2px dashed #cbd5e1; border-radius: 8px; }
+.file-dropzone svg { display: block; margin: 0 auto 6px; }
+.file-dropzone p { margin: 0; }
+.file-dropzone-link { color: #1976d2; cursor: pointer; }
+.file-dropzone-link:hover,
+.file-dropzone-link:focus-visible { color: #1e88e5; text-decoration: underline; }
+.file-dropzone-note { color: #7c8ca0; }
+
+/* 위저드 스텝바를 카드 밖(콘텐츠 영역)에 직접 둘 때는 카드 규격(5.1)을 따릅니다. */
+.main-content > .wizard-stepper {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================================================
+   업무 단계 액션 버튼 위계: 등록(해야 할 일) > 진행중(대기·진행) > 완료/확인(끝난 일)
+   강조 정도로 상태를 구분합니다. 굵기는 모두 400, 높이 38px 입니다.
+   ========================================================================== */
+body .btn-task-register {
+  font-weight: 400 !important;
+  background: #1976d2 !important;
+  color: #ffffff !important;
+  border: 1px solid #1976d2 !important;
+  box-shadow: none !important;
+}
+body .btn-task-register:hover { background: #1e88e5 !important; border-color: #1e88e5 !important; }
+
+body .btn-task-progress {
+  font-weight: 400 !important;
+  background: #e8f1fd !important;
+  color: #1976d2 !important;
+  border: 1px solid #90caf9 !important;
+  box-shadow: none !important;
+}
+body .btn-task-progress:hover { background: #dbeafe !important; border-color: #64b5f6 !important; }
+
+body .btn-task-done {
+  font-weight: 400 !important;
+  background: #ffffff !important;
+  color: #58687b !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: none !important;
+}
+body .btn-task-done:hover { background: #f8fafc !important; border-color: #7c8ca0 !important; color: #475569 !important; }
+
+/* ==========================================================================
+   헤더 아이덴티티: 웹 콘텐츠 타이틀과 구별되는 상단 영역
+   - 시스템명은 브랜드 블루 Extra Bold, 시스템 코드는 가는 회색 (캡슐·배경·별도 라벨 없이 한 줄 텍스트)
+   ========================================================================== */
+body .top-header .system-title,
+body .app-header .system-title {
+  color: #1976d2;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+body .top-header .system-title .system-code,
+body .app-header .system-title .system-code {
+  margin-left: 2px;
+  color: #58687b;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* ==========================================================================
+   입력 컨트롤 텍스트 표준 (가이드 5.5)
+   입력값·선택값은 굵게 하지 않고(400) 본문색 #475569 로 표시합니다.
+   순수 검정(#000)과 타이틀 전용색(#334155)은 쓰지 않습니다.
+   ========================================================================== */
+body :is(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="color"]), select, textarea) {
+  color: #475569 !important;
+  font-family: 'Pretendard';
+  font-weight: 400 !important;
+}
+
+body textarea { font-size: 13px; }
+
+body :is(input, textarea)::placeholder {
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* 비활성(disabled)만 흐리게, 읽기 전용(readonly)은 입력값과 같은 본문색을 유지합니다. */
+body :is(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="color"]), select, textarea):disabled {
+  color: #7c8ca0 !important;
+}
+
+/* 표 안 버튼(삭제 등)은 모달 안에서도 굵기 400 */
+.modal-backdrop table :is(button, [class*="btn-"]) { font-weight: 400 !important; }
+
+/* 모달 안의 회색(취소·닫기) 버튼과 닫기(×)도 굵기 400 */
+.modal-backdrop :is(.btn-secondary, .btn-filter-reset, .btn-form-prev, .btn-modal-cancel, .modal-close) { font-weight: 400 !important; }

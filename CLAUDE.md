@@ -82,7 +82,7 @@
 ├── PlanPerformance.html        # 계획대비 실적현황
 ├── BusinessSettlement.html      # 사업결산 현황
 ├── Statistics.html              # 통계 종합현황
-├── StepWorkflow.html            # 진행상태별 업무 관리 (7-Step)
+├── StepWorkflow.html            # SRM 입찰계획 현황 (7-Step)
 ├── SRMLogin.html                # SRM 로그인
 ├── SRMDashboard.html            # SRM 대시보드
 ├── PartnerRegister.html         # SRM 협력업체 신청 (5-Step)
