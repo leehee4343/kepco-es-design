@@ -1,19 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('.portal-thumb-grid');
   const saveButton = document.getElementById('portalLayoutSave');
-  const resetButton = document.getElementById('portalLayoutReset');
   const status = document.getElementById('portalLayoutStatus');
-  if (!grid || !saveButton || !resetButton) return;
+  if (!grid || !saveButton) return;
 
   const storageKey = 'kepcoEsPortalCardOrder';
   const cards = Array.from(grid.querySelectorAll('.portal-thumb-card'));
-  const defaultOrder = cards.map((card, index) => {
+  cards.forEach((card, index) => {
     const href = card.querySelector('a[href]')?.getAttribute('href');
-    const id = href || `portal-card-${index + 1}`;
-    card.dataset.cardId = id;
+    card.dataset.cardId = href || `portal-card-${index + 1}`;
     card.draggable = true;
     card.tabIndex = 0;
-    return id;
   });
 
   const announce = message => {
@@ -111,11 +108,5 @@ document.addEventListener('DOMContentLoaded', () => {
   saveButton.addEventListener('click', () => {
     localStorage.setItem(storageKey, JSON.stringify(getOrder()));
     announce('현재 배치를 저장했습니다.');
-  });
-
-  resetButton.addEventListener('click', () => {
-    applyOrder(defaultOrder);
-    localStorage.removeItem(storageKey);
-    announce('기본 배치로 초기화했습니다.');
   });
 });

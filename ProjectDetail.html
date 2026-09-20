@@ -280,15 +280,15 @@
         <div class="page-title-left">
           <h1 class="page-title">프로젝트 상세</h1>
         </div>
-        <div class="breadcrumb">
-          <span>홈</span>
-          <span class="bc-sep">></span>
-          <span>프로젝트 관리</span>
-          <span class="bc-sep">></span>
-          <span>프로젝트 현황</span>
-          <span class="bc-sep">></span>
-          <span class="bc-current">상세</span>
-        </div>
+        <nav class="breadcrumb" aria-label="현재 위치">
+          <span class="breadcrumb-item">홈</span>
+          <span class="breadcrumb-separator">&gt;</span>
+          <span class="breadcrumb-item">프로젝트 관리</span>
+          <span class="breadcrumb-separator">&gt;</span>
+          <span class="breadcrumb-item">프로젝트 현황</span>
+          <span class="breadcrumb-separator">&gt;</span>
+          <span class="breadcrumb-item current">상세</span>
+        </nav>
       </div>
 
       <!-- 프로세스 탭 바 (home / 추진 / 계약 / 투자 / 투자(EPC) / 상환 / 발주) -->
@@ -393,7 +393,7 @@
             <div class="history-step-row">
               <div class="step-label-group">
                 <span class="step-circle-icon empty"></span>
-                <span class="step-name" style="color: #7c8ca0;">사업 시행</span>
+                <span class="step-name text-muted">사업 시행</span>
               </div>
               <span class="step-date">-</span>
               <span class="step-user">-</span>
@@ -401,7 +401,7 @@
             <div class="history-step-row">
               <div class="step-label-group">
                 <span class="step-circle-icon empty"></span>
-                <span class="step-name" style="color: #7c8ca0;">계약 품의</span>
+                <span class="step-name text-muted">계약 품의</span>
               </div>
               <span class="step-date">-</span>
               <span class="step-user">-</span>
@@ -409,7 +409,7 @@
             <div class="history-step-row">
               <div class="step-label-group">
                 <span class="step-circle-icon empty"></span>
-                <span class="step-name" style="color: #7c8ca0;">계약 체결</span>
+                <span class="step-name text-muted">계약 체결</span>
               </div>
               <span class="step-date">-</span>
               <span class="step-user">-</span>
@@ -417,7 +417,7 @@
             <div class="history-step-row">
               <div class="step-label-group">
                 <span class="step-circle-icon empty"></span>
-                <span class="step-name" style="color: #7c8ca0;">상환 완료</span>
+                <span class="step-name text-muted">상환 완료</span>
               </div>
               <span class="step-date">-</span>
               <span class="step-user">-</span>
@@ -442,11 +442,11 @@
             <div class="metric-info-col">
               <div class="metric-info-item">
                 <span class="metric-info-label">누적 지급금액</span>
-                <span class="metric-info-val val-blue">180,000,000 <span style="font-size: 13px; font-weight: 600;">원</span></span>
+                <span class="metric-info-val val-blue">180,000,000 <span class="unit-text">원</span></span>
               </div>
               <div class="metric-info-item">
                 <span class="metric-info-label">투자금액(목표)</span>
-                <span class="metric-info-val val-dark">297,350,000 <span style="font-size: 13px; font-weight: 500;">원</span></span>
+                <span class="metric-info-val val-dark">297,350,000 <span class="unit-text">원</span></span>
               </div>
             </div>
           </div>
@@ -469,11 +469,11 @@
             <div class="metric-info-col">
               <div class="metric-info-item">
                 <span class="metric-info-label">누적 상환금액</span>
-                <span class="metric-info-val val-green">293,350,000 <span style="font-size: 13px; font-weight: 600;">원</span></span>
+                <span class="metric-info-val val-green">293,350,000 <span class="unit-text">원</span></span>
               </div>
               <div class="metric-info-item">
                 <span class="metric-info-label">상환완료 금액</span>
-                <span class="metric-info-val val-dark">1,183,350,000 <span style="font-size: 13px; font-weight: 500;">원</span></span>
+                <span class="metric-info-val val-dark">1,183,350,000 <span class="unit-text">원</span></span>
               </div>
             </div>
           </div>
@@ -485,12 +485,12 @@
            section 3: 계획대비 실적 (plan vs actual table & 3 charts)
            ================================================================== -->
       <div class="detail-perf-card">
-        <div class="detail-card-header" style="margin-bottom: 12px;">
-          <div style="display: flex; align-items: baseline; gap: 10px;">
-            <div class="detail-card-title" style="display: flex; align-items: center; gap: 6px;">
+        <div class="detail-card-header">
+          <div class="hstack baseline gap-10">
+            <div class="detail-card-title hstack gap-6">
               계획대비 실적
             </div>
-            <span style="font-size: 13px; color: #58687b;">조회일 기준, 전일까지 실적까지 반영됩니다.</span>
+            <span class="text-muted">조회일 기준, 전일까지 실적까지 반영됩니다.</span>
           </div>
           <button type="button" class="btn-card-plus" title="상세보기">+</button>
         </div>
@@ -501,7 +501,7 @@
             <thead>
               <tr>
                 <th colspan="2">총 매출</th>
-                <th rowspan="2" style="vertical-align: middle;">영업외 수익 (원)</th>
+                <th rowspan="2">영업외 수익 (원)</th>
                 <th colspan="3">(계획)상환(원)</th>
                 <th colspan="3">(실적)상환(원)</th>
               </tr>
@@ -564,21 +564,21 @@
             <div class="perf-bar-item">
               <span class="perf-bar-label">원리금</span>
               <div class="perf-bar-track">
-                <div class="perf-bar-fill" style="width: 87%; background: #1976d2;"></div>
+                <div class="perf-bar-fill fill-blue" style="width: 87%;"></div>
               </div>
               <span class="perf-bar-pct">87%</span>
             </div>
             <div class="perf-bar-item">
               <span class="perf-bar-label">원금</span>
               <div class="perf-bar-track">
-                <div class="perf-bar-fill" style="width: 77%; background: #0284c7;"></div>
+                <div class="perf-bar-fill fill-cyan" style="width: 77%;"></div>
               </div>
               <span class="perf-bar-pct">77%</span>
             </div>
             <div class="perf-bar-item">
               <span class="perf-bar-label">이자</span>
               <div class="perf-bar-track">
-                <div class="perf-bar-fill" style="width: 67%; background: #38bdf8;"></div>
+                <div class="perf-bar-fill fill-sky" style="width: 67%;"></div>
               </div>
               <span class="perf-bar-pct">67%</span>
             </div>
@@ -595,7 +595,7 @@
         <!-- 상단: 투자금 정보 -->
         <div class="detail-card finance-investment-card">
           <div class="detail-card-header">
-            <div class="detail-card-title" style="display: flex; align-items: center; gap: 6px;">
+            <div class="detail-card-title hstack gap-6">
               투자금 정보
             </div>
             <button type="button" class="btn-card-plus" title="상세보기">+</button>
@@ -647,7 +647,7 @@
         <!-- 하단: 상환 정보 -->
         <div class="detail-card finance-repayment-card">
           <div class="detail-card-header">
-            <div class="detail-card-title" style="display: flex; align-items: center; gap: 6px;">
+            <div class="detail-card-title hstack gap-6">
               상환 정보
             </div>
             <button type="button" class="btn-card-plus" title="상세보기">+</button>
@@ -695,12 +695,12 @@
            section 5: 상환 예정 (scheduled repayments table)
            ================================================================== -->
       <div class="detail-schedule-card">
-        <div class="detail-card-header" style="margin-bottom: 12px;">
-          <div style="display: flex; align-items: baseline; gap: 10px;">
-            <div class="detail-card-title" style="display: flex; align-items: center; gap: 6px;">
+        <div class="detail-card-header">
+          <div class="hstack baseline gap-10">
+            <div class="detail-card-title hstack gap-6">
               상환 예정
             </div>
-            <span style="font-size: 13px; color: #58687b;">조회일 기준, 도래한 상환예정 스케줄만 노출됩니다.</span>
+            <span class="text-muted">조회일 기준, 도래한 상환예정 스케줄만 노출됩니다.</span>
           </div>
           <button type="button" class="btn-card-plus" title="상세보기">+</button>
         </div>
@@ -727,7 +727,7 @@
                 <td>2026.10.15</td>
                 <td>46,761,000</td>
                 <td>4,676,100</td>
-                <td style="color: #1976d2;">51,437,100</td>
+                <td>51,437,100</td>
                 <td>0</td>
                 <td>-</td>
                 <td>-</td>
@@ -739,7 +739,7 @@
                 <td>2026.09.15</td>
                 <td>46,761,000</td>
                 <td>4,676,100</td>
-                <td style="color: #1976d2;">51,437,100</td>
+                <td>51,437,100</td>
                 <td>0</td>
                 <td>2026.09.23</td>
                 <td>51,437,100</td>

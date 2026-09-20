@@ -11,7 +11,7 @@
   <!-- ====================================================================
        SRM 표준 상단 글로벌 헤더
        ==================================================================== -->
-  <header class="app-header">
+  <header class="top-header">
     <div class="header-left">
       <button type="button" class="btn-menu-toggle" id="btnmenutoggle" title="사이드바 메뉴 접기/펼치기">
         <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -277,7 +277,7 @@
         <!-- ==============================================================
              2. 협력업체 모드 메뉴 (협력업체 로그인 시 활성화)
              ============================================================== -->
-        <div id="srmNavPartner" style="display: none;">
+        <div id="srmNavPartner" hidden>
           <!-- 1. 협력업체 대시보드 -->
           <div class="nav-item active">
             <a href="SRMDashboard.html" class="nav-link">
@@ -415,8 +415,8 @@
             <span class="breadcrumb-item current" id="srmbreadcrumbcurrent">대시보드</span>
           </nav>
           <div class="header-action-group">
-            <span class="card-status-badge badge-success" style="padding: 6px 14px; font-size: 13px;">실시간 연동 중</span>
-            <a href="StepWorkflow.html" class="btn-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;" title="7단계 진행상태별 업무 관리 화면으로 이동">
+            <span class="card-status-badge badge-success">실시간 연동 중</span>
+            <a href="StepWorkflow.html" class="btn-primary" title="7단계 진행상태별 업무 관리 화면으로 이동">
               <span>진행상태별 업무 관리(예정가산출) ↗</span>
             </a>
           </div>
@@ -435,39 +435,39 @@
       <div class="srm-kpi-grid">
         <div class="srm-kpi-card kpi-blue">
           <div class="srm-kpi-title">진행 중인 입찰공고</div>
-          <div class="srm-kpi-val" style="color: #1976d2;">14 <span style="font-size: 15px; font-weight: 400; color: #58687b;">건</span></div>
+          <div class="srm-kpi-val text-primary">14 <span class="unit-text">건</span></div>
           <div class="srm-kpi-sub">일반경쟁 9건 · 제한경쟁 5건</div>
         </div>
         <div class="srm-kpi-card kpi-amber">
           <div class="srm-kpi-title">사전 견적 요청 현황</div>
-          <div class="srm-kpi-val" style="color: #ff7a00;">6 <span style="font-size: 15px; font-weight: 400; color: #58687b;">건</span></div>
+          <div class="srm-kpi-val text-warning">6 <span class="unit-text">건</span></div>
           <div class="srm-kpi-sub">신규 요청 2건 · 제출완료 4건</div>
         </div>
         <div class="srm-kpi-card kpi-teal">
           <div class="srm-kpi-title">예정가 산출 및 적격심사</div>
-          <div class="srm-kpi-val" style="color: #00b894;">4 <span style="font-size: 15px; font-weight: 400; color: #58687b;">건</span></div>
+          <div class="srm-kpi-val text-success">4 <span class="unit-text">건</span></div>
           <div class="srm-kpi-sub">step 04 예정가산출 <a href="StepWorkflow.html">1건 처리대기</a></div>
         </div>
         <div class="srm-kpi-card kpi-purple">
           <div class="srm-kpi-title">신규 협력업체 승인요청</div>
-          <div class="srm-kpi-val" style="color: #1976d2;">8 <span style="font-size: 15px; font-weight: 400; color: #58687b;">개사</span></div>
+          <div class="srm-kpi-val text-primary">8 <span class="unit-text">개사</span></div>
           <div class="srm-kpi-sub">신규등록 5개사 · 정보변경 3개사</div>
         </div>
       </div>
 
       <!-- 2단 복합 그리드: 최근 입찰 현황 및 처리 대기 목록 -->
-      <div class="srm-dashboard-work-grid" style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 20px; margin-bottom: 24px;">
+      <div class="srm-dashboard-work-grid">
         
         <!-- 좌측: 최근 입찰공고 및 업무 단계 현황 테이블 -->
         <div class="app-card">
-          <div class="app-card-header" style="display: flex; align-items: center; justify-content: space-between;">
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <h2 style="font-size: 16px; font-weight: 800; color: #334155;">최근 입찰공고 및 진행단계 현황</h2>
+          <div class="app-card-header hstack between">
+            <div class="hstack">
+              <h2>최근 입찰공고 및 진행단계 현황</h2>
             </div>
-            <a href="StepWorkflow.html" style="font-size: 13px;">전체보기 &gt;</a>
+            <a href="StepWorkflow.html">전체보기 &gt;</a>
           </div>
-          <div style="overflow-x: auto;">
-            <table class="data-table" style="font-size: 13px;">
+          <div class="srm-table-wrap">
+            <table class="data-table">
               <thead>
                 <tr>
                   <th>공고번호</th>
@@ -481,37 +481,37 @@
               <tbody>
                 <tr>
                   <td>BD2026-0023</td>
-                  <td style="text-align: left;">
-                    <a href="StepWorkflow.html" style="color: #334155; text-decoration: none;">서초동 1601-9 오피스텔 신축공사 중 수축열냉난방설비 설치공사</a>
+                  <td class="text-left">
+                    <a href="StepWorkflow.html">서초동 1601-9 오피스텔 신축공사 중 수축열냉난방설비 설치공사</a>
                   </td>
                   <td>일반경쟁</td>
-                  <td><span class="card-status-badge badge-warning" style="font-size: 13px;">step 04 예정가산출</span></td>
+                  <td><span class="card-status-badge badge-warning">step 04 예정가산출</span></td>
                   <td>2026.09.28</td>
-                  <td><a href="StepWorkflow.html" class="btn-task-register" style="display: inline-block; padding: 3px 8px; font-size: 13px; border-radius: 4px; text-decoration: none;">업무처리 ↗</a></td>
+                  <td><a href="StepWorkflow.html" class="btn-task-register">업무처리 ↗</a></td>
                 </tr>
                 <tr>
                   <td>BD2026-0022</td>
-                  <td style="text-align: left;">청주 오송공장 수변전설비 증설공사</td>
+                  <td class="text-left">청주 오송공장 수변전설비 증설공사</td>
                   <td>제한경쟁</td>
-                  <td><span class="card-status-badge badge-info" style="font-size: 13px;">step 02 공고게시</span></td>
+                  <td><span class="card-status-badge badge-info">step 02 공고게시</span></td>
                   <td>2026.09.26</td>
-                  <td><span style="color: #58687b; font-size: 13px;">열람</span></td>
+                  <td><span class="text-muted">열람</span></td>
                 </tr>
                 <tr>
                   <td>BD2026-0021</td>
-                  <td style="text-align: left;">2026년도 에너지 모니터링 클라우드 기술지원 용역</td>
+                  <td class="text-left">2026년도 에너지 모니터링 클라우드 기술지원 용역</td>
                   <td>협상에의한계약</td>
-                  <td><span class="card-status-badge badge-success" style="font-size: 13px;">step 06 계약체결</span></td>
+                  <td><span class="card-status-badge badge-success">step 06 계약체결</span></td>
                   <td>2026.09.15</td>
-                  <td><span style="color: #58687b; font-size: 13px;">완료</span></td>
+                  <td><span class="text-muted">완료</span></td>
                 </tr>
                 <tr>
                   <td>BD2026-0020</td>
-                  <td style="text-align: left;">창원 국가산단 스마트 컴프레셔 고효율화 개체공사</td>
+                  <td class="text-left">창원 국가산단 스마트 컴프레셔 고효율화 개체공사</td>
                   <td>지명경쟁</td>
-                  <td><span class="card-status-badge badge-info" style="font-size: 13px;">step 03 제안평가</span></td>
+                  <td><span class="card-status-badge badge-info">step 03 제안평가</span></td>
                   <td>2026.10.02</td>
-                  <td><span style="color: #58687b; font-size: 13px;">열람</span></td>
+                  <td><span class="text-muted">열람</span></td>
                 </tr>
               </tbody>
             </table>
@@ -520,33 +520,33 @@
 
         <!-- 우측: 협력업체 승인 및 사전견적 대기 목록 -->
         <div class="app-card">
-          <div class="app-card-header" style="display: flex; align-items: center; justify-content: space-between;">
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <h2 style="font-size: 16px; font-weight: 800; color: #334155;">신규 협력업체 심사 요청</h2>
+          <div class="app-card-header hstack between">
+            <div class="hstack">
+              <h2>신규 협력업체 심사 요청</h2>
             </div>
             <span class="badge-tag">대기 5건</span>
           </div>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
-            <li style="padding: 10px 12px; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
+          <ul class="srm-review-list">
+            <li class="srm-review-item">
               <div>
-                <strong style="color: #334155; font-size: 13px;">(주)한빛전력공사</strong>
-                <div style="color: #58687b; font-size: 13px; margin-top: 2px;">전기공사업 · 사업자: 120-81-45678</div>
+                <strong>(주)한빛전력공사</strong>
+                <div class="text-muted">전기공사업 · 사업자: 120-81-45678</div>
               </div>
-              <span class="card-status-badge badge-warning" style="font-size: 13px;">서류심사중</span>
+              <span class="card-status-badge badge-warning">서류심사중</span>
             </li>
-            <li style="padding: 10px 12px; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
+            <li class="srm-review-item">
               <div>
-                <strong style="color: #334155; font-size: 13px;">동성에너지기술(주)</strong>
-                <div style="color: #58687b; font-size: 13px; margin-top: 2px;">기계설비공사업 · 사업자: 214-85-98765</div>
+                <strong>동성에너지기술(주)</strong>
+                <div class="text-muted">기계설비공사업 · 사업자: 214-85-98765</div>
               </div>
-              <span class="card-status-badge badge-info" style="font-size: 13px;">접수완료</span>
+              <span class="card-status-badge badge-info">접수완료</span>
             </li>
-            <li style="padding: 10px 12px; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
+            <li class="srm-review-item">
               <div>
-                <strong style="color: #334155; font-size: 13px;">(주)에코그린인프라</strong>
-                <div style="color: #58687b; font-size: 13px; margin-top: 2px;">신재생에너지전문기업 · 사업자: 107-86-12345</div>
+                <strong>(주)에코그린인프라</strong>
+                <div class="text-muted">신재생에너지전문기업 · 사업자: 107-86-12345</div>
               </div>
-              <span class="card-status-badge badge-success" style="font-size: 13px;">승인완료</span>
+              <span class="card-status-badge badge-success">승인완료</span>
             </li>
           </ul>
         </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>입찰계획 현황 (예정가 / 예비가) | KEPCO ES SRM</title>
+  <title>전자입찰시스템 SRM - 입찰계획 현황 | KEPCO ES</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
   <!-- ====================================================================
        상단 글로벌 헤더 (통합 ci 및 디자인 시스템 준수)
        ==================================================================== -->
-  <header class="app-header">
+  <header class="top-header">
     <div class="header-left">
       <button type="button" class="btn-menu-toggle" id="btnToggleSidebar" title="사이드바 메뉴 접기/펼치기" aria-label="사이드바 메뉴 접기/펼치기">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -315,24 +315,24 @@
         <table class="workflow-notice-table">
           <thead>
             <tr>
-              <th style="width: 100px;">공고 번호</th>
-              <th style="width: 80px;">공고 구분</th>
-              <th style="width: 80px;">진행상태</th>
-              <th style="min-width: 250px;">입찰 건명</th>
-              <th style="width: 95px;">등록일</th>
-              <th style="width: 70px;">구분</th>
-              <th style="width: 110px;">계약방법</th>
-              <th style="width: 130px;">낙찰자 선정방법</th>
-              <th style="width: 80px;">사업담당자</th>
-              <th style="width: 80px;">계약담당자</th>
+              <th class="w-100">공고 번호</th>
+              <th class="w-80">공고 구분</th>
+              <th class="w-80">진행상태</th>
+              <th class="minw-250">입찰 건명</th>
+              <th class="w-95">등록일</th>
+              <th class="w-70">구분</th>
+              <th class="w-110">계약방법</th>
+              <th class="w-130">낙찰자 선정방법</th>
+              <th class="w-80">사업담당자</th>
+              <th class="w-80">계약담당자</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>BD2026-0023</td>
               <td>본공고</td>
-              <td><span class="badge-tag" style="background: #fef3c7; color: #ff7a00;">작성중</span></td>
-              <td style="text-align: left; padding-left: 12px; color: #334155;">서초동 1601-9 오피스텔 신축공사 중...</td>
+              <td><span class="badge-warning">작성중</span></td>
+              <td class="text-left">서초동 1601-9 오피스텔 신축공사 중...</td>
               <td>2026.07.22</td>
               <td>공사</td>
               <td>경쟁입찰(일반)</td>
@@ -444,18 +444,18 @@
             <tr>
               <td>94,710,000</td>
               <td>94,710,000</td>
-              <td style="color: #0284c7;">91,088,550</td>
-              <td style="color: #ff7a00;">87.745 %</td>
-              <td style="color: #58687b; font-weight: 500;">개찰 과정에서 정의됨</td>
-              <td style="color: #58687b; font-weight: 500;">개찰 과정에서 정의됨</td>
+              <td>91,088,550</td>
+              <td>87.745 %</td>
+              <td class="text-muted">개찰 과정에서 정의됨</td>
+              <td class="text-muted">개찰 과정에서 정의됨</td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <!-- 하단 목록 바로가기 액션 -->
-      <div style="display: flex; justify-content: flex-start; margin-top: 10px;">
-        <a href="ProjectSearch.html" class="btn-filter-reset" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none;">
+      <div class="hstack">
+        <a href="ProjectSearch.html" class="btn-filter-reset">
           <svg width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
           목록
         </a>
@@ -571,7 +571,7 @@
       <div class="modal-footer">
         <button type="button" class="btn-filter-reset" id="btnCancelCalc">취소</button>
         <button type="button" class="btn-action-primary">저장</button>
-        <button type="button" class="btn-action-blue" id="btnRequestApproval">전자결재 요청 →</button>
+        <button type="button" class="btn-critical-primary" id="btnRequestApproval">전자결재 요청 →</button>
       </div>
     </div>
   </div>
@@ -596,7 +596,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn-filter-reset" id="btnCancelConfirm">취소</button>
-        <button type="button" class="btn-action-blue" id="btnDoConfirmApproval">전자결재 요청 →</button>
+        <button type="button" class="btn-critical-primary" id="btnDoConfirmApproval">전자결재 요청 →</button>
       </div>
     </div>
   </div>

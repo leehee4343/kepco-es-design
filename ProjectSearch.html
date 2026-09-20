@@ -286,13 +286,13 @@
         <div class="page-title-left">
           <h1 class="page-title">추진단계 프로젝트 현황</h1>
         </div>
-        <div class="breadcrumb">
-          <span>홈</span>
-          <span class="bc-sep">></span>
-          <span>사업 접수</span>
-          <span class="bc-sep">></span>
-          <span class="bc-current">추진단계 프로젝트 현황</span>
-        </div>
+        <nav class="breadcrumb" aria-label="현재 위치">
+          <span class="breadcrumb-item">홈</span>
+          <span class="breadcrumb-separator">&gt;</span>
+          <span class="breadcrumb-item">사업 접수</span>
+          <span class="breadcrumb-separator">&gt;</span>
+          <span class="breadcrumb-item current">추진단계 프로젝트 현황</span>
+        </nav>
       </div>
 
       <!-- ==================================================================
@@ -410,7 +410,7 @@
 
           <!-- 4행: 키워드 검색 통합 필드 -->
           <div class="filter-row-full">
-            <div class="filter-field-group" style="width: 100%;">
+            <div class="filter-field-group">
               <span class="filter-field-label">키워드 검색</span>
               <input type="text" id="searchKeyword" class="filter-text-input" placeholder="프로젝트명, 프로젝트번호, 에너지사용자, 담당자명을 입력하세요">
             </div>
@@ -428,7 +428,7 @@
             검색
           </button>
           <button type="button" id="btnDoReset" class="btn-reset-main">
-            <svg width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;">
+            <svg width="14" height="14" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="23 4 23 10 17 10"></polyline>
               <polyline points="1 20 1 14 7 14"></polyline>
               <path d="m3.51 9a9 9 0 0 1 14.85-3.36l23 10m1 14l4.64 4.36a9 9 0 0 0 20.49 15"></path>
@@ -477,24 +477,24 @@
           <table class="data-table data-grid-table" role="grid" aria-label="프로젝트 검색 결과">
             <thead>
               <tr>
-                <th class="th-sortable" data-col="seq" style="width: 55px;">순번 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="year" style="width: 75px;">계약년도 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="created" style="width: 100px;">생성일 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="code" style="width: 120px;">프로젝트번호 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="name" style="min-width: 240px;">프로젝트명 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="step" style="width: 85px;">진행단계 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="review_target" style="width: 85px;">심의대상 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="contract_type" style="width: 90px;">계약형태 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="contract_category" style="width: 85px;">계약유형 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="biz_category" style="width: 100px;">사업구분 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="facility" style="width: 95px;">대상설비 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="channel" style="width: 110px;">접수경로 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="review_status" style="width: 100px;">사업심의상태 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="user" style="min-width: 170px;">에너지사용자 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="location" style="width: 95px;">사용자소재지 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="manager" style="width: 85px;">담당자 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="modifier" style="width: 80px;">수정자 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="modified" style="width: 95px;">수정일 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-55" data-col="seq">순번 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-75" data-col="year">계약년도 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-100" data-col="created">생성일 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-120" data-col="code">프로젝트번호 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable minw-240" data-col="name">프로젝트명 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-85" data-col="step">진행단계 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-85" data-col="review_target">심의대상 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-90" data-col="contract_type">계약형태 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-85" data-col="contract_category">계약유형 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-100" data-col="biz_category">사업구분 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-95" data-col="facility">대상설비 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-110" data-col="channel">접수경로 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-100" data-col="review_status">사업심의상태 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable minw-170" data-col="user">에너지사용자 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-95" data-col="location">사용자소재지 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-85" data-col="manager">담당자 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-80" data-col="modifier">수정자 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-95" data-col="modified">수정일 <span class="sort-caret">⇅</span></th>
               </tr>
             </thead>
             <tbody>
@@ -503,8 +503,8 @@
                 <td>1</td>
                 <td>2026</td>
                 <td>2026.07.15</td>
-                <td><span style="font-weight: 700; color: #334155;">p2026-0715</span></td>
-                <td style="text-align: left; padding-left: 16px;">
+                <td><span>p2026-0715</span></td>
+                <td class="text-left">
                   <a href="ProjectDetail.html" title="프로젝트 상세 보기">포천 바이오매스 발전소 보일러 설비개선</a>
                 </td>
                 <td><span class="step-badge step-push">추진</span></td>
@@ -515,7 +515,7 @@
                 <td>보일러</td>
                 <td>영업직접발굴</td>
                 <td><span class="review-badge done">심의완료</span></td>
-                <td style="text-align: left;">(주)대양제지 포천공장</td>
+                <td class="text-left">(주)대양제지 포천공장</td>
                 <td>경기 포천</td>
                 <td>김영수 과장</td>
                 <td>김영수</td>
@@ -527,8 +527,8 @@
                 <td>2</td>
                 <td>2026</td>
                 <td>2026.07.02</td>
-                <td><span style="font-weight: 700; color: #334155;">p2026-0682</span></td>
-                <td style="text-align: left; padding-left: 16px;">
+                <td><span>p2026-0682</span></td>
+                <td class="text-left">
                   <a href="ProjectDetail.html" title="프로젝트 상세 보기">안산 스마트그린산단 폐열회수 발전 EPC</a>
                 </td>
                 <td><span class="step-badge step-contract">계약</span></td>
@@ -539,7 +539,7 @@
                 <td>폐열발전</td>
                 <td>고객사요청</td>
                 <td><span class="review-badge done">심의완료</span></td>
-                <td style="text-align: left;">안산도시개발(주)</td>
+                <td class="text-left">안산도시개발(주)</td>
                 <td>경기 안산</td>
                 <td>박진호 대리</td>
                 <td>박진호</td>
@@ -551,8 +551,8 @@
                 <td>3</td>
                 <td>2026</td>
                 <td>2026.06.18</td>
-                <td><span style="font-weight: 700; color: #334155;">p2026-0541</span></td>
-                <td style="text-align: left; padding-left: 16px;">
+                <td><span>p2026-0541</span></td>
+                <td class="text-left">
                   <a href="ProjectDetail.html" title="프로젝트 상세 보기">광혜원 패키징 공장 고효율 인버터 도입</a>
                 </td>
                 <td><span class="step-badge step-invest">투자</span></td>
@@ -563,7 +563,7 @@
                 <td>인버터</td>
                 <td>홈페이지(온라인)</td>
                 <td><span class="review-badge except">심의제외</span></td>
-                <td style="text-align: left;">(주)삼양패키징 광혜원</td>
+                <td class="text-left">(주)삼양패키징 광혜원</td>
                 <td>충북 진천</td>
                 <td>정민우 과장</td>
                 <td>관리자</td>
@@ -575,8 +575,8 @@
                 <td>4</td>
                 <td>2025</td>
                 <td>2025.11.12</td>
-                <td><span style="font-weight: 700; color: #334155;">p2025-1108</span></td>
-                <td style="text-align: left; padding-left: 16px;">
+                <td><span>p2025-1108</span></td>
+                <td class="text-left">
                   <a href="ProjectDetail.html" title="프로젝트 상세 보기">군산 특수유리 용해로 산소연소 절감사업</a>
                 </td>
                 <td><span class="step-badge step-repay">상환</span></td>
@@ -587,7 +587,7 @@
                 <td>보일러</td>
                 <td>협력사추천</td>
                 <td><span class="review-badge done">심의완료</span></td>
-                <td style="text-align: left;">한국특수유리(주)</td>
+                <td class="text-left">한국특수유리(주)</td>
                 <td>전북 군산</td>
                 <td>이수진 차장</td>
                 <td>이수진</td>
@@ -599,8 +599,8 @@
                 <td>5</td>
                 <td>2026</td>
                 <td>2026.07.10</td>
-                <td><span style="font-weight: 700; color: #334155;">p2026-0709</span></td>
-                <td style="text-align: left; padding-left: 16px;">
+                <td><span>p2026-0709</span></td>
+                <td class="text-left">
                   <a href="ProjectDetail.html" title="프로젝트 상세 보기">당진 제철소 압축공기 배관 최적화 진단</a>
                 </td>
                 <td><span class="step-badge step-push">추진</span></td>
@@ -611,7 +611,7 @@
                 <td>냉난방</td>
                 <td>지자체공모</td>
                 <td><span class="review-badge request">심의신청</span></td>
-                <td style="text-align: left;">(주)현대제철 당진공장</td>
+                <td class="text-left">(주)현대제철 당진공장</td>
                 <td>충남 당진</td>
                 <td>김영수 과장</td>
                 <td>김영수</td>
@@ -623,8 +623,8 @@
                 <td>6</td>
                 <td>2026</td>
                 <td>2026.05.21</td>
-                <td><span style="font-weight: 700; color: #334155;">p2026-0422</span></td>
-                <td style="text-align: left; padding-left: 16px;">
+                <td><span>p2026-0422</span></td>
+                <td class="text-left">
                   <a href="ProjectDetail.html" title="프로젝트 상세 보기">울산 석유화학단지 스팀 폐열 터빈발전</a>
                 </td>
                 <td><span class="step-badge step-contract">계약</span></td>
@@ -635,7 +635,7 @@
                 <td>폐열발전</td>
                 <td>영업직접발굴</td>
                 <td><span class="review-badge done">심의완료</span></td>
-                <td style="text-align: left;">대한유화(주) 울산공장</td>
+                <td class="text-left">대한유화(주) 울산공장</td>
                 <td>울산 남구</td>
                 <td>최동훈 차장</td>
                 <td>최동훈</td>
@@ -647,8 +647,8 @@
                 <td>7</td>
                 <td>2025</td>
                 <td>2025.09.04</td>
-                <td><span style="font-weight: 700; color: #334155;">p2025-0901</span></td>
-                <td style="text-align: left; padding-left: 16px;">
+                <td><span>p2025-0901</span></td>
+                <td class="text-left">
                   <a href="ProjectDetail.html" title="프로젝트 상세 보기">광주 물류센터 지붕형 태양광 발전 500kw</a>
                 </td>
                 <td><span class="step-badge step-repay">상환</span></td>
@@ -659,7 +659,7 @@
                 <td>태양광</td>
                 <td>홈페이지(온라인)</td>
                 <td><span class="review-badge except">심의제외</span></td>
-                <td style="text-align: left;">cj대한통운 광주지사</td>
+                <td class="text-left">cj대한통운 광주지사</td>
                 <td>광주 광산</td>
                 <td>박진호 대리</td>
                 <td>박진호</td>
@@ -671,8 +671,8 @@
                 <td>8</td>
                 <td>2026</td>
                 <td>2026.07.22</td>
-                <td><span style="font-weight: 700; color: #334155;">p2026-0722</span></td>
-                <td style="text-align: left; padding-left: 16px;">
+                <td><span>p2026-0722</span></td>
+                <td class="text-left">
                   <a href="ProjectDetail.html" title="프로젝트 상세 보기">여수 국가산단 냉각탑 팬 고효율 모터 교체</a>
                 </td>
                 <td><span class="step-badge step-push">추진</span></td>
@@ -683,7 +683,7 @@
                 <td>인버터</td>
                 <td>고객사요청</td>
                 <td><span class="review-badge request">심의신청</span></td>
-                <td style="text-align: left;">여천ncc 여수제3공장</td>
+                <td class="text-left">여천ncc 여수제3공장</td>
                 <td>전남 여수</td>
                 <td>김영수 과장</td>
                 <td>김영수</td>
@@ -695,8 +695,8 @@
                 <td>9</td>
                 <td>2026</td>
                 <td>2026.04.14</td>
-                <td><span style="font-weight: 700; color: #334155;">p2026-0388</span></td>
-                <td style="text-align: left; padding-left: 16px;">
+                <td><span>p2026-0388</span></td>
+                <td class="text-left">
                   <a href="ProjectDetail.html" title="프로젝트 상세 보기">창원 정밀기계 스마트팩토리 fems 구축</a>
                 </td>
                 <td><span class="step-badge step-invest">투자</span></td>
@@ -707,7 +707,7 @@
                 <td>LED</td>
                 <td>협력사추천</td>
                 <td><span class="review-badge done">심의완료</span></td>
-                <td style="text-align: left;">한화에어로스페이스</td>
+                <td class="text-left">한화에어로스페이스</td>
                 <td>경남 창원</td>
                 <td>정민우 과장</td>
                 <td>관리자</td>
@@ -719,8 +719,8 @@
                 <td>10</td>
                 <td>2025</td>
                 <td>2025.08.19</td>
-                <td><span style="font-weight: 700; color: #334155;">p2025-0819</span></td>
-                <td style="text-align: left; padding-left: 16px;">
+                <td><span>p2025-0819</span></td>
+                <td class="text-left">
                   <a href="ProjectDetail.html" title="프로젝트 상세 보기">구미 전자부품 공장 폐열회수 히트펌프 설치</a>
                 </td>
                 <td><span class="step-badge step-repay">상환</span></td>
@@ -731,7 +731,7 @@
                 <td>냉난방</td>
                 <td>영업직접발굴</td>
                 <td><span class="review-badge done">심의완료</span></td>
-                <td style="text-align: left;">lg이노텍 구미사업장</td>
+                <td class="text-left">lg이노텍 구미사업장</td>
                 <td>경북 구미</td>
                 <td>이수진 차장</td>
                 <td>이수진</td>

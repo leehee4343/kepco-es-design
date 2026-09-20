@@ -10,7 +10,7 @@
 
 ---
 
-## 🖥️ 수록 화면 목록 (총 11종)
+## 🖥️ 수록 화면 목록 (총 12종)
 
 ### 1. 사업관리시스템 (PMS)
 | No | 화면명 | 파일 | 주요 기능 및 특징 |
@@ -21,15 +21,17 @@
 | 04 | **프로젝트 상세** | [`ProjectDetail.html`](./ProjectDetail.html) | 투자·상환·원리금 차트, 이력 타임라인, 계획대비 실적 표 |
 | 05 | **사업결산 현황** | [`BusinessSettlement.html`](./BusinessSettlement.html) | 결산일 기준 24건 실적 데이터 그리드, 상태 뱃지, 실시간 페이징 |
 | 06 | **통계 종합현황** | [`Statistics.html`](./Statistics.html) | 연도별 주요 실적 지표, 계약형태 및 사업구분별 가로 바 차트 |
-| 07 | **SRM 입찰계획 현황 (7-Step)** | [`StepWorkflow.html`](./StepWorkflow.html) | 예정가격 산출기초조서 등록, 전자결재 요청, 첨부파일 업로드 |
-| 08 | **계획대비 실적현황** | [`PlanPerformance.html`](./PlanPerformance.html) | 자금관리 다차원 분석 그리드, 분기별 집행 실적 현황 |
+| 07 | **계획대비 실적현황** | [`PlanPerformance.html`](./PlanPerformance.html) | 자금관리 다차원 분석 그리드, 분기별 집행 실적 현황 |
+
 
 ### 2. 전자입찰시스템 (SRM)
 | No | 화면명 | 파일 | 주요 기능 및 특징 |
 |:---:|:---|:---|:---|
-| 09 | **SRM 전자입찰 업무 포털** | [`SRMDashboard.html`](./SRMDashboard.html) | 계약담당자/사업담당자/협력업체 역할 전환 칩 바, 최근 입찰공고 그리드 |
-| 10 | **SRM 공급자 로그인 창구** | [`SRMLogin.html`](./SRMLogin.html) | 켑코이에스 소개 배너, 공급자 전용 로그인 폼 및 시연 계정 원클릭 입력 |
-| 11 | **협력업체 신청 등록 (5-Step)** | [`PartnerRegister.html`](./PartnerRegister.html) | 5단계 위저드 스텝바, 이용약관 동의, 기업 정보 입력 폼 |
+| 08 | **SRM 전자입찰 업무 포털** | [`SRMDashboard.html`](./SRMDashboard.html) | 권한(계약담당자·사업담당자·관리자·협력업체) 전환, 최근 입찰공고 그리드 |
+| 09 | **SRM 공급자 로그인 창구** | [`SRMLogin.html`](./SRMLogin.html) | 켑코이에스 소개 배너, 공급자 전용 로그인 폼 |
+| 10 | **협력업체 신청 등록 (5-Step)** | [`PartnerRegister.html`](./PartnerRegister.html) | 5단계 위저드 스텝바, 이용약관 동의, 기업 정보 입력 폼 (팝업 화면) |
+| 11 | **SRM 입찰계획 현황 (7-Step)** | [`StepWorkflow.html`](./StepWorkflow.html) | 예정가격 산출기초조서 등록, 전자결재 요청, 첨부파일 업로드 |
+| 12 | **SRM 입찰공고 상세** | [`SRMDetail.html`](./SRMDetail.html) | 요약 표, 8단계 업무 탐색 탭, 첨부파일, 입찰계획으로 되돌리기 모달 |
 
 ---
 
@@ -42,11 +44,11 @@
   - `Point Green`: `#00b894` (성공 및 완료 상태)
   - `Point Red`: `#ef4444` (위험 및 오류 상태)
   - 그래프와 차트의 데이터 구분 색상은 예외
-  - `Background`: `#f8fafc` / `#f0f4f8`
+  - `Background`: `#f4f6fa` (페이지), `#ffffff` (카드·표·모달)
 - **레이아웃 규격**:
   - 글로벌 헤더 높이: `56px` 고정
   - 좌측 사이드바 너비: `210px` 고정 (접힘 `64px`)
-  - 하단 표준 푸터: `38px` 고정 (`&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.`)
+  - 하단 표준 푸터: `38px` 고정, 짙은 회색 `#334155` (`&copy; 2026 KEPCO Energy Solution Co., Ltd. All Rights Reserved.`)
 
 ---
 
@@ -61,6 +63,7 @@
 ├── BusinessSettlement.html  # PMS 사업결산 현황
 ├── Statistics.html          # PMS 통계 종합현황 (연도별 분석)
 ├── StepWorkflow.html        # SRM 입찰계획 현황 (예정가/예비가 산출, 7-Step)
+├── SRMDetail.html           # SRM 입찰공고 상세 (탭 기반 상세)
 ├── PlanPerformance.html     # PMS 계획대비 실적현황 (자금관리)
 ├── SRMDashboard.html        # SRM 전자입찰 업무 포털 (대시보드)
 ├── SRMLogin.html            # SRM 공급자 로그인 창구

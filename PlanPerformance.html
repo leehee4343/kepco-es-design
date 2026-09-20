@@ -11,7 +11,7 @@
   <!-- ====================================================================
        표준 상단 글로벌 헤더 ([참고]계획대비 실적현황.jpeg 100% 반영)
        ==================================================================== -->
-  <header class="app-header">
+  <header class="top-header">
     <div class="header-left">
       <button type="button" class="btn-menu-toggle" id="btnToggleSidebar" title="사이드바 메뉴 접기/펼치기">
         <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -267,7 +267,7 @@
             <path d="m9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
             <line x1="12" y1="17" x2="12.01" y2="17"></line>
           </svg>
-          <span>매뉴얼 다운로드</span>
+          <span>온라인 매뉴얼</span>
         </button>
       </div>
     </aside>
@@ -295,10 +295,10 @@
       <section class="filter-card">
         <form id="planSearchForm">
           <!-- 1행: 조회 기준 -->
-          <div class="filter-row" style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <span class="filter-label" style="width: 80px; font-weight: 700; color: #334155;">조회 기준</span>
-              <select class="filter-select" id="selbasestandard" style="width: 130px; height: 36px;">
+          <div class="filter-row hstack between">
+            <div class="hstack gap-12">
+              <span class="filter-label w-80">조회 기준</span>
+              <select class="filter-select w-130" id="selbasestandard">
                 <option value="realtime" selected>실시간</option>
                 <option value="month">월별</option>
                 <option value="quarter">분기별</option>
@@ -308,33 +308,33 @@
           </div>
 
           <!-- 2행: 조회기간 & 퀵 버튼 -->
-          <div class="filter-row" style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
-            <span class="filter-label" style="width: 80px; font-weight: 700; color: #334155;">조회기간</span>
-            <select class="filter-select" id="seldatetype" style="width: 130px; height: 36px;">
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">조회기간</span>
+            <select class="filter-select w-130" id="seldatetype">
               <option value="contract" selected>계약일</option>
               <option value="end">사업종료일</option>
               <option value="created">생성일</option>
             </select>
-            <div class="date-range-wrap" style="display: inline-flex; align-items: center; gap: 6px;">
-              <input type="date" class="filter-date-input" id="planStartDate" value="2021-07-15" style="height: 36px; padding: 0 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px;">
+            <div class="date-range-wrap hstack gap-6">
+              <input type="date" class="filter-date-input" id="planStartDate" value="2021-07-15">
               <span>~</span>
-              <input type="date" class="filter-date-input" id="planEndDate" value="2030-10-19" style="height: 36px; padding: 0 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px;">
+              <input type="date" class="filter-date-input" id="planEndDate" value="2030-10-19">
             </div>
             <!-- 4대 퀵 버튼 -->
-            <div class="quick-date-btns" style="display: inline-flex; gap: 6px; margin-left: 8px;">
-              <button type="button" class="btn-quick-date" data-range="1d" style="padding: 6px 14px; border: 1px solid #cbd5e1; background: #ffffff; border-radius: 6px; font-size: 13px; cursor: pointer;">하루 전</button>
-              <button type="button" class="btn-quick-date active" data-range="1m" style="padding: 6px 14px; border: 1.5px solid #1976d2; background: #f0f7ff; color: #1976d2; border-radius: 6px; font-size: 13px; cursor: pointer;">1개월</button>
-              <button type="button" class="btn-quick-date" data-range="3m" style="padding: 6px 14px; border: 1px solid #cbd5e1; background: #ffffff; border-radius: 6px; font-size: 13px; cursor: pointer;">3개월</button>
-              <button type="button" class="btn-quick-date" data-range="1y" style="padding: 6px 14px; border: 1px solid #cbd5e1; background: #ffffff; border-radius: 6px; font-size: 13px; cursor: pointer;">1년</button>
+            <div class="quick-date-btns hstack gap-6">
+              <button type="button" class="btn-quick-date" data-range="1d">하루 전</button>
+              <button type="button" class="btn-quick-date active" data-range="1m">1개월</button>
+              <button type="button" class="btn-quick-date" data-range="3m">3개월</button>
+              <button type="button" class="btn-quick-date" data-range="1y">1년</button>
             </div>
           </div>
 
           <!-- 3행: 사업구분 & 대상설비 -->
-          <div class="filter-row" style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
-            <span class="filter-label" style="width: 80px; font-weight: 700; color: #334155;">검색조건</span>
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <span style="font-size: 13px; color: #475569;">사업 구분</span>
-              <select class="filter-select" id="selBizType" style="width: 120px; height: 36px;">
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">검색조건</span>
+            <div class="hstack">
+              <span>사업 구분</span>
+              <select class="filter-select w-120" id="selBizType">
                 <option value="all" selected>전체</option>
                 <option value="산업체">산업체</option>
                 <option value="공공기관">공공기관</option>
@@ -342,9 +342,9 @@
                 <option value="건축물">건축물</option>
               </select>
             </div>
-            <div style="display: flex; align-items: center; gap: 8px; margin-left: 16px;">
-              <span style="font-size: 13px; color: #475569;">대상 설비</span>
-              <select class="filter-select" id="selFacility" style="width: 140px; height: 36px;">
+            <div class="hstack">
+              <span>대상 설비</span>
+              <select class="filter-select w-140" id="selFacility">
                 <option value="all" selected>전체</option>
                 <option value="바이오가스">바이오가스</option>
                 <option value="에어드라이어">에어드라이어</option>
@@ -359,14 +359,14 @@
           </div>
 
           <!-- 4행: 키워드 검색 -->
-          <div class="filter-row" style="display: flex; align-items: center; gap: 12px;">
-            <span class="filter-label" style="width: 80px; font-weight: 700; color: #334155;">키워드 검색</span>
-            <select class="filter-select" id="selkeywordtarget" style="width: 130px; height: 36px;">
+          <div class="filter-row hstack gap-12">
+            <span class="filter-label w-80">키워드 검색</span>
+            <select class="filter-select w-130" id="selkeywordtarget">
               <option value="all" selected>전체</option>
               <option value="number">프로젝트 번호</option>
               <option value="name">프로젝트명</option>
             </select>
-            <input type="text" class="filter-text-input" id="inputKeyword" placeholder="검색어를 입력하세요." style="width: 380px; height: 36px; padding: 0 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px;">
+            <input type="text" class="filter-text-input w-380" id="inputKeyword" placeholder="검색어를 입력하세요.">
           </div>
           <div class="filter-action-row">
             <button type="submit" class="btn-filter-search" id="btnfiltersearch">검색</button>
@@ -388,26 +388,26 @@
           <table class="plan-summary-table" aria-label="계획대비 실적 집계 요약 표">
             <thead>
               <tr>
-                <th rowspan="2" style="width: 65px;">조회 기준</th>
+                <th rowspan="2" class="w-65">조회 기준</th>
                 <th colspan="2">조회 기간</th>
-                <th rowspan="2" style="width: 52px;">프로젝트</th>
+                <th rowspan="2" class="w-52">프로젝트</th>
                 <th colspan="3">총 매출</th>
-                <th rowspan="2" style="width: 86px;">누적 영업외 수익</th>
+                <th rowspan="2" class="w-86">누적 영업외 수익</th>
                 <th colspan="3">(계획)누적 상환</th>
                 <th colspan="3">(실제)누적 상환</th>
               </tr>
               <tr>
-                <th style="width: 78px;">시작일</th>
-                <th style="width: 78px;">종료일</th>
-                <th style="width: 86px;">계획</th>
-                <th style="width: 86px;">실적</th>
-                <th style="width: 58px;">비율(%)</th>
-                <th style="width: 86px;">원리금</th>
-                <th style="width: 86px;">원금</th>
-                <th style="width: 74px;">이자</th>
-                <th style="width: 86px;">원리금</th>
-                <th style="width: 86px;">원금</th>
-                <th style="width: 74px;">이자</th>
+                <th class="w-78">시작일</th>
+                <th class="w-78">종료일</th>
+                <th class="w-86">계획</th>
+                <th class="w-86">실적</th>
+                <th class="w-58">비율(%)</th>
+                <th class="w-86">원리금</th>
+                <th class="w-86">원금</th>
+                <th class="w-74">이자</th>
+                <th class="w-86">원리금</th>
+                <th class="w-86">원금</th>
+                <th class="w-74">이자</th>
               </tr>
             </thead>
             <tbody>
@@ -423,7 +423,7 @@
                 <td class="col-num">3,172,614,878</td>
                 <td class="col-num">2,947,789,541</td>
                 <td class="col-num">224,825,337</td>
-                <td class="col-num" style="color: var(--point-green); font-weight: 500;">2,220,858,878</td>
+                <td class="col-num text-success">2,220,858,878</td>
                 <td class="col-num">2,064,423,541</td>
                 <td class="col-num">156,435,337</td>
               </tr>
@@ -464,22 +464,22 @@
           <table class="data-table data-grid-table" role="grid" aria-label="프로젝트별 계획대비 실적">
             <thead>
               <tr>
-                <th class="th-sortable" data-col="seq" style="width: 55px;">순번 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="code" style="width: 125px;">프로젝트 번호 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="name" style="min-width: 240px;">프로젝트명 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="contract_type" style="width: 90px;">계약 형태 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="biz_category" style="width: 90px;">사업구분 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="facility" style="width: 95px;">대상설비 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="contract_date" style="width: 100px;">계약일 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="end_date" style="width: 105px;">사업종료일 <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="plan_biz" style="width: 125px;">계획 사업(원) <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="plan_invest" style="width: 125px;">계획 투자(원) <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="plan_profit" style="width: 125px;">계획 이윤(원) <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="sales_plan" style="width: 145px;">총 매출 계획(원) <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="sales_actual" style="width: 145px;">총 매출 실적(원) <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="sales_rate" style="width: 130px;">총 매출 비율(%) <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="nonop_plan" style="width: 165px;">영업외 수익 계획(원) <span class="sort-caret">⇅</span></th>
-                <th class="th-sortable" data-col="nonop_actual" style="width: 165px;">영업외 수익 실적(원) <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-55" data-col="seq">순번 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-125" data-col="code">프로젝트 번호 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable minw-240" data-col="name">프로젝트명 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-90" data-col="contract_type">계약 형태 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-90" data-col="biz_category">사업구분 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-95" data-col="facility">대상설비 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-100" data-col="contract_date">계약일 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-105" data-col="end_date">사업종료일 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-125" data-col="plan_biz">계획 사업(원) <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-125" data-col="plan_invest">계획 투자(원) <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-125" data-col="plan_profit">계획 이윤(원) <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-145" data-col="sales_plan">총 매출 계획(원) <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-145" data-col="sales_actual">총 매출 실적(원) <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-130" data-col="sales_rate">총 매출 비율(%) <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-165" data-col="nonop_plan">영업외 수익 계획(원) <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable w-165" data-col="nonop_actual">영업외 수익 실적(원) <span class="sort-caret">⇅</span></th>
               </tr>
             </thead>
             <tbody id="planPerfTableBody">

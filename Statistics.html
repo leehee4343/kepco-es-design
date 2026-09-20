@@ -25,7 +25,6 @@
       </button>
       <div class="system-title-wrap">
         <h2 class="system-title">사업관리시스템(PMS)</h2>
-        <span id="headerYearIndicator" style="font-size: 13px; color: #475569; font-weight: 600; margin-left: 10px; background: #e2e8f0; padding: 2px 8px; border-radius: 4px;">기준연도 : 2025</span>
       </div>
     </div>
 
@@ -281,13 +280,13 @@
         <div class="page-title-left">
           <h1 class="page-title">종합현황</h1>
         </div>
-        <div class="breadcrumb">
-          <span>홈</span>
-          <span class="bc-sep">></span>
-          <span>통계</span>
-          <span class="bc-sep">></span>
-          <span class="bc-current">종합현황</span>
-        </div>
+        <nav class="breadcrumb" aria-label="현재 위치">
+          <span class="breadcrumb-item">홈</span>
+          <span class="breadcrumb-separator">&gt;</span>
+          <span class="breadcrumb-item">통계</span>
+          <span class="breadcrumb-separator">&gt;</span>
+          <span class="breadcrumb-item current">종합현황</span>
+        </nav>
       </div>
 
       <!-- ==================================================================
@@ -338,7 +337,7 @@
           <div>
             <div class="kpi-card-title">프로젝트</div>
             <div class="kpi-donut-wrap">
-              <div class="kpi-metric-list" style="flex: 1;">
+              <div class="kpi-metric-list grow">
                 <div class="kpi-metric-row">
                   <span class="kpi-metric-lbl">총</span>
                   <span class="kpi-metric-val">1,234건</span>
@@ -455,7 +454,7 @@
         <!-- 좌측: 계약형태 (사업 계약금액 기준) -->
         <div class="stats-card-main">
           <div class="stats-card-header">
-            <div class="stats-card-title">계약형태 <span style="font-size: 13px; font-weight: 500; color: #58687b;">(사업 계약금액 기준)</span></div>
+            <div class="stats-card-title">계약형태 <span class="card-meta">(사업 계약금액 기준)</span></div>
           </div>
           <div class="stats-card-body-flex">
             <div class="stats-legend-list">
@@ -477,15 +476,15 @@
             </div>
 
             <!-- 우측 도넛 차트 (1,341 억원) -->
-            <div class="donut-single-box" style="width: 130px; height: 130px;">
+            <div class="donut-single-box w-130 h-130">
               <svg viewbox="0 0 100 100">
                 <circle cx="50" cy="50" r="38" fill="transparent" stroke="#1976d2" stroke-width="16" stroke-dasharray="238.7" stroke-dashoffset="0"></circle>
                 <circle cx="50" cy="50" r="38" fill="transparent" stroke="#00b894" stroke-width="16" stroke-dasharray="238.7" stroke-dashoffset="181.8"></circle>
                 <circle cx="50" cy="50" r="38" fill="transparent" stroke="#1976d2" stroke-width="16" stroke-dasharray="238.7" stroke-dashoffset="225.3"></circle>
               </svg>
-              <div class="donut-single-center" style="font-size: 17px; line-height: 1.15; text-align: center;">
-                <div style="font-weight: 800;">1,341</div>
-                <div style="font-size: 13px; color: #58687b; font-weight: 500;">계약금액(억원)</div>
+              <div class="donut-single-center">
+                <div class="donut-single-num">1,341</div>
+                <div class="unit-text">계약금액(억원)</div>
               </div>
             </div>
           </div>
@@ -494,41 +493,41 @@
         <!-- 우측: 사업구분 (사업 계약금액 기준) -->
         <div class="stats-card-main">
           <div class="stats-card-header">
-            <div class="stats-card-title">사업구분 <span style="font-size: 13px; font-weight: 500; color: #58687b;">(사업 계약금액 기준)</span></div>
+            <div class="stats-card-title">사업구분 <span class="card-meta">(사업 계약금액 기준)</span></div>
           </div>
-          <div class="stats-bars-list" style="justify-content: center; height: 100%;">
+          <div class="stats-bars-list is-centered">
             <div class="stats-bar-item">
               <span class="stats-bar-lbl">산업체</span>
               <div class="stats-bar-track">
-                <div class="stats-bar-fill" style="width: 76.2%; background: #1976d2;"></div>
+                <div class="stats-bar-fill fill-blue" style="width: 76.2%;"></div>
               </div>
               <span class="stats-bar-val">1,058.3억원 (76.2%)</span>
             </div>
             <div class="stats-bar-item">
               <span class="stats-bar-lbl">건축물</span>
               <div class="stats-bar-track">
-                <div class="stats-bar-fill" style="width: 18.2%; background: #00b894;"></div>
+                <div class="stats-bar-fill fill-green" style="width: 18.2%;"></div>
               </div>
               <span class="stats-bar-val">240.3억원 (18.2%)</span>
             </div>
             <div class="stats-bar-item">
               <span class="stats-bar-lbl">한전 고효율</span>
               <div class="stats-bar-track">
-                <div class="stats-bar-fill" style="width: 5.6%; background: #ff7a00;"></div>
+                <div class="stats-bar-fill fill-orange" style="width: 5.6%;"></div>
               </div>
               <span class="stats-bar-val">42.3억원 (5.6%)</span>
             </div>
             <div class="stats-bar-item">
               <span class="stats-bar-lbl">신산업</span>
               <div class="stats-bar-track">
-                <div class="stats-bar-fill" style="width: 5.6%; background: #1976d2;"></div>
+                <div class="stats-bar-fill fill-blue" style="width: 5.6%;"></div>
               </div>
               <span class="stats-bar-val">42.3억원 (5.6%)</span>
             </div>
             <div class="stats-bar-item">
               <span class="stats-bar-lbl">공공</span>
               <div class="stats-bar-track">
-                <div class="stats-bar-fill" style="width: 5.6%; background: #ef4444;"></div>
+                <div class="stats-bar-fill fill-red" style="width: 5.6%;"></div>
               </div>
               <span class="stats-bar-val">42.3억원 (5.6%)</span>
             </div>
@@ -545,37 +544,37 @@
         <!-- 좌측: 대상 설비 (사업 계약금액 기준) -->
         <div class="stats-card-main">
           <div class="stats-card-header">
-            <div class="stats-card-title">대상 설비 <span style="font-size: 13px; font-weight: 500; color: #58687b;">(사업 계약금액 기준)</span></div>
+            <div class="stats-card-title">대상 설비 <span class="card-meta">(사업 계약금액 기준)</span></div>
           </div>
           <div class="stats-bars-list stats-bars-detailed">
             <div class="stats-bar-item">
               <span class="stats-bar-lbl">CTTS</span>
-              <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 76.2%; background: #1976d2;"></div></div>
+              <div class="stats-bar-track"><div class="stats-bar-fill fill-blue" style="width: 76.2%;"></div></div>
               <span class="stats-bar-val">37건 · 381.1억원</span>
             </div>
             <div class="stats-bar-item">
               <span class="stats-bar-lbl">LED</span>
-              <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 52.5%; background: #00b894;"></div></div>
+              <div class="stats-bar-track"><div class="stats-bar-fill fill-green" style="width: 52.5%;"></div></div>
               <span class="stats-bar-val">38건 · 262.3억원</span>
             </div>
             <div class="stats-bar-item">
               <span class="stats-bar-lbl">히트펌프</span>
-              <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 43.2%; background: #ff7a00;"></div></div>
+              <div class="stats-bar-track"><div class="stats-bar-fill fill-orange" style="width: 43.2%;"></div></div>
               <span class="stats-bar-val">19건 · 216.0억원</span>
             </div>
             <div class="stats-bar-item">
               <span class="stats-bar-lbl">태양광</span>
-              <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 18.7%; background: #1976d2;"></div></div>
+              <div class="stats-bar-track"><div class="stats-bar-fill fill-blue" style="width: 18.7%;"></div></div>
               <span class="stats-bar-val">15건 · 93.3억원</span>
             </div>
             <div class="stats-bar-item">
               <span class="stats-bar-lbl">공기압축기</span>
-              <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 16.8%; background: #ef4444;"></div></div>
+              <div class="stats-bar-track"><div class="stats-bar-fill fill-red" style="width: 16.8%;"></div></div>
               <span class="stats-bar-val">9건 · 84.1억원</span>
             </div>
             <div class="stats-bar-item">
               <span class="stats-bar-lbl">복합설비</span>
-              <div class="stats-bar-track"><div class="stats-bar-fill" style="width: 24.5%; background: #00b894;"></div></div>
+              <div class="stats-bar-track"><div class="stats-bar-fill fill-green" style="width: 24.5%;"></div></div>
               <span class="stats-bar-val">10건 · 122.4억원</span>
             </div>
           </div>
@@ -584,7 +583,7 @@
         <!-- 우측: 접수 경로 (사업 계약금액 기준) -->
         <div class="stats-card-main">
           <div class="stats-card-header">
-            <div class="stats-card-title">접수 경로 <span style="font-size: 13px; font-weight: 500; color: #58687b;">(사업 계약금액 기준)</span></div>
+            <div class="stats-card-title">접수 경로 <span class="card-meta">(사업 계약금액 기준)</span></div>
           </div>
           <div class="stats-card-body-flex">
             <div class="stats-legend-list stats-legend-detailed">
@@ -596,16 +595,16 @@
 
             <!-- 우측 도넛 차트 (134 전체 계약) -->
             <div class="stats-donut-panel">
-              <div class="donut-single-box" style="width: 125px; height: 125px;">
+              <div class="donut-single-box w-125 h-125">
                 <svg viewbox="0 0 100 100">
                   <circle cx="50" cy="50" r="38" fill="transparent" stroke="#1976d2" stroke-width="16" stroke-dasharray="238.7" stroke-dashoffset="0"></circle>
                   <circle cx="50" cy="50" r="38" fill="transparent" stroke="#00b894" stroke-width="16" stroke-dasharray="238.7" stroke-dashoffset="171.1"></circle>
                   <circle cx="50" cy="50" r="38" fill="transparent" stroke="#ff7a00" stroke-width="16" stroke-dasharray="238.7" stroke-dashoffset="214.6"></circle>
                   <circle cx="50" cy="50" r="38" fill="transparent" stroke="#1976d2" stroke-width="16" stroke-dasharray="238.7" stroke-dashoffset="249.2"></circle>
                 </svg>
-                <div class="donut-single-center" style="font-size: 16px; line-height: 1.15; text-align: center;">
-                  <div style="font-weight: 800;">134</div>
-                  <div style="font-size: 13px; color: #58687b; font-weight: 500;">전체 계약</div>
+                <div class="donut-single-center">
+                  <div class="donut-single-num">134</div>
+                  <div class="unit-text">전체 계약</div>
                 </div>
               </div>
             </div>
