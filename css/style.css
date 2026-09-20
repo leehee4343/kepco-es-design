@@ -8565,3 +8565,226 @@ body .card-meta { font-size: 13px; font-weight: 400; color: #58687b; margin-left
 
 /* 주요 확정 버튼 기본 글자 크기 */
 body .btn-critical-primary { font-size: 13px; }
+
+/* ==========================================================================
+   대시보드 위젯 (가이드 5.14, v2.26)
+   To-Do 카드 · D-day 뱃지 · 파이프라인 · 캘린더 · 건수 타일 · 타임라인
+   ========================================================================== */
+/* 섹션 묶음: 제목과 카드 사이 12px */
+.dash-section { display: flex; flex-direction: column; gap: var(--content-inner-gap); }
+.dash-section > .section-title { font-size: 16px; font-weight: 700; color: #334155; line-height: 1.4; }
+
+/* 위젯 카드: 제목(좌) + 더보기(우) */
+.widget-more { font-size: 13px; }
+.widget-empty { padding: 28px 0; text-align: center; color: #58687b; }
+
+/* To-Do · 요약 카드 */
+.todo-grid { display: grid; gap: var(--content-object-gap); }
+.todo-grid.cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.todo-grid.cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.todo-grid.cols-7 { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.todo-grid.cols-8 { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+.todo-grid.cols-9 { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+@media (max-width: 1100px) { .todo-grid.cols-5, .todo-grid.cols-6, .todo-grid.cols-7, .todo-grid.cols-8, .todo-grid.cols-9 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.todo-card {
+  display: flex; flex-direction: column; gap: 6px; min-height: 108px; padding: var(--content-card-padding);
+  background: #ffffff; border: 1px solid #90caf9; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
+  color: #475569; transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+.todo-card:hover, .todo-card:focus-visible { box-shadow: var(--shadow-hover); border-color: #1976d2; text-decoration: none; }
+.todo-card:focus-visible { outline: 2px solid #1976d2; outline-offset: 2px; }
+.todo-label { font-size: 13px; font-weight: 400; color: #475569; line-height: 1.4; }
+.todo-count { display: flex; align-items: baseline; gap: 4px; font-size: 20px; font-weight: 800; color: #1976d2; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.todo-unit { font-size: 13px; font-weight: 400; color: #58687b; }
+.todo-sub { font-size: 13px; font-weight: 400; color: #58687b; line-height: 1.4; }
+.todo-card.is-empty { border-color: #e2e8f0; }
+.todo-card.is-empty .todo-label, .todo-card.is-empty .todo-count { color: #7c8ca0; }
+.todo-card.is-empty:hover { border-color: #cbd5e1; }
+.todo-card.is-alert { border-color: #fecaca; }
+.todo-card.is-alert .todo-count { color: #dc2626; }
+.todo-card.is-alert:hover { border-color: #ef4444; }
+
+/* D-day 뱃지 */
+.badge-dday { display: inline-flex; align-items: center; padding: 3px 8px; font-size: 13px; font-weight: 400; border-radius: 4px; background: #f1f5f9; color: #475569; white-space: nowrap; }
+.badge-dday.soon { background: #fff8f0; color: #c2410c; box-shadow: inset 0 0 0 1px #fed7aa; }
+.badge-dday.today { background: #dc2626; color: #ffffff; }
+.badge-dday.closed { background: #f1f5f9; color: #64748b; }
+
+/* 파이프라인 */
+.pipeline-flow { display: grid; gap: 24px; }
+.pipeline-flow.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.pipeline-flow.cols-8 { grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 20px; }
+.pipeline-step {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 14px 8px; text-align: center;
+  background: #ffffff; border: 1px solid #e2e8f0; border-radius: var(--radius-md); color: #475569; cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.pipeline-step:not(:last-child)::after {
+  content: ''; position: absolute; top: 50%; right: -15px; width: 8px; height: 8px; margin-top: -4px;
+  border-top: 2px solid #cbd5e1; border-right: 2px solid #cbd5e1; transform: rotate(45deg);
+}
+.pipeline-step:hover, .pipeline-step:focus-visible { border-color: #90caf9; text-decoration: none; }
+.pipeline-step:focus-visible { outline: 2px solid #1976d2; outline-offset: 2px; }
+.pipeline-num { font-size: 13px; letter-spacing: 0.5px; color: #58687b; }
+.pipeline-name { font-size: 13px; color: #475569; line-height: 1.4; min-height: 36px; display: flex; align-items: center; }
+.pipeline-count { font-size: 20px; font-weight: 800; color: #334155; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.pipeline-step.is-selected { background: #e8f1fd; border-color: #90caf9; }
+.pipeline-step.is-selected .pipeline-name, .pipeline-step.is-selected .pipeline-count, .pipeline-step.is-selected .pipeline-num { color: #1976d2; }
+.pipeline-extra { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.pipeline-extra .extra-label { font-size: 13px; color: #58687b; }
+
+/* 건수 타일 */
+.tally-grid { display: grid; gap: 12px; }
+.tally-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.tally-grid.cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.tally-item { display: flex; flex-direction: column; gap: 4px; padding: 12px; border: 1px solid #e2e8f0; border-radius: var(--radius-md); background: #ffffff; }
+.tally-label { font-size: 13px; color: #58687b; line-height: 1.4; }
+.tally-count { font-size: 20px; font-weight: 800; color: #334155; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.tally-count.text-primary { color: #1976d2; }
+
+/* 캘린더 */
+.calendar-head { display: flex; align-items: center; justify-content: space-between; }
+.calendar-title { font-size: 16px; font-weight: 700; color: #334155; }
+.calendar-nav { display: flex; gap: 8px; }
+.btn-cal-nav { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; border: 1px solid #cbd5e1; background: #ffffff; color: #58687b; cursor: pointer; }
+.btn-cal-nav:hover { background: #f8fafc; border-color: #94a3b8; }
+.btn-cal-nav:focus-visible { outline: 2px solid #1976d2; outline-offset: 2px; }
+.btn-cal-nav svg { width: 15px; height: 15px; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); border: 1px solid #e2e8f0; border-radius: var(--radius-md); overflow: hidden; }
+.calendar-weekday { height: 36px; display: flex; align-items: center; justify-content: center; background: #f8fafc; color: #475569; font-size: 13px; font-weight: 400; border-bottom: 1px solid #cbd5e1; }
+.calendar-day {
+  position: relative; height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  padding: 0; background: #ffffff; border: 0; border-bottom: 1px solid #eaedf3; color: #475569; font-size: 13px; font-weight: 400; cursor: pointer;
+}
+.calendar-day:hover { background: #f8fafc; }
+.calendar-day:focus-visible { outline: 2px solid #1976d2; outline-offset: -2px; }
+.calendar-day .day-num { display: inline-flex; align-items: center; justify-content: center; min-width: 22px; height: 22px; border-radius: 50%; line-height: 1; }
+.calendar-day.is-out { color: #7c8ca0; }
+.calendar-day.is-today .day-num { background: #1976d2; color: #ffffff; }
+.calendar-day.is-selected { background: #e8f1fd; box-shadow: inset 0 0 0 1px #90caf9; }
+.cal-dots { display: flex; gap: 3px; height: 6px; }
+.cal-dot { width: 6px; height: 6px; border-radius: 50%; background: #1976d2; display: inline-block; flex: none; }
+.type-quote { background: #ff7a00; }
+.type-bid { background: #1976d2; }
+.type-price { background: #38bdf8; }
+.type-meet { background: #00b894; }
+.type-contract { background: #2dd4bf; }
+.calendar-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: #58687b; }
+.calendar-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.calendar-events { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.calendar-events li { display: flex; align-items: center; gap: 8px; min-height: 32px; padding: 0 2px; font-size: 13px; color: #475569; }
+.calendar-events .ev-time { flex: none; width: 44px; color: #58687b; }
+.calendar-events .ev-type { flex: none; display: inline-flex; align-items: center; gap: 6px; width: 84px; }
+.calendar-events .ev-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.calendar-events-date { font-size: 13px; color: #58687b; }
+
+/* 타임라인 */
+.timeline { list-style: none; display: flex; flex-direction: column; }
+.timeline li { position: relative; display: grid; grid-template-columns: 132px 1fr; gap: 16px; padding: 0 0 16px 28px; }
+.timeline li:last-child { padding-bottom: 0; }
+.timeline li::before { content: ''; position: absolute; left: 0; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #ffffff; border: 2px solid #cbd5e1; z-index: 1; }
+.timeline li:not(:last-child)::after { content: ''; position: absolute; left: 5px; top: 18px; bottom: -2px; width: 2px; background: #e2e8f0; }
+.timeline .tl-time { font-size: 13px; color: #58687b; }
+.timeline .tl-name { font-size: 13px; color: #475569; }
+.timeline .tl-desc { font-size: 13px; color: #58687b; margin-top: 2px; }
+.timeline li.is-done::before { background: #1976d2; border-color: #1976d2; }
+.timeline li.is-current::before { background: #ff7a00; border-color: #ff7a00; box-shadow: 0 0 0 4px #ffedd5; }
+.timeline li.is-current .tl-name { color: #d95500; }
+
+/* 인사 카드 · 범위 전환 */
+.greeting-card .greeting-title { font-size: 16px; font-weight: 700; color: #334155; line-height: 1.4; }
+.greeting-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.greeting-info { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13px; color: #58687b; }
+
+/* 차트 (정적 SVG) */
+.chart-svg { width: 100%; height: auto; display: block; }
+.chart-svg text { font-size: 13px; fill: #58687b; }
+.chart-svg .axis, .chart-svg .grid-line { stroke: #e2e8f0; stroke-width: 1; }
+.chart-svg .bar { fill: #1976d2; }
+.chart-svg .bar.is-peak { fill: #ff7a00; }
+.chart-svg .line { fill: none; stroke: #00b894; stroke-width: 2; }
+.chart-svg .dot { fill: #00b894; }
+.chart-key { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: #58687b; }
+.chart-key span { display: inline-flex; align-items: center; gap: 6px; }
+
+/* 위젯 표: 한 줄 표시, 건명은 말줄임 (5.3 · 5.14) */
+.widget-table th, .widget-table td { white-space: nowrap; }
+.widget-table td.td-ellipsis { max-width: 280px; overflow: hidden; text-overflow: ellipsis; }
+.help-line { font-size: 13px; color: #58687b; }
+.type-plan { background: #fbbf24; }
+
+/* 도넛 + 범례 */
+.widget-donuts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--content-object-gap); }
+.widget-donut { display: flex; align-items: center; gap: 16px; }
+.widget-donut .donut-single-center { display: flex; flex-direction: column; align-items: center; }
+.legend-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.legend-list li { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #475569; white-space: nowrap; }
+.donut-block-label { font-size: 13px; color: #58687b; margin-bottom: 8px; }
+
+/* 증감 표시 */
+.trend { display: inline-flex; align-items: center; gap: 4px; }
+.trend::before { content: ''; border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 6px solid currentColor; }
+.trend.down::before { transform: rotate(180deg); }
+.trend.up { color: #1976d2; }
+.trend.down { color: #dc2626; }
+
+/* 전역 [hidden] 보장 (display 지정 클래스가 hidden 속성을 덮지 않도록) */
+[hidden] { display: none !important; }
+
+/* 대시보드 수치·캘린더 굵기: KPI 수치만 800, 나머지 400 (3.3 · E5) */
+body main :is(.todo-count, .tally-count, .pipeline-count, .donut-single-num) { font-weight: 800 !important; }
+body main :is(.todo-unit, .todo-label, .todo-sub, .tally-label, .pipeline-num, .pipeline-name, .calendar-day, .calendar-day *, .calendar-weekday, .calendar-events *, .calendar-legend *, .btn-cal-nav, .timeline *, .legend-list *, .chart-key *) { font-weight: 400 !important; }
+body main :is(.calendar-title, .greeting-title) { font-weight: 700 !important; }
+
+/* 캘린더 · 위젯 열 · 표 줄바꿈 */
+.calendar { display: flex; flex-direction: column; gap: var(--content-inner-gap); }
+.widget-cols { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: var(--content-object-gap); align-items: start; }
+.widget-col { display: flex; flex-direction: column; gap: var(--content-object-gap); min-width: 0; }
+@media (max-width: 1100px) { .widget-cols { grid-template-columns: minmax(0, 1fr); } }
+.widget-table.is-wrap td { white-space: normal; }
+.widget-table.is-wrap td.td-ellipsis { max-width: none; white-space: normal; text-align: left; }
+
+/* 표 안 2줄 셀(주 텍스트 + 보조 텍스트)과 배지 줄바꿈 방지 */
+.widget-table .cell-main, .widget-table .cell-sub { display: block; max-width: 230px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.widget-table .cell-sub { color: #58687b; }
+.widget-table.is-wrap .cell-main, .widget-table.is-wrap .cell-sub { max-width: none; white-space: normal; }
+.card-status-badge { white-space: nowrap; }
+.widget-cols { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+
+/* 표 안 행 단위 확인 액션 · 진행상황 팝업 본문 간격 · 건수 타일 열 수 */
+.data-table .btn-task-done { display: inline-flex; align-items: center; height: 28px; padding: 0 10px; border-radius: 4px; }
+.modal-body > .wizard-stepper, .modal-body > .timeline { margin-top: 16px; }
+.tally-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tally-grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+/* 순위 표의 비율 막대 */
+.rank-cell { display: flex; align-items: center; gap: 8px; }
+.rank-cell .stats-bar-track { flex: 1; height: 10px; min-width: 80px; }
+.rank-pct { flex: none; width: 44px; text-align: right; font-size: 13px; font-variant-numeric: tabular-nums; }
+
+/* 범례·캘린더 점의 채움색이 기본 점 색보다 우선하도록 */
+.cal-dot.fill-blue { background: #1976d2; } .cal-dot.fill-cyan { background: #0284c7; } .cal-dot.fill-sky { background: #38bdf8; }
+.cal-dot.fill-teal { background: #2dd4bf; } .cal-dot.fill-emerald { background: #10b981; } .cal-dot.fill-green { background: #00b894; }
+.cal-dot.fill-orange { background: #ff7a00; } .cal-dot.fill-amber { background: #fbbf24; } .cal-dot.fill-red { background: #ef4444; } .cal-dot.fill-purple { background: #8b5cf6; }
+
+/* 짝 위젯: 한 줄을 좌우 두 카드로 나눔 (가이드 6.7) */
+.widget-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--content-object-gap); }
+.widget-pair > .app-card { min-width: 0; }
+@media (max-width: 1100px) { .widget-pair { grid-template-columns: minmax(0, 1fr); } }
+
+/* 좁은 요약 카드에서 번호 같은 긴 보조 문구는 줄바꿈 */
+.todo-sub { overflow-wrap: anywhere; }
+
+/* 건수 카드: 긴 수치는 줄바꿈, 문장형 건수(질문과 답변)는 13px 본문에 수치만 강조 */
+.todo-count { flex-wrap: wrap; }
+.todo-count.is-text { display: block; font-size: 13px; font-weight: 400; color: #475569; line-height: 1.6; }
+body main .todo-count.is-text .num { font-size: 16px; font-weight: 800 !important; color: #1976d2; font-variant-numeric: tabular-nums; }
+
+/* 금액처럼 자릿수가 긴 건수는 16px(1280px 이하 14px)로 카드 폭에 맞춤 (3.2 통계 숫자 14~20px) */
+.todo-count.is-long { font-size: 16px; }
+@media (max-width: 1280px) { .todo-count.is-long { font-size: 14px; } }
+
+/* 신규 표시 아이콘 (가이드 5.14): 16px 오렌지 라운드 사각형 + 흰색 N, 제목 뒤에 붙임 */
+.icon-new { display: inline-block; width: 16px; height: 16px; margin-left: 6px; vertical-align: -3px; flex: none; }
+.icon-new rect { fill: #ff7a00; }
+.icon-new path { fill: none; stroke: #ffffff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }

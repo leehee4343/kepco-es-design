@@ -8,7 +8,7 @@
 - **고객사**: 켑코이에스(주) (KEPCO Energy Solution)
 - **시스템**: 사업관리시스템 (PMS) & 전자입찰시스템 (SRM) 화면 UI/UX 프로토타입
 - **현재 상태**: 
-  - PMS 7개 화면 + SRM 5개 화면(대시보드·로그인·협력업체 신청·입찰계획 현황·입찰공고 상세) + 통합 포털(`index.html`) 총 13개 HTML 완료 (업무 화면 12개 + 포털 1개).
+  - PMS 7개 화면 + SRM 8개 화면(권한별 대시보드 4종·로그인·협력업체 신청·입찰계획 현황·입찰공고 상세) + 통합 포털(`index.html`) 총 16개 HTML 완료 (업무 화면 15개 + 포털 1개).
   - 다음 작업 대상: 신규 화면 요청 시 `DESIGN_GUIDE.md` 상단 「새 화면 만들기」 절차를 따릅니다. `SRMDetail.html`은 구축 완료되었습니다.
 
 ---
@@ -85,7 +85,10 @@
 ├── StepWorkflow.html            # SRM 입찰계획 현황 (7-Step)
 ├── SRMDetail.html               # SRM 입찰공고 상세 (탭 기반 상세)
 ├── SRMLogin.html                # SRM 로그인
-├── SRMDashboard.html            # SRM 대시보드
+├── SRMDashboardPartner.html     # SRM 협력업체 대시보드
+├── SRMDashboardBiz.html         # SRM 사업담당자 대시보드
+├── SRMDashboardContract.html    # SRM 계약담당자 대시보드
+├── SRMDashboardAdmin.html       # SRM 관리자 대시보드
 ├── PartnerRegister.html         # SRM 협력업체 신청 (5-Step)
 ├── DESIGN_GUIDE.md              # 공식 디자인/UI/UX 가이드라인
 ├── CLAUDE.md                    # AI 어시스턴트 표준 지침 (본 파일)
@@ -101,4 +104,4 @@
 ## 5. 새로운 세션 시작 시 행동 지침 (Instruction for New Session)
 1. 사용자가 특정 화면 추가/수정을 요청하면, `docs/specs_pdf/` 및 `docs/design_refs/`의 명세서를 먼저 확인합니다.
 2. `DESIGN_GUIDE.md`의 컬러, 폰트, 테이블, 버튼, 모달 규격을 그대로 적용합니다.
-3. 생성된 화면은 `index.html`과 `SRMDashboard.html`/`Dashboard.html` 사이드바 및 네비게이션에 즉시 연결합니다.
+3. 생성된 화면은 `index.html`과 `SRMDashboardContract.html`/`Dashboard.html` 사이드바 및 네비게이션에 즉시 연결합니다.

@@ -12,7 +12,10 @@ SCREENS = [
     ("Statistics.html", "assets/thumbnails/thumb_statistics.png"),
     ("StepWorkflow.html", "assets/thumbnails/thumb_workflow.png"),
     ("PlanPerformance.html", "assets/thumbnails/thumb_plan_perf.png"),
-    ("SRMDashboard.html", "assets/thumbnails/thumb_srm_dash.png"),
+    ("SRMDashboardPartner.html", "assets/thumbnails/thumb_srm_dash_partner.png"),
+    ("SRMDashboardBiz.html", "assets/thumbnails/thumb_srm_dash_biz.png"),
+    ("SRMDashboardContract.html", "assets/thumbnails/thumb_srm_dash_contract.png"),
+    ("SRMDashboardAdmin.html", "assets/thumbnails/thumb_srm_dash_admin.png"),
     ("PartnerRegister.html", "assets/thumbnails/thumb_partner_reg.png"),
     ("SRMDetail.html", "assets/thumbnails/thumb_srm_detail.png"),
 ]

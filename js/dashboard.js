@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBusinessSettlementPage();
   initStatisticsPage();
   initStepWorkflowPage();
-  initSrmDashboardPage();
+  initDashboardWidgets();
   initPlanPerformancePage();
   initPartnerRegisterPage();
   initSrmDetailPage();
@@ -67,7 +67,10 @@ function initPageManuals() {
     'StepWorkflow.html': '입찰 업무의 현재 단계를 확인하고 단계별 입력 항목을 작성합니다. 저장 후 다음 단계로 이동할 수 있습니다.',
     'PlanPerformance.html': '검색 조건을 설정해 프로젝트별 계획 대비 매출, 수익 및 상환 실적을 조회하고 비교합니다.',
     'PartnerRegister.html': '협력업체 등록 약관을 확인하고 기업·담당자 정보와 증빙서류를 단계별로 입력한 뒤 신청 내용을 제출합니다.',
-    'SRMDashboard.html': '현재 권한에 맞는 입찰 공고, 진행 단계 및 협력업체 요청 현황을 확인하고 관련 업무로 이동합니다.',
+    'SRMDashboardPartner.html': '내가 처리해야 할 견적·입찰·계약 업무와 마감 일정, 참여 현황, 공지사항을 확인합니다. 카드와 목록 항목을 선택하면 해당 업무 화면으로 이동합니다.',
+    'SRMDashboardBiz.html': '내가 요청한 사전견적과 발주계약 건의 진행 단계를 확인합니다. 진행상황 확인 버튼으로 단계별 처리 이력을 볼 수 있습니다.',
+    'SRMDashboardContract.html': '오늘 처리해야 할 접수·계획·심사·계약 업무와 입찰·수의계약 진행 현황을 확인합니다. 카드를 선택하면 해당 업무 화면으로 이동합니다.',
+    'SRMDashboardAdmin.html': '시스템 운영 지표와 메뉴 사용 현황, 전사 업무 현황 및 승인·처리 대기 건을 확인합니다.',
     'SRMDetail.html': '입찰공고의 기본 정보와 단계별 상세 내용을 확인합니다. 상단 프로세스 탭으로 원하는 업무 영역을 빠르게 이동할 수 있습니다.'
   };
 
@@ -725,7 +728,7 @@ function initSRMLoginPage() {
       }
 
       // 로그인 성공 시뮬레이션 -> SRM 대시보드로 이동
-      window.location.href = 'SRMDashboard.html';
+      window.location.href = 'SRMDashboardPartner.html';
     });
   }
 
@@ -1344,85 +1347,66 @@ function initStepWorkflowPage() {
 }
 
 /**
- * SRM 전자입찰 업무 포털 대시보드 인터랙션 (SRMDashboard.html)
- * - [참고]메뉴구조도(SRM).xlsx 기준 사내담당자 10대 메뉴 ↔ 협력업체 5대 메뉴 전환
+ * SRM 권한별 대시보드 위젯 인터랙션 (SRMDashboardPartner / Biz / Contract / Admin.html)
+ * - 권한 버튼(data-href) 이동, 범위·기간 칩 전환, 캘린더 날짜 선택, 파이프라인 단계 선택, 진행상황 팝업 열기
  */
-function initSrmDashboardPage() {
-  const roleChips = document.querySelectorAll('.perm-btn[data-role]');
-  const navInternal = document.getElementById('srmNavInternal');
-  const navPartner = document.getElementById('srmNavPartner');
-  const userRoleEl = document.getElementById('srmUserRole');
-  const userNameEl = document.getElementById('srmUserName');
-  const modeNoticeText = document.getElementById('srmModeNoticeText');
-  const pageSubtitle = document.getElementById('srmPageSubtitle');
-
-  if (!roleChips.length && !navInternal) return;
-
-  const roleConfigs = {
-    'contract': {
-      name: '홍길동 과장',
-      role: '[계약담당자]',
-      sub: '(계약담당자 종합 현황)',
-      notice: '현재 <strong>계약담당자</strong> 모드로 접속 중입니다. 좌측 메뉴에서 10대 사내 업무 메뉴를 확인하시거나 상단 권한 버튼을 통해 협력업체 전용 창구 모드로 전환하실 수 있습니다.',
-      isPartner: false
-    },
-    'biz': {
-      name: '김사업 차장',
-      role: '[사업담당자]',
-      sub: '(사업담당자 종합 현황)',
-      notice: '현재 <strong>사업담당자</strong> 모드로 접속 중입니다. 사전 견적 요청, 발주계약 요청 및 사업부서 소관 입찰 현황을 확인하실 수 있습니다.',
-      isPartner: false
-    },
-    'admin': {
-      name: '이희성 부장',
-      role: '[시스템관리자]',
-      sub: '(시스템 총괄 관리)',
-      notice: '현재 <strong>시스템 관리자</strong> 모드로 접속 중입니다. 사용자 권한, 공통 품목, 기준정보 및 시스템 로그 전반을 관리하실 수 있습니다.',
-      isPartner: false
-    },
-    'partner': {
-      name: '박전력 대표',
-      role: '[한빛전력공사]',
-      sub: '(협력업체 전용 창구)',
-      notice: '현재 <strong>협력업체(한빛전력공사)</strong> 전용 모드로 접속 중입니다. 좌측 메뉴가 협력업체용 5대 전용 메뉴로 자동 전환되었습니다.',
-      isPartner: true
-    }
-  };
-
-  function setRole(roleKey) {
-    const config = roleConfigs[roleKey] || roleConfigs['contract'];
-
-    roleChips.forEach(chip => {
-      chip.classList.toggle('active', chip.getAttribute('data-role') === roleKey);
+function initDashboardWidgets() {
+  // 권한 버튼: 해당 권한의 대시보드로 이동
+  document.querySelectorAll('.perm-btn[data-href]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.getAttribute('aria-current') !== 'true') window.location.href = btn.dataset.href;
     });
+  });
 
-    if (userRoleEl) userRoleEl.textContent = config.role;
-    if (userNameEl) userNameEl.textContent = config.name;
-    if (pageSubtitle) pageSubtitle.textContent = config.sub;
-    if (modeNoticeText) modeNoticeText.innerHTML = config.notice;
-
-    if (navInternal && navPartner) {
-      if (config.isPartner) {
-        navInternal.style.display = 'none';
-        navPartner.style.display = 'block';
-      } else {
-        navInternal.style.display = 'block';
-        navPartner.style.display = 'none';
-      }
-    }
-  }
-
-  // URL 쿼리 파라미터 role 확인
-  const urlParams = new URLSearchParams(window.location.search);
-  const initialRole = urlParams.get('role') || 'contract';
-  setRole(initialRole);
-
-  // 칩 클릭 이벤트
-  roleChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      const roleKey = chip.getAttribute('data-role');
-      setRole(roleKey);
+  // 범위·기간 칩: data-panel 이 있으면 같은 카드 안의 패널을 전환
+  document.querySelectorAll('.quick-period-btns').forEach(group => {
+    const chips = Array.from(group.querySelectorAll('.btn-period-pill'));
+    chips.forEach(chip => {
+      chip.setAttribute('aria-pressed', String(chip.classList.contains('active')));
+      chip.addEventListener('click', () => {
+        chips.forEach(c => {
+          c.classList.toggle('active', c === chip);
+          c.setAttribute('aria-pressed', String(c === chip));
+          const panel = c.dataset.panel && document.getElementById(c.dataset.panel);
+          if (panel) panel.hidden = c !== chip;
+        });
+      });
     });
+  });
+
+  // 캘린더: 날짜 선택 시 해당 날짜의 일정 목록으로 교체
+  document.querySelectorAll('.calendar').forEach(cal => {
+    const days = Array.from(cal.querySelectorAll('.calendar-day'));
+    const lists = Array.from(cal.querySelectorAll('.calendar-events'));
+    const label = cal.querySelector('.calendar-events-date');
+    days.forEach(day => {
+      day.addEventListener('click', () => {
+        days.forEach(d => { d.classList.toggle('is-selected', d === day); d.setAttribute('aria-pressed', String(d === day)); });
+        lists.forEach(l => { l.hidden = l.dataset.date !== day.dataset.date; });
+        if (label) label.textContent = day.dataset.label || '';
+        const none = cal.querySelector('.calendar-events.is-none');
+        if (none) none.hidden = lists.some(l => !l.hidden && !l.classList.contains('is-none'));
+      });
+    });
+  });
+
+  // 파이프라인: 선택한 단계 강조
+  document.querySelectorAll('.pipeline-flow').forEach(flow => {
+    const steps = Array.from(flow.querySelectorAll('.pipeline-step'));
+    steps.forEach(step => {
+      step.addEventListener('click', event => {
+        event.preventDefault();
+        steps.forEach(s => s.classList.toggle('is-selected', s === step && !s.classList.contains('is-selected')));
+      });
+    });
+  });
+
+  // 진행상황 확인 팝업 열기
+  document.querySelectorAll('[data-open-modal]').forEach(btn => {
+    btn.addEventListener('click', () => document.getElementById(btn.dataset.openModal)?.classList.add('show'));
+  });
+  document.querySelectorAll('.modal-backdrop [data-close-modal], .modal-backdrop .modal-close').forEach(btn => {
+    btn.addEventListener('click', () => btn.closest('.modal-backdrop')?.classList.remove('show'));
   });
 }
 

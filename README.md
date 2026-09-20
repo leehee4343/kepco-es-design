@@ -10,7 +10,7 @@
 
 ---
 
-## 🖥️ 수록 화면 목록 (총 12종)
+## 🖥️ 수록 화면 목록 (총 15종)
 
 ### 1. 사업관리시스템 (PMS)
 | No | 화면명 | 파일 | 주요 기능 및 특징 |
@@ -27,11 +27,14 @@
 ### 2. 전자입찰시스템 (SRM)
 | No | 화면명 | 파일 | 주요 기능 및 특징 |
 |:---:|:---|:---|:---|
-| 08 | **SRM 전자입찰 업무 포털** | [`SRMDashboard.html`](./SRMDashboard.html) | 권한(계약담당자·사업담당자·관리자·협력업체) 전환, 최근 입찰공고 그리드 |
-| 09 | **SRM 공급자 로그인 창구** | [`SRMLogin.html`](./SRMLogin.html) | 켑코이에스 소개 배너, 공급자 전용 로그인 폼 |
-| 10 | **협력업체 신청 등록 (5-Step)** | [`PartnerRegister.html`](./PartnerRegister.html) | 5단계 위저드 스텝바, 이용약관 동의, 기업 정보 입력 폼 (팝업 화면) |
-| 11 | **SRM 입찰계획 현황 (7-Step)** | [`StepWorkflow.html`](./StepWorkflow.html) | 예정가격 산출기초조서 등록, 전자결재 요청, 첨부파일 업로드 |
-| 12 | **SRM 입찰공고 상세** | [`SRMDetail.html`](./SRMDetail.html) | 요약 표, 8단계 업무 탐색 탭, 첨부파일, 입찰계획으로 되돌리기 모달 |
+| 08 | **SRM 협력업체 대시보드** | [`SRMDashboardPartner.html`](./SRMDashboardPartner.html) | 처리할 업무 카드, 진행 입찰공고, 마감 캘린더, 참여·계약 현황 |
+| 09 | **SRM 사업담당자 대시보드** | [`SRMDashboardBiz.html`](./SRMDashboardBiz.html) | 요청 건 파이프라인(STEP 01~04), 진행상황 확인 팝업, 사전견적 현황 |
+| 10 | **SRM 계약담당자 대시보드** | [`SRMDashboardContract.html`](./SRMDashboardContract.html) | 오늘 처리할 업무 10종, 전체 파이프라인, 입찰·수의계약·예외 건 |
+| 11 | **SRM 관리자 대시보드** | [`SRMDashboardAdmin.html`](./SRMDashboardAdmin.html) | 운영 KPI, 로그인 추이 차트, 메뉴별 접속 TOP 10, 전사 업무 현황 |
+| 12 | **SRM 공급자 로그인 창구** | [`SRMLogin.html`](./SRMLogin.html) | 켑코이에스 소개 배너, 공급자 전용 로그인 폼 |
+| 13 | **협력업체 신청 등록 (5-Step)** | [`PartnerRegister.html`](./PartnerRegister.html) | 5단계 위저드 스텝바, 이용약관 동의, 기업 정보 입력 폼 (팝업 화면) |
+| 14 | **SRM 입찰계획 현황 (7-Step)** | [`StepWorkflow.html`](./StepWorkflow.html) | 예정가격 산출기초조서 등록, 전자결재 요청, 첨부파일 업로드 |
+| 15 | **SRM 입찰공고 상세** | [`SRMDetail.html`](./SRMDetail.html) | 요약 표, 8단계 업무 탐색 탭, 첨부파일, 입찰계획으로 되돌리기 모달 |
 
 ---
 
@@ -65,7 +68,10 @@
 ├── StepWorkflow.html        # SRM 입찰계획 현황 (예정가/예비가 산출, 7-Step)
 ├── SRMDetail.html           # SRM 입찰공고 상세 (탭 기반 상세)
 ├── PlanPerformance.html     # PMS 계획대비 실적현황 (자금관리)
-├── SRMDashboard.html        # SRM 전자입찰 업무 포털 (대시보드)
+├── SRMDashboardPartner.html # SRM 협력업체 대시보드
+├── SRMDashboardBiz.html     # SRM 사업담당자 대시보드
+├── SRMDashboardContract.html # SRM 계약담당자 대시보드
+├── SRMDashboardAdmin.html   # SRM 관리자 대시보드
 ├── SRMLogin.html            # SRM 공급자 로그인 창구
 ├── PartnerRegister.html     # SRM 협력업체 신청 등록 (5-Step)
 ├── css/
@@ -74,7 +80,7 @@
 │   └── dashboard.js         # 대시보드 인터랙션 & SVG 차트 렌더링 스크립트
 ├── assets/
 │   ├── logo.png             # 켑코이에스(주) 공식 로고
-│   └── thumbnails/          # 가이드 포털용 고해상도 카드 썸네일 (12종 전 화면)
+│   └── thumbnails/          # 가이드 포털용 고해상도 카드 썸네일 (전 화면)
 ├── docs/                    # 설계 사양서(PDF), 디자인 참고 시안, 메뉴구조도(Excel)
 ├── DESIGN_GUIDE.md          # 공식 디자인 시스템 가이드라인 규격서
 ├── CLAUDE.md                # AI 어시스턴트 프로젝트 작업 지침

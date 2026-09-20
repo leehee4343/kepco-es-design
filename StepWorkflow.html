@@ -16,16 +16,16 @@
       <button type="button" class="btn-menu-toggle" id="btnToggleSidebar" title="사이드바 메뉴 접기/펼치기" aria-label="사이드바 메뉴 접기/펼치기">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
-      <a href="SRMDashboard.html" class="brand-logo-wrap" title="전자입찰시스템 SRM 메인"><img src="assets/logo.png" alt="켑코이에스(주)" class="brand-logo-img"></a>
+      <a href="SRMDashboardContract.html" class="brand-logo-wrap" title="전자입찰시스템 SRM 메인"><img src="assets/logo.png" alt="켑코이에스(주)" class="brand-logo-img"></a>
       <div class="header-system-badge-group"><span class="system-title">전자입찰시스템(SRM)</span></div>
     </div>
     <div class="header-right">
       <div class="permission-group">
         <span class="perm-label">권한 :</span>
-        <button type="button" class="perm-btn active" data-role="contract" title="계약담당자 권한으로 전환" aria-pressed="true">계약담당자</button>
-        <button type="button" class="perm-btn" data-role="biz" title="사업담당자 권한으로 전환" aria-pressed="false">사업담당자</button>
-        <button type="button" class="perm-btn" data-role="admin" title="관리자 권한으로 전환" aria-pressed="false">관리자</button>
-        <button type="button" class="perm-btn" data-role="partner" title="협력업체 권한(전용 창구)으로 전환" aria-pressed="false">협력업체</button>
+        <button type="button" class="perm-btn active" data-role="contract" data-href="SRMDashboardContract.html" aria-current="true" title="계약담당자 권한으로 전환" aria-pressed="true">계약담당자</button>
+        <button type="button" class="perm-btn" data-role="biz" data-href="SRMDashboardBiz.html" title="사업담당자 권한으로 전환" aria-pressed="false">사업담당자</button>
+        <button type="button" class="perm-btn" data-role="admin" data-href="SRMDashboardAdmin.html" title="관리자 권한으로 전환" aria-pressed="false">관리자</button>
+        <button type="button" class="perm-btn" data-role="partner" data-href="SRMDashboardPartner.html" title="협력업체 권한(전용 창구)으로 전환" aria-pressed="false">협력업체</button>
       </div>
       <div class="user-profile">
         <span class="user-name">홍길동 과장</span><span class="user-role">[계약담당자]</span><span class="user-divider">|</span><a href="SRMLogin.html" class="btn-logout">Logout</a>
@@ -37,7 +37,7 @@
     <aside class="sidebar" id="sidebar">
       <nav class="sidebar-nav">
         <div class="nav-item">
-                    <a href="SRMDashboard.html" class="nav-link">
+                    <a href="SRMDashboardContract.html" class="nav-link">
                       <span class="nav-icon">
                         <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                           <rect x="3" y="3" width="7" height="9"></rect>
@@ -260,7 +260,7 @@
           <h1 class="page-title">입찰계획 현황</h1>
         </div>
         <div class="breadcrumb">
-          <a href="SRMDashboard.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span>
+          <a href="SRMDashboardContract.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span>
           <span class="breadcrumb-item">입찰관리</span><span class="breadcrumb-separator">&gt;</span>
           <span class="breadcrumb-item">입찰계획 현황</span><span class="breadcrumb-separator">&gt;</span>
           <span class="breadcrumb-item current">예정가 / 예비가</span>
