@@ -290,71 +290,65 @@
 
       <section class="app-card greeting-card" aria-label="인사">
         <div class="hstack between">
-          <div class="hstack gap-12"><h2 class="greeting-title">임꺽정 차장님, 안녕하세요</h2><span class="card-meta">2026.09.21(월) 09:00 기준</span></div>
+          <div class="hstack gap-12"><h2 class="greeting-title">임꺽정 차장님, 안녕하세요</h2></div>
           <div class="greeting-actions"><div class="quick-period-btns" role="group" aria-label="데이터 범위"><button type="button" class="btn-period-pill active">내 담당 건</button><button type="button" class="btn-period-pill">전체</button></div></div>
         </div>
         <div class="greeting-info"><span>소속 계약팀</span><span>직급 차장</span></div>
       </section>
 
-      <section class="dash-section" aria-label="오늘 처리할 업무">
-        <h2 class="section-title">오늘 처리할 업무</h2>
-        <div class="todo-grid cols-5">
-        <a href="#" class="todo-card" title="발주계약 요청접수으로 이동">
+      <section class="dash-section" aria-label="나의 업무 현황">
+        <h2 class="section-title">나의 업무 현황</h2>
+        <div class="todo-grid cols-5 is-plain">
+        <a href="#" class="todo-card" title="발주계약 요청접수 화면으로 이동">
           <span class="todo-label">발주계약 요청 접수 대기</span>
           <span class="todo-count">1<span class="todo-unit">건</span></span>
-          <span class="todo-sub">계약담당자 미매핑 1건</span>
         </a>
-        <a href="#" class="todo-card" title="발주계획 등록으로 이동">
+        <a href="#" class="todo-card" title="발주계획 등록 화면으로 이동">
           <span class="todo-label">발주계획 작성중</span>
           <span class="todo-count">1<span class="todo-unit">건</span></span>
-          <span class="todo-sub">PPW2026-0035</span>
         </a>
-        <a href="#" class="todo-card is-empty" title="수의계약 계획 현황으로 이동">
+        <a href="#" class="todo-card is-empty" title="수의계약 계획 현황 화면으로 이동">
           <span class="todo-label">수의계약 계획 작성중</span>
           <span class="todo-count">0<span class="todo-unit">건</span></span>
           
         </a>
-        <a href="#" class="todo-card is-empty" title="입찰계획 현황으로 이동">
+        <a href="#" class="todo-card is-empty" title="입찰계획 현황 화면으로 이동">
           <span class="todo-label">입찰계획 작성중</span>
           <span class="todo-count">0<span class="todo-unit">건</span></span>
-          <span class="todo-sub">본공고 0 · 재공고 0</span>
         </a>
-        <a href="#" class="todo-card" title="입찰공고 현황 > 심사/평가으로 이동">
+        <a href="#" class="todo-card" title="입찰공고 현황 > 심사/평가 화면으로 이동">
           <span class="todo-label">심사/평가 대기</span>
           <span class="todo-count">1<span class="todo-unit">건</span></span>
-          <span class="todo-sub">BD2026-0034 · 제안발표 09.24</span>
         </a>
-        <a href="#" class="todo-card is-empty" title="입찰공고 현황 > 개찰으로 이동">
+        <a href="#" class="todo-card is-empty" title="입찰공고 현황 > 개찰 화면으로 이동">
           <span class="todo-label">개찰 대기</span>
           <span class="todo-count">0<span class="todo-unit">건</span></span>
           
         </a>
-        <a href="#" class="todo-card" title="입찰공고 현황 > 낙찰으로 이동">
+        <a href="#" class="todo-card" title="입찰공고 현황 > 낙찰 화면으로 이동">
           <span class="todo-label">낙찰(업체선정) 대기</span>
           <span class="todo-count">1<span class="todo-unit">건</span></span>
-          <span class="todo-sub">BD2026-0030</span>
         </a>
-        <a href="#" class="todo-card is-empty" title="입찰공고 현황 > 수의시담으로 이동">
+        <a href="#" class="todo-card is-empty" title="입찰공고 현황 > 수의시담 화면으로 이동">
           <span class="todo-label">수의시담 진행</span>
           <span class="todo-count">0<span class="todo-unit">건</span></span>
           
         </a>
-        <a href="#" class="todo-card is-empty" title="계약 요청으로 이동">
+        <a href="#" class="todo-card is-empty" title="계약 요청 화면으로 이동">
           <span class="todo-label">계약요청(품의) 대기</span>
           <span class="todo-count">0<span class="todo-unit">건</span></span>
           
         </a>
-        <a href="#" class="todo-card" title="발주계약 현황 > 계약 관련 서류으로 이동">
+        <a href="#" class="todo-card" title="발주계약 현황 > 계약 관련 서류 화면으로 이동">
           <span class="todo-label">계약서류 확인 대기</span>
           <span class="todo-count">1<span class="todo-unit">건</span></span>
-          <span class="todo-sub">보증보험 증권 미확인</span>
         </a>
       </div>
       </section>
 
       <section class="app-card" aria-label="발주·계약 전체 파이프라인">
           <div class="app-card-header hstack between"><h2>발주·계약 전체 파이프라인</h2></div>
-          <div class="pipeline-flow cols-8">
+          <div class="pipeline-flow cols-8 is-plain">
           <a href="#" class="pipeline-step" title="요청접수 목록으로 이동">
             
             <span class="pipeline-name">요청접수</span>
@@ -403,11 +397,11 @@
           <div class="app-card-header hstack between"><h2>입찰 진행현황</h2><a href="#" class="widget-more">입찰공고 현황 +</a></div>
           <div class="srm-table-wrap">
             <table class="data-table widget-table" aria-label="입찰 진행현황">
-              <thead><tr><th>입찰 건명</th><th>진행상태</th><th class="w-140">입찰 마감일시</th><th>D-day</th><th>참여업체</th></tr></thead>
+              <thead><tr><th class="w-110">공고번호</th><th class="w-100">공고 구분</th><th class="w-100">진행상태</th><th class="w-130">참여업체</th><th>입찰 건명</th><th class="w-140">입찰 마감일시</th><th>D-day</th><th class="w-60">구분</th><th class="w-130">계약방법</th><th>낙찰자 선정방법</th></tr></thead>
               <tbody>
-              <tr><td class="text-left td-ellipsis" title="태양광 발전설비 유지보수 용역 BD2026-0032 · 본공고 · 제한적 최저가 입찰"><span class="cell-main">태양광 발전설비 유지보수 용역</span><span class="cell-sub">BD2026-0032 · 본공고 · 제한적 최저가 입찰</span></td><td><span class="card-status-badge badge-warning">투찰진행중</span></td><td>2026.09.24 18:00</td><td><span class="badge-dday soon">D-3</span></td><td>4곳</td></tr>
-              <tr><td class="text-left td-ellipsis" title="서초동 1601-9 오피스텔 신축공사 중 도장공사 BD2026-0031 · 본공고 · 최저가"><span class="cell-main">서초동 1601-9 오피스텔 신축공사 중 도장공사</span><span class="cell-sub">BD2026-0031 · 본공고 · 최저가</span></td><td><span class="card-status-badge badge-info">입찰진행중</span></td><td>2026.09.25 18:00</td><td><span class="badge-dday">D-4</span></td><td>5곳</td></tr>
-              <tr><td class="text-left td-ellipsis" title="ESS 배터리 모듈 구매 BD2026-0033 · 본공고 · 2단계 경쟁입찰(규격/가격 분리)"><span class="cell-main">ESS 배터리 모듈 구매</span><span class="cell-sub">BD2026-0033 · 본공고 · 2단계 경쟁입찰(규격/가격 분리)</span></td><td><span class="card-status-badge badge-info">공고게시중</span></td><td>2026.10.02 18:00</td><td><span class="badge-dday">D-11</span></td><td><span class="card-status-badge badge-danger">1곳 · 유찰 검토</span></td></tr>
+              <tr><td>BD2026-0032</td><td>본공고</td><td><span class="card-status-badge badge-warning">투찰진행중</span></td><td>4곳</td><td class="text-left td-ellipsis" title="태양광 발전설비 유지보수 용역">태양광 발전설비 유지보수 용역</td><td>2026.09.24 18:00</td><td><span class="badge-dday soon">D-3</span></td><td>용역</td><td>경쟁입찰(제한)</td><td class="text-left td-ellipsis" title="제한적 최저가 입찰">제한적 최저가 입찰</td></tr>
+              <tr><td>BD2026-0031</td><td>본공고</td><td><span class="card-status-badge badge-info">입찰진행중</span></td><td>5곳</td><td class="text-left td-ellipsis" title="서초동 1601-9 오피스텔 신축공사 중 도장공사">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.09.25 18:00</td><td><span class="badge-dday">D-4</span></td><td>공사</td><td>경쟁입찰(일반)</td><td class="text-left td-ellipsis" title="최저가">최저가</td></tr>
+              <tr><td>BD2026-0033</td><td>본공고</td><td><span class="card-status-badge badge-info">공고게시중</span></td><td><span class="card-status-badge badge-danger">1곳 · 유찰 검토</span></td><td class="text-left td-ellipsis" title="ESS 배터리 모듈 구매">ESS 배터리 모듈 구매</td><td>2026.10.02 18:00</td><td><span class="badge-dday">D-11</span></td><td>물품</td><td>경쟁입찰(일반)</td><td class="text-left td-ellipsis" title="2단계 경쟁입찰(규격/가격 분리)">2단계 경쟁입찰(규격/가격 분리)</td></tr>
               </tbody>
             </table>
           </div>
@@ -472,10 +466,10 @@
               </tbody>
             </table>
           </div>
-          <p class="help-line">유찰·재공고·재입찰·공고취소·수의계약 취소 건의 최근 30일 내역입니다.</p>
         </section>
 
-      <section class="app-card" aria-label="공지사항">
+      <div class="widget-pair">
+        <section class="app-card" aria-label="공지사항">
           <div class="app-card-header hstack between"><h2>공지사항</h2><a href="#" class="widget-more">더보기 +</a></div>
           <div class="srm-table-wrap">
             <table class="data-table widget-table" aria-label="공지사항">
@@ -484,12 +478,24 @@
               <tr><td><span class="card-status-badge badge-info">전체</span></td><td class="text-left td-ellipsis" title="‘협력업체 선정 세부기준’이 개정되었습니다."><span class="card-status-badge badge-danger">중요</span> ‘협력업체 선정 세부기준’이 개정되었습니다.</td><td>2026.09.18</td></tr>
               <tr><td><span class="card-status-badge badge-success">협력업체</span></td><td class="text-left td-ellipsis" title="추석 연휴 기간 입찰 일정 안내">추석 연휴 기간 입찰 일정 안내 <svg class="icon-new" viewBox="0 0 16 16" role="img" aria-label="신규"><title>신규</title><rect width="16" height="16" rx="4"/><path d="M5 11.5v-7l6 7v-7"/></svg></td><td>2026.09.20</td></tr>
               <tr><td><span class="card-status-badge badge-tag">직원</span></td><td class="text-left td-ellipsis" title="SRM 전자결재 연동 점검 안내">SRM 전자결재 연동 점검 안내 <svg class="icon-new" viewBox="0 0 16 16" role="img" aria-label="신규"><title>신규</title><rect width="16" height="16" rx="4"/><path d="M5 11.5v-7l6 7v-7"/></svg></td><td>2026.09.19</td></tr>
-              <tr><td><span class="card-status-badge badge-success">협력업체</span></td><td class="text-left td-ellipsis" title="2026년 하반기 협력업체 정기 실태조사 안내">2026년 하반기 협력업체 정기 실태조사 안내</td><td>2026.09.10</td></tr>
-              <tr><td><span class="card-status-badge badge-info">전체</span></td><td class="text-left td-ellipsis" title="전자입찰 이용 매뉴얼 개정 안내">전자입찰 이용 매뉴얼 개정 안내</td><td>2026.09.05</td></tr>
               </tbody>
             </table>
           </div>
         </section>
+        <section class="app-card" aria-label="양식 등 자료실">
+          <div class="app-card-header hstack between"><h2>양식 등 자료실</h2><a href="#" class="widget-more">더보기 +</a></div>
+          <div class="srm-table-wrap">
+            <table class="data-table widget-table" aria-label="최신 자료실">
+              <thead><tr><th>자료명</th><th class="w-100">등록일</th><th class="w-90">파일</th></tr></thead>
+              <tbody>
+              <tr><td class="text-left td-ellipsis" title="입찰참가신청서 양식">입찰참가신청서 양식</td><td>2026.09.12</td><td>HWP</td></tr>
+              <tr><td class="text-left td-ellipsis" title="사용인감계 양식">사용인감계 양식</td><td>2026.09.12</td><td>HWP</td></tr>
+              <tr><td class="text-left td-ellipsis" title="입찰서류 제출 안내서">입찰서류 제출 안내서</td><td>2026.08.29</td><td>PDF</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
     </main>
   </div>
 

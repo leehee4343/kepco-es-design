@@ -8738,9 +8738,6 @@ body main :is(.calendar-title, .greeting-title) { font-weight: 700 !important; }
 
 /* 캘린더 · 위젯 열 · 표 줄바꿈 */
 .calendar { display: flex; flex-direction: column; gap: var(--content-inner-gap); }
-.widget-cols { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: var(--content-object-gap); align-items: start; }
-.widget-col { display: flex; flex-direction: column; gap: var(--content-object-gap); min-width: 0; }
-@media (max-width: 1100px) { .widget-cols { grid-template-columns: minmax(0, 1fr); } }
 .widget-table.is-wrap td { white-space: normal; }
 .widget-table.is-wrap td.td-ellipsis { max-width: none; white-space: normal; text-align: left; }
 
@@ -8749,7 +8746,6 @@ body main :is(.calendar-title, .greeting-title) { font-weight: 700 !important; }
 .widget-table .cell-sub { color: #58687b; }
 .widget-table.is-wrap .cell-main, .widget-table.is-wrap .cell-sub { max-width: none; white-space: normal; }
 .card-status-badge { white-space: nowrap; }
-.widget-cols { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
 
 /* 표 안 행 단위 확인 액션 · 진행상황 팝업 본문 간격 · 건수 타일 열 수 */
 .data-table .btn-task-done { display: inline-flex; align-items: center; height: 28px; padding: 0 10px; border-radius: 4px; }
@@ -8788,3 +8784,18 @@ body main .todo-count.is-text .num { font-size: 16px; font-weight: 800 !importan
 .icon-new { display: inline-block; width: 16px; height: 16px; margin-left: 6px; vertical-align: -3px; flex: none; }
 .icon-new rect { fill: #ff7a00; }
 .icon-new path { fill: none; stroke: #ffffff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* 요약 카드 정리: 넓은 카드(2칸)와 볼드 없는 수치 (협력업체 나의 업무 현황) */
+.todo-card.span-2 { grid-column: span 2; }
+body main .todo-grid.is-plain :is(.todo-count, .todo-count .num, .todo-count *) { font-weight: 400 !important; }
+body main .todo-grid.is-plain .todo-count.is-text { line-height: 1.5; }
+body main .todo-grid.is-plain .todo-count.is-text .num { font-size: 16px; }
+
+/* 표 안 배지는 줄 높이를 낮춰 본문 행 높이 44px 유지 (5.3) */
+.widget-table .card-status-badge { line-height: 1.1; }
+
+/* 페이지 타이틀(H1)은 클래스명에 title 이 포함돼도 Extra Bold 800 (3.2) */
+body main h1[class*="title"] { font-weight: 800 !important; }
+
+/* 굵기 없음(is-plain)을 파이프라인·건수 타일·도넛 수치까지 확장 (SRM 대시보드 4종 통일) */
+body main :is(.pipeline-flow, .tally-grid, .widget-donuts).is-plain :is(.pipeline-count, .tally-count, .tally-count *, .donut-single-num) { font-weight: 400 !important; }

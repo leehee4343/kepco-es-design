@@ -290,7 +290,7 @@
 
       <section class="app-card greeting-card" aria-label="인사">
         <div class="hstack between">
-          <div class="hstack gap-12"><h2 class="greeting-title">이희성 부장님, 안녕하세요</h2><span class="card-meta">2026.09.21(월) 09:00 기준</span></div>
+          <div class="hstack gap-12"><h2 class="greeting-title">이희성 부장님, 안녕하세요</h2></div>
           
         </div>
         <div class="greeting-info"><span>소속 시스템운영팀</span><span>직급 부장</span></div>
@@ -298,33 +298,28 @@
 
       <section class="dash-section" aria-label="시스템 운영 요약">
         <h2 class="section-title">시스템 운영 요약</h2>
-        <div class="todo-grid cols-6">
-        <a href="#" class="todo-card" title="공통관리 > 로그인 현황으로 이동">
+        <div class="todo-grid cols-6 is-plain">
+        <a href="#" class="todo-card" title="공통관리 > 로그인 현황 화면으로 이동">
           <span class="todo-label">오늘 로그인 수</span>
-          <span class="todo-count">87<span class="todo-unit">회</span></span>
-          <span class="todo-sub"><span class="trend up">전일 대비 +12</span></span>
+          <span class="todo-count">87<span class="todo-unit">회</span></span></span>
         </a>
-        <a href="#" class="todo-card" title="공통관리 > 로그인 현황으로 이동">
+        <a href="#" class="todo-card" title="공통관리 > 로그인 현황 화면으로 이동">
           <span class="todo-label">이번 달 로그인 수</span>
           <span class="todo-count">1,842<span class="todo-unit">회</span></span>
-          <span class="todo-sub">9월 1일~21일 누계</span>
         </a>
-        <a href="#" class="todo-card" title="협력업체 관리으로 이동">
+        <a href="#" class="todo-card" title="협력업체 관리 화면으로 이동">
           <span class="todo-label">활성 협력업체 수</span>
           <span class="todo-count">128<span class="todo-unit">개사</span></span>
-          <span class="todo-sub">사용(Y) 기준</span>
         </a>
-        <a href="#" class="todo-card" title="입찰공고 현황으로 이동">
+        <a href="#" class="todo-card" title="입찰공고 현황 화면으로 이동">
           <span class="todo-label">진행중 공고 수</span>
           <span class="todo-count">4<span class="todo-unit">건</span></span>
-          <span class="todo-sub">입찰 3 · 수의계약 1</span>
         </a>
-        <a href="#" class="todo-card" title="발주계약 현황으로 이동">
-          <span class="todo-label">당해 연도 계약 건수</span>
+        <a href="#" class="todo-card" title="발주계약 현황 화면으로 이동">
+          <span class="todo-label">전체 계약 건수</span>
           <span class="todo-count">3<span class="todo-unit">건</span></span>
-          <span class="todo-sub">계약준비 1 · 완료 2</span>
         </a>
-        <a href="#" class="todo-card is-alert" title="협력업체 관리으로 이동">
+        <a href="#" class="todo-card is-alert" title="협력업체 관리 화면으로 이동">
           <span class="todo-label">승인 대기 건수</span>
           <span class="todo-count">4<span class="todo-unit">건</span></span>
           <span class="todo-sub">아래 승인·처리 대기 참조</span>
@@ -364,7 +359,7 @@
 
       <section class="app-card" aria-label="전사 업무 현황">
           <div class="app-card-header hstack between"><h2>전사 업무 현황</h2><a href="#" class="widget-more">업무 목록 +</a></div>
-          <div class="pipeline-flow cols-4">
+          <div class="pipeline-flow cols-4 is-plain">
           <a href="#" class="pipeline-step" title="발주계약 요청 목록으로 이동">
             <span class="pipeline-num">STEP 01</span>
             <span class="pipeline-name">발주계약 요청</span>
@@ -386,7 +381,7 @@
             <span class="pipeline-count">3</span>
           </a>
         </div>
-          <div class="widget-donuts">
+          <div class="widget-donuts is-plain">
             <div><p class="donut-block-label">구분별 비중</p><div class="widget-donut">
             <div class="donut-single-box">
               <svg viewBox="0 0 42 42" role="img" aria-label="구분별 비중: 공사 6건, 용역 4건, 물품 3건"><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#e2e8f0" stroke-width="6"></circle><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#1976d2" stroke-width="6" stroke-dasharray="46.15 53.85" stroke-dashoffset="25.00"></circle><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#00b894" stroke-width="6" stroke-dasharray="30.77 69.23" stroke-dashoffset="-21.15"></circle><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#ff7a00" stroke-width="6" stroke-dasharray="23.08 76.92" stroke-dashoffset="-51.92"></circle></svg>
@@ -406,7 +401,7 @@
 
       <section class="app-card" aria-label="승인·처리 대기">
           <div class="app-card-header hstack between"><h2>승인·처리 대기</h2><a href="#" class="widget-more">협력업체 관리 +</a></div>
-          <div class="tally-grid cols-4"><div class="tally-item"><span class="tally-label">협력업체 신규 신청</span><span class="tally-count text-primary">1<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">정보수정 요청</span><span class="tally-count text-primary">1<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">Q&A 답변요청</span><span class="tally-count text-primary">1<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">발주계약 요청 미접수</span><span class="tally-count text-primary">1<span class="todo-unit"> 건</span></span></div></div><div class="srm-table-wrap">
+          <div class="tally-grid cols-4 is-plain"><div class="tally-item"><span class="tally-label">협력업체 신규 신청</span><span class="tally-count text-primary">1<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">정보수정 요청</span><span class="tally-count text-primary">1<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">Q&A 답변요청</span><span class="tally-count text-primary">1<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">발주계약 요청 미접수</span><span class="tally-count text-primary">1<span class="todo-unit"> 건</span></span></div></div><div class="srm-table-wrap">
             <table class="data-table widget-table" aria-label="승인·처리 대기">
               <thead><tr><th>구분</th><th>내용</th><th class="w-100">일시</th></tr></thead>
               <tbody>
@@ -420,7 +415,7 @@
 
       <section class="app-card" aria-label="메일/SMS 발송 현황">
           <div class="app-card-header hstack between"><h2>메일/SMS 발송 현황</h2><a href="#" class="widget-more">메일/메시지 발송현황 +</a></div>
-          <div class="tally-grid cols-6"><div class="tally-item"><span class="tally-label">오늘 발송</span><span class="tally-count">42<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">이번 달 발송</span><span class="tally-count">1,236<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">자동 발송</span><span class="tally-count">890<span class="todo-unit"> 건 (72%)</span></span></div><div class="tally-item"><span class="tally-label">수동 발송</span><span class="tally-count">346<span class="todo-unit"> 건 (28%)</span></span></div><div class="tally-item"><span class="tally-label">메일</span><span class="tally-count">842<span class="todo-unit"> 건 (68%)</span></span></div><div class="tally-item"><span class="tally-label">SMS</span><span class="tally-count">394<span class="todo-unit"> 건 (32%)</span></span></div></div><div class="srm-table-wrap">
+          <div class="tally-grid cols-6 is-plain"><div class="tally-item"><span class="tally-label">오늘 발송</span><span class="tally-count">42<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">이번 달 발송</span><span class="tally-count">1,236<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">자동 발송</span><span class="tally-count">890<span class="todo-unit"> 건 (72%)</span></span></div><div class="tally-item"><span class="tally-label">수동 발송</span><span class="tally-count">346<span class="todo-unit"> 건 (28%)</span></span></div><div class="tally-item"><span class="tally-label">메일</span><span class="tally-count">842<span class="todo-unit"> 건 (68%)</span></span></div><div class="tally-item"><span class="tally-label">SMS</span><span class="tally-count">394<span class="todo-unit"> 건 (32%)</span></span></div></div><div class="srm-table-wrap">
             <table class="data-table widget-table" aria-label="최근 발송 5건">
               <thead><tr><th class="w-100">발송일시</th><th class="w-90">채널 · 구분</th><th>제목</th></tr></thead>
               <tbody>
@@ -436,12 +431,12 @@
 
       <section class="app-card" aria-label="사용자·보안 현황">
           <div class="app-card-header hstack between"><h2>사용자·보안 현황</h2><a href="#" class="widget-more">공통관리 +</a></div>
-          <div class="tally-grid cols-6"><div class="tally-item"><span class="tally-label">관리자 사용(Y)</span><span class="tally-count">18<span class="todo-unit"> 명</span></span></div><div class="tally-item"><span class="tally-label">관리자 중지(N)</span><span class="tally-count">2<span class="todo-unit"> 명</span></span></div><div class="tally-item"><span class="tally-label">권한그룹</span><span class="tally-count">5<span class="todo-unit"> 개</span></span></div><div class="tally-item"><span class="tally-label">예정가 입력 담당</span><span class="tally-count">3<span class="todo-unit"> 명</span></span></div><div class="tally-item"><span class="tally-label">허용 IP</span><span class="tally-count">12<span class="todo-unit"> 개</span></span></div><div class="tally-item"><span class="tally-label">협력업체 중지(N)</span><span class="tally-count">7<span class="todo-unit"> 개사</span></span></div></div>
+          <div class="tally-grid cols-6 is-plain"><div class="tally-item"><span class="tally-label">관리자 사용(Y)</span><span class="tally-count">18<span class="todo-unit"> 명</span></span></div><div class="tally-item"><span class="tally-label">관리자 중지(N)</span><span class="tally-count">2<span class="todo-unit"> 명</span></span></div><div class="tally-item"><span class="tally-label">권한그룹</span><span class="tally-count">5<span class="todo-unit"> 개</span></span></div><div class="tally-item"><span class="tally-label">예정가 입력 담당</span><span class="tally-count">3<span class="todo-unit"> 명</span></span></div><div class="tally-item"><span class="tally-label">허용 IP</span><span class="tally-count">12<span class="todo-unit"> 개</span></span></div><div class="tally-item"><span class="tally-label">협력업체 중지(N)</span><span class="tally-count">7<span class="todo-unit"> 개사</span></span></div></div>
         </section>
 
       <section class="app-card" aria-label="게시판 관리 현황">
           <div class="app-card-header hstack between"><h2>게시판 관리 현황</h2><a href="#" class="widget-more">공지사항 관리 +</a></div>
-          <div class="tally-grid cols-4"><div class="tally-item"><span class="tally-label">게시중 공지</span><span class="tally-count text-primary">6<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">전체 대상</span><span class="tally-count">2<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">직원 대상</span><span class="tally-count">1<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">게시 만료 예정</span><span class="tally-count">1<span class="todo-unit"> 건</span></span></div></div><div class="srm-table-wrap">
+          <div class="tally-grid cols-4 is-plain"><div class="tally-item"><span class="tally-label">게시중 공지</span><span class="tally-count text-primary">6<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">전체 대상</span><span class="tally-count">2<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">직원 대상</span><span class="tally-count">1<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">게시 만료 예정</span><span class="tally-count">1<span class="todo-unit"> 건</span></span></div></div><div class="srm-table-wrap">
             <table class="data-table widget-table" aria-label="최근 자료실 등록">
               <thead><tr><th>자료명</th><th class="w-100">등록일</th><th class="w-70">등록자</th></tr></thead>
               <tbody>

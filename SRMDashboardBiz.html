@@ -290,46 +290,42 @@
 
       <section class="app-card greeting-card" aria-label="인사">
         <div class="hstack between">
-          <div class="hstack gap-12"><h2 class="greeting-title">홍길동 부장님, 안녕하세요</h2><span class="card-meta">2026.09.21(월) 09:00 기준</span></div>
+          <div class="hstack gap-12"><h2 class="greeting-title">홍길동 부장님, 안녕하세요</h2></div>
           <div class="greeting-actions"><div class="quick-period-btns" role="group" aria-label="데이터 범위"><button type="button" class="btn-period-pill active">내 건</button><button type="button" class="btn-period-pill">부서 전체</button></div><a href="#" class="btn-primary" title="사전 견적 요청 화면으로 이동">사전 견적 요청</a><a href="#" class="btn-primary" title="발주계약 요청 화면으로 이동">발주계약 요청</a></div>
         </div>
         <div class="greeting-info"><span>소속 신재생사업팀</span><span>직급 부장</span></div>
       </section>
 
-      <section class="dash-section" aria-label="내 업무 요약">
-        <h2 class="section-title">내 업무 요약</h2>
-        <div class="todo-grid cols-5">
-        <a href="#" class="todo-card" title="사전 견적 요청 현황으로 이동">
+      <section class="dash-section" aria-label="나의 업무 현황">
+        <h2 class="section-title">나의 업무 현황</h2>
+        <div class="todo-grid cols-6 is-plain">
+        <a href="#" class="todo-card" title="사전 견적 요청 현황 화면으로 이동">
           <span class="todo-label">사전견적 진행중</span>
           <span class="todo-count">1<span class="todo-unit">건</span></span>
-          <span class="todo-sub">제출 1 / 요청 3개사</span>
         </a>
-        <a href="#" class="todo-card" title="발주계약 요청현황으로 이동">
+        <a href="#" class="todo-card" title="발주계약 요청현황 화면으로 이동">
           <span class="todo-label">결재 진행중 요청</span>
           <span class="todo-count">1<span class="todo-unit">건</span></span>
-          <span class="todo-sub">PR2026-0041</span>
         </a>
-        <a href="#" class="todo-card" title="발주계약 요청현황으로 이동">
+        <a href="#" class="todo-card" title="발주계약 요청현황 화면으로 이동">
           <span class="todo-label">발주 진행중</span>
           <span class="todo-count">9<span class="todo-unit">건</span></span>
-          <span class="todo-sub">STEP 02~03 · 유찰 1건 포함</span>
         </a>
-        <a href="#" class="todo-card" title="계약관리 > 발주계약 현황으로 이동">
+        <a href="#" class="todo-card" title="계약관리 > 발주계약 현황 화면으로 이동">
           <span class="todo-label">계약준비</span>
           <span class="todo-count">1<span class="todo-unit">건</span></span>
-          <span class="todo-sub">48,507,800원</span>
         </a>
-        <a href="#" class="todo-card" title="계약관리 > 발주계약 현황으로 이동">
-          <span class="todo-label">계약완료(당해 연도)</span>
-          <span class="todo-count">2<span class="todo-unit">건</span></span>
-          <span class="todo-sub">계약금액 합계 50,500,000원</span>
+        <a href="#" class="todo-card span-2" title="계약관리 > 발주계약 현황 화면으로 이동">
+          <span class="todo-label">내 계약현황</span>
+          <span class="todo-count is-text">전체 <b class="num">3</b>건 / 총 계약금액 <b class="num">99,007,800</b>원</span>
+          
         </a>
       </div>
       </section>
 
       <section class="app-card" aria-label="내 발주 건 진행 파이프라인">
           <div class="app-card-header hstack between"><h2>내 발주 건 진행 파이프라인</h2></div>
-          <div class="pipeline-flow cols-4">
+          <div class="pipeline-flow cols-4 is-plain">
           <a href="#" class="pipeline-step" title="발주계약 요청 목록으로 이동">
             <span class="pipeline-num">STEP 01</span>
             <span class="pipeline-name">발주계약 요청</span>
@@ -406,7 +402,8 @@
           </div>
         </section>
 
-      <section class="app-card" aria-label="공지사항">
+      <div class="widget-pair">
+        <section class="app-card" aria-label="공지사항">
           <div class="app-card-header hstack between"><h2>공지사항</h2><a href="#" class="widget-more">더보기 +</a></div>
           <div class="srm-table-wrap">
             <table class="data-table widget-table" aria-label="공지사항">
@@ -415,12 +412,24 @@
               <tr><td><span class="card-status-badge badge-info">전체</span></td><td class="text-left td-ellipsis" title="‘협력업체 선정 세부기준’이 개정되었습니다."><span class="card-status-badge badge-danger">중요</span> ‘협력업체 선정 세부기준’이 개정되었습니다.</td><td>2026.09.18</td></tr>
               <tr><td><span class="card-status-badge badge-success">협력업체</span></td><td class="text-left td-ellipsis" title="추석 연휴 기간 입찰 일정 안내">추석 연휴 기간 입찰 일정 안내 <svg class="icon-new" viewBox="0 0 16 16" role="img" aria-label="신규"><title>신규</title><rect width="16" height="16" rx="4"/><path d="M5 11.5v-7l6 7v-7"/></svg></td><td>2026.09.20</td></tr>
               <tr><td><span class="card-status-badge badge-tag">직원</span></td><td class="text-left td-ellipsis" title="SRM 전자결재 연동 점검 안내">SRM 전자결재 연동 점검 안내 <svg class="icon-new" viewBox="0 0 16 16" role="img" aria-label="신규"><title>신규</title><rect width="16" height="16" rx="4"/><path d="M5 11.5v-7l6 7v-7"/></svg></td><td>2026.09.19</td></tr>
-              <tr><td><span class="card-status-badge badge-success">협력업체</span></td><td class="text-left td-ellipsis" title="2026년 하반기 협력업체 정기 실태조사 안내">2026년 하반기 협력업체 정기 실태조사 안내</td><td>2026.09.10</td></tr>
-              <tr><td><span class="card-status-badge badge-info">전체</span></td><td class="text-left td-ellipsis" title="전자입찰 이용 매뉴얼 개정 안내">전자입찰 이용 매뉴얼 개정 안내</td><td>2026.09.05</td></tr>
               </tbody>
             </table>
           </div>
         </section>
+        <section class="app-card" aria-label="양식 등 자료실">
+          <div class="app-card-header hstack between"><h2>양식 등 자료실</h2><a href="#" class="widget-more">더보기 +</a></div>
+          <div class="srm-table-wrap">
+            <table class="data-table widget-table" aria-label="최신 자료실">
+              <thead><tr><th>자료명</th><th class="w-100">등록일</th><th class="w-90">파일</th></tr></thead>
+              <tbody>
+              <tr><td class="text-left td-ellipsis" title="입찰참가신청서 양식">입찰참가신청서 양식</td><td>2026.09.12</td><td>HWP</td></tr>
+              <tr><td class="text-left td-ellipsis" title="사용인감계 양식">사용인감계 양식</td><td>2026.09.12</td><td>HWP</td></tr>
+              <tr><td class="text-left td-ellipsis" title="입찰서류 제출 안내서">입찰서류 제출 안내서</td><td>2026.08.29</td><td>PDF</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
     </main>
   </div>
 
