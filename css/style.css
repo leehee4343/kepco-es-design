@@ -8580,6 +8580,7 @@ body .btn-critical-primary { font-size: 13px; }
 
 /* To-Do · 요약 카드 */
 .todo-grid { display: grid; gap: var(--content-object-gap); }
+.todo-grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .todo-grid.cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .todo-grid.cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 .todo-grid.cols-7 { grid-template-columns: repeat(7, minmax(0, 1fr)); }
@@ -8782,8 +8783,8 @@ body main .todo-count.is-text .num { font-size: 16px; font-weight: 800 !importan
 
 /* 신규 표시 아이콘 (가이드 5.14): 16px 오렌지 라운드 사각형 + 흰색 N, 제목 뒤에 붙임 */
 .icon-new { display: inline-block; width: 16px; height: 16px; margin-left: 6px; vertical-align: -3px; flex: none; }
-.icon-new rect { fill: #ff7a00; }
-.icon-new path { fill: none; stroke: #ffffff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.icon-new circle { fill: #ff7a00; }
+.icon-new path { fill: none; stroke: #ffffff; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 
 /* 요약 카드 정리: 넓은 카드(2칸)와 볼드 없는 수치 (협력업체 나의 업무 현황) */
 .todo-card.span-2 { grid-column: span 2; }
@@ -8799,3 +8800,85 @@ body main h1[class*="title"] { font-weight: 800 !important; }
 
 /* 굵기 없음(is-plain)을 파이프라인·건수 타일·도넛 수치까지 확장 (SRM 대시보드 4종 통일) */
 body main :is(.pipeline-flow, .tally-grid, .widget-donuts).is-plain :is(.pipeline-count, .tally-count, .tally-count *, .donut-single-num) { font-weight: 400 !important; }
+
+/* 표 안 행 액션 버튼은 13px, 파이프라인·건수 타일 수치는 본문색 (#334155는 타이틀 전용, 2.3) */
+.data-table .btn-task-done, .data-table .btn-task-register { font-size: 13px; }
+.pipeline-count { color: #475569; }
+.tally-count { color: #475569; }
+.tally-count.text-primary { color: #1976d2; }
+.pipeline-step.is-selected .pipeline-count { color: #1976d2; }
+
+/* 표 안 D-day 배지·행 액션 버튼도 본문 행 높이 44px 유지 (5.3) */
+.widget-table .badge-dday { line-height: 1.1; }
+.widget-table td:has(> .btn-task-done), .widget-table td:has(> .btn-task-register) { padding-top: 8px !important; padding-bottom: 8px !important; }
+.widget-table td:has(> .btn-task-done), .widget-table td:has(> .btn-task-register) { line-height: 1; }
+.widget-table .btn-task-done, .widget-table .btn-task-register { vertical-align: middle; }
+
+/* 키보드 포커스: 색상 변화만으로 표시하지 않고 2px 블루 아웃라인을 함께 제공 (가이드 2.4) */
+.btn-page-manual:focus-visible,
+.btn-page-output:focus-visible,
+.modal-close:focus-visible { outline: 2px solid #1976d2; outline-offset: 2px; }
+
+/* 표 안 다운로드 버튼(28px)도 행 높이 45px를 유지 */
+.widget-table td:has(> .btn-file-download) { padding-top: 8px !important; padding-bottom: 8px !important; line-height: 1; }
+
+/* 파이프라인 단계 아이콘: 36px 원(연한 톤) + 20px 선형 SVG, 블루 기본·오렌지/그린 의미 컬러 (가이드 5.14) */
+.pipeline-icon { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; flex: none; margin-bottom: 2px; }
+.pipeline-icon svg { width: 20px; height: 20px; }
+.pipeline-icon.tone-blue { background: #e8f1fd; color: #1976d2; }
+.pipeline-icon.tone-orange { background: #fff1e0; color: #ff7a00; }
+.pipeline-icon.tone-green { background: #e0f7f1; color: #00b894; }
+
+/* 열이 많은 목록: 말줄임 열 최대 너비를 줄여 1440px에서 가로 스크롤 없이 표시 */
+.widget-table.is-compact td.td-ellipsis { max-width: 230px; }
+
+/* 도넛 3개 배치: 3열, 범례는 줄바꿈 허용 */
+.widget-donuts.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.widget-donuts.cols-3 .legend-list li { white-space: normal; align-items: flex-start; line-height: 1.4; }
+.widget-donuts.cols-3 .legend-list li .cal-dot { margin-top: 5px; flex: none; }
+
+/* 도넛 3개 배치: 도넛을 크게(150px) 키우고 범례는 도넛 오른쪽에 둔다 */
+.widget-donuts.cols-3 { gap: 32px; }
+.widget-donuts.cols-3 .widget-donut { gap: 20px; }
+.widget-donuts.cols-3 .donut-single-box { width: 150px; height: 150px; }
+.widget-donuts.cols-3 .donut-single-num { font-size: 28px; }
+.widget-donuts.cols-3 .legend-list { gap: 8px; min-width: 0; }
+
+/* 입력 화면 폼: 2열 폼 그리드 · 선택 그룹 · 조회 입력 · 하단 액션 바 (가이드 5.5 · 6.3) */
+.form-section { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 20px; }
+.form-section .form-group { min-width: 0; }
+.form-section .form-group.col-full { grid-column: 1 / -1; }
+.form-choice-group { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; min-height: 38px; }
+.form-choice { display: inline-flex; align-items: center; gap: 6px; min-height: 24px; font-size: 13px; color: #475569; cursor: pointer; }
+.form-choice input { width: 16px; height: 16px; margin: 0; accent-color: #1976d2; }
+.form-lookup { display: flex; align-items: center; gap: 8px; }
+.form-lookup .form-control { flex: 1; min-width: 0; }
+.form-hint { font-size: 13px; color: #58687b; }
+.form-control[readonly] { background: #f8fafc; }
+.form-control.text-right { text-align: right; font-variant-numeric: tabular-nums; }
+.form-actions-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.form-actions-left, .form-actions-right { display: flex; align-items: center; gap: 10px; }
+.promo-panel { display: flex; flex-direction: column; gap: var(--content-object-gap); }
+.promo-panel[hidden] { display: none; }
+@media (max-width: 760px) { .form-section { grid-template-columns: 1fr; } }
+
+/* 조회(선택) 모달: 검색 행과 목록 사이 12px, 행 선택 버튼이 든 행도 45px 유지 (가이드 5.8) */
+.form-lookup + .table-scroll-wrapper { margin-top: 12px; }
+.data-table td:has(> .btn-task-register) { padding-top: 8px !important; padding-bottom: 8px !important; line-height: 1; }
+
+.form-choice input:focus-visible { outline: 2px solid #1976d2; outline-offset: 2px; }
+
+/* 전 화면 정합성 보완 (가이드 2.4 · 5.3 · 5.4 · 5.5) */
+/* 1) 키보드 포커스: 개별 규칙이 없는 컨트롤에도 2px 블루 아웃라인 (개별 규칙이 우선하도록 :where 사용) */
+:where(a, button, [role="button"], [tabindex]:not([tabindex="-1"])):focus-visible { outline: 2px solid #1976d2; outline-offset: 2px; }
+:where(.wizard-step-box, .btn-logout):focus-visible { outline: none; }
+:where(input[type="checkbox"], input[type="radio"]):focus-visible { outline: 2px solid #1976d2; outline-offset: 2px; }
+body :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]), select, textarea):focus-visible { border-color: #1976d2; box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.15); outline: 2px solid #1976d2; outline-offset: 2px; }
+/* 2) 검색 버튼(Secondary)은 굵기 400 */
+body .btn-filter-search { font-weight: 400 !important; }
+/* 3) 표 안 배지·입력·행 버튼이 있어도 본문 행은 44px(+하단선 1px) */
+.data-table td :is(.step-badge, .review-badge, .badge-tag, .badge-info, .badge-success, .badge-warning, .badge-danger, .badge-rate-orange, .status-pill, .card-status-badge) { line-height: 1.2; padding-top: 2px; padding-bottom: 2px; }
+.calc-data-table td:has(> input), .calc-data-table td:has(> .btn-row-del) { padding-top: 6px !important; padding-bottom: 6px !important; }
+/* 4) 표 안 글자는 13px (합계 행 포함) */
+.calc-data-table .calc-summary-row, .calc-data-table .calc-summary-row td { font-size: 13px; }
+.data-table td :is(.step-badge, .review-badge, .badge-rate-orange) { padding-top: 1px; padding-bottom: 1px; }

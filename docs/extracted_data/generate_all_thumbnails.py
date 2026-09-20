@@ -8,6 +8,7 @@ SCREENS = [
     ("SRMLogin.html", "assets/thumbnails/thumb_srm_login.png"),
     ("ProjectSearch.html", "assets/thumbnails/thumb_search.png"),
     ("ProjectDetail.html", "assets/thumbnails/thumb_detail.png"),
+    ("ProjectPromotion.html", "assets/thumbnails/thumb_promotion.png"),
     ("BusinessSettlement.html", "assets/thumbnails/thumb_settlement.png"),
     ("Statistics.html", "assets/thumbnails/thumb_statistics.png"),
     ("StepWorkflow.html", "assets/thumbnails/thumb_workflow.png"),

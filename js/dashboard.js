@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDashboardWidgets();
   initPlanPerformancePage();
   initPartnerRegisterPage();
+  initProjectPromotionPage();
   initSrmDetailPage();
   initDataGrids();
   initModals();
@@ -61,6 +62,7 @@ function initPageManuals() {
     'Dashboard.html': '즐겨찾기와 주요 프로젝트·자금 현황을 확인합니다. 각 현황 카드와 차트의 항목을 선택하면 관련 업무 화면으로 이동할 수 있습니다.',
     'ProjectSearch.html': '검색 조건을 입력한 뒤 조회 버튼을 선택합니다. 결과 그리드는 정렬, 가로 스크롤, 페이지 이동을 지원하며 프로젝트명을 선택하면 상세 화면으로 이동합니다.',
     'ProjectDetail.html': '프로젝트의 계약, 투자, 상환 및 진행 이력을 영역별로 확인합니다. 필요한 업무 버튼을 선택해 후속 절차를 진행할 수 있습니다.',
+    'ProjectPromotion.html': '추진 단계의 프로젝트 정보를 기본 정보부터 사업 시행까지 5단계로 입력합니다. 필수 항목(*)을 입력한 뒤 다음 버튼이나 상단 단계 표시로 이동하고, 조회 버튼으로 거래처·담당자·EPC사를 선택할 수 있습니다.',
     'ProjectRegister.html': '사업의 계약 형태를 선택한 뒤 신규 프로젝트 접수 정보를 입력합니다.',
     'BusinessSettlement.html': '대상 프로젝트를 조회한 뒤 매출, 비용, 수익 및 상환 정보를 확인하고 결산 업무를 진행합니다.',
     'Statistics.html': '기준 연도와 분석 조건을 선택해 프로젝트, 투자 및 상환 현황을 차트와 집계 데이터로 확인합니다.',
@@ -70,7 +72,7 @@ function initPageManuals() {
     'SRMDashboardPartner.html': '내가 처리해야 할 견적·입찰·계약 업무와 마감 일정, 참여 현황, 공지사항을 확인합니다. 카드와 목록 항목을 선택하면 해당 업무 화면으로 이동합니다.',
     'SRMDashboardBiz.html': '내가 요청한 사전견적과 발주계약 건의 진행 단계를 확인합니다. 진행상황 확인 버튼으로 단계별 처리 이력을 볼 수 있습니다.',
     'SRMDashboardContract.html': '오늘 처리해야 할 접수·계획·심사·계약 업무와 입찰·수의계약 진행 현황을 확인합니다. 카드를 선택하면 해당 업무 화면으로 이동합니다.',
-    'SRMDashboardAdmin.html': '시스템 운영 지표와 메뉴 사용 현황, 전사 업무 현황 및 승인·처리 대기 건을 확인합니다.',
+    'SRMDashboardAdmin.html': '시스템 운영 지표와 로그인 추이, 전자 입찰 현황을 확인합니다.',
     'SRMDetail.html': '입찰공고의 기본 정보와 단계별 상세 내용을 확인합니다. 상단 프로세스 탭으로 원하는 업무 영역을 빠르게 이동할 수 있습니다.'
   };
 
@@ -1370,6 +1372,8 @@ function initDashboardWidgets() {
           const panel = c.dataset.panel && document.getElementById(c.dataset.panel);
           if (panel) panel.hidden = c !== chip;
         });
+        const meta = chip.dataset.meta && group.closest('.app-card') && group.closest('.app-card').querySelector('.card-meta');
+        if (meta) meta.textContent = chip.dataset.meta;
       });
     });
   });
@@ -1522,6 +1526,40 @@ function initPlanPerformancePage() {
       alert('계획대비 실적 현황 엑셀 파일(PlanPerformance_2026.xlsx) 다운로드를 시작합니다.');
     });
   }
+}
+
+/**
+ * 프로젝트 정보 입력 5-Step 화면 (ProjectPromotion.html)
+ * - 표준 위저드 스텝바 클릭 또는 하단 이전/다음 버튼(data-promo-go)으로 단계 패널을 전환합니다.
+ */
+function initProjectPromotionPage() {
+  const stepper = document.getElementById('promoStepper');
+  const panels = Array.from(document.querySelectorAll('[data-promo-panel]'));
+  if (!stepper || !panels.length) return;
+  const boxes = Array.from(stepper.querySelectorAll('.wizard-step-box'));
+
+  function goToStep(n) {
+    boxes.forEach((box, idx) => {
+      box.classList.toggle('active', idx + 1 === n);
+      box.classList.toggle('completed', idx + 1 < n);
+      if (idx + 1 === n) box.setAttribute('aria-current', 'step');
+      else box.removeAttribute('aria-current');
+    });
+    panels.forEach(panel => { panel.hidden = Number(panel.dataset.promoPanel) !== n; });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  boxes.forEach((box, idx) => {
+    box.addEventListener('click', () => goToStep(idx + 1));
+    box.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      goToStep(idx + 1);
+    });
+  });
+  document.querySelectorAll('[data-promo-go]').forEach(btn => {
+    btn.addEventListener('click', () => goToStep(Number(btn.dataset.promoGo)));
+  });
 }
 
 /**

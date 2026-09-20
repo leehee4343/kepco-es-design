@@ -8,7 +8,7 @@
 - **고객사**: 켑코이에스(주) (KEPCO Energy Solution)
 - **시스템**: 사업관리시스템 (PMS) & 전자입찰시스템 (SRM) 화면 UI/UX 프로토타입
 - **현재 상태**: 
-  - PMS 7개 화면 + SRM 8개 화면(권한별 대시보드 4종·로그인·협력업체 신청·입찰계획 현황·입찰공고 상세) + 통합 포털(`index.html`) 총 16개 HTML 완료 (업무 화면 15개 + 포털 1개).
+  - PMS 8개 화면(프로젝트 정보 입력 포함) + SRM 8개 화면(권한별 대시보드 4종·로그인·협력업체 신청·입찰계획 현황·입찰공고 상세) + 통합 포털(`index.html`) 총 17개 HTML 완료 (업무 화면 16개 + 포털 1개).
   - 다음 작업 대상: 신규 화면 요청 시 `DESIGN_GUIDE.md` 상단 「새 화면 만들기」 절차를 따릅니다. `SRMDetail.html`은 구축 완료되었습니다.
 
 ---
@@ -79,6 +79,7 @@
 ├── ProjectRegister.html         # 신규 프로젝트 등록
 ├── ProjectSearch.html           # 추진단계 프로젝트 현황 (검색/조회)
 ├── ProjectDetail.html           # 프로젝트 상세
+├── ProjectPromotion.html        # 프로젝트 정보 입력 (5단계 정보 입력)
 ├── PlanPerformance.html        # 계획대비 실적현황
 ├── BusinessSettlement.html      # 사업결산 현황
 ├── Statistics.html              # 통계 종합현황
@@ -96,7 +97,7 @@
 ├── assets/                      # CI 로고 및 썸네일
 ├── css/style.css                # 통합 스타일시트
 ├── js/dashboard.js              # 통합 인터랙션 스크립트
-└── docs/                        # 기획/설계 산출물 (specs_pdf, design_refs, menu_excel)
+└── docs/                        # 기획/설계 산출물 (specs_pdf, design_refs, menu_excel, planning)
 ```
 
 ---

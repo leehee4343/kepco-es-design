@@ -291,14 +291,14 @@
       <section class="app-card greeting-card" aria-label="인사">
         <div class="hstack between">
           <div class="hstack gap-12"><h2 class="greeting-title">임꺽정 차장님, 안녕하세요</h2></div>
-          <div class="greeting-actions"><div class="quick-period-btns" role="group" aria-label="데이터 범위"><button type="button" class="btn-period-pill active">내 담당 건</button><button type="button" class="btn-period-pill">전체</button></div></div>
+          
         </div>
         <div class="greeting-info"><span>소속 계약팀</span><span>직급 차장</span></div>
       </section>
 
       <section class="dash-section" aria-label="나의 업무 현황">
         <h2 class="section-title">나의 업무 현황</h2>
-        <div class="todo-grid cols-5 is-plain">
+        <div class="todo-grid cols-4 is-plain">
         <a href="#" class="todo-card" title="발주계약 요청접수 화면으로 이동">
           <span class="todo-label">발주계약 요청 접수 대기</span>
           <span class="todo-count">1<span class="todo-unit">건</span></span>
@@ -316,127 +316,104 @@
           <span class="todo-label">입찰계획 작성중</span>
           <span class="todo-count">0<span class="todo-unit">건</span></span>
         </a>
-        <a href="#" class="todo-card" title="입찰공고 현황 > 심사/평가 화면으로 이동">
-          <span class="todo-label">심사/평가 대기</span>
-          <span class="todo-count">1<span class="todo-unit">건</span></span>
-        </a>
-        <a href="#" class="todo-card is-empty" title="입찰공고 현황 > 개찰 화면으로 이동">
-          <span class="todo-label">개찰 대기</span>
-          <span class="todo-count">0<span class="todo-unit">건</span></span>
-          
-        </a>
-        <a href="#" class="todo-card" title="입찰공고 현황 > 낙찰 화면으로 이동">
-          <span class="todo-label">낙찰(업체선정) 대기</span>
-          <span class="todo-count">1<span class="todo-unit">건</span></span>
-        </a>
-        <a href="#" class="todo-card is-empty" title="입찰공고 현황 > 수의시담 화면으로 이동">
-          <span class="todo-label">수의시담 진행</span>
-          <span class="todo-count">0<span class="todo-unit">건</span></span>
-          
-        </a>
         <a href="#" class="todo-card is-empty" title="계약 요청 화면으로 이동">
           <span class="todo-label">계약요청(품의) 대기</span>
           <span class="todo-count">0<span class="todo-unit">건</span></span>
           
         </a>
-        <a href="#" class="todo-card" title="발주계약 현황 > 계약 관련 서류 화면으로 이동">
-          <span class="todo-label">계약서류 확인 대기</span>
+        <a href="#" class="todo-card" title="협력업체 신청/변경 요청 처리 화면으로 이동">
+          <span class="todo-label">협력업체 신청</span>
           <span class="todo-count">1<span class="todo-unit">건</span></span>
+          
+        </a>
+        <a href="#" class="todo-card" title="협력업체 신청/변경 요청 처리 화면으로 이동">
+          <span class="todo-label">협력업체 정보수정 요청</span>
+          <span class="todo-count">1<span class="todo-unit">건</span></span>
+          
+        </a>
+        <a href="#" class="todo-card" title="협력업체 신청/변경 요청 처리 화면으로 이동">
+          <span class="todo-label">Q&A 답변요청</span>
+          <span class="todo-count">1<span class="todo-unit">건</span></span>
+          
         </a>
       </div>
       </section>
 
-      <section class="app-card" aria-label="발주·계약 전체 파이프라인">
-          <div class="app-card-header hstack between"><h2>발주·계약 전체 파이프라인</h2></div>
+      <section class="app-card" aria-label="발주·계약 진행상황별 업무 현황">
+          <div class="app-card-header hstack between"><h2>발주·계약 진행상황별 업무 현황</h2></div>
           <div class="pipeline-flow cols-8 is-plain">
-          <a href="#" class="pipeline-step" title="요청접수 목록으로 이동">
+          <a href="#" class="pipeline-step" title="요청접수 화면으로 이동">
+            <span class="pipeline-icon tone-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></span>
             
             <span class="pipeline-name">요청접수</span>
             <span class="pipeline-count">1</span>
           </a>
-          <a href="#" class="pipeline-step" title="발주계획 목록으로 이동">
+          <a href="#" class="pipeline-step" title="발주계획 화면으로 이동">
+            <span class="pipeline-icon tone-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1z"/><path d="M16 6h2a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2"/><path d="M8 12h8M8 16h5"/></svg></span>
             
             <span class="pipeline-name">발주계획</span>
             <span class="pipeline-count">1</span>
           </a>
-          <a href="#" class="pipeline-step" title="입찰/수의 계획 목록으로 이동">
+          <a href="#" class="pipeline-step" title="입찰/수의 계획 화면으로 이동">
+            <span class="pipeline-icon tone-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
             
             <span class="pipeline-name">입찰/수의 계획</span>
             <span class="pipeline-count">0</span>
           </a>
-          <a href="#" class="pipeline-step" title="공고·진행 목록으로 이동">
+          <a href="#" class="pipeline-step" title="공고·진행 화면으로 이동">
+            <span class="pipeline-icon tone-orange" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4h4l6 4V6L7 10H3z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M19 6a8 8 0 0 1 0 12"/></svg></span>
             
             <span class="pipeline-name">공고·진행</span>
             <span class="pipeline-count">5</span>
           </a>
-          <a href="#" class="pipeline-step" title="업체선정 목록으로 이동">
+          <a href="#" class="pipeline-step" title="업체선정 화면으로 이동">
+            <span class="pipeline-icon tone-green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg></span>
             
             <span class="pipeline-name">업체선정</span>
             <span class="pipeline-count">1</span>
           </a>
-          <a href="#" class="pipeline-step" title="계약품의 목록으로 이동">
+          <a href="#" class="pipeline-step" title="계약품의 화면으로 이동">
+            <span class="pipeline-icon tone-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4z"/></svg></span>
             
             <span class="pipeline-name">계약품의</span>
             <span class="pipeline-count">0</span>
           </a>
-          <a href="#" class="pipeline-step" title="계약준비 목록으로 이동">
+          <a href="#" class="pipeline-step" title="계약준비 화면으로 이동">
+            <span class="pipeline-icon tone-orange" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg></span>
             
             <span class="pipeline-name">계약준비</span>
             <span class="pipeline-count">1</span>
           </a>
-          <a href="#" class="pipeline-step" title="계약완료 목록으로 이동">
+          <a href="#" class="pipeline-step" title="계약완료 화면으로 이동">
+            <span class="pipeline-icon tone-green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg></span>
             
             <span class="pipeline-name">계약완료</span>
             <span class="pipeline-count">2</span>
           </a>
         </div>
-          <div class="pipeline-extra"><span class="extra-label">공고·진행: 공고게시중 · 입찰진행중 · 투찰진행중 · 수의계약 진행 · 입찰마감</span></div>
         </section>
 
       <section class="app-card" aria-label="입찰 진행현황">
           <div class="app-card-header hstack between"><h2>입찰 진행현황</h2><a href="#" class="widget-more">입찰공고 현황 +</a></div>
           <div class="srm-table-wrap">
-            <table class="data-table widget-table" aria-label="입찰 진행현황">
-              <thead><tr><th class="w-110">공고번호</th><th class="w-100">공고 구분</th><th class="w-100">진행상태</th><th class="w-130">참여업체</th><th>입찰 건명</th><th class="w-140">입찰 마감일시</th><th>D-day</th><th class="w-60">구분</th><th class="w-130">계약방법</th><th>낙찰자 선정방법</th></tr></thead>
+            <table class="data-table widget-table is-compact" aria-label="입찰 진행현황">
+              <thead><tr><th class="w-110">공고 번호</th><th class="w-100">공고 구분</th><th class="w-100">진행상태</th><th>입찰 건명</th><th class="w-140">입찰 마감일시</th><th class="w-110">참여업체(수)</th><th class="w-60">구분</th><th class="w-130">계약방법</th><th>낙찰자 선정방법</th></tr></thead>
               <tbody>
-              <tr><td>BD2026-0032</td><td>본공고</td><td><span class="card-status-badge badge-warning">투찰진행중</span></td><td>4곳</td><td class="text-left td-ellipsis" title="태양광 발전설비 유지보수 용역">태양광 발전설비 유지보수 용역</td><td>2026.09.24 18:00</td><td><span class="badge-dday soon">D-3</span></td><td>용역</td><td>경쟁입찰(제한)</td><td class="text-left td-ellipsis" title="제한적 최저가 입찰">제한적 최저가 입찰</td></tr>
-              <tr><td>BD2026-0031</td><td>본공고</td><td><span class="card-status-badge badge-info">입찰진행중</span></td><td>5곳</td><td class="text-left td-ellipsis" title="서초동 1601-9 오피스텔 신축공사 중 도장공사">서초동 1601-9 오피스텔 신축공사 중 도장공사</td><td>2026.09.25 18:00</td><td><span class="badge-dday">D-4</span></td><td>공사</td><td>경쟁입찰(일반)</td><td class="text-left td-ellipsis" title="최저가">최저가</td></tr>
-              <tr><td>BD2026-0033</td><td>본공고</td><td><span class="card-status-badge badge-info">공고게시중</span></td><td><span class="card-status-badge badge-danger">1곳 · 유찰 검토</span></td><td class="text-left td-ellipsis" title="ESS 배터리 모듈 구매">ESS 배터리 모듈 구매</td><td>2026.10.02 18:00</td><td><span class="badge-dday">D-11</span></td><td>물품</td><td>경쟁입찰(일반)</td><td class="text-left td-ellipsis" title="2단계 경쟁입찰(규격/가격 분리)">2단계 경쟁입찰(규격/가격 분리)</td></tr>
+              <tr><td><a href="#">BD2026-0032</a></td><td>본공고</td><td><span class="card-status-badge badge-warning">투찰진행중</span></td><td class="text-left td-ellipsis" title="태양광 발전설비 유지보수 용역"><a href="#">태양광 발전설비 유지보수 용역</a></td><td>2026.09.24 18:00</td><td>4</td><td>용역</td><td>경쟁입찰(제한)</td><td class="text-left td-ellipsis" title="제한적 최저가 입찰">제한적 최저가 입찰</td></tr>
+              <tr><td><a href="#">BD2026-0031</a></td><td>본공고</td><td><span class="card-status-badge badge-info">입찰진행중</span></td><td class="text-left td-ellipsis" title="서초동 1601-9 오피스텔 신축공사 중 도장공사"><a href="#">서초동 1601-9 오피스텔 신축공사 중 도장공사</a></td><td>2026.09.25 18:00</td><td>5</td><td>공사</td><td>경쟁입찰(일반)</td><td class="text-left td-ellipsis" title="최저가">최저가</td></tr>
+              <tr><td><a href="#">BD2026-0033</a></td><td>본공고</td><td><span class="card-status-badge badge-info">공고게시중</span></td><td class="text-left td-ellipsis" title="ESS 배터리 모듈 구매"><a href="#">ESS 배터리 모듈 구매</a></td><td>2026.10.02 18:00</td><td>1</td><td>물품</td><td>경쟁입찰(일반)</td><td class="text-left td-ellipsis" title="2단계 경쟁입찰(규격/가격 분리)">2단계 경쟁입찰(규격/가격 분리)</td></tr>
               </tbody>
             </table>
           </div>
-        </section>
-
-      <section class="app-card" aria-label="일정 캘린더">
-          <div class="app-card-header hstack between"><h2>일정 캘린더</h2></div>
-          <div class="calendar">
-          <div class="calendar-head">
-            <h3 class="calendar-title">2026.09</h3>
-            <div class="calendar-nav">
-              <button type="button" class="btn-cal-nav" aria-label="이전 달" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
-              <button type="button" class="btn-cal-nav" aria-label="다음 달" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
-            </div>
-          </div>
-          <div class="calendar-grid" aria-label="2026년 9월 일정 달력"><span class="calendar-weekday">일</span><span class="calendar-weekday">월</span><span class="calendar-weekday">화</span><span class="calendar-weekday">수</span><span class="calendar-weekday">목</span><span class="calendar-weekday">금</span><span class="calendar-weekday">토</span><button type="button" class="calendar-day is-out" data-date="2026-08-30" data-label="2026.08.30(일) 일정" aria-pressed="false" aria-label="8월 30일"><span class="day-num">30</span><span class="cal-dots"></span></button><button type="button" class="calendar-day is-out" data-date="2026-08-31" data-label="2026.08.31(월) 일정" aria-pressed="false" aria-label="8월 31일"><span class="day-num">31</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-01" data-label="2026.09.01(화) 일정" aria-pressed="false" aria-label="9월 1일"><span class="day-num">1</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-02" data-label="2026.09.02(수) 일정" aria-pressed="false" aria-label="9월 2일"><span class="day-num">2</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-03" data-label="2026.09.03(목) 일정" aria-pressed="false" aria-label="9월 3일"><span class="day-num">3</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-04" data-label="2026.09.04(금) 일정" aria-pressed="false" aria-label="9월 4일"><span class="day-num">4</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-05" data-label="2026.09.05(토) 일정" aria-pressed="false" aria-label="9월 5일"><span class="day-num">5</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-06" data-label="2026.09.06(일) 일정" aria-pressed="false" aria-label="9월 6일"><span class="day-num">6</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-07" data-label="2026.09.07(월) 일정" aria-pressed="false" aria-label="9월 7일"><span class="day-num">7</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-08" data-label="2026.09.08(화) 일정" aria-pressed="false" aria-label="9월 8일"><span class="day-num">8</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-09" data-label="2026.09.09(수) 일정" aria-pressed="false" aria-label="9월 9일"><span class="day-num">9</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-10" data-label="2026.09.10(목) 일정" aria-pressed="false" aria-label="9월 10일 일정 1건"><span class="day-num">10</span><span class="cal-dots"><i class="cal-dot type-contract"></i></span></button><button type="button" class="calendar-day" data-date="2026-09-11" data-label="2026.09.11(금) 일정" aria-pressed="false" aria-label="9월 11일"><span class="day-num">11</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-12" data-label="2026.09.12(토) 일정" aria-pressed="false" aria-label="9월 12일"><span class="day-num">12</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-13" data-label="2026.09.13(일) 일정" aria-pressed="false" aria-label="9월 13일"><span class="day-num">13</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-14" data-label="2026.09.14(월) 일정" aria-pressed="false" aria-label="9월 14일"><span class="day-num">14</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-15" data-label="2026.09.15(화) 일정" aria-pressed="false" aria-label="9월 15일"><span class="day-num">15</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-16" data-label="2026.09.16(수) 일정" aria-pressed="false" aria-label="9월 16일"><span class="day-num">16</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-17" data-label="2026.09.17(목) 일정" aria-pressed="false" aria-label="9월 17일"><span class="day-num">17</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-18" data-label="2026.09.18(금) 일정" aria-pressed="false" aria-label="9월 18일"><span class="day-num">18</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-19" data-label="2026.09.19(토) 일정" aria-pressed="false" aria-label="9월 19일"><span class="day-num">19</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-20" data-label="2026.09.20(일) 일정" aria-pressed="false" aria-label="9월 20일"><span class="day-num">20</span><span class="cal-dots"></span></button><button type="button" class="calendar-day is-today" data-date="2026-09-21" data-label="2026.09.21(월) 일정" aria-pressed="false" aria-label="9월 21일"><span class="day-num">21</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-22" data-label="2026.09.22(화) 일정" aria-pressed="false" aria-label="9월 22일 일정 1건"><span class="day-num">22</span><span class="cal-dots"><i class="cal-dot type-price"></i></span></button><button type="button" class="calendar-day" data-date="2026-09-23" data-label="2026.09.23(수) 일정" aria-pressed="false" aria-label="9월 23일 일정 2건"><span class="day-num">23</span><span class="cal-dots"><i class="cal-dot type-price"></i><i class="cal-dot type-quote"></i></span></button><button type="button" class="calendar-day is-selected" data-date="2026-09-24" data-label="2026.09.24(목) 일정" aria-pressed="true" aria-label="9월 24일 일정 4건"><span class="day-num">24</span><span class="cal-dots"><i class="cal-dot type-meet"></i><i class="cal-dot type-quote"></i><i class="cal-dot type-price"></i></span></button><button type="button" class="calendar-day" data-date="2026-09-25" data-label="2026.09.25(금) 일정" aria-pressed="false" aria-label="9월 25일 일정 3건"><span class="day-num">25</span><span class="cal-dots"><i class="cal-dot type-plan"></i><i class="cal-dot type-bid"></i></span></button><button type="button" class="calendar-day" data-date="2026-09-26" data-label="2026.09.26(토) 일정" aria-pressed="false" aria-label="9월 26일"><span class="day-num">26</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-27" data-label="2026.09.27(일) 일정" aria-pressed="false" aria-label="9월 27일"><span class="day-num">27</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-28" data-label="2026.09.28(월) 일정" aria-pressed="false" aria-label="9월 28일"><span class="day-num">28</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-29" data-label="2026.09.29(화) 일정" aria-pressed="false" aria-label="9월 29일"><span class="day-num">29</span><span class="cal-dots"></span></button><button type="button" class="calendar-day" data-date="2026-09-30" data-label="2026.09.30(수) 일정" aria-pressed="false" aria-label="9월 30일"><span class="day-num">30</span><span class="cal-dots"></span></button><button type="button" class="calendar-day is-out" data-date="2026-10-01" data-label="2026.10.01(목) 일정" aria-pressed="false" aria-label="10월 1일"><span class="day-num">1</span><span class="cal-dots"></span></button><button type="button" class="calendar-day is-out" data-date="2026-10-02" data-label="2026.10.02(금) 일정" aria-pressed="false" aria-label="10월 2일 일정 1건"><span class="day-num">2</span><span class="cal-dots"><i class="cal-dot type-bid"></i></span></button><button type="button" class="calendar-day is-out" data-date="2026-10-03" data-label="2026.10.03(토) 일정" aria-pressed="false" aria-label="10월 3일"><span class="day-num">3</span><span class="cal-dots"></span></button></div>
-          <div class="calendar-legend" aria-label="일정 유형"><span><i class="cal-dot type-plan"></i>발주계획</span><span><i class="cal-dot type-quote"></i>견적 마감</span><span><i class="cal-dot type-bid"></i>입찰</span><span><i class="cal-dot type-price"></i>가격 투찰</span><span><i class="cal-dot type-meet"></i>설명회·발표</span><span><i class="cal-dot type-contract"></i>계약</span></div>
-          <p class="calendar-events-date">2026.09.24(목) 일정</p>
-          <ul class="calendar-events" data-date="2026-09-10" hidden><li><span class="ev-time">-</span><span class="ev-type"><i class="cal-dot type-contract"></i>계약 체결</span><span class="ev-name" title="CT_20260910_001 본사 LED 조명 교체공사 (계약 체결일)">CT_20260910_001 본사 LED 조명 교체공사 (계약 체결일)</span></li></ul>
-          <ul class="calendar-events" data-date="2026-09-22" hidden><li><span class="ev-time">-</span><span class="ev-type"><i class="cal-dot type-price"></i>가격 투찰</span><span class="ev-name" title="BD2026-0032 태양광 발전설비 유지보수 용역 (투찰기간)">BD2026-0032 태양광 발전설비 유지보수 용역 (투찰기간)</span></li></ul>
-          <ul class="calendar-events" data-date="2026-09-23" hidden><li><span class="ev-time">-</span><span class="ev-type"><i class="cal-dot type-price"></i>가격 투찰</span><span class="ev-name" title="BD2026-0032 태양광 발전설비 유지보수 용역 (투찰기간)">BD2026-0032 태양광 발전설비 유지보수 용역 (투찰기간)</span></li><li><span class="ev-time">18:00</span><span class="ev-type"><i class="cal-dot type-quote"></i>견적 마감</span><span class="ev-name" title="BD2026-0035 고효율 인버터 구매 (수의계약 2차)">BD2026-0035 고효율 인버터 구매 (수의계약 2차)</span><span class="badge-dday soon">D-2</span></li></ul>
-          <ul class="calendar-events" data-date="2026-09-24"><li><span class="ev-time">10:00</span><span class="ev-type"><i class="cal-dot type-meet"></i>제안발표</span><span class="ev-name" title="BD2026-0034 스마트미터 데이터 분석 용역">BD2026-0034 스마트미터 데이터 분석 용역</span></li><li><span class="ev-time">14:00</span><span class="ev-type"><i class="cal-dot type-meet"></i>현장설명회</span><span class="ev-name" title="BD2026-0033 ESS 배터리 모듈 구매">BD2026-0033 ESS 배터리 모듈 구매</span></li><li><span class="ev-time">18:00</span><span class="ev-type"><i class="cal-dot type-quote"></i>견적 마감</span><span class="ev-name" title="RFQ2609 태양광 발전기 도입 관련 견적 요청의 건">RFQ2609 태양광 발전기 도입 관련 견적 요청의 건</span><span class="badge-dday soon">D-3</span></li><li><span class="ev-time">18:00</span><span class="ev-type"><i class="cal-dot type-price"></i>가격 투찰</span><span class="ev-name" title="BD2026-0032 태양광 발전설비 유지보수 용역 (투찰기간)">BD2026-0032 태양광 발전설비 유지보수 용역 (투찰기간)</span><span class="badge-dday soon">D-3</span></li></ul>
-          <ul class="calendar-events" data-date="2026-09-25" hidden><li><span class="ev-time">-</span><span class="ev-type"><i class="cal-dot type-plan"></i>발주계획</span><span class="ev-name" title="PPW2026-0035 변압기 교체공사 (발주계획 품의일자)">PPW2026-0035 변압기 교체공사 (발주계획 품의일자)</span></li><li><span class="ev-time">10:00</span><span class="ev-type"><i class="cal-dot type-bid"></i>개찰 예정</span><span class="ev-name" title="BD2026-0032 태양광 발전설비 유지보수 용역">BD2026-0032 태양광 발전설비 유지보수 용역</span></li><li><span class="ev-time">18:00</span><span class="ev-type"><i class="cal-dot type-bid"></i>입찰 마감</span><span class="ev-name" title="BD2026-0031 서초동 1601-9 오피스텔 신축공사 중 도장공사">BD2026-0031 서초동 1601-9 오피스텔 신축공사 중 도장공사</span><span class="badge-dday">D-4</span></li></ul>
-          <ul class="calendar-events" data-date="2026-10-02" hidden><li><span class="ev-time">18:00</span><span class="ev-type"><i class="cal-dot type-bid"></i>입찰 마감</span><span class="ev-name" title="BD2026-0033 ESS 배터리 모듈 구매">BD2026-0033 ESS 배터리 모듈 구매</span><span class="badge-dday">D-11</span></li></ul>
-          <ul class="calendar-events is-none" data-date="" hidden><li>선택한 날짜에 일정이 없습니다.</li></ul>
-        </div>
         </section>
 
       <section class="app-card" aria-label="수의계약 진행현황">
           <div class="app-card-header hstack between"><h2>수의계약 진행현황</h2><a href="#" class="widget-more">수의계약 현황 +</a></div>
           <div class="srm-table-wrap">
             <table class="data-table widget-table" aria-label="수의계약 진행현황">
-              <thead><tr><th>수의계약 건명</th><th>진행상태</th><th class="w-140">견적 마감일시</th><th>D-day</th><th>견적 차수</th></tr></thead>
+              <thead><tr><th class="w-60">No</th><th class="w-110">공고 번호</th><th class="w-100">공고 구분</th><th class="w-165">진행상태</th><th>수의계약 건명</th><th class="w-60">구분</th><th class="w-100">계약방법</th><th>낙찰자 선정방법</th><th class="w-100">등록일</th></tr></thead>
               <tbody>
-              <tr><td class="text-left td-ellipsis" title="고효율 인버터 구매 BD2026-0035"><span class="cell-main">고효율 인버터 구매</span><span class="cell-sub">BD2026-0035</span></td><td><span class="card-status-badge badge-warning">수의계약(견적요청)</span></td><td>2026.09.23 18:00</td><td><span class="badge-dday soon">D-2</span></td><td>2차</td></tr>
+              <tr><td>1,542</td><td><a href="#">BD2026-0035</a></td><td>본공고</td><td><span class="card-status-badge badge-warning">수의계약(견적요청)</span></td><td class="text-left td-ellipsis" title="고효율 인버터 구매"><a href="#">고효율 인버터 구매</a></td><td>물품</td><td>수의계약</td><td class="text-left td-ellipsis" title="최저가">최저가</td><td>2026.09.11</td></tr>
               </tbody>
             </table>
           </div>
@@ -444,25 +421,12 @@
 
       <section class="app-card" aria-label="협력업체 요청 처리">
           <div class="app-card-header hstack between"><h2>협력업체 요청 처리</h2><a href="#" class="widget-more">신청/변경 요청 처리 +</a></div>
-          <div class="tally-grid cols-3"><div class="tally-item"><span class="tally-label">신규 신청(신청완료)</span><span class="tally-count text-primary">1<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">정보수정 요청</span><span class="tally-count text-primary">1<span class="todo-unit"> 건</span></span></div><div class="tally-item"><span class="tally-label">Q&A 답변요청</span><span class="tally-count text-primary">1<span class="todo-unit"> 건</span></span></div></div><div class="srm-table-wrap">
-            <table class="data-table widget-table" aria-label="협력업체 요청 처리">
-              <thead><tr><th>구분</th><th>내용</th><th class="w-100">일시</th></tr></thead>
-              <tbody>
-              <tr><td><span class="card-status-badge badge-warning">Q&amp;A</span></td><td class="text-left td-ellipsis" title="협력업체 선정 후 회사의 기본 정보를 수정하고 싶어요~ ((주)큐비트엑스)">협력업체 선정 후 회사의 기본 정보를 수정하고 싶어요~ ((주)큐비트엑스)</td><td>2026.09.20</td></tr>
-              <tr><td><span class="card-status-badge badge-info">신규 신청</span></td><td class="text-left td-ellipsis" title="삼전디에스 (신청완료)">삼전디에스 (신청완료)</td><td>2026.09.19</td></tr>
-              <tr><td><span class="card-status-badge badge-success">정보수정</span></td><td class="text-left td-ellipsis" title="넷퍼시 (정보수정 요청)">넷퍼시 (정보수정 요청)</td><td>2026.09.18</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-      <section class="app-card" aria-label="예외 건">
-          <div class="app-card-header hstack between"><h2>예외 건</h2><a href="#" class="widget-more">예외 건 +</a></div>
           <div class="srm-table-wrap">
-            <table class="data-table widget-table" aria-label="예외 건">
-              <thead><tr><th>구분</th><th>건명</th><th>사유</th><th class="w-100">처리일</th></tr></thead>
+            <table class="data-table widget-table is-compact" aria-label="협력업체 요청 처리">
+              <thead><tr><th class="w-60">No</th><th class="w-130">처리상태</th><th class="w-120">사업자번호</th><th class="w-110">업체명</th><th class="w-80">대표자</th><th class="w-80">담당자</th><th class="w-130">핸드폰번호</th><th>이메일</th><th class="w-110">신용평가등급</th><th class="w-100">신청일</th></tr></thead>
               <tbody>
-              <tr><td><span class="card-status-badge badge-danger">유찰</span></td><td class="text-left td-ellipsis" title="건물 에너지진단 용역 (재공고 1차) BD2026-0027"><span class="cell-main">건물 에너지진단 용역 (재공고 1차)</span><span class="cell-sub">BD2026-0027</span></td><td class="text-left td-ellipsis" title="참여업체 2개 미만으로 유찰">참여업체 2개 미만으로 유찰</td><td>2026.09.11</td></tr>
+              <tr><td>1,542</td><td><span class="card-status-badge badge-info">신청완료</span></td><td><a href="#">123-45-67891</a></td><td>삼전디에스</td><td>홍길동</td><td>한지훈</td><td>010-1234-5678</td><td class="text-left td-ellipsis" title="leehee43@naver.com">leehee43@naver.com</td><td>-</td><td>2026.06.10</td></tr>
+              <tr><td>1,541</td><td><span class="card-status-badge badge-warning">정보수정 요청</span></td><td><a href="#">123-45-67891</a></td><td>넷퍼시</td><td>홍길동</td><td>김미라</td><td>-</td><td class="text-left td-ellipsis" title="-">-</td><td>AAA</td><td>2026.06.10</td></tr>
               </tbody>
             </table>
           </div>
@@ -476,8 +440,8 @@
               <thead><tr><th>대상</th><th>제목</th><th class="w-100">등록일</th></tr></thead>
               <tbody>
               <tr><td><span class="card-status-badge badge-info">전체</span></td><td class="text-left td-ellipsis" title="‘협력업체 선정 세부기준’이 개정되었습니다."><span class="card-status-badge badge-danger">중요</span> ‘협력업체 선정 세부기준’이 개정되었습니다.</td><td>2026.09.18</td></tr>
-              <tr><td><span class="card-status-badge badge-success">협력업체</span></td><td class="text-left td-ellipsis" title="추석 연휴 기간 입찰 일정 안내">추석 연휴 기간 입찰 일정 안내 <svg class="icon-new" viewBox="0 0 16 16" role="img" aria-label="신규"><title>신규</title><rect width="16" height="16" rx="4"/><path d="M5 11.5v-7l6 7v-7"/></svg></td><td>2026.09.20</td></tr>
-              <tr><td><span class="card-status-badge badge-tag">직원</span></td><td class="text-left td-ellipsis" title="SRM 전자결재 연동 점검 안내">SRM 전자결재 연동 점검 안내 <svg class="icon-new" viewBox="0 0 16 16" role="img" aria-label="신규"><title>신규</title><rect width="16" height="16" rx="4"/><path d="M5 11.5v-7l6 7v-7"/></svg></td><td>2026.09.19</td></tr>
+              <tr><td><span class="card-status-badge badge-success">협력업체</span></td><td class="text-left td-ellipsis" title="추석 연휴 기간 입찰 일정 안내">추석 연휴 기간 입찰 일정 안내 <svg class="icon-new" viewBox="0 0 16 16" role="img" aria-label="신규"><title>신규</title><circle cx="8" cy="8" r="8"/><path d="M5.6 10.8V5.2l4.8 5.6V5.2"/></svg></td><td>2026.09.20</td></tr>
+              <tr><td><span class="card-status-badge badge-tag">직원</span></td><td class="text-left td-ellipsis" title="SRM 전자결재 연동 점검 안내">SRM 전자결재 연동 점검 안내 <svg class="icon-new" viewBox="0 0 16 16" role="img" aria-label="신규"><title>신규</title><circle cx="8" cy="8" r="8"/><path d="M5.6 10.8V5.2l4.8 5.6V5.2"/></svg></td><td>2026.09.19</td></tr>
               </tbody>
             </table>
           </div>
@@ -485,12 +449,12 @@
         <section class="app-card" aria-label="양식 등 자료실">
           <div class="app-card-header hstack between"><h2>양식 등 자료실</h2><a href="#" class="widget-more">더보기 +</a></div>
           <div class="srm-table-wrap">
-            <table class="data-table widget-table" aria-label="최신 자료실">
-              <thead><tr><th>자료명</th><th class="w-100">등록일</th><th class="w-90">파일</th></tr></thead>
+            <table class="data-table widget-table" aria-label="양식 등 자료실">
+              <thead><tr><th>자료명</th><th class="w-100">등록일</th><th class="w-110">파일</th></tr></thead>
               <tbody>
-              <tr><td class="text-left td-ellipsis" title="입찰참가신청서 양식">입찰참가신청서 양식</td><td>2026.09.12</td><td>HWP</td></tr>
-              <tr><td class="text-left td-ellipsis" title="사용인감계 양식">사용인감계 양식</td><td>2026.09.12</td><td>HWP</td></tr>
-              <tr><td class="text-left td-ellipsis" title="입찰서류 제출 안내서">입찰서류 제출 안내서</td><td>2026.08.29</td><td>PDF</td></tr>
+              <tr><td class="text-left td-ellipsis" title="입찰참가신청서 양식">입찰참가신청서 양식</td><td>2026.09.12</td><td><button type="button" class="btn-file-download" aria-label="입찰참가신청서 양식 다운로드">다운로드</button></td></tr>
+              <tr><td class="text-left td-ellipsis" title="사용인감계 양식">사용인감계 양식</td><td>2026.09.12</td><td><button type="button" class="btn-file-download" aria-label="사용인감계 양식 다운로드">다운로드</button></td></tr>
+              <tr><td class="text-left td-ellipsis" title="입찰서류 제출 안내서">입찰서류 제출 안내서</td><td>2026.08.29</td><td><button type="button" class="btn-file-download" aria-label="입찰서류 제출 안내서 다운로드">다운로드</button></td></tr>
               </tbody>
             </table>
           </div>
