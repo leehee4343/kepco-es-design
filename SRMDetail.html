@@ -13,12 +13,20 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
       <a href="SRMDashboard.html" class="brand-logo-wrap" title="전자입찰시스템 SRM 메인"><img src="assets/logo.png" alt="켑코이에스(주)" class="brand-logo-img"></a>
-        <div class="header-system-badge-group"><span class="system-title">전자입찰시스템(SRM)</span></div>
+      <div class="header-system-badge-group"><span class="system-title">전자입찰시스템(SRM)</span></div>
     </div>
-    <div class="header-center"><div class="srm-detail-header-search"><span>공고 통합검색</span><strong>BD2026-0023</strong></div></div>
+    <div class="header-center">
+      <div class="srm-role-bar" style="margin-bottom: 0;">
+        <span class="srm-role-lbl">권한 전환:</span>
+        <button type="button" class="srm-role-chip active" data-role="contract" title="계약담당자 권한 뷰">계약담당자</button>
+        <button type="button" class="srm-role-chip" data-role="biz" title="사업담당자 권한 뷰">사업담당자</button>
+        <button type="button" class="srm-role-chip" data-role="admin" title="관리자 권한 뷰">관리자</button>
+        <button type="button" class="srm-role-chip" data-role="partner" title="협력업체 전용 창구 뷰">협력업체</button>
+      </div>
+    </div>
     <div class="header-right">
       <div class="user-profile">
-        <a href="Dashboard.html" class="btn-logout srm-header-link navy">PMS 복귀 ↗</a>
+        <a href="Dashboard.html" class="btn-logout srm-header-link" title="사업관리시스템(PMS)으로 이동">PMS 복귀 ↗</a>
         <span class="user-divider">|</span><span class="user-name">홍길동 과장</span><span class="user-role">[계약담당자]</span><span class="user-divider">|</span><a href="SRMLogin.html" class="btn-logout">Logout</a>
       </div>
     </div>
@@ -27,24 +35,166 @@
   <div class="app-container">
     <aside class="sidebar" id="sidebar">
       <nav class="sidebar-nav">
-        <div class="nav-item"><a href="SRMDashboard.html" class="nav-link"><span class="nav-icon">⌂</span><span class="nav-text">대시보드</span></a></div>
-        <div class="nav-item"><a href="#" class="nav-link"><span class="nav-icon">▤</span><span class="nav-text">사전 견적 관리</span><span class="nav-arrow">⌄</span></a><ul class="submenu"><li class="submenu-item"><a href="#">사전 견적 요청</a></li><li class="submenu-item"><a href="#">사전 견적 요청 현황</a></li></ul></div>
-        <div class="nav-item"><a href="#" class="nav-link"><span class="nav-icon">◆</span><span class="nav-text">발주계약 요청</span><span class="nav-arrow">⌄</span></a><ul class="submenu"><li class="submenu-item"><a href="#">발주계약 요청</a></li><li class="submenu-item"><a href="#">발주계약 요청현황</a></li></ul></div>
-        <div class="nav-item"><a href="#" class="nav-link"><span class="nav-icon">□</span><span class="nav-text">발주계획</span><span class="nav-arrow">⌄</span></a><ul class="submenu"><li class="submenu-item"><a href="#">발주계획 등록</a></li><li class="submenu-item"><a href="#">발주계획 현황</a></li></ul></div>
-        <div class="nav-item open active"><a href="#" class="nav-link"><span class="nav-icon">★</span><span class="nav-text">입찰관리</span><span class="nav-arrow">⌄</span></a><ul class="submenu"><li class="submenu-item"><a href="StepWorkflow.html">입찰계획 현황</a></li><li class="submenu-item active"><a href="SRMDetail.html">입찰공고 현황</a></li><li class="submenu-item"><a href="#">입찰 참여현황</a></li><li class="submenu-item"><a href="#">심사/평가</a></li><li class="submenu-item"><a href="#">개찰</a></li><li class="submenu-item"><a href="#">낙찰 (업체선정)</a></li><li class="submenu-item"><a href="#">수의시담</a></li></ul></div>
-        <div class="nav-item"><a href="#" class="nav-link"><span class="nav-icon">▣</span><span class="nav-text">계약관리</span><span class="nav-arrow">⌄</span></a><ul class="submenu"><li class="submenu-item"><a href="#">발주계약 현황</a></li><li class="submenu-item"><a href="#">계약 관련 서류</a></li></ul></div>
-        <div class="nav-item"><a href="#" class="nav-link"><span class="nav-icon">♙</span><span class="nav-text">협력업체 관리</span><span class="nav-arrow">⌄</span></a><ul class="submenu"><li class="submenu-item"><a href="#">신청/변경 요청 처리</a></li><li class="submenu-item"><a href="#">협력업체 관리</a></li></ul></div>
+        <!-- 1. 대시보드 -->
+        <div class="nav-item">
+          <a href="SRMDashboard.html" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="9"></rect>
+                <rect x="14" y="3" width="7" height="5"></rect>
+                <rect x="14" y="12" width="7" height="9"></rect>
+                <rect x="3" y="16" width="7" height="5"></rect>
+              </svg>
+            </span>
+            <span class="nav-text">대시보드</span>
+          </a>
+        </div>
+
+        <!-- 2. 사전 견적 관리 -->
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </span>
+            <span class="nav-text">사전 견적 관리</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="#">사전 견적 요청</a></li>
+            <li class="submenu-item"><a href="#">사전 견적 요청 현황</a></li>
+          </ul>
+        </div>
+
+        <!-- 3. 발주계약 요청 -->
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </span>
+            <span class="nav-text">발주계약 요청</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="#">발주계약 요청</a></li>
+            <li class="submenu-item"><a href="#">발주계약 요청현황</a></li>
+          </ul>
+        </div>
+
+        <!-- 4. 발주계획 -->
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </span>
+            <span class="nav-text">발주계획</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="#">발주계획 등록</a></li>
+            <li class="submenu-item"><a href="#">발주계획 현황</a></li>
+          </ul>
+        </div>
+
+        <!-- 5. 입찰관리 -->
+        <div class="nav-item open active">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </span>
+            <span class="nav-text">입찰관리</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="StepWorkflow.html">입찰계획 현황</a></li>
+            <li class="submenu-item active"><a href="SRMDetail.html">입찰공고 현황</a></li>
+            <li class="submenu-item"><a href="#">입찰 참여현황</a></li>
+            <li class="submenu-item"><a href="#">심사/평가</a></li>
+            <li class="submenu-item"><a href="#">개찰</a></li>
+            <li class="submenu-item"><a href="#">낙찰 (업체선정)</a></li>
+            <li class="submenu-item"><a href="#">수의시담</a></li>
+          </ul>
+        </div>
+
+        <!-- 6. 계약관리 -->
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </span>
+            <span class="nav-text">계약관리</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="#">발주계약 현황</a></li>
+            <li class="submenu-item"><a href="#">계약 관련 서류</a></li>
+          </ul>
+        </div>
+
+        <!-- 7. 협력업체 관리 -->
+        <div class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="nav-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </span>
+            <span class="nav-text">협력업체 관리</span>
+            <span class="nav-arrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </a>
+          <ul class="submenu">
+            <li class="submenu-item"><a href="#">신청/변경 요청 처리</a></li>
+            <li class="submenu-item"><a href="#">협력업체 관리</a></li>
+          </ul>
+        </div>
       </nav>
       <div class="sidebar-bottom-actions">
-        <a href="Dashboard.html" class="btn-sidebar-switch srm-active-btn"><span class="switch-icon">↔</span><span class="nav-text">PMS로 전환</span></a>
+        <a href="Dashboard.html" class="btn-sidebar-switch srm-active-btn">
+          <span class="switch-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L4 7l4 4"></path><path d="M4 7h16"></path><path d="M16 21l4-4-4-4"></path><path d="M20 17H4"></path></svg>
+          </span>
+          <span class="nav-text">PMS로 전환</span>
+        </a>
         <button type="button" class="btn-sidebar-manual" onclick="alert('온라인 매뉴얼(SRM 전자입찰시스템) 가이드를 호출합니다.');"><span class="nav-text">온라인 매뉴얼</span></button>
       </div>
     </aside>
 
     <main class="main-content srm-detail-main">
       <div class="page-title-wrap">
-        <div class="page-title-left"><h1 class="page-title">입찰공고 현황</h1><span class="srm-detail-status">입찰진행중</span></div>
-        <div class="breadcrumb"><a href="SRMDashboard.html" class="breadcrumb-item">Home</a><span class="breadcrumb-separator">›</span><span class="breadcrumb-item">입찰관리</span><span class="breadcrumb-separator">›</span><span class="breadcrumb-item">입찰공고 현황</span><span class="breadcrumb-separator">›</span><span class="breadcrumb-item current">상세정보</span></div>
+        <div class="page-title-left"><h1 class="page-title">입찰공고 현황</h1></div>
+        <div class="breadcrumb"><a href="SRMDashboard.html" class="breadcrumb-item">홈</a><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">입찰관리</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item">입찰공고 현황</span><span class="breadcrumb-separator">&gt;</span><span class="breadcrumb-item current">상세정보</span></div>
       </div>
 
       <section class="app-card srm-bid-summary" aria-label="입찰공고 요약">
@@ -55,8 +205,12 @@
         <button type="button" role="tab" aria-selected="false">발주계획 정보</button><button type="button" class="active" role="tab" aria-selected="true">입찰계획 정보</button><button type="button" role="tab" aria-selected="false">입찰 참여현황</button><button type="button" role="tab" aria-selected="false">심사/평가</button><button type="button" role="tab" aria-selected="false">개찰</button><button type="button" role="tab" aria-selected="false">낙찰(업체 선정)</button><button type="button" role="tab" aria-selected="false">수의시담</button><button type="button" role="tab" aria-selected="false">계약 요청</button>
       </nav>
 
+      <!-- 01. 입찰계획 상세정보 -->
       <section class="app-card srm-detail-section">
-        <div class="srm-section-heading"><div><span>01</span><h2>입찰계획 상세정보</h2></div><p>공고 게시 및 입찰 진행에 필요한 기본 정보입니다.</p></div>
+        <div class="srm-section-heading">
+          <div><span class="section-title-bar" aria-hidden="true"></span><span class="srm-heading-num">01</span><h2>입찰계획 상세정보</h2></div>
+          <p>공고 게시 및 입찰 진행에 필요한 기본 정보입니다.</p>
+        </div>
         <div class="srm-kv-grid">
           <div class="srm-kv-row"><dt>입찰 시작/마감일시</dt><dd>2026.07.31 09시 00분 ~ 2026.08.15 18시 00분</dd></div>
           <div class="srm-kv-row"><dt>입찰공고 게시기간</dt><dd>2026.07.28 09시 00분 ~ 2026.08.15 18시 00분</dd></div>
@@ -69,34 +223,54 @@
         </div>
       </section>
 
+      <!-- 02 & 03 그리드 -->
       <section class="srm-detail-grid two-col">
-        <div class="app-card srm-detail-section"><div class="srm-section-heading"><div><span>02</span><h2>입찰참여 가능 업체</h2></div></div><ul class="srm-company-list"><li><strong>A협력업체명</strong><span>123-45-67891</span></li><li><strong>B협력업체명</strong><span>123-45-67891</span></li><li><strong>C협력업체명</strong><span>123-45-67891</span></li></ul></div>
-        <div class="app-card srm-detail-section"><div class="srm-section-heading"><div><span>03</span><h2>가격 투찰 기간</h2></div></div><div class="srm-period-card"><span>투찰 시작</span><strong>2026.07.20 09:00</strong><i>→</i><span>투찰 마감</span><strong>2026.08.25 18:00</strong></div></div>
+        <div class="app-card srm-detail-section">
+          <div class="srm-section-heading"><div><span class="section-title-bar" aria-hidden="true"></span><span class="srm-heading-num">02</span><h2>입찰참여 가능 업체</h2></div></div>
+          <ul class="srm-company-list"><li><strong>A협력업체명</strong><span>123-45-67891</span></li><li><strong>B협력업체명</strong><span>123-45-67891</span></li><li><strong>C협력업체명</strong><span>123-45-67891</span></li></ul>
+        </div>
+        <div class="app-card srm-detail-section">
+          <div class="srm-section-heading"><div><span class="section-title-bar" aria-hidden="true"></span><span class="srm-heading-num">03</span><h2>가격 투찰 기간</h2></div></div>
+          <div class="srm-period-card"><span>투찰 시작</span><strong>2026.07.20 09:00</strong><i>→</i><span>투찰 마감</span><strong>2026.08.25 18:00</strong></div>
+        </div>
       </section>
 
+      <!-- 04 & 05 그리드 -->
       <section class="srm-detail-grid two-col">
-        <div class="app-card srm-detail-section"><div class="srm-section-heading"><div><span>04</span><h2>심사/평가 관련 정보</h2></div></div><div class="srm-mini-kv"><div><span>업체평가 종료일</span><strong>2026.07.21</strong></div><div><span>동점자 처리기준</span><strong>규격(기술)</strong></div><div><span>평가자 매핑</span><strong>홍길동</strong></div><div><span>종합평가 비율</span><strong>기술 80% <em>|</em> 가격 20%</strong></div><div class="full"><span>업체 전달사항</span><p>입찰 참여 시 등록해야 하는 서류를 꼼꼼히 읽어보시고 빠짐없이 등록해 주세요.</p></div></div></div>
-        <div class="app-card srm-detail-section"><div class="srm-section-heading"><div><span>05</span><h2>제안발표 관련 정보</h2></div></div><div class="srm-mini-kv"><div><span>협상에 의한 계약 여부</span><strong>협상에 의한 계약</strong></div><div><span>제안발표 여부</span><strong>제안발표 진행</strong></div><div><span>제안발표 일시</span><strong>2026.08.31 16시 30분부터</strong></div><div><span>제안발표 장소</span><strong>전기회관 9층<br>(켑코이에스 대회의실)</strong></div></div></div>
+        <div class="app-card srm-detail-section">
+          <div class="srm-section-heading"><div><span class="section-title-bar" aria-hidden="true"></span><span class="srm-heading-num">04</span><h2>심사/평가 관련 정보</h2></div></div>
+          <div class="srm-mini-kv"><div><span>업체평가 종료일</span><strong>2026.07.21</strong></div><div><span>동점자 처리기준</span><strong>규격(기술)</strong></div><div><span>평가자 매핑</span><strong>홍길동</strong></div><div><span>종합평가 비율</span><strong>기술 80% <em>|</em> 가격 20%</strong></div><div class="full"><span>업체 전달사항</span><p>입찰 참여 시 등록해야 하는 서류를 꼼꼼히 읽어보시고 빠짐없이 등록해 주세요.</p></div></div>
+        </div>
+        <div class="app-card srm-detail-section">
+          <div class="srm-section-heading"><div><span class="section-title-bar" aria-hidden="true"></span><span class="srm-heading-num">05</span><h2>제안발표 관련 정보</h2></div></div>
+          <div class="srm-mini-kv"><div><span>협상에 의한 계약 여부</span><strong>협상에 의한 계약</strong></div><div><span>제안발표 여부</span><strong>제안발표 진행</strong></div><div><span>제안발표 일시</span><strong>2026.08.31 16시 30분부터</strong></div><div><span>제안발표 장소</span><strong>전기회관 9층<br>(켑코이에스 대회의실)</strong></div></div>
+        </div>
       </section>
 
+      <!-- 06. 심사/평가 항목 -->
       <section class="app-card srm-detail-section">
-        <div class="srm-section-heading"><div><span>06</span><h2>심사/평가 항목</h2></div><p>등록된 심사/평가 항목 <strong>총 3건</strong></p></div>
+        <div class="srm-section-heading"><div><span class="section-title-bar" aria-hidden="true"></span><span class="srm-heading-num">06</span><h2>심사/평가 항목</h2></div><p>등록된 심사/평가 항목 <strong>총 3건</strong></p></div>
         <div class="srm-table-wrap"><table class="srm-detail-table"><thead><tr><th>No</th><th>심사/평가 구분</th><th>심사/평가 항목</th><th>배점</th><th>자가심사 여부</th></tr></thead><tbody><tr><td>1</td><td>계량(정량)</td><td>신용평가등급</td><td class="number">10.00</td><td><span class="badge-tag">필요</span></td></tr><tr><td>2</td><td>계량(정량)</td><td>시공경험 (일반공사)</td><td class="number">10.00</td><td><span class="badge-tag">필요</span></td></tr><tr><td>3</td><td>비계량(정성)</td><td>제안 평가</td><td class="number">60.00</td><td><span class="srm-muted-badge">불필요</span></td></tr></tbody><tfoot><tr><td colspan="3">총 배점</td><td class="number">80.00</td><td></td></tr></tfoot></table></div>
         <div class="srm-kv-grid compact"><div class="srm-kv-row"><dt>최저점수(적격여부 판단)</dt><dd><strong class="srm-score">60점</strong></dd></div><div class="srm-kv-row"><dt>심사기준<br>(배점 및 평가기준 등)</dt><dd><div class="srm-file-item"><span>심사기준표.PDF</span><button type="button" class="btn-file-preview">바로보기</button><button type="button" class="btn-file-download">다운로드</button></div></dd></div></div>
       </section>
 
+      <!-- 07. 예정가 / 예비가 -->
       <section class="app-card srm-detail-section">
-        <div class="srm-section-heading"><div><span>07</span><h2>예정가 / 예비가</h2></div></div>
+        <div class="srm-section-heading"><div><span class="section-title-bar" aria-hidden="true"></span><span class="srm-heading-num">07</span><h2>예정가 / 예비가</h2></div></div>
         <div class="srm-price-panel"><table class="srm-detail-table price"><thead><tr><th>추정금액</th><th>사정금액</th><th>복수예비 기초금액</th><th>낙찰하한율</th><th>예정가격</th><th>낙찰하한가</th></tr></thead><tbody><tr><td>94,710,000원</td><td>94,710,000원</td><td>91,088,550원</td><td>87.745%</td><td class="muted">개찰 과정에서 정의됨</td><td class="muted">개찰 과정에서 정의됨</td></tr></tbody></table></div>
         <div class="srm-price-summary"><div><span>추정금액</span><strong>26,482,500원</strong></div><div><span>사정금액</span><strong>26,482,500원</strong></div><div><span>예정가격</span><strong>26,482,500원</strong></div></div>
       </section>
 
+      <!-- 08. 입찰 참여 서류 -->
       <section class="app-card srm-detail-section">
-        <div class="srm-section-heading"><div><span>08</span><h2>입찰 참여 서류</h2></div><p>등록된 입찰 참여 서류 <strong>총 5건</strong></p></div>
+        <div class="srm-section-heading"><div><span class="section-title-bar" aria-hidden="true"></span><span class="srm-heading-num">08</span><h2>입찰 참여 서류</h2></div><p>등록된 입찰 참여 서류 <strong>총 5건</strong></p></div>
         <div class="srm-table-wrap"><table class="srm-detail-table docs"><thead><tr><th>No</th><th>입찰 참여 서류</th><th>설명</th></tr></thead><tbody><tr><td>1</td><td>입찰참가신청서 날인본</td><td>입찰참가신청서는 반드시 날인이 되어 있어야 합니다. (날인이 빠진 경우 미입찰로 처리됩니다.)</td></tr><tr><td>2</td><td>신용평가등급 확인서</td><td>신용평가등급 확인서는 반드시 유효기간 내에 있어야 합니다.</td></tr><tr><td>3</td><td>법인인감 증명서</td><td>제출되는 법인인감증명서는 유효기간 내에 있어야 합니다.</td></tr><tr><td>4</td><td>제안서</td><td>제안서를 첨부해 주세요. (되도록 하나의 PDF 파일로 합쳐서 첨부해 주세요.)</td></tr><tr><td>5</td><td>기타</td><td>-</td></tr></tbody></table></div>
       </section>
 
-      <div class="srm-detail-actions"><a href="SRMDashboard.html" class="btn-secondary srm-list-button">목록</a><div class="srm-return-wrap"><span>입찰 신청 전 상태에서만 실행할 수 있습니다.</span><button type="button" class="btn-primary srm-return-button" id="btnReturnBidPlan">‘입찰계획’으로 되돌리기 <b>→</b></button></div></div>
+      <div class="srm-detail-actions">
+        <a href="SRMDashboard.html" class="btn-secondary srm-list-button">목록</a>
+        <div class="srm-return-wrap"><span>입찰 신청 전 상태에서만 실행할 수 있습니다.</span><button type="button" class="btn-primary srm-return-button" id="btnReturnBidPlan">‘입찰계획’으로 되돌리기 <b>→</b></button></div>
+      </div>
     </main>
   </div>
 
@@ -105,7 +279,18 @@
   <div class="modal-backdrop srm-return-modal" id="modalReturnBidPlan" role="dialog" aria-modal="true" aria-labelledby="returnModalTitle">
     <div class="modal-dialog">
       <div class="modal-header"><h2 id="returnModalTitle">‘입찰계획’으로 되돌리기</h2><button type="button" class="modal-close" id="btnCloseReturnModal" aria-label="닫기">×</button></div>
-      <div class="modal-body"><div class="srm-return-message"><div class="srm-megaphone" aria-hidden="true">📣</div><div><strong>입찰계획을 통해 등록된 내용 중 반드시 수정해야 할 사항이 있는 경우 해당 입찰 건을 입찰계획 상태로 되돌릴 수 있습니다.</strong><p>입찰계획으로 되돌리시겠습니까?</p></div></div><label class="srm-return-reason"><span>되돌리기 사유 <b>*</b></span><textarea id="returnReason" rows="3" placeholder="입찰계획 수정이 필요한 사유를 입력해 주세요."></textarea></label></div>
+      <div class="modal-body">
+        <div class="srm-return-message">
+          <div class="srm-megaphone" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+          </div>
+          <div><strong>입찰계획을 통해 등록된 내용 중 반드시 수정해야 할 사항이 있는 경우 해당 입찰 건을 입찰계획 상태로 되돌릴 수 있습니다.</strong><p>입찰계획으로 되돌리시겠습니까?</p></div>
+        </div>
+        <label class="srm-return-reason"><span>되돌리기 사유 <b>*</b></span><textarea id="returnReason" rows="3" placeholder="입찰계획 수정이 필요한 사유를 입력해 주세요."></textarea></label>
+      </div>
       <div class="modal-footer"><button type="button" class="btn-secondary" id="btnCancelReturn">취소</button><button type="button" class="btn-primary" id="btnConfirmReturn">‘입찰계획’으로 되돌리기 →</button></div>
     </div>
   </div>
