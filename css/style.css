@@ -5673,18 +5673,8 @@ img {
   object-position: top center;
 }
 
-/* pdf 명세 이미지의 우측 description 여백을 제외하고 실제 화면만 채움 */
-.card-thumb-img.thumb-srm-detail {
-  transform: scale(1.23);
-  transform-origin: top left;
-}
-
 .portal-thumb-card:hover .card-thumb-img {
   transform: scale(1.04);
-}
-
-.portal-thumb-card:hover .card-thumb-img.thumb-srm-detail {
-  transform: scale(1.27);
 }
 
 .card-thumb-badge {
@@ -6415,9 +6405,13 @@ img {
   background: rgba(15, 23, 42, 0.55);
   backdrop-filter: blur(3px);
   z-index: 1000;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
+}
+
+.modal-overlay.show {
+  display: flex;
 }
 
 .btn-modal-close {

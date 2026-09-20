@@ -71,7 +71,7 @@
 │   └── dashboard.js         # 대시보드 인터랙션 & SVG 차트 렌더링 스크립트
 ├── assets/
 │   ├── logo.png             # 켑코이에스(주) 공식 로고
-│   └── thumbnails/          # 가이드 포털용 고해상도 카드 썸네일 (10종)
+│   └── thumbnails/          # 가이드 포털용 고해상도 카드 썸네일 (12종 전 화면)
 ├── docs/                    # 설계 사양서(PDF), 디자인 참고 시안, 메뉴구조도(Excel)
 ├── DESIGN_GUIDE.md          # 공식 디자인 시스템 가이드라인 규격서
 ├── CLAUDE.md                # AI 어시스턴트 프로젝트 작업 지침
