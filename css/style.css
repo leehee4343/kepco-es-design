@@ -6393,9 +6393,208 @@ img {
   gap: 6px;
 }
 
+/* ==========================================================================
+   Plan Performance Tables (계획대비 실적현황 - 공통 표 구성 가이드 준수)
+   ========================================================================== */
+.plan-summary-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: var(--content-card-padding) !important;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--content-object-gap);
+}
+
+.plan-summary-card .app-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--content-inner-gap) !important;
+  padding: 0 !important;
+  border-bottom: none !important;
+}
+
+.card-title-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-title {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  color: #334155;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.plan-summary-table-wrap {
+  width: 100%;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: var(--bg-white);
+}
+
 .plan-summary-table {
   width: 100%;
-  border-collapse: collapse;
+  min-width: 1060px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+  text-align: center;
+}
+
+.plan-summary-table th,
+.plan-summary-table td {
+  white-space: nowrap;
+}
+
+.plan-summary-table thead th {
+  height: 38px;
+  padding: 9px 8px;
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 400;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #cbd5e1;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.plan-summary-table thead tr:first-child th {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.plan-summary-table thead tr:first-child th[rowspan="2"] {
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.plan-summary-table thead th:last-child {
+  border-right: none;
+}
+
+.plan-summary-table tbody td {
+  height: 44px;
+  padding: 11px 8px;
+  color: #334155;
+  font-weight: 400;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #eaedf3;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.plan-summary-table tbody td:last-child {
+  border-right: none;
+}
+
+.plan-summary-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.plan-summary-table td.col-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  padding-right: 10px;
+}
+
+.plan-summary-table td.col-rate {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.badge-rate-orange {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: #fffbeb;
+  color: var(--point-orange);
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.badge-rate-green {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: #f0fdf4;
+  color: var(--point-green);
+  font-weight: 400;
+  font-size: 13px;
+}
+
+/* 메인 계획대비 실적 테이블 (planperftable) */
+.plan-detail-card {
+  margin-bottom: 24px;
+}
+
+#planperftable {
+  min-width: 1480px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+}
+
+#planperftable th,
+#planperftable td {
+  white-space: nowrap;
+}
+
+#planperftable thead th {
+  height: 38px;
+  padding: 9px 10px;
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 400;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #cbd5e1;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#planperftable thead tr:first-child th {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+#planperftable thead tr:first-child th[rowspan="2"] {
+  border-bottom: 1px solid #cbd5e1;
+}
+
+#planperftable thead th:last-child {
+  border-right: none;
+}
+
+#planperftable tbody td {
+  height: 44px;
+  padding: 12px 14px;
+  color: #334155;
+  font-weight: 400;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #eaedf3;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#planperftable tbody td:last-child {
+  border-right: none;
+}
+
+#planperftable tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+#planperftable td.col-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  padding-right: 14px;
+}
+
+#planperftable td.col-left {
+  text-align: left;
+  padding-left: 14px;
 }
 
 /* workflow modal & calc badges */
@@ -7258,24 +7457,32 @@ body.is-resizing-grid-column * {
   outline-offset: -3px;
 }
 
-.data-grid::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+.data-grid::-webkit-scrollbar,
+.table-scroll-wrapper::-webkit-scrollbar,
+.plan-summary-table-wrap::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
 }
 
-.data-grid::-webkit-scrollbar-track {
+.data-grid::-webkit-scrollbar-track,
+.table-scroll-wrapper::-webkit-scrollbar-track,
+.plan-summary-table-wrap::-webkit-scrollbar-track {
   background: #f1f5f9;
   border-radius: 999px;
 }
 
-.data-grid::-webkit-scrollbar-thumb {
-  background: #94a3b8;
-  border: 2px solid #f1f5f9;
+.data-grid::-webkit-scrollbar-thumb,
+.table-scroll-wrapper::-webkit-scrollbar-thumb,
+.plan-summary-table-wrap::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border: 1.5px solid #f1f5f9;
   border-radius: 999px;
 }
 
-.data-grid::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+.data-grid::-webkit-scrollbar-thumb:hover,
+.table-scroll-wrapper::-webkit-scrollbar-thumb:hover,
+.plan-summary-table-wrap::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 /* ==========================================================================

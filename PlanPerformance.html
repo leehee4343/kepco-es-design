@@ -377,310 +377,319 @@
       </section>
 
       <!-- ================================================================
-           조회 결과 카운트 및 엑셀 다운로드 바
+           상단 계획대비 실적 집계 요약 카드 (공통 표 구성 가이드 100% 준수)
            ================================================================ -->
-      <div class="table-action-bar" style="display: flex; justify-content: space-between; align-items: center; margin: 20px 0 12px;">
-        <div class="grid-page-summary" id="resCount" style="font-size: 14px; color: #475569;">
-          1 / 1 (총 8개)
+      <section class="app-card plan-summary-card" aria-labelledby="planSummaryTitle">
+        <div class="app-card-header">
+          <div class="card-title-group">
+            <span class="section-title-bar"></span>
+            <h2 class="card-title" id="planSummaryTitle">계획대비 실적 집계 요약</h2>
+          </div>
         </div>
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <select class="filter-select select-per-page" id="selpagerows" style="height: 34px; font-size: 13px;">
-            <option value="10" selected>10개</option>
-            <option value="20">20개</option>
-            <option value="50">50개</option>
-          </select>
-          <button type="button" class="btn-excel-download" id="btnExcelDownload" style="height: 34px; padding: 0 14px; background: #00b894; color: #ffffff; border: none; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
-            <svg class="icon-excel" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <path d="M14 2v6h6"></path>
-              <path d="m8 12 4 6"></path>
-              <path d="m12 12-4 6"></path>
-            </svg>
-            <span>엑셀 다운로드</span>
-          </button>
+        <div class="table-scroll-wrapper plan-summary-table-wrap">
+          <table class="plan-summary-table" aria-label="계획대비 실적 집계 요약 표">
+            <thead>
+              <tr>
+                <th rowspan="2" style="width: 65px;">조회 기준</th>
+                <th colspan="2">조회 기간</th>
+                <th rowspan="2" style="width: 52px;">프로젝트</th>
+                <th colspan="3">총 매출</th>
+                <th rowspan="2" style="width: 86px;">누적 영업외 수익</th>
+                <th colspan="3">(계획)누적 상환</th>
+                <th colspan="3">(실제)누적 상환</th>
+              </tr>
+              <tr>
+                <th style="width: 78px;">시작일</th>
+                <th style="width: 78px;">종료일</th>
+                <th style="width: 86px;">계획</th>
+                <th style="width: 86px;">실적</th>
+                <th style="width: 58px;">비율(%)</th>
+                <th style="width: 86px;">원리금</th>
+                <th style="width: 86px;">원금</th>
+                <th style="width: 74px;">이자</th>
+                <th style="width: 86px;">원리금</th>
+                <th style="width: 86px;">원금</th>
+                <th style="width: 74px;">이자</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>실시간</td>
+                <td>2021.07.15</td>
+                <td>2030.10.19</td>
+                <td>8</td>
+                <td class="col-num">6,218,503,000</td>
+                <td class="col-num">2,669,987,629</td>
+                <td class="col-rate"><span class="badge-rate-orange">42.94%</span></td>
+                <td class="col-num">34,492,293</td>
+                <td class="col-num">3,172,614,878</td>
+                <td class="col-num">2,947,789,541</td>
+                <td class="col-num">224,825,337</td>
+                <td class="col-num" style="color: var(--point-green); font-weight: 500;">2,220,858,878</td>
+                <td class="col-num">2,064,423,541</td>
+                <td class="col-num">156,435,337</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
+      </section>
 
       <!-- ================================================================
-           상단 집계 요약 테이블 ([참고]계획대비 실적현황.jpeg 100% 반영)
+           프로젝트별 계획대비 실적 데이터 그리드 카드 (공통 표 구성 가이드 100% 준수)
            ================================================================ -->
-      <div class="app-card" style="margin-bottom: 22px; padding: 0; overflow-x: auto; border: 1px solid #cbd5e1; border-radius: 10px;">
-        <table class="plan-summary-table" style="width: 100%; border-collapse: collapse; font-size: 13px; text-align: center;">
-          <thead>
-            <tr style="background: #f8fafc; color: #475569; font-weight: 700;">
-              <th rowspan="2" style="border: 1px solid #e2e8f0; padding: 8px 6px;">조회기준</th>
-              <th colspan="2" style="border: 1px solid #e2e8f0; padding: 8px 6px;">조회 기간</th>
-              <th rowspan="2" style="border: 1px solid #e2e8f0; padding: 8px 6px;">프로젝트</th>
-              <th colspan="3" style="border: 1px solid #e2e8f0; padding: 8px 6px;">총 매출</th>
-              <th rowspan="2" style="border: 1px solid #e2e8f0; padding: 8px 6px;">누적 영업외 수익</th>
-              <th colspan="3" style="border: 1px solid #e2e8f0; padding: 8px 6px;">(계획)누적 상환</th>
-              <th colspan="3" style="border: 1px solid #e2e8f0; padding: 8px 6px;">(실제)누적 상환</th>
-            </tr>
-            <tr style="background: #f8fafc; color: #475569; font-weight: 700;">
-              <th style="border: 1px solid #e2e8f0; padding: 6px 8px;">시작일</th>
-              <th style="border: 1px solid #e2e8f0; padding: 6px 8px;">종료일</th>
-              <th style="border: 1px solid #e2e8f0; padding: 6px 8px;">계획</th>
-              <th style="border: 1px solid #e2e8f0; padding: 6px 8px;">실적</th>
-              <th style="border: 1px solid #e2e8f0; padding: 6px 8px;">비율(%)</th>
-              <th style="border: 1px solid #e2e8f0; padding: 6px 8px;">원리금</th>
-              <th style="border: 1px solid #e2e8f0; padding: 6px 8px;">원금</th>
-              <th style="border: 1px solid #e2e8f0; padding: 6px 8px;">이자</th>
-              <th style="border: 1px solid #e2e8f0; padding: 6px 8px;">원리금</th>
-              <th style="border: 1px solid #e2e8f0; padding: 6px 8px;">원금</th>
-              <th style="border: 1px solid #e2e8f0; padding: 6px 8px;">이자</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="color: #334155; font-variant-numeric: tabular-nums;">
-              <td style="border: 1px solid #e2e8f0; padding: 10px 6px;">실시간</td>
-              <td style="border: 1px solid #e2e8f0; padding: 10px 8px;">2021.07.15</td>
-              <td style="border: 1px solid #e2e8f0; padding: 10px 8px;">2030.10.19</td>
-              <td style="border: 1px solid #e2e8f0; padding: 10px 6px;">8</td>
-              <td style="border: 1px solid #e2e8f0; padding: 10px 8px; text-align: right;">6,218,503,000</td>
-              <td style="border: 1px solid #e2e8f0; padding: 10px 8px; text-align: right;">2,669,987,629</td>
-              <td style="border: 1px solid #e2e8f0; padding: 10px 8px; color: #ff7a00; font-size: 13px;">42.94</td>
-              <td style="border: 1px solid #e2e8f0; padding: 10px 8px; text-align: right;">34,492,293</td>
-              <td style="border: 1px solid #e2e8f0; padding: 10px 8px; text-align: right;">3,172,614,878</td>
-              <td style="border: 1px solid #e2e8f0; padding: 10px 8px; text-align: right;">2,947,789,541</td>
-              <td style="border: 1px solid #e2e8f0; padding: 10px 8px; text-align: right;">224,825,337</td>
-              <td style="border: 1px solid #e2e8f0; padding: 10px 8px; text-align: right; color: #00b894;">2,220,858,878</td>
-              <td style="border: 1px solid #e2e8f0; padding: 10px 8px; text-align: right;">2,064,423,541</td>
-              <td style="border: 1px solid #e2e8f0; padding: 10px 8px; text-align: right;">156,435,337</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <section class="table-card plan-detail-card" aria-labelledby="planDetailTitle">
+        <div class="table-header-action-row">
+          <div class="card-title-group" style="display: flex; align-items: center; gap: 10px;">
+            <span class="section-title-bar"></span>
+            <h2 class="card-title" id="planDetailTitle">프로젝트별 계획대비 실적 내역</h2>
+            <span class="grid-page-summary" id="resCount" style="font-size: 13.5px; color: #64748b; font-weight: 500; margin-left: 6px;">1 / 1 (총 8개)</span>
+          </div>
+          <div class="table-actions" style="display: flex; align-items: center; gap: 8px;">
+            <select class="filter-select select-per-page" id="selpagerows" style="height: 34px; font-size: 13px;" aria-label="페이지당 표시 개수">
+              <option value="10" selected>10개</option>
+              <option value="20">20개</option>
+              <option value="50">50개</option>
+            </select>
+            <button type="button" class="btn-excel-green btn-excel-download" id="btnExcelDownload" style="height: 34px; padding: 0 14px; background: #00b894; color: #ffffff; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+              <svg class="icon-excel" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <path d="M14 2v6h6"></path>
+                <path d="m8 12 4 6"></path>
+                <path d="m12 12-4 6"></path>
+              </svg>
+              <span>엑셀 다운로드</span>
+            </button>
+          </div>
+        </div>
 
-      <!-- ================================================================
-           메인 프로젝트별 계획대비 실적 데이터 테이블 (2단 헤더 복합 표)
-           ================================================================ -->
-      <div class="app-card data-grid" tabindex="0" aria-label="프로젝트별 계획대비 실적 그리드" style="padding: 0; overflow-x: auto; border: 1px solid #cbd5e1; border-radius: 10px; margin-bottom: 24px;">
-        <table class="data-table" id="planperftable" style="font-size: 13px; width: 100%; border-collapse: collapse; min-width: 1400px; text-align: center;">
-          <thead>
-            <tr style="background: #f8fafc; color: #334155; font-weight: 700;">
-              <th rowspan="2" style="width: 45px; border: 1px solid #e2e8f0;">순번</th>
-              <th rowspan="2" style="width: 105px; border: 1px solid #e2e8f0;">프로젝트 번호</th>
-              <th rowspan="2" style="min-width: 220px; border: 1px solid #e2e8f0;">프로젝트명</th>
-              <th rowspan="2" style="width: 75px; border: 1px solid #e2e8f0;">계약 형태</th>
-              <th rowspan="2" style="width: 70px; border: 1px solid #e2e8f0;">사업구분</th>
-              <th rowspan="2" style="width: 85px; border: 1px solid #e2e8f0;">대상설비</th>
-              <th rowspan="2" style="width: 80px; border: 1px solid #e2e8f0;">계약일</th>
-              <th rowspan="2" style="width: 80px; border: 1px solid #e2e8f0;">사업종료일</th>
-              <th colspan="3" style="border: 1px solid #e2e8f0;">계획(원)</th>
-              <th colspan="3" style="border: 1px solid #e2e8f0;">총 매출(원)</th>
-              <th colspan="2" style="border: 1px solid #e2e8f0;">영업외 수익(원)</th>
-            </tr>
-            <tr style="background: #f8fafc; color: #475569; font-weight: 700;">
-              <th style="border: 1px solid #e2e8f0; padding: 7px 6px;">사업</th>
-              <th style="border: 1px solid #e2e8f0; padding: 7px 6px;">투자</th>
-              <th style="border: 1px solid #e2e8f0; padding: 7px 6px;">이윤</th>
-              <th style="border: 1px solid #e2e8f0; padding: 7px 6px;">계획</th>
-              <th style="border: 1px solid #e2e8f0; padding: 7px 6px;">실적</th>
-              <th style="border: 1px solid #e2e8f0; padding: 7px 6px;">비율(%)</th>
-              <th style="border: 1px solid #e2e8f0; padding: 7px 6px;">계획</th>
-              <th style="border: 1px solid #e2e8f0; padding: 7px 6px;">실적</th>
-            </tr>
-          </thead>
-          <tbody id="planPerfTableBody">
-            <!-- 1. 인덕원it밸리 -->
-            <tr data-biz="산업체" data-facility="바이오가스">
-              <td style="border: 1px solid #e2e8f0;">1</td>
-              <td style="border: 1px solid #e2e8f0;">
-                <a href="ProjectDetail.html" class="project-title-link" title="상세보기">17021-1708-01</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0; text-align: left; padding: 0 10px;">
-                <a href="ProjectDetail.html" class="project-title-link" title="상세보기">인덕원 IT밸리 공용부 LED조명 교체사업</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0;">EPC 계약</td>
-              <td style="border: 1px solid #e2e8f0;">산업체</td>
-              <td style="border: 1px solid #e2e8f0;">바이오가스</td>
-              <td style="border: 1px solid #e2e8f0;">2021.07.15</td>
-              <td style="border: 1px solid #e2e8f0;">2021.07.15</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">418,400,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">365,662,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">52,738,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">418,400,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">8,918,585</td>
-              <td style="border: 1px solid #e2e8f0; color: #ff7a00; background: #fffbeb;">2.13</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">1,286,293</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">0</td>
-            </tr>
+        <div class="table-scroll-wrapper data-grid" data-total-items="8" tabindex="0" aria-label="프로젝트별 계획대비 실적 그리드">
+          <table class="data-table" id="planperftable">
+            <thead>
+              <tr>
+                <th rowspan="2" style="width: 50px;">순번</th>
+                <th rowspan="2" style="width: 125px;">프로젝트 번호</th>
+                <th rowspan="2" style="min-width: 240px;">프로젝트명</th>
+                <th rowspan="2" style="width: 85px;">계약 형태</th>
+                <th rowspan="2" style="width: 75px;">사업구분</th>
+                <th rowspan="2" style="width: 85px;">대상설비</th>
+                <th rowspan="2" style="width: 85px;">계약일</th>
+                <th rowspan="2" style="width: 85px;">사업종료일</th>
+                <th colspan="3">계획(원)</th>
+                <th colspan="3">총 매출(원)</th>
+                <th colspan="2">영업외 수익(원)</th>
+              </tr>
+              <tr>
+                <th style="width: 105px;">사업</th>
+                <th style="width: 105px;">투자</th>
+                <th style="width: 95px;">이윤</th>
+                <th style="width: 105px;">계획</th>
+                <th style="width: 105px;">실적</th>
+                <th style="width: 75px;">비율(%)</th>
+                <th style="width: 95px;">계획</th>
+                <th style="width: 95px;">실적</th>
+              </tr>
+            </thead>
+            <tbody id="planPerfTableBody">
+              <!-- 1. 인덕원it밸리 -->
+              <tr data-biz="산업체" data-facility="바이오가스">
+                <td>1</td>
+                <td>
+                  <a href="ProjectDetail.html" class="project-title-link" title="상세보기">17021-1708-01</a>
+                </td>
+                <td class="col-left">
+                  <a href="ProjectDetail.html" class="project-title-link" title="상세보기">인덕원 IT밸리 공용부 LED조명 교체사업</a>
+                </td>
+                <td>EPC 계약</td>
+                <td>산업체</td>
+                <td>바이오가스</td>
+                <td>2021.07.15</td>
+                <td>2021.07.15</td>
+                <td class="col-num">418,400,000</td>
+                <td class="col-num">365,662,000</td>
+                <td class="col-num">52,738,000</td>
+                <td class="col-num">418,400,000</td>
+                <td class="col-num">8,918,585</td>
+                <td><span class="badge-rate-orange">2.13%</span></td>
+                <td class="col-num">1,286,293</td>
+                <td class="col-num">0</td>
+              </tr>
 
-            <!-- 2. 엘에스엠트론 -->
-            <tr data-biz="산업체" data-facility="에어드라이어">
-              <td style="border: 1px solid #e2e8f0;">2</td>
-              <td style="border: 1px solid #e2e8f0;">
-                <a href="ProjectDetail.html" class="project-title-link">17014-1708-01</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0; text-align: left; padding: 0 10px;">
-                <a href="ProjectDetail.html" class="project-title-link">엘에스엠트론 조명설비 에너지효율화사업</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0;">ESCO 계약</td>
-              <td style="border: 1px solid #e2e8f0;">산업체</td>
-              <td style="border: 1px solid #e2e8f0;">에어드라이어</td>
-              <td style="border: 1px solid #e2e8f0;">2021.07.15</td>
-              <td style="border: 1px solid #e2e8f0;">2021.07.15</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">405,672,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">357,069,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">48,603,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">48,603,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">899,044</td>
-              <td style="border: 1px solid #e2e8f0; color: #ff7a00; background: #fffbeb;">1.85</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">0</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">0</td>
-            </tr>
+              <!-- 2. 엘에스엠트론 -->
+              <tr data-biz="산업체" data-facility="에어드라이어">
+                <td>2</td>
+                <td>
+                  <a href="ProjectDetail.html" class="project-title-link">17014-1708-01</a>
+                </td>
+                <td class="col-left">
+                  <a href="ProjectDetail.html" class="project-title-link">엘에스엠트론 조명설비 에너지효율화사업</a>
+                </td>
+                <td>ESCO 계약</td>
+                <td>산업체</td>
+                <td>에어드라이어</td>
+                <td>2021.07.15</td>
+                <td>2021.07.15</td>
+                <td class="col-num">405,672,000</td>
+                <td class="col-num">357,069,000</td>
+                <td class="col-num">48,603,000</td>
+                <td class="col-num">48,603,000</td>
+                <td class="col-num">899,044</td>
+                <td><span class="badge-rate-orange">1.85%</span></td>
+                <td class="col-num">0</td>
+                <td class="col-num">0</td>
+              </tr>
 
-            <!-- 3. 세종정부청사 -->
-            <tr data-biz="공공기관" data-facility="led">
-              <td style="border: 1px solid #e2e8f0;">3</td>
-              <td style="border: 1px solid #e2e8f0;">
-                <a href="ProjectDetail.html" class="project-title-link">24005-2402-03</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0; text-align: left; padding: 0 10px;">
-                <a href="ProjectDetail.html" class="project-title-link">세종정부청사 고효율 LED 조명 교체사업</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0;">ESCO 계약</td>
-              <td style="border: 1px solid #e2e8f0;">공공기관</td>
-              <td style="border: 1px solid #e2e8f0;">LED</td>
-              <td style="border: 1px solid #e2e8f0;">2024.02.19</td>
-              <td style="border: 1px solid #e2e8f0;">2028.02.18</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">682,500,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">591,000,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">91,500,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">682,500,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">358,420,000</td>
-              <td style="border: 1px solid #e2e8f0; color: #00b894; background: #f0fdf4;">52.52</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">4,216,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">2,108,000</td>
-            </tr>
+              <!-- 3. 세종정부청사 -->
+              <tr data-biz="공공기관" data-facility="led">
+                <td>3</td>
+                <td>
+                  <a href="ProjectDetail.html" class="project-title-link">24005-2402-03</a>
+                </td>
+                <td class="col-left">
+                  <a href="ProjectDetail.html" class="project-title-link">세종정부청사 고효율 LED 조명 교체사업</a>
+                </td>
+                <td>ESCO 계약</td>
+                <td>공공기관</td>
+                <td>LED</td>
+                <td>2024.02.19</td>
+                <td>2028.02.18</td>
+                <td class="col-num">682,500,000</td>
+                <td class="col-num">591,000,000</td>
+                <td class="col-num">91,500,000</td>
+                <td class="col-num">682,500,000</td>
+                <td class="col-num">358,420,000</td>
+                <td><span class="badge-rate-green">52.52%</span></td>
+                <td class="col-num">4,216,000</td>
+                <td class="col-num">2,108,000</td>
+              </tr>
 
-            <!-- 4. 아산 스마트산단 -->
-            <tr data-biz="산업체" data-facility="인버터">
-              <td style="border: 1px solid #e2e8f0;">4</td>
-              <td style="border: 1px solid #e2e8f0;">
-                <a href="ProjectDetail.html" class="project-title-link">24018-2405-01</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0; text-align: left; padding: 0 10px;">
-                <a href="ProjectDetail.html" class="project-title-link">아산 스마트산단 공조설비 인버터 개선사업</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0;">EPC 계약</td>
-              <td style="border: 1px solid #e2e8f0;">산업체</td>
-              <td style="border: 1px solid #e2e8f0;">인버터</td>
-              <td style="border: 1px solid #e2e8f0;">2024.05.08</td>
-              <td style="border: 1px solid #e2e8f0;">2025.11.07</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">1,248,000,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">1,086,000,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">162,000,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">1,248,000,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">1,107,360,000</td>
-              <td style="border: 1px solid #e2e8f0; color: #00b894; background: #f0fdf4;">88.73</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">12,580,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">11,200,000</td>
-            </tr>
+              <!-- 4. 아산 스마트산단 -->
+              <tr data-biz="산업체" data-facility="인버터">
+                <td>4</td>
+                <td>
+                  <a href="ProjectDetail.html" class="project-title-link">24018-2405-01</a>
+                </td>
+                <td class="col-left">
+                  <a href="ProjectDetail.html" class="project-title-link">아산 스마트산단 공조설비 인버터 개선사업</a>
+                </td>
+                <td>EPC 계약</td>
+                <td>산업체</td>
+                <td>인버터</td>
+                <td>2024.05.08</td>
+                <td>2025.11.07</td>
+                <td class="col-num">1,248,000,000</td>
+                <td class="col-num">1,086,000,000</td>
+                <td class="col-num">162,000,000</td>
+                <td class="col-num">1,248,000,000</td>
+                <td class="col-num">1,107,360,000</td>
+                <td><span class="badge-rate-green">88.73%</span></td>
+                <td class="col-num">12,580,000</td>
+                <td class="col-num">11,200,000</td>
+              </tr>
 
-            <!-- 5. 광주 물류센터 -->
-            <tr data-biz="신산업" data-facility="태양광">
-              <td style="border: 1px solid #e2e8f0;">5</td>
-              <td style="border: 1px solid #e2e8f0;">
-                <a href="ProjectDetail.html" class="project-title-link">25007-2501-02</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0; text-align: left; padding: 0 10px;">
-                <a href="ProjectDetail.html" class="project-title-link">광주 물류센터 태양광 발전설비 구축사업</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0;">기타계약</td>
-              <td style="border: 1px solid #e2e8f0;">신산업</td>
-              <td style="border: 1px solid #e2e8f0;">태양광</td>
-              <td style="border: 1px solid #e2e8f0;">2025.01.23</td>
-              <td style="border: 1px solid #e2e8f0;">2026.08.31</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">936,000,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">814,000,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">122,000,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">936,000,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">523,160,000</td>
-              <td style="border: 1px solid #e2e8f0; color: #00b894; background: #f0fdf4;">55.89</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">7,840,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">3,920,000</td>
-            </tr>
+              <!-- 5. 광주 물류센터 -->
+              <tr data-biz="신산업" data-facility="태양광">
+                <td>5</td>
+                <td>
+                  <a href="ProjectDetail.html" class="project-title-link">25007-2501-02</a>
+                </td>
+                <td class="col-left">
+                  <a href="ProjectDetail.html" class="project-title-link">광주 물류센터 태양광 발전설비 구축사업</a>
+                </td>
+                <td>기타계약</td>
+                <td>신산업</td>
+                <td>태양광</td>
+                <td>2025.01.23</td>
+                <td>2026.08.31</td>
+                <td class="col-num">936,000,000</td>
+                <td class="col-num">814,000,000</td>
+                <td class="col-num">122,000,000</td>
+                <td class="col-num">936,000,000</td>
+                <td class="col-num">523,160,000</td>
+                <td><span class="badge-rate-green">55.89%</span></td>
+                <td class="col-num">7,840,000</td>
+                <td class="col-num">3,920,000</td>
+              </tr>
 
-            <!-- 6. 대전 연구단지 -->
-            <tr data-biz="건축물" data-facility="히트펌프">
-              <td style="border: 1px solid #e2e8f0;">6</td>
-              <td style="border: 1px solid #e2e8f0;">
-                <a href="ProjectDetail.html" class="project-title-link">25021-2504-01</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0; text-align: left; padding: 0 10px;">
-                <a href="ProjectDetail.html" class="project-title-link">대전 연구단지 냉난방 히트펌프 전환사업</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0;">ESCO 계약</td>
-              <td style="border: 1px solid #e2e8f0;">건축물</td>
-              <td style="border: 1px solid #e2e8f0;">히트펌프</td>
-              <td style="border: 1px solid #e2e8f0;">2025.04.14</td>
-              <td style="border: 1px solid #e2e8f0;">2029.04.13</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">774,300,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">672,300,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">102,000,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">774,300,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">287,940,000</td>
-              <td style="border: 1px solid #e2e8f0; color: #ff7a00; background: #fffbeb;">37.19</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">3,650,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">1,825,000</td>
-            </tr>
+              <!-- 6. 대전 연구단지 -->
+              <tr data-biz="건축물" data-facility="히트펌프">
+                <td>6</td>
+                <td>
+                  <a href="ProjectDetail.html" class="project-title-link">25021-2504-01</a>
+                </td>
+                <td class="col-left">
+                  <a href="ProjectDetail.html" class="project-title-link">대전 연구단지 냉난방 히트펌프 전환사업</a>
+                </td>
+                <td>ESCO 계약</td>
+                <td>건축물</td>
+                <td>히트펌프</td>
+                <td>2025.04.14</td>
+                <td>2029.04.13</td>
+                <td class="col-num">774,300,000</td>
+                <td class="col-num">672,300,000</td>
+                <td class="col-num">102,000,000</td>
+                <td class="col-num">774,300,000</td>
+                <td class="col-num">287,940,000</td>
+                <td><span class="badge-rate-orange">37.19%</span></td>
+                <td class="col-num">3,650,000</td>
+                <td class="col-num">1,825,000</td>
+              </tr>
 
-            <!-- 7. 청주 전자부품공장 -->
-            <tr data-biz="산업체" data-facility="ems">
-              <td style="border: 1px solid #e2e8f0;">7</td>
-              <td style="border: 1px solid #e2e8f0;">
-                <a href="ProjectDetail.html" class="project-title-link">25036-2507-04</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0; text-align: left; padding: 0 10px;">
-                <a href="ProjectDetail.html" class="project-title-link">청주 전자부품공장 에너지관리시스템 구축사업</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0;">EPC 계약</td>
-              <td style="border: 1px solid #e2e8f0;">산업체</td>
-              <td style="border: 1px solid #e2e8f0;">ems</td>
-              <td style="border: 1px solid #e2e8f0;">2025.07.02</td>
-              <td style="border: 1px solid #e2e8f0;">2026.12.31</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">548,700,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">473,700,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">75,000,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">548,700,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">164,610,000</td>
-              <td style="border: 1px solid #e2e8f0; color: #ff7a00; background: #fffbeb;">30.00</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">1,980,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">990,000</td>
-            </tr>
+              <!-- 7. 청주 전자부품공장 -->
+              <tr data-biz="산업체" data-facility="ems">
+                <td>7</td>
+                <td>
+                  <a href="ProjectDetail.html" class="project-title-link">25036-2507-04</a>
+                </td>
+                <td class="col-left">
+                  <a href="ProjectDetail.html" class="project-title-link">청주 전자부품공장 에너지관리시스템 구축사업</a>
+                </td>
+                <td>EPC 계약</td>
+                <td>산업체</td>
+                <td>ems</td>
+                <td>2025.07.02</td>
+                <td>2026.12.31</td>
+                <td class="col-num">548,700,000</td>
+                <td class="col-num">473,700,000</td>
+                <td class="col-num">75,000,000</td>
+                <td class="col-num">548,700,000</td>
+                <td class="col-num">164,610,000</td>
+                <td><span class="badge-rate-orange">30.00%</span></td>
+                <td class="col-num">1,980,000</td>
+                <td class="col-num">990,000</td>
+              </tr>
 
-            <!-- 8. 울산 화학공정 -->
-            <tr data-biz="산업체" data-facility="폐열회수">
-              <td style="border: 1px solid #e2e8f0;">8</td>
-              <td style="border: 1px solid #e2e8f0;">
-                <a href="ProjectDetail.html" class="project-title-link">25049-2510-01</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0; text-align: left; padding: 0 10px;">
-                <a href="ProjectDetail.html" class="project-title-link">울산 화학공정 폐열회수 설비 개선사업</a>
-              </td>
-              <td style="border: 1px solid #e2e8f0;">ESCO 계약</td>
-              <td style="border: 1px solid #e2e8f0;">산업체</td>
-              <td style="border: 1px solid #e2e8f0;">폐열회수</td>
-              <td style="border: 1px solid #e2e8f0;">2025.10.20</td>
-              <td style="border: 1px solid #e2e8f0;">2030.10.19</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">1,562,000,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">1,360,000,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">202,000,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">1,562,000,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">218,680,000</td>
-              <td style="border: 1px solid #e2e8f0; color: #ff7a00; background: #fffbeb;">14.00</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">2,940,000</td>
-              <td style="border: 1px solid #e2e8f0; text-align: right; font-variant-numeric: tabular-nums;">1,470,000</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+              <!-- 8. 울산 화학공정 -->
+              <tr data-biz="산업체" data-facility="폐열회수">
+                <td>8</td>
+                <td>
+                  <a href="ProjectDetail.html" class="project-title-link">25049-2510-01</a>
+                </td>
+                <td class="col-left">
+                  <a href="ProjectDetail.html" class="project-title-link">울산 화학공정 폐열회수 설비 개선사업</a>
+                </td>
+                <td>ESCO 계약</td>
+                <td>산업체</td>
+                <td>폐열회수</td>
+                <td>2025.10.20</td>
+                <td>2030.10.19</td>
+                <td class="col-num">1,562,000,000</td>
+                <td class="col-num">1,360,000,000</td>
+                <td class="col-num">202,000,000</td>
+                <td class="col-num">1,562,000,000</td>
+                <td class="col-num">218,680,000</td>
+                <td><span class="badge-rate-orange">14.00%</span></td>
+                <td class="col-num">2,940,000</td>
+                <td class="col-num">1,470,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-      <!-- 하단 페이징 컨트롤 -->
-      <div class="table-pagination-row">
-        <nav class="pagination-controls" aria-label="표 페이지 이동"></nav>
-      </div>
+        <!-- 하단 페이징 컨트롤 -->
+        <div class="table-pagination-row">
+          <nav class="pagination-controls" aria-label="표 페이지 이동"></nav>
+        </div>
+      </section>
 
     </main>
   </div>
