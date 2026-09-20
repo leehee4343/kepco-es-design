@@ -5306,9 +5306,9 @@ img {
 
 .portal-layout-save {
   color: #ffffff;
-  background: linear-gradient(100deg, #1976d2 0%, #13b88f 100%);
+  background: linear-gradient(135deg, #1976d2 0%, #10b981 100%);
   border: 0;
-  box-shadow: 0 5px 12px rgba(25, 118, 210, 0.2);
+  box-shadow: 0 3px 8px rgba(25, 118, 210, 0.22);
 }
 
 .portal-layout-reset:hover,
@@ -5317,7 +5317,8 @@ img {
 }
 
 .portal-layout-save:hover {
-  box-shadow: 0 8px 18px rgba(25, 118, 210, 0.26);
+  background: linear-gradient(135deg, #1e88e5 0%, #22c55e 100%);
+  box-shadow: 0 5px 14px rgba(16, 185, 129, 0.28);
 }
 
 .portal-thumb-card {
@@ -5478,18 +5479,21 @@ img {
   justify-content: center;
   gap: 6px;
   height: 34px;
-  background: #1976d2;
-  color: #ffffff;
-  text-decoration: none;
+  background: linear-gradient(135deg, #1976d2 0%, #10b981 100%);
+  color: #ffffff !important;
+  text-decoration: none !important;
   border-radius: 6px;
   font-size: 13px;
   font-weight: 700;
+  border: none;
+  box-shadow: 0 3px 8px rgba(25, 118, 210, 0.22);
   transition: all var(--transition-fast);
 }
 
 .card-thumb-launch-btn:hover {
-  background: #1e88e5;
-  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.25);
+  background: linear-gradient(135deg, #1e88e5 0%, #22c55e 100%);
+  box-shadow: 0 5px 14px rgba(16, 185, 129, 0.28);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 1100px) {
@@ -7933,20 +7937,24 @@ body .filter-action-row > button {
 
 /* ==========================================================================
    Master Guide Card Launch Actions
-   화면 종류와 관계없이 동일한 Primary Blue 실행 버튼을 사용합니다.
+   시그니처 블루/그린 그라데이션 실행 버튼을 사용합니다.
    ========================================================================== */
 .portal-thumb-card .card-thumb-launch-btn,
 .portal-screen-card .card-launch-btn {
-  background: #1976d2 !important;
+  background: linear-gradient(135deg, #1976d2 0%, #10b981 100%) !important;
   color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 3px 8px rgba(25, 118, 210, 0.22) !important;
 }
 
 .portal-thumb-card .card-thumb-launch-btn:hover,
 .portal-thumb-card .card-thumb-launch-btn:focus-visible,
 .portal-screen-card .card-launch-btn:hover,
 .portal-screen-card .card-launch-btn:focus-visible {
-  background: #1e88e5 !important;
+  background: linear-gradient(135deg, #1e88e5 0%, #22c55e 100%) !important;
   color: #ffffff !important;
+  box-shadow: 0 5px 14px rgba(16, 185, 129, 0.28) !important;
+  transform: translateY(-1px);
 }
 
 /* ==========================================================================
