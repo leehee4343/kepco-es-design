@@ -5316,6 +5316,12 @@ img {
   transform: translateY(-1px);
 }
 
+.portal-layout-reset:hover {
+  background: #f0fdf4;
+  border-color: #10b981;
+  color: #1976d2;
+}
+
 .portal-layout-save:hover {
   background: linear-gradient(135deg, #1e88e5 0%, #22c55e 100%);
   box-shadow: 0 5px 14px rgba(16, 185, 129, 0.28);
