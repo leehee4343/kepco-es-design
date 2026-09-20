@@ -34,8 +34,8 @@
     <div class="header-right">
       <div class="permission-group-pills">
         <span class="perm-label">권한 :</span>
-        <button type="button" class="perm-btn active">권한그룹명#1</button>
-        <button type="button" class="perm-btn">권한그룹명#2</button>
+        <button type="button" class="perm-btn active">그룹#1</button>
+        <button type="button" class="perm-btn">그룹#2</button>
       </div>
       <div class="user-profile">
         <span class="user-name">이희성 부장</span>
@@ -137,7 +137,7 @@
           <ul class="submenu">
             <li class="submenu-item"><a href="#">상환 현황</a></li>
             <li class="submenu-item"><a href="#">원리금 상환내역</a></li>
-            <li class="submenu-item"><a href="PlanPerformance.html" style="font-weight: 700; color: #1976d2; background-color: #f1f5f9;">계획대비 실적 현황</a></li>
+            <li class="submenu-item active"><a href="PlanPerformance.html">계획대비 실적 현황</a></li>
             <li class="submenu-item"><a href="#">투자금 지급현황</a></li>
           </ul>
         </div>
@@ -260,7 +260,7 @@
             <path d="m4 19.5a2.5 2.5 0 0 1 6.5 17h20"></path>
             <path d="m6.5 2h20v20h6.5a2.5 2.5 0 0 1 4 19.5v-15a2.5 2.5 0 0 1 6.5 2z"></path>
           </svg>
-          <span>전자입찰시스템 (SRM)</span>
+          <span>전자입찰시스템(SRM)</span>
         </a>
         <button type="button" class="btn-sidebar-manual" onclick="alert('온라인 매뉴얼(PMS 사업관리시스템) 가이드를 호출합니다.');">
           <svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -382,7 +382,6 @@
       <section class="app-card plan-summary-card" aria-labelledby="planSummaryTitle">
         <div class="app-card-header">
           <div class="card-title-group">
-            <span class="section-title-bar"></span>
             <h2 class="card-title" id="planSummaryTitle">계획대비 실적 집계 요약</h2>
           </div>
         </div>
@@ -437,56 +436,51 @@
       <!-- ================================================================
            프로젝트별 계획대비 실적 데이터 그리드 카드 (공통 표 구성 가이드 100% 준수)
            ================================================================ -->
-      <section class="table-card plan-detail-card" aria-labelledby="planDetailTitle">
+      <section class="table-card" aria-labelledby="planDetailTitle">
         <div class="table-header-action-row">
-          <div class="card-title-group" style="display: flex; align-items: center; gap: 10px;">
-            <span class="section-title-bar"></span>
+          <div class="card-title-group">
             <h2 class="card-title" id="planDetailTitle">프로젝트별 계획대비 실적 내역</h2>
-            <span class="grid-page-summary" id="resCount" style="font-size: 13.5px; color: #64748b; font-weight: 500; margin-left: 6px;">1 / 1 (총 8개)</span>
+            <span class="table-total-count grid-page-summary" id="resCount">1 / 1 (총 8개)</span>
           </div>
-          <div class="table-actions" style="display: flex; align-items: center; gap: 8px;">
-            <select class="filter-select select-per-page" id="selpagerows" style="height: 34px; font-size: 13px;" aria-label="페이지당 표시 개수">
-              <option value="10" selected>10개</option>
-              <option value="20">20개</option>
-              <option value="50">50개</option>
+          <div class="table-actions">
+            <select class="select-per-page" id="selpagerows" title="페이지당 표시 건수" aria-label="페이지당 표시 개수">
+              <option value="10" selected>10개씩</option>
+              <option value="20">20개씩</option>
+              <option value="50">50개씩</option>
             </select>
-            <button type="button" class="btn-excel-green btn-excel-download" id="btnExcelDownload" style="height: 34px; padding: 0 14px; background: #00b894; color: #ffffff; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+            <button type="button" class="btn-action-excel" id="btnExcelDownload" title="엑셀 파일로 내려받기">
               <svg class="icon-excel" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <path d="M14 2v6h6"></path>
                 <path d="m8 12 4 6"></path>
                 <path d="m12 12-4 6"></path>
               </svg>
-              <span>엑셀 다운로드</span>
+              엑셀 다운로드
             </button>
           </div>
         </div>
 
-        <div class="table-scroll-wrapper data-grid" data-total-items="8" tabindex="0" aria-label="프로젝트별 계획대비 실적 그리드">
-          <table class="data-table" id="planperftable">
+        <!-- 공통 데이터 그리드: 단일 행 헤더(열 이동·너비 조절·정렬), 기본 10건 페이징 -->
+        <div class="table-scroll-wrapper data-grid" tabindex="0" aria-label="프로젝트별 계획대비 실적 그리드" data-total-items="8" data-total-pages="1">
+          <table class="data-table data-grid-table" role="grid" aria-label="프로젝트별 계획대비 실적">
             <thead>
               <tr>
-                <th rowspan="2" style="width: 50px;">순번</th>
-                <th rowspan="2" style="width: 125px;">프로젝트 번호</th>
-                <th rowspan="2" style="min-width: 240px;">프로젝트명</th>
-                <th rowspan="2" style="width: 85px;">계약 형태</th>
-                <th rowspan="2" style="width: 75px;">사업구분</th>
-                <th rowspan="2" style="width: 85px;">대상설비</th>
-                <th rowspan="2" style="width: 85px;">계약일</th>
-                <th rowspan="2" style="width: 85px;">사업종료일</th>
-                <th colspan="3">계획(원)</th>
-                <th colspan="3">총 매출(원)</th>
-                <th colspan="2">영업외 수익(원)</th>
-              </tr>
-              <tr>
-                <th style="width: 105px;">사업</th>
-                <th style="width: 105px;">투자</th>
-                <th style="width: 95px;">이윤</th>
-                <th style="width: 105px;">계획</th>
-                <th style="width: 105px;">실적</th>
-                <th style="width: 75px;">비율(%)</th>
-                <th style="width: 95px;">계획</th>
-                <th style="width: 95px;">실적</th>
+                <th class="th-sortable" data-col="seq" style="width: 55px;">순번 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="code" style="width: 125px;">프로젝트 번호 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="name" style="min-width: 240px;">프로젝트명 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="contract_type" style="width: 90px;">계약 형태 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="biz_category" style="width: 90px;">사업구분 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="facility" style="width: 95px;">대상설비 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="contract_date" style="width: 100px;">계약일 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="end_date" style="width: 105px;">사업종료일 <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="plan_biz" style="width: 125px;">계획 사업(원) <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="plan_invest" style="width: 125px;">계획 투자(원) <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="plan_profit" style="width: 125px;">계획 이윤(원) <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="sales_plan" style="width: 145px;">총 매출 계획(원) <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="sales_actual" style="width: 145px;">총 매출 실적(원) <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="sales_rate" style="width: 130px;">총 매출 비율(%) <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="nonop_plan" style="width: 165px;">영업외 수익 계획(원) <span class="sort-caret">⇅</span></th>
+                <th class="th-sortable" data-col="nonop_actual" style="width: 165px;">영업외 수익 실적(원) <span class="sort-caret">⇅</span></th>
               </tr>
             </thead>
             <tbody id="planPerfTableBody">
@@ -494,10 +488,10 @@
               <tr data-biz="산업체" data-facility="바이오가스">
                 <td>1</td>
                 <td>
-                  <a href="ProjectDetail.html" class="project-title-link" title="상세보기">17021-1708-01</a>
+                  <a href="ProjectDetail.html" title="상세보기">17021-1708-01</a>
                 </td>
                 <td class="col-left">
-                  <a href="ProjectDetail.html" class="project-title-link" title="상세보기">인덕원 IT밸리 공용부 LED조명 교체사업</a>
+                  <a href="ProjectDetail.html" title="상세보기">인덕원 IT밸리 공용부 LED조명 교체사업</a>
                 </td>
                 <td>EPC 계약</td>
                 <td>산업체</td>
@@ -518,10 +512,10 @@
               <tr data-biz="산업체" data-facility="에어드라이어">
                 <td>2</td>
                 <td>
-                  <a href="ProjectDetail.html" class="project-title-link">17014-1708-01</a>
+                  <a href="ProjectDetail.html">17014-1708-01</a>
                 </td>
                 <td class="col-left">
-                  <a href="ProjectDetail.html" class="project-title-link">엘에스엠트론 조명설비 에너지효율화사업</a>
+                  <a href="ProjectDetail.html">엘에스엠트론 조명설비 에너지효율화사업</a>
                 </td>
                 <td>ESCO 계약</td>
                 <td>산업체</td>
@@ -542,10 +536,10 @@
               <tr data-biz="공공기관" data-facility="led">
                 <td>3</td>
                 <td>
-                  <a href="ProjectDetail.html" class="project-title-link">24005-2402-03</a>
+                  <a href="ProjectDetail.html">24005-2402-03</a>
                 </td>
                 <td class="col-left">
-                  <a href="ProjectDetail.html" class="project-title-link">세종정부청사 고효율 LED 조명 교체사업</a>
+                  <a href="ProjectDetail.html">세종정부청사 고효율 LED 조명 교체사업</a>
                 </td>
                 <td>ESCO 계약</td>
                 <td>공공기관</td>
@@ -566,10 +560,10 @@
               <tr data-biz="산업체" data-facility="인버터">
                 <td>4</td>
                 <td>
-                  <a href="ProjectDetail.html" class="project-title-link">24018-2405-01</a>
+                  <a href="ProjectDetail.html">24018-2405-01</a>
                 </td>
                 <td class="col-left">
-                  <a href="ProjectDetail.html" class="project-title-link">아산 스마트산단 공조설비 인버터 개선사업</a>
+                  <a href="ProjectDetail.html">아산 스마트산단 공조설비 인버터 개선사업</a>
                 </td>
                 <td>EPC 계약</td>
                 <td>산업체</td>
@@ -590,10 +584,10 @@
               <tr data-biz="신산업" data-facility="태양광">
                 <td>5</td>
                 <td>
-                  <a href="ProjectDetail.html" class="project-title-link">25007-2501-02</a>
+                  <a href="ProjectDetail.html">25007-2501-02</a>
                 </td>
                 <td class="col-left">
-                  <a href="ProjectDetail.html" class="project-title-link">광주 물류센터 태양광 발전설비 구축사업</a>
+                  <a href="ProjectDetail.html">광주 물류센터 태양광 발전설비 구축사업</a>
                 </td>
                 <td>기타계약</td>
                 <td>신산업</td>
@@ -614,10 +608,10 @@
               <tr data-biz="건축물" data-facility="히트펌프">
                 <td>6</td>
                 <td>
-                  <a href="ProjectDetail.html" class="project-title-link">25021-2504-01</a>
+                  <a href="ProjectDetail.html">25021-2504-01</a>
                 </td>
                 <td class="col-left">
-                  <a href="ProjectDetail.html" class="project-title-link">대전 연구단지 냉난방 히트펌프 전환사업</a>
+                  <a href="ProjectDetail.html">대전 연구단지 냉난방 히트펌프 전환사업</a>
                 </td>
                 <td>ESCO 계약</td>
                 <td>건축물</td>
@@ -638,10 +632,10 @@
               <tr data-biz="산업체" data-facility="ems">
                 <td>7</td>
                 <td>
-                  <a href="ProjectDetail.html" class="project-title-link">25036-2507-04</a>
+                  <a href="ProjectDetail.html">25036-2507-04</a>
                 </td>
                 <td class="col-left">
-                  <a href="ProjectDetail.html" class="project-title-link">청주 전자부품공장 에너지관리시스템 구축사업</a>
+                  <a href="ProjectDetail.html">청주 전자부품공장 에너지관리시스템 구축사업</a>
                 </td>
                 <td>EPC 계약</td>
                 <td>산업체</td>
@@ -662,10 +656,10 @@
               <tr data-biz="산업체" data-facility="폐열회수">
                 <td>8</td>
                 <td>
-                  <a href="ProjectDetail.html" class="project-title-link">25049-2510-01</a>
+                  <a href="ProjectDetail.html">25049-2510-01</a>
                 </td>
                 <td class="col-left">
-                  <a href="ProjectDetail.html" class="project-title-link">울산 화학공정 폐열회수 설비 개선사업</a>
+                  <a href="ProjectDetail.html">울산 화학공정 폐열회수 설비 개선사업</a>
                 </td>
                 <td>ESCO 계약</td>
                 <td>산업체</td>

@@ -30,22 +30,16 @@
       </div>
     </div>
 
-    <!-- 중앙: 권한(역할) 스위처 및 검색 -->
-    <div class="header-center">
-      <div class="srm-role-bar" style="margin-bottom: 0;">
-        <span class="srm-role-lbl">권한 전환:</span>
-        <button type="button" class="srm-role-chip active" data-role="contract" title="계약담당자 권한 뷰">계약담당자</button>
-        <button type="button" class="srm-role-chip" data-role="biz" title="사업담당자 권한 뷰">사업담당자</button>
-        <button type="button" class="srm-role-chip" data-role="admin" title="관리자 권한 뷰">관리자</button>
-        <button type="button" class="srm-role-chip" data-role="partner" title="협력업체 전용 창구 뷰">협력업체</button>
-      </div>
-    </div>
-
-    <!-- 우측: PMS 바로가기, 사용자 정보 및 로그아웃 -->
+    <!-- 우측: 권한 전환, 사용자 정보 및 로그아웃 -->
     <div class="header-right">
+      <div class="permission-group">
+        <span class="perm-label">권한 :</span>
+        <button type="button" class="perm-btn active" data-role="contract" title="계약담당자 권한으로 전환" aria-pressed="true">계약담당자</button>
+        <button type="button" class="perm-btn" data-role="biz" title="사업담당자 권한으로 전환" aria-pressed="false">사업담당자</button>
+        <button type="button" class="perm-btn" data-role="admin" title="관리자 권한으로 전환" aria-pressed="false">관리자</button>
+        <button type="button" class="perm-btn" data-role="partner" title="협력업체 권한(전용 창구)으로 전환" aria-pressed="false">협력업체</button>
+      </div>
       <div class="user-profile">
-        <a href="Dashboard.html" class="btn-logout srm-header-link" title="사업관리시스템(PMS)으로 이동">PMS 복귀 ↗</a>
-        <span class="user-divider">|</span>
         <span class="user-name" id="srmUserName">홍길동 과장</span>
         <span class="user-role" id="srmUserRole">[계약담당자]</span>
         <span class="user-divider">|</span>
@@ -181,13 +175,8 @@
               </span>
             </a>
             <ul class="submenu">
-              <li class="submenu-item"><a href="StepWorkflow.html">입찰계획 현황 (7-step) ↗</a></li>
-              <li class="submenu-item"><a href="SRMDetail.html">입찰공고 현황 (상세) ↗</a></li>
-              <li class="submenu-item"><a href="#">입찰 참여현황</a></li>
-              <li class="submenu-item"><a href="#">심사/평가</a></li>
-              <li class="submenu-item"><a href="#">개찰</a></li>
-              <li class="submenu-item"><a href="#">낙찰 (업체선정)</a></li>
-              <li class="submenu-item"><a href="#">수의시담</a></li>
+              <li class="submenu-item"><a href="StepWorkflow.html">입찰계획 현황</a></li>
+              <li class="submenu-item"><a href="SRMDetail.html">입찰공고 현황</a></li>
             </ul>
           </div>
 
@@ -398,7 +387,7 @@
             <line x1="8" y1="21" x2="16" y2="21"></line>
             <line x1="12" y1="17" x2="12" y2="21"></line>
           </svg>
-          <span>사업관리시스템 (PMS)</span>
+          <span>사업관리시스템(PMS)</span>
         </a>
         <button type="button" class="btn-sidebar-manual" onclick="alert('온라인 매뉴얼(SRM 전자입찰) 시스템 가이드를 호출합니다.');">
           <svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -434,15 +423,12 @@
         </div>
       </div>
 
-      <!-- 역할 안내 알림 박스 -->
-      <div class="info-alert-box" id="srmmodenotice" style="margin-bottom: 20px; background: #ffffff; border: 1.5px solid #bfdbfe; border-radius: 10px; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between;">
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2.3"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-          <span style="font-size: 13.5px; color: #1976d2; font-weight: 600;" id="srmModeNoticeText">
-            현재 <strong>계약담당자</strong> 모드로 접속 중입니다. 좌측 메뉴에서 10대 사내 업무 메뉴를 확인하시거나 상단 역할 버튼을 통해 협력업체 전용 창구 모드로 전환하실 수 있습니다.
-          </span>
+      <!-- 권한 안내 박스 -->
+      <div class="notice-box info" id="srmmodenotice" role="note">
+        <span class="notice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg></span>
+        <div class="notice-body">
+          <p><span id="srmModeNoticeText">현재 <strong>계약담당자</strong> 모드로 접속 중입니다. 좌측 메뉴에서 10대 사내 업무 메뉴를 확인하시거나 상단 권한 버튼을 통해 협력업체 전용 창구 모드로 전환하실 수 있습니다.</span></p>
         </div>
-        <span style="font-size: 13px; color: #3b82f6; font-weight: 700;">[참고]메뉴구조도(SRM).xlsx 기준</span>
       </div>
 
       <!-- SRM 4대 핵심 업무 지표 카드 -->
@@ -460,7 +446,7 @@
         <div class="srm-kpi-card kpi-teal">
           <div class="srm-kpi-title">예정가 산출 및 적격심사</div>
           <div class="srm-kpi-val" style="color: #00b894;">4 <span style="font-size: 15px; font-weight: 400; color: #58687b;">건</span></div>
-          <div class="srm-kpi-sub">step 04 예정가산출 <a href="StepWorkflow.html" style="color: #00b894; font-weight: 700; text-decoration: underline;">1건 처리대기</a></div>
+          <div class="srm-kpi-sub">step 04 예정가산출 <a href="StepWorkflow.html">1건 처리대기</a></div>
         </div>
         <div class="srm-kpi-card kpi-purple">
           <div class="srm-kpi-title">신규 협력업체 승인요청</div>
@@ -476,10 +462,9 @@
         <div class="app-card">
           <div class="app-card-header" style="display: flex; align-items: center; justify-content: space-between;">
             <div style="display: flex; align-items: center; gap: 8px;">
-              <span class="section-title-bar"></span>
               <h2 style="font-size: 16px; font-weight: 800; color: #334155;">최근 입찰공고 및 진행단계 현황</h2>
             </div>
-            <a href="StepWorkflow.html" style="font-size: 13px; color: #1976d2; font-weight: 700; text-decoration: none;">전체보기 &gt;</a>
+            <a href="StepWorkflow.html" style="font-size: 13px;">전체보기 &gt;</a>
           </div>
           <div style="overflow-x: auto;">
             <table class="data-table" style="font-size: 13px;">
@@ -537,7 +522,6 @@
         <div class="app-card">
           <div class="app-card-header" style="display: flex; align-items: center; justify-content: space-between;">
             <div style="display: flex; align-items: center; gap: 8px;">
-              <span class="section-title-bar"></span>
               <h2 style="font-size: 16px; font-weight: 800; color: #334155;">신규 협력업체 심사 요청</h2>
             </div>
             <span class="badge-tag">대기 5건</span>

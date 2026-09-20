@@ -903,6 +903,39 @@ function initProjectSearchPage() {
 }
 
 /**
+ * 표준 탭 그룹(.detail-tab-group) 공통 동작
+ * - 선택 상태(active)와 aria-selected 동기화, 방향키·Home·End 이동
+ * - canSelect(tab, source)가 false를 반환하면 선택을 바꾸지 않습니다. source는 'click' | 'key'
+ */
+function initTabGroup(tabGroup, canSelect = () => true) {
+  const tabs = Array.from(tabGroup.querySelectorAll('[role="tab"]'));
+
+  const select = (tab, source) => {
+    if (!canSelect(tab, source)) return;
+    tabs.forEach(item => {
+      item.classList.remove('active');
+      item.setAttribute('aria-selected', 'false');
+    });
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+  };
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => select(tab, 'click'));
+
+    tab.addEventListener('keydown', event => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+      let nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : index;
+      if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+      tabs[nextIndex].focus();
+      select(tabs[nextIndex], 'key');
+    });
+  });
+}
+
+/**
  * 프로젝트 상세 화면 인터랙션 (ProjectDetail.html)
  */
 function initProjectDetailPage() {
@@ -910,28 +943,7 @@ function initProjectDetailPage() {
   if (!detailContainer) return;
 
   // 상단 프로세스 탭 전환 (HOME, 추진, 계약, 투자, 상환, 발주)
-  const tabBtns = document.querySelectorAll('.detail-tab-btn');
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabBtns.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-    });
-
-    btn.addEventListener('keydown', event => {
-      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-      event.preventDefault();
-      const currentIndex = Array.from(tabBtns).indexOf(btn);
-      let nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? tabBtns.length - 1 : currentIndex;
-      if (event.key === 'ArrowLeft') nextIndex = (currentIndex - 1 + tabBtns.length) % tabBtns.length;
-      if (event.key === 'ArrowRight') nextIndex = (currentIndex + 1) % tabBtns.length;
-      tabBtns[nextIndex].focus();
-      tabBtns[nextIndex].click();
-    });
-  });
+  document.querySelectorAll('.detail-tab-group:not([data-tab-preview])').forEach(group => initTabGroup(group));
 
   // 투자금 정보 거래처 서브탭 전환
   const subtabBtns = document.querySelectorAll('.detail-subtab-btn');
@@ -1291,7 +1303,7 @@ function initStepWorkflowPage() {
  * - [참고]메뉴구조도(SRM).xlsx 기준 사내담당자 10대 메뉴 ↔ 협력업체 5대 메뉴 전환
  */
 function initSrmDashboardPage() {
-  const roleChips = document.querySelectorAll('.srm-role-chip');
+  const roleChips = document.querySelectorAll('.perm-btn[data-role]');
   const navInternal = document.getElementById('srmNavInternal');
   const navPartner = document.getElementById('srmNavPartner');
   const userRoleEl = document.getElementById('srmUserRole');
@@ -1306,7 +1318,7 @@ function initSrmDashboardPage() {
       name: '홍길동 과장',
       role: '[계약담당자]',
       sub: '(계약담당자 종합 현황)',
-      notice: '현재 <strong>계약담당자</strong> 모드로 접속 중입니다. 좌측 메뉴에서 10대 사내 업무 메뉴를 확인하시거나 상단 역할 버튼을 통해 협력업체 전용 창구 모드로 전환하실 수 있습니다.',
+      notice: '현재 <strong>계약담당자</strong> 모드로 접속 중입니다. 좌측 메뉴에서 10대 사내 업무 메뉴를 확인하시거나 상단 권한 버튼을 통해 협력업체 전용 창구 모드로 전환하실 수 있습니다.',
       isPartner: false
     },
     'biz': {
@@ -1507,6 +1519,8 @@ function initPartnerRegisterPage() {
       const boxStep = idx + 1;
       box.classList.toggle('active', boxStep === stepNum);
       box.classList.toggle('completed', boxStep < stepNum);
+      if (boxStep === stepNum) box.setAttribute('aria-current', 'step');
+      else box.removeAttribute('aria-current');
     });
 
     // Update Panels
@@ -1570,18 +1584,21 @@ function initPartnerRegisterPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  // 스텝바를 클릭(또는 Enter/Space)하면 해당 단계 화면으로 바로 이동합니다.
+  stepper.querySelectorAll('.wizard-step-box').forEach((box, idx) => {
+    box.addEventListener('click', () => goToStep(idx + 1));
+    box.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      goToStep(idx + 1);
+    });
+  });
+
   // Step 1 -> Step 2
   const btnNextToStep2 = document.getElementById('btnNextToStep2');
   if (btnNextToStep2) {
-    btnNextToStep2.addEventListener('click', () => {
-      const chkTerms = document.getElementById('chkTerms');
-      const chkPrivacy = document.getElementById('chkPrivacy');
-      if (!chkTerms?.checked || !chkPrivacy?.checked) {
-        alert('이용약관 및 개인정보 수집/이용 동의에 모두 체크해 주세요.');
-        return;
-      }
-      goToStep(2);
-    });
+    // 시연용 화면: 동의 체크 여부와 관계없이 하단 '다음 단계' 버튼으로 바로 이동합니다.
+    btnNextToStep2.addEventListener('click', () => goToStep(2));
   }
 
   // Step 2 이전/다음
@@ -1711,12 +1728,14 @@ function initSrmDetailPage() {
     });
   });
 
-  document.querySelectorAll('.srm-process-tabs button').forEach(button => {
-    button.addEventListener('click', () => {
-      if (button.classList.contains('active')) return;
-      alert(`${button.textContent.trim()} 단계 화면은 현재 시연 범위에 포함되지 않습니다.`);
+  const tabGroup = document.querySelector('.detail-tab-group[data-tab-preview]');
+  if (tabGroup) {
+    initTabGroup(tabGroup, (tab, source) => {
+      if (tab.classList.contains('active')) return true;
+      if (source === 'click') alert(`${tab.textContent.trim()} 단계 화면은 현재 시연 범위에 포함되지 않습니다.`);
+      return false;
     });
-  });
+  }
 }
 
 /**
