@@ -1,0 +1,27 @@
+KEPCO ES 디자인 프로토타입 배포 URL (GitHub Pages)
+
+[통합 포털 (메인)]
+https://leehee4343.github.io/kepco-es-design/
+
+[사업관리시스템 (PMS)]
+종합 대시보드              https://leehee4343.github.io/kepco-es-design/Dashboard.html
+신규 프로젝트 등록         https://leehee4343.github.io/kepco-es-design/ProjectRegister.html
+추진단계 프로젝트 현황     https://leehee4343.github.io/kepco-es-design/ProjectSearch.html
+프로젝트 상세              https://leehee4343.github.io/kepco-es-design/ProjectDetail.html
+프로젝트 정보 입력         https://leehee4343.github.io/kepco-es-design/ProjectPromotion.html
+사업결산 현황              https://leehee4343.github.io/kepco-es-design/BusinessSettlement.html
+통계 종합현황              https://leehee4343.github.io/kepco-es-design/Statistics.html
+계획대비 실적현황          https://leehee4343.github.io/kepco-es-design/PlanPerformance.html
+
+[전자입찰시스템 (SRM)]
+SRM 로그인                 https://leehee4343.github.io/kepco-es-design/SRMLogin.html
+SRM 대시보드(협력업체)     https://leehee4343.github.io/kepco-es-design/SRMDashboardPartner.html
+SRM 대시보드(사업담당자)   https://leehee4343.github.io/kepco-es-design/SRMDashboardBiz.html
+SRM 대시보드(계약담당자)   https://leehee4343.github.io/kepco-es-design/SRMDashboardContract.html
+SRM 대시보드(관리자)       https://leehee4343.github.io/kepco-es-design/SRMDashboardAdmin.html
+SRM 입찰계획 현황          https://leehee4343.github.io/kepco-es-design/StepWorkflow.html
+SRM 입찰공고 상세          https://leehee4343.github.io/kepco-es-design/SRMDetail.html
+협력업체 신청(팝업)        https://leehee4343.github.io/kepco-es-design/PartnerRegister.html
+
+[저장소]
+https://github.com/leehee4343/kepco-es-design

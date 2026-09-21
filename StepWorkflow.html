@@ -268,43 +268,18 @@
       </div>
 
       <!-- ==================================================================
-           입찰계획 7단계 진행 표시 (표준 위저드 스텝바, 현재 단계 = STEP 04)
+           입찰계획 7단계 탭 메뉴 (표준 업무 탐색 탭, 현재 탭 = 예정가 / 예비가)
+           시연 범위 밖 단계는 선택 시 안내만 표시합니다.
            ================================================================== -->
-      <div class="wizard-stepper" id="workflowStepper" role="group" aria-label="입찰계획 진행 단계">
-        <div class="wizard-step-box completed" data-step="1" role="button" tabindex="0">
-          <span class="wizard-step-dot" aria-hidden="true">1</span>
-          <div class="wizard-step-num">STEP 01</div>
-          <div class="wizard-step-title">발주계획 정보 확인</div>
-        </div>
-        <div class="wizard-step-box completed" data-step="2" role="button" tabindex="0">
-          <span class="wizard-step-dot" aria-hidden="true">2</span>
-          <div class="wizard-step-num">STEP 02</div>
-          <div class="wizard-step-title">입찰계획 상세정보</div>
-        </div>
-        <div class="wizard-step-box completed" data-step="3" role="button" tabindex="0">
-          <span class="wizard-step-dot" aria-hidden="true">3</span>
-          <div class="wizard-step-num">STEP 03</div>
-          <div class="wizard-step-title">심사/평가 계획</div>
-        </div>
-        <div class="wizard-step-box active" data-step="4" role="button" tabindex="0" aria-current="step">
-          <span class="wizard-step-dot" aria-hidden="true">4</span>
-          <div class="wizard-step-num">STEP 04</div>
-          <div class="wizard-step-title">예정가 / 예비가</div>
-        </div>
-        <div class="wizard-step-box" data-step="5" role="button" tabindex="0">
-          <span class="wizard-step-dot" aria-hidden="true">5</span>
-          <div class="wizard-step-num">STEP 05</div>
-          <div class="wizard-step-title">입찰 참여 서류</div>
-        </div>
-        <div class="wizard-step-box" data-step="6" role="button" tabindex="0">
-          <span class="wizard-step-dot" aria-hidden="true">6</span>
-          <div class="wizard-step-num">STEP 06</div>
-          <div class="wizard-step-title">최종 점검</div>
-        </div>
-        <div class="wizard-step-box" data-step="7" role="button" tabindex="0">
-          <span class="wizard-step-dot" aria-hidden="true">7</span>
-          <div class="wizard-step-num">STEP 07</div>
-          <div class="wizard-step-title">입찰계획 등록 완료</div>
+      <div class="detail-tabs-bar">
+        <div class="detail-tab-group" id="workflowTabs" role="tablist" aria-label="입찰계획 업무 단계" data-tab-preview>
+          <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">발주계획 정보 확인</button>
+          <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰계획 상세정보</button>
+          <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">심사/평가 계획</button>
+          <button type="button" class="detail-tab-btn active" role="tab" aria-selected="true">예정가 / 예비가</button>
+          <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰 참여 서류</button>
+          <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">최종 점검</button>
+          <button type="button" class="detail-tab-btn" role="tab" aria-selected="false">입찰계획 등록 완료</button>
         </div>
       </div>
 
@@ -345,84 +320,65 @@
       </div>
 
       <!-- ==================================================================
-           step 04 세부 업무 프로세스 (6-step sub stepper)
+           step 04 세부 업무 프로세스 (6단계 순서도, 액션형 스텝바)
            ================================================================== -->
       <h2 class="card-title">예정가 / 예비가 세부 업무 진행</h2>
 
-      <div class="sub-stepper-grid">
-        
-        <!-- 서브스텝 1: 예정가격 산출기초조서 등록 및 전자결재 요청 (모달 연계) -->
-        <div class="sub-step-card active-substep">
-          <div>
-            <div class="sub-step-num">STEP 01</div>
-            <div class="sub-step-title">예정가격 산출기초조서<br>등록 및 전자결재 요청</div>
-          </div>
-          <div class="sub-step-btns-row">
+      <div class="wizard-stepper has-actions" id="workflowSubFlow" role="group" aria-label="예정가 / 예비가 세부 업무 진행">
+        <div class="wizard-step-box active" data-step="1" aria-current="step">
+          <span class="wizard-step-dot" aria-hidden="true">1</span>
+          <div class="wizard-step-num">STEP 01</div>
+          <div class="wizard-step-title">예정가격 산출기초조서<br>등록 및 전자결재 요청</div>
+          <div class="wizard-step-actions">
             <button type="button" class="btn-sub-action btn-task-register btn-open-calc-modal">등록</button>
             <button type="button" class="btn-sub-action btn-task-done btn-open-calc-modal">완료/확인</button>
           </div>
         </div>
-
-        <!-- 서브스텝 2: 예정가격 산출기초조서 전자결재 -->
-        <div class="sub-step-card">
-          <div>
-            <div class="sub-step-num">STEP 02</div>
-            <div class="sub-step-title">예정가격 산출기초조서<br>전자결재</div>
-          </div>
-          <div class="sub-step-btns-row">
+        <div class="wizard-step-box" data-step="2">
+          <span class="wizard-step-dot" aria-hidden="true">2</span>
+          <div class="wizard-step-num">STEP 02</div>
+          <div class="wizard-step-title">예정가격 산출기초조서<br>전자결재</div>
+          <div class="wizard-step-actions">
             <button type="button" class="btn-sub-action btn-task-progress">진행중</button>
             <button type="button" class="btn-sub-action btn-task-done">완료</button>
           </div>
         </div>
-
-        <!-- 서브스텝 3: 예비가격 등록요청 전자결재요청 -->
-        <div class="sub-step-card">
-          <div>
-            <div class="sub-step-num">STEP 03</div>
-            <div class="sub-step-title">예비가격 등록요청<br>전자결재요청</div>
-          </div>
-          <div class="sub-step-btns-row">
+        <div class="wizard-step-box" data-step="3">
+          <span class="wizard-step-dot" aria-hidden="true">3</span>
+          <div class="wizard-step-num">STEP 03</div>
+          <div class="wizard-step-title">예비가격 등록요청<br>전자결재요청</div>
+          <div class="wizard-step-actions">
             <button type="button" class="btn-sub-action btn-task-register">등록</button>
             <button type="button" class="btn-sub-action btn-task-done">완료/확인</button>
           </div>
         </div>
-
-        <!-- 서브스텝 4: 예비가격 등록요청 전자결재 -->
-        <div class="sub-step-card">
-          <div>
-            <div class="sub-step-num">STEP 04</div>
-            <div class="sub-step-title">예비가격 등록요청<br>전자결재</div>
-          </div>
-          <div class="sub-step-btns-row">
+        <div class="wizard-step-box" data-step="4">
+          <span class="wizard-step-dot" aria-hidden="true">4</span>
+          <div class="wizard-step-num">STEP 04</div>
+          <div class="wizard-step-title">예비가격 등록요청<br>전자결재</div>
+          <div class="wizard-step-actions">
             <button type="button" class="btn-sub-action btn-task-progress">진행중</button>
             <button type="button" class="btn-sub-action btn-task-done">완료</button>
           </div>
         </div>
-
-        <!-- 서브스텝 5: 복수예비 기초금액 등록 -->
-        <div class="sub-step-card">
-          <div>
-            <div class="sub-step-num">STEP 05</div>
-            <div class="sub-step-title">복수예비 기초금액 등록<br>(사장님, 본부장님)</div>
-          </div>
-          <div class="sub-step-btns-row">
+        <div class="wizard-step-box" data-step="5">
+          <span class="wizard-step-dot" aria-hidden="true">5</span>
+          <div class="wizard-step-num">STEP 05</div>
+          <div class="wizard-step-title">복수예비 기초금액 등록<br>(사장님, 본부장님)</div>
+          <div class="wizard-step-actions">
             <button type="button" class="btn-sub-action btn-task-register">등록</button>
             <button type="button" class="btn-sub-action btn-task-done">완료/확인</button>
           </div>
         </div>
-
-        <!-- 서브스텝 6: 복수예비가격표 등록/설정 -->
-        <div class="sub-step-card">
-          <div>
-            <div class="sub-step-num">STEP 06</div>
-            <div class="sub-step-title">복수예비가격표<br>등록/설정</div>
-          </div>
-          <div class="sub-step-btns-row">
+        <div class="wizard-step-box" data-step="6">
+          <span class="wizard-step-dot" aria-hidden="true">6</span>
+          <div class="wizard-step-num">STEP 06</div>
+          <div class="wizard-step-title">복수예비가격표<br>등록/설정</div>
+          <div class="wizard-step-actions">
             <button type="button" class="btn-sub-action btn-task-register">등록</button>
             <button type="button" class="btn-sub-action btn-task-done">완료/확인</button>
           </div>
         </div>
-
       </div>
 
       <!-- ==================================================================

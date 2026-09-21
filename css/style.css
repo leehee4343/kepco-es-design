@@ -4958,54 +4958,6 @@ img {
   font-weight: 500;
 }
 
-/* 하위 6단계 세부 업무 프로세스 스텝퍼 */
-.sub-stepper-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.sub-step-card {
-  background: #ffffff;
-  border: 1.5px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 14px 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 125px;
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-fast);
-}
-
-.sub-step-card.active-substep {
-  border-color: #ff7a00;
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
-}
-
-.sub-step-num {
-  font-size: 13px;
-  font-weight: 700;
-  color: #0284c7;
-  margin-bottom: 4px;
-}
-
-.sub-step-title {
-  font-size: 13px;
-  font-weight: 700;
-  color: #334155;
-  line-height: 1.35;
-  margin-bottom: 12px;
-  min-height: 32px;
-}
-
-.sub-step-btns-row {
-  display: flex;
-  gap: 6px;
-}
-
 .btn-sub-action {
   flex: 1;
   padding: 5px 0;
@@ -7837,7 +7789,6 @@ body :is(
   .stats-card-title,
   .bidding-card-title,
   .srm-kpi-title,
-  .sub-step-title,
   .srm-section-heading h2,
   .app-card-header h2,
   .app-card-header h3,
@@ -8882,3 +8833,11 @@ body .btn-filter-search { font-weight: 400 !important; }
 /* 4) 표 안 글자는 13px (합계 행 포함) */
 .calc-data-table .calc-summary-row, .calc-data-table .calc-summary-row td { font-size: 13px; }
 .data-table td :is(.step-badge, .review-badge, .badge-rate-orange) { padding-top: 1px; padding-bottom: 1px; }
+
+/* 액션형 스텝바(순서도): 단계마다 단계명 아래에 업무 버튼을 둔다 (가이드 5.7) */
+.wizard-stepper.has-actions .wizard-step-box { cursor: default; padding: 0 10px; }
+.wizard-stepper.has-actions .wizard-step-box:not(.active):hover .wizard-step-dot { border-color: #cbd5e1; }
+.wizard-stepper.has-actions .wizard-step-box:not(.active):hover .wizard-step-title { color: #475569; }
+.wizard-stepper.has-actions .wizard-step-title { min-height: 36px; line-height: 1.4; white-space: normal; }
+.wizard-step-actions { display: flex; gap: 6px; width: 100%; margin-top: 12px; }
+.wizard-step-actions .btn-sub-action { flex: 1; min-width: 0; }

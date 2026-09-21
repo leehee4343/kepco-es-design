@@ -1173,20 +1173,14 @@ function initStatisticsPage() {
  * SRM 입찰계획 현황 화면 인터랙션 (StepWorkflow.html)
  */
 function initStepWorkflowPage() {
-  if (!document.getElementById('workflowStepper')) return;
+  const workflowTabs = document.getElementById('workflowTabs');
+  if (!workflowTabs) return;
 
-  // 스텝바: 현재 화면(진행 단계) 외의 단계는 시연 범위 밖이라 안내만 표시합니다.
-  document.querySelectorAll('#workflowStepper .wizard-step-box').forEach(box => {
-    const notify = () => {
-      if (box.classList.contains('active')) return;
-      alert(`STEP ${box.dataset.step.padStart(2, '0')} 단계 화면은 현재 시연 범위에 포함되지 않습니다.`);
-    };
-    box.addEventListener('click', notify);
-    box.addEventListener('keydown', event => {
-      if (event.key !== 'Enter' && event.key !== ' ') return;
-      event.preventDefault();
-      notify();
-    });
+  // 업무 단계 탭: 현재 화면(예정가 / 예비가) 외의 단계는 시연 범위 밖이라 안내만 표시합니다.
+  initTabGroup(workflowTabs, (tab, source) => {
+    if (tab.classList.contains('active')) return true;
+    if (source === 'click') alert(`${tab.textContent.trim()} 단계 화면은 현재 시연 범위에 포함되지 않습니다.`);
+    return false;
   });
 
   const btnOpenCalcModal = document.querySelectorAll('.btn-open-calc-modal');
@@ -1332,17 +1326,23 @@ function initStepWorkflowPage() {
       alert('그룹웨어로 예정가격 산출기초조서 전자결재 요청이 정상 전송되었습니다.\nSTEP 02 단계가 [진행중]으로 전환됩니다.');
 
       // STEP 01 완료 상태 전환
-      const step1Btn = document.querySelector('.sub-step-card:nth-child(1) .btn-task-register');
+      const step1Btn = document.querySelector('#workflowSubFlow .wizard-step-box:nth-child(1) .btn-task-register');
       if (step1Btn) {
         step1Btn.textContent = '완료';
         step1Btn.classList.remove('btn-task-register');
         step1Btn.classList.add('btn-task-done');
       }
 
-      // STEP 02 진행중 활성화
-      const step2Card = document.querySelector('.sub-step-card:nth-child(2)');
-      if (step2Card) {
-        step2Card.classList.add('active-substep');
+      // 순서도: STEP 01 완료, STEP 02 진행 단계로 이동
+      const flowBoxes = document.querySelectorAll('#workflowSubFlow .wizard-step-box');
+      if (flowBoxes[0]) {
+        flowBoxes[0].classList.remove('active');
+        flowBoxes[0].classList.add('completed');
+        flowBoxes[0].removeAttribute('aria-current');
+      }
+      if (flowBoxes[1]) {
+        flowBoxes[1].classList.add('active');
+        flowBoxes[1].setAttribute('aria-current', 'step');
       }
     });
   }
